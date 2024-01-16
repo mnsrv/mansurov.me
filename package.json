@@ -1,0 +1,23 @@
+{
+  "name": "mansurov.me",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "author": "Sasha Mansurov",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "3.0.0-alpha.4"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy-navigation": "^0.3.5"
+  }
+}

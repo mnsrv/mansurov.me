@@ -1,0 +1,32 @@
+[
+  {
+    "image": "nvidia-geforce-rtx-4070-fe.webp",
+    "brand": "NVIDIA",
+    "title": "RTX 4070 Founders Edition"
+  },
+  {
+    "image": "sony-wh1000xm4s.webp",
+    "brand": "Sony",
+    "title": "WH-1000XM4"
+  },
+  {
+    "image": "cooler-master-nr200-white.png",
+    "brand": "Cooler Master",
+    "title": "NR200"
+  },
+  {
+    "image": "bellroy-tech-kit.png",
+    "brand": "Bellroy",
+    "title": "Tech Kit"
+  },
+  {
+    "image": "peak-design-wash-pouch.webp",
+    "brand": "Peak Design",
+    "title": "Wash Pouch"
+  },
+  {
+    "image": "fenix-e01-v2.png",
+    "brand": "Fenix",
+    "title": "E01 V2.0"
+  }
+]
