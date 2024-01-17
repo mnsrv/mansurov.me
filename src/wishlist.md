@@ -7,9 +7,10 @@ eleventyNavigation:
   order: 2
 layout: "base.liquid"
 ---
-<p>updated at: Jan 15, 2024</p>
+<i>updated at: Jan 16, 2024</i>
 <div class="wishlist">
-  {% for item in wishlist %}<div class="wishlist-item">
+  {% for item in wishlist %}
+  <div class="wishlist-item">
     <div class="wishlist-image">
       <img src="/images/wishlist/{{item.image}}">
     </div>
@@ -17,5 +18,6 @@ layout: "base.liquid"
       <div class="wishlist-brand">{{ item.brand }}</div>
       <div class="wishlist-title">{{ item.title }}</div>
     </div>
-  </div>{% endfor %}
+  </div>
+  {% endfor %}
 </div>

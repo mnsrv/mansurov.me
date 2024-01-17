@@ -13,7 +13,7 @@ body {
   font-family: 'PT Mono', monospace;
   margin: 1em;
   font-size: 1rem;
-  line-height: 1;
+  line-height: 1.375;
   color: black;
   background-color: white;
 }
@@ -43,9 +43,7 @@ footer {
 }
 
 h1 {
-  font-weight: normal;
   font-size: 1em;
-  margin: 1em 0 0;
 }
 
 a {
@@ -63,6 +61,10 @@ a:hover {
 }
 .hover-opacity:hover {
   opacity: 0.75;
+}
+
+.book-author {
+  color: rgba(0,0,0,0.4);
 }
 
 .wishlist {
