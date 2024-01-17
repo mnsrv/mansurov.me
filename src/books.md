@@ -12,7 +12,7 @@ layout: "base.liquid"
   {% for item in booksByYear %}
   <h4>{{ item.key }}</h4>
   {% for book in item.values %}
-  <p>{% if book.rating == '5' %}⭐️ {% endif %}{{ book.title }} <i class="book-author">{{ book.author }}</i></p>
+  <p>{{ book.title }} <i class="book-author">{{ book.author }}</i>{% if book.rating == '5' %} ⭐️{% endif %}</p>
   {% endfor %}
   {% endfor %}
 </div>
