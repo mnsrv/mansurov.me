@@ -8,4 +8,4 @@ eleventyNavigation:
 layout: "base.liquid"
 ---
 Réti endgame study
-<iframe width="600" height="371" src="https://lichess.org/study/embed/kzXD49Z4/Cdnixbw1" frameborder=0></iframe>
+<div id="reti" class="chess"></div>
