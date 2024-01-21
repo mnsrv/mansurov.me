@@ -7,5 +7,9 @@ eleventyNavigation:
   order: 4
 layout: "base.liquid"
 ---
+<link rel="stylesheet" href="/static/lichess-pgn-viewer.css" />
+
 Réti endgame study
 <div id="reti" class="chess"></div>
+
+<script src="/static/chess.js" type="module"></script>
