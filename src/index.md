@@ -64,41 +64,41 @@ layout: "base.liquid"
     <a href="/chess" class="hover-opacity">
       <g id="chess">
         <g id="board">
-          <rect id="lightboard" width="8" height="8" transform="matrix(0.866025 0.5 -0.866025 0.5 24.7939 63)" fill="#EDD9B9"/>
-          <rect id="cell" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 64.5)" fill="#AF8969"/>
-          <rect id="cell_2" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 65.5)" fill="#AF8969"/>
-          <rect id="cell_3" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 22.1963 66.5)" fill="#AF8969"/>
-          <rect id="cell_4" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 20.4639 67.5)" fill="#AF8969"/>
-          <rect id="cell_5" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 27.3916 64.5)" fill="#AF8969"/>
-          <rect id="cell_6" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 65.5)" fill="#AF8969"/>
-          <rect id="cell_7" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 66.5)" fill="#AF8969"/>
-          <rect id="cell_8" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 22.1963 67.5)" fill="#AF8969"/>
-          <rect id="cell_9" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 27.3916 65.5)" fill="#AF8969"/>
-          <rect id="cell_10" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 66.5)" fill="#AF8969"/>
-          <rect id="cell_11" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 67.5)" fill="#AF8969"/>
-          <rect id="cell_12" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 22.1963 68.5)" fill="#AF8969"/>
-          <rect id="cell_13" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 29.124 65.5)" fill="#AF8969"/>
-          <rect id="cell_14" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 27.3916 66.5)" fill="#AF8969"/>
-          <rect id="cell_15" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 67.5)" fill="#AF8969"/>
-          <rect id="cell_16" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 68.5)" fill="#AF8969"/>
-          <rect id="cell_17" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 29.124 66.5)" fill="#AF8969"/>
-          <rect id="cell_18" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 27.3916 67.5)" fill="#AF8969"/>
-          <rect id="cell_19" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 68.5)" fill="#AF8969"/>
-          <rect id="cell_20" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 69.5)" fill="#AF8969"/>
-          <rect id="cell_21" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 30.8564 66.5)" fill="#AF8969"/>
-          <rect id="cell_22" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 29.124 67.5)" fill="#AF8969"/>
-          <rect id="cell_23" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 27.3916 68.5)" fill="#AF8969"/>
-          <rect id="cell_24" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 69.5)" fill="#AF8969"/>
-          <rect id="cell_25" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 25.6602 63.5)" fill="#AF8969"/>
-          <rect id="cell_26" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 64.5)" fill="#AF8969"/>
-          <rect id="cell_27" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 22.1963 65.5)" fill="#AF8969"/>
-          <rect id="cell_28" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 20.4639 66.5)" fill="#AF8969"/>
-          <rect id="cell_29" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 23.9277 63.5)" fill="#AF8969"/>
-          <rect id="cell_30" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 22.1963 64.5)" fill="#AF8969"/>
-          <rect id="cell_31" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 20.4639 65.5)" fill="#AF8969"/>
-          <rect id="cell_32" width="1" height="1" transform="matrix(0.866025 0.5 -0.866025 0.5 18.7314 66.5)" fill="#AF8969"/>
-          <path id="Rectangle 2834" d="M17.8662 67L24.7944 71L24.7944 72L17.8662 68L17.8662 67Z" fill="#AF8969"/>
-          <path id="Rectangle 2835" d="M31.7217 67L31.7217 68L24.7935 72L24.7935 71L31.7217 67Z" fill="#EDD9B9"/>
+          <rect id="lightboard" width="12" height="12" transform="matrix(0.866025 0.5 -0.866025 0.5 25 63)" fill="#EDD9B9"/>
+          <path id="cell" d="M26.2988 65.25L27.5979 66L26.2988 66.75L24.9998 66L26.2988 65.25Z" fill="#AF8969"/>
+          <path id="cell_2" d="M23.7012 66.75L25.0002 67.5L23.7012 68.25L22.4021 67.5L23.7012 66.75Z" fill="#AF8969"/>
+          <path id="cell_3" d="M21.1025 68.25L22.4016 69L21.1025 69.75L19.8035 69L21.1025 68.25Z" fill="#AF8969"/>
+          <path id="cell_4" d="M18.5049 69.75L19.8039 70.5L18.5049 71.25L17.2058 70.5L18.5049 69.75Z" fill="#AF8969"/>
+          <path id="cell_5" d="M28.8975 65.25L30.1965 66L28.8975 66.75L27.5984 66L28.8975 65.25Z" fill="#AF8969"/>
+          <path id="cell_6" d="M26.2988 66.75L27.5979 67.5L26.2988 68.25L24.9998 67.5L26.2988 66.75Z" fill="#AF8969"/>
+          <path id="cell_7" d="M23.7012 68.25L25.0002 69L23.7012 69.75L22.4021 69L23.7012 68.25Z" fill="#AF8969"/>
+          <path id="cell_8" d="M21.1025 69.75L22.4016 70.5L21.1025 71.25L19.8035 70.5L21.1025 69.75Z" fill="#AF8969"/>
+          <path id="cell_9" d="M28.8975 66.75L30.1965 67.5L28.8975 68.25L27.5984 67.5L28.8975 66.75Z" fill="#AF8969"/>
+          <path id="cell_10" d="M26.2988 68.25L27.5979 69L26.2988 69.75L24.9998 69L26.2988 68.25Z" fill="#AF8969"/>
+          <path id="cell_11" d="M23.7012 69.75L25.0002 70.5L23.7012 71.25L22.4021 70.5L23.7012 69.75Z" fill="#AF8969"/>
+          <path id="cell_12" d="M21.1025 71.25L22.4016 72L21.1025 72.75L19.8035 72L21.1025 71.25Z" fill="#AF8969"/>
+          <path id="cell_13" d="M31.4951 66.75L32.7942 67.5L31.4951 68.25L30.1961 67.5L31.4951 66.75Z" fill="#AF8969"/>
+          <path id="cell_14" d="M28.8975 68.25L30.1965 69L28.8975 69.75L27.5984 69L28.8975 68.25Z" fill="#AF8969"/>
+          <path id="cell_15" d="M26.2988 69.75L27.5979 70.5L26.2988 71.25L24.9998 70.5L26.2988 69.75Z" fill="#AF8969"/>
+          <path id="cell_16" d="M23.7012 71.25L25.0002 72L23.7012 72.75L22.4021 72L23.7012 71.25Z" fill="#AF8969"/>
+          <path id="cell_17" d="M31.4951 68.25L32.7942 69L31.4951 69.75L30.1961 69L31.4951 68.25Z" fill="#AF8969"/>
+          <path id="cell_18" d="M28.8975 69.75L30.1965 70.5L28.8975 71.25L27.5984 70.5L28.8975 69.75Z" fill="#AF8969"/>
+          <path id="cell_19" d="M26.2988 71.25L27.5979 72L26.2988 72.75L24.9998 72L26.2988 71.25Z" fill="#AF8969"/>
+          <path id="cell_20" d="M23.7012 72.75L25.0002 73.5L23.7012 74.25L22.4021 73.5L23.7012 72.75Z" fill="#AF8969"/>
+          <path id="cell_21" d="M34.0938 68.25L35.3928 69L34.0937 69.75L32.7947 69L34.0938 68.25Z" fill="#AF8969"/>
+          <path id="cell_22" d="M31.4951 69.75L32.7942 70.5L31.4951 71.25L30.1961 70.5L31.4951 69.75Z" fill="#AF8969"/>
+          <path id="cell_23" d="M28.8975 71.25L30.1965 72L28.8975 72.75L27.5984 72L28.8975 71.25Z" fill="#AF8969"/>
+          <path id="cell_24" d="M26.2988 72.75L27.5979 73.5L26.2988 74.25L24.9998 73.5L26.2988 72.75Z" fill="#AF8969"/>
+          <path id="cell_25" d="M26.2988 63.75L27.5979 64.5L26.2988 65.25L24.9998 64.5L26.2988 63.75Z" fill="#AF8969"/>
+          <path id="cell_26" d="M23.7012 65.25L25.0002 66L23.7012 66.75L22.4021 66L23.7012 65.25Z" fill="#AF8969"/>
+          <path id="cell_27" d="M21.1025 66.75L22.4016 67.5L21.1025 68.25L19.8035 67.5L21.1025 66.75Z" fill="#AF8969"/>
+          <path id="cell_28" d="M18.5049 68.25L19.8039 69L18.5049 69.75L17.2058 69L18.5049 68.25Z" fill="#AF8969"/>
+          <path id="cell_29" d="M23.7012 63.75L25.0002 64.5L23.7012 65.25L22.4021 64.5L23.7012 63.75Z" fill="#AF8969"/>
+          <path id="cell_30" d="M21.1025 65.25L22.4016 66L21.1025 66.75L19.8035 66L21.1025 65.25Z" fill="#AF8969"/>
+          <path id="cell_31" d="M18.5049 66.75L19.8039 67.5L18.5049 68.25L17.2058 67.5L18.5049 66.75Z" fill="#AF8969"/>
+          <path id="cell_32" d="M15.9062 68.25L17.2053 69L15.9062 69.75L14.6072 69L15.9062 68.25Z" fill="#AF8969"/>
+          <path id="Rectangle 2834" d="M14.6074 69L24.9997 75L24.9997 76L14.6074 70L14.6074 69Z" fill="#AF8969"/>
+          <path id="Rectangle 2835" d="M35.3926 69L35.3926 70L25.0003 76L25.0003 75L35.3926 69Z" fill="#EDD9B9"/>
         </g>
       </g>
     </a>
