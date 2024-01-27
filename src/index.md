@@ -33,7 +33,7 @@ layout: "base.liquid"
       <path id="floor_left" d="M3.5 69.9999L63 104V108L0 71.9999V36L3.5 37.9999V69.9999Z" fill="#90908F"/>
       <path id="floor-bottom" d="M3.5 70L63 104L122.5 70V71L63 105L3.5 71V70Z" fill="#1A1614"/>
       <path id="floor" d="M62.999 36L122.5 70L63 104L3.5 70L62.999 36Z" fill="#51321D"/>
-      <path id="floor" d="M62.999 36L122.5 70L63 104L3.5 70L62.999 36Z" fill="url(#floor-pattern)"/>
+      <path id="floor-p" d="M62.999 36L122.5 70L63 104L3.5 70L62.999 36Z" fill="url(#floor-pattern)"/>
       <path id="right wall" d="M62.999 4L122.5 38V70L62.999 36V4Z" fill="#8E3A3A"/>
       <path id="wall_right_top" d="M122.5 38L126 36L63 0V4L122.5 38Z" fill="#E1E2E2"/>
       <path id="left wall" d="M3.5 38L62.999 4V36L3.5 70V38Z" fill="#AA4747"/>
@@ -41,11 +41,13 @@ layout: "base.liquid"
     </g>
     <a href="/wishlist" class="hover-opacity">
       <g id="gift">
-        <path id="right side" d="M98 66L105 62V70L98 74V66Z" fill="#FFE55F"/>
-        <path id="left side" d="M91 62L98 66V74L91 70V62Z" fill="#C4B047"/>
-        <path id="top" d="M98 58L91 62L98 66L105 62L98 58Z" fill="#FFE55F"/>
-        <path id="top_right" d="M99.6299 58.9316L103.13 60.9316L96.1299 64.9316L92.6299 62.9316L99.6299 58.9316Z" fill="#FF3D3D"/>
-        <path id="top_left" d="M96.3804 58.9253L103.38 62.9253L99.8809 64.9253L92.8809 60.9253L96.3804 58.9253Z" fill="#FF3D3D"/>
+        <rect id="box-t" width="8" height="8" transform="matrix(0.866025 0.5 -0.866025 0.5 92 58)" fill="#D4832F"/>
+        <path id="box-l" d="M85.0723 62L92.0005 66L92.0005 73L85.0723 69L85.0723 62Z" fill="#B05821"/>
+        <path id="box-r" d="M98.9277 62L98.9277 69L91.9995 73L91.9995 66L98.9277 62Z" fill="#D4832F"/>
+        <rect id="knot-t-l" width="2" height="8" transform="matrix(0.866025 0.5 -0.866025 0.5 94.5977 59.5)" fill="#585FA0"/>
+        <path id="knot-t-r" d="M87.6703 60.5L89.4023 59.5L96.3305 63.5L94.5985 64.5L87.6703 60.5Z" fill="#585FA0"/>
+        <path id="knot-r" d="M94.598 64.5L96.3301 63.5L96.3301 70.5L94.598 71.5L94.598 64.5Z" fill="#585FA0"/>
+        <path id="knot-l" d="M87.6699 70.5L89.402 71.5L89.402 64.5L87.6699 63.5L87.6699 70.5Z" fill="#564A8A"/>
       </g>
     </a>
     <a href="/books" class="hover-opacity">
