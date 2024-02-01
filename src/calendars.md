@@ -6,6 +6,7 @@ eleventyNavigation:
   title: calendars
   order: 3
 layout: "base.liquid"
+class: "body_calendars"
 ---
 
 <h4>2024 year calendar A2</h4>

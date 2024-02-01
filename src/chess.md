@@ -6,6 +6,7 @@ eleventyNavigation:
   title: chess
   order: 4
 layout: "base.liquid"
+class: "body_chess"
 ---
 <link rel="stylesheet" href="/static/lichess-pgn-viewer.css" />
 

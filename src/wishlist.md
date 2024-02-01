@@ -6,6 +6,7 @@ eleventyNavigation:
   title: wishlist
   order: 2
 layout: "base.liquid"
+class: "body_wishlist"
 ---
 <i>updated at: Jan 16, 2024</i>
 <div class="wishlist">

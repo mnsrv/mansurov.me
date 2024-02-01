@@ -6,6 +6,7 @@ eleventyNavigation:
   title: books
   order: 1
 layout: "base.liquid"
+class: "body_books"
 ---
 <i>updated at: Jan 16, 2024</i>
 <div>

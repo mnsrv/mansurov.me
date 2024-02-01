@@ -6,6 +6,7 @@ eleventyNavigation:
   title: home
   order: 0
 layout: "base.liquid"
+class: "body_home"
 ---
 
 <svg width="100%" style="max-width: 400px;" viewBox="0 0 126 108" fill="none" xmlns="http://www.w3.org/2000/svg">
