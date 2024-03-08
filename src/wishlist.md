@@ -8,7 +8,7 @@ eleventyNavigation:
 layout: "base.liquid"
 class: "body_wishlist"
 ---
-<i>updated at: Jan 16, 2024</i>
+<i>updated at: Mar 8, 2024</i>
 <div class="wishlist">
   {% for item in wishlist %}
   <div class="wishlist-item">

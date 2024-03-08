@@ -26,7 +26,7 @@ body {
   color: #ffe8ba;
 }
 .body_wishlist {
-  background-color: #f9da49;
+  background-color: #FFFFFF;
 }
 .body_calendars {
   background-color: #ddedea;
@@ -93,7 +93,7 @@ a:hover {
 .wishlist-item {
   width: 300px;
   border-radius: 10px;
-  border: 1px solid #ff4f43;
+  background-color: #f4f4f6;
   min-width: 0;
 }
 .wishlist-image {
