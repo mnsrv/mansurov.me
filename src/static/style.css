@@ -21,6 +21,9 @@ body {
 .body_home {
   background-color: #eadfdd;
 }
+.body_blog {
+  background-color: #fff1e5;
+}
 .body_books {
   background-color: #4c5248;
   color: #ffe8ba;

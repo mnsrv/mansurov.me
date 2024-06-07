@@ -4,7 +4,7 @@ subtitle: I design and print calendar for myself
 eleventyNavigation:
   key: calendars
   title: calendars
-  order: 3
+  order: 4
 layout: "base.liquid"
 class: "body_calendars"
 ---

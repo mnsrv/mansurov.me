@@ -4,7 +4,7 @@ subtitle: My favorite puzzles
 eleventyNavigation:
   key: chess
   title: chess
-  order: 4
+  order: 5
 layout: "base.liquid"
 class: "body_chess"
 ---

@@ -4,7 +4,7 @@ subtitle: Place for some quote
 eleventyNavigation:
   key: books
   title: books
-  order: 1
+  order: 2
 layout: "base.liquid"
 class: "body_books"
 ---

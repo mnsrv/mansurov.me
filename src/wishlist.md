@@ -4,7 +4,7 @@ subtitle: inspired by <i><a href="https://goods.wtf" target="_blank">goods.wtf</
 eleventyNavigation:
   key: wishlist
   title: wishlist
-  order: 2
+  order: 3
 layout: "base.liquid"
 class: "body_wishlist"
 ---
