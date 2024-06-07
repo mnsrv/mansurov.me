@@ -7,8 +7,9 @@ eleventyNavigation:
   order: 2
 layout: "base.liquid"
 class: "body_books"
+date: Last Modified
 ---
-<i>updated at: Mar 8, 2024</i>
+<i>updated at: {{ page.date | date: "%e %b %y" }}</i>
 <div>
   {% for item in booksByYear %}
   <h4>{{ item.key }}</h4>
