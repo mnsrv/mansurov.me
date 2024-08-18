@@ -1,5 +1,10 @@
 [
   {
+    "image": "sonos-beam-gen-2-black.webp",
+    "brand": "Sonos",
+    "title": "Beam (Gen 2)"
+  },
+  {
     "image": "nvidia-geforce-rtx-4070-fe.webp",
     "brand": "NVIDIA",
     "title": "RTX 4070 Founders Edition"
