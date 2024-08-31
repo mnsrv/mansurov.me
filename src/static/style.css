@@ -97,8 +97,7 @@ a:hover {
 }
 .books-row {
   display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   width: 100%;
   position: relative;
   padding-bottom: 8px;

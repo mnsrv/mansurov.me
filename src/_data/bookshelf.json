@@ -1,42 +1,6 @@
 [
     [
         {
-            "title": "Ночной Дозор",
-            "author": "Сергей Лукьяненко",
-            "image": "bs-night-watch.png",
-            "height": "7.87"
-        },
-        {
-            "title": "Дневной Дозор",
-            "author": "Сергей Лукьяненко",
-            "image": "bs-day-watch.png",
-            "height": "7.87"
-        },
-        {
-            "title": "Сумеречный Дозор",
-            "author": "Сергей Лукьяненко",
-            "image": "bs-twilight-watch.png",
-            "height": "7.87"
-        },
-        {
-            "title": "Хроники Нарнии",
-            "author": "Клайв Стэйплз Льюис",
-            "image": "bs-chronicles-of-narnia.png",
-            "height": "7.87"
-        },
-        {
-            "title": "Властелин колец",
-            "author": "Дж. Р. Р. Толкин",
-            "image": "bs-lotr.png",
-            "height": "7.87"
-        },
-        {
-            "title": "Хоббит",
-            "author": "Дж. Р. Р. Толкин",
-            "image": "bs-hobbit.png",
-            "height": "8.15"
-        },
-        {
             "title": "Гарри Поттер и философский камень",
             "author": "Дж. К. Ролинг",
             "image": "bs-harry-potter-1.png",
@@ -77,6 +41,42 @@
             "author": "Дж. К. Ролинг",
             "image": "bs-harry-potter-7.png",
             "height": "8.25"
+        },
+        {
+            "title": "Хоббит",
+            "author": "Дж. Р. Р. Толкин",
+            "image": "bs-hobbit.png",
+            "height": "8.15"
+        },
+        {
+            "title": "Властелин колец",
+            "author": "Дж. Р. Р. Толкин",
+            "image": "bs-lotr.png",
+            "height": "7.87"
+        },
+        {
+            "title": "Хроники Нарнии",
+            "author": "Клайв Стэйплз Льюис",
+            "image": "bs-chronicles-of-narnia.png",
+            "height": "7.87"
+        },
+        {
+            "title": "Ночной Дозор",
+            "author": "Сергей Лукьяненко",
+            "image": "bs-night-watch.png",
+            "height": "7.87"
+        },
+        {
+            "title": "Дневной Дозор",
+            "author": "Сергей Лукьяненко",
+            "image": "bs-day-watch.png",
+            "height": "7.87"
+        },
+        {
+            "title": "Сумеречный Дозор",
+            "author": "Сергей Лукьяненко",
+            "image": "bs-twilight-watch.png",
+            "height": "7.87"
         }
     ]
 ]
