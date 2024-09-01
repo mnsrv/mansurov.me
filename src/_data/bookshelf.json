@@ -77,6 +77,30 @@
             "author": "Сергей Лукьяненко",
             "image": "bs-twilight-watch.png",
             "height": "7.87"
+        },
+        {
+            "title": "Бункер. Иллюзия",
+            "author": "Хью Хауи",
+            "image": "bs-bunker-illusion.png",
+            "height": "8.11"
+        },
+        {
+            "title": "Бункер. Смена",
+            "author": "Хью Хауи",
+            "image": "bs-bunker-change.png",
+            "height": "8.11"
+        },
+        {
+            "title": "Silo. Dust",
+            "author": "Hugh Howey",
+            "image": "bs-silo-dust.png",
+            "height": "7.8"
+        },
+        {
+            "title": "Империя должна умереть: История русских революций в лицах. 1900-1917",
+            "author": "Михаил Зыгарь",
+            "image": "bs-empire-must-die.png",
+            "height": "8.5"
         }
     ]
 ]
