@@ -79,6 +79,30 @@
             "height": "7.87"
         },
         {
+            "title": "О чем я говорю, когда говорю о беге",
+            "author": "Харуки Мураками",
+            "image": "bs-beg.png",
+            "height": "7.87"
+        },
+        {
+            "title": "Палата №6",
+            "author": "Антон Чехов",
+            "image": "bs-palata-6.png",
+            "height": "7.08"
+        },
+        {
+            "title": "Конец Вечности",
+            "author": "Айзек Азимов",
+            "image": "bs-end-of-eternity.png",
+            "height": "8.11"
+        },
+        {
+            "title": "Защита Лужина",
+            "author": "Владимир Набоков",
+            "image": "bs-luzin.png",
+            "height": "8.19"
+        },
+        {
             "title": "Бункер. Иллюзия",
             "author": "Хью Хауи",
             "image": "bs-bunker-illusion.png",
