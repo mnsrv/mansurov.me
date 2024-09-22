@@ -79,6 +79,24 @@
             "height": "7.87"
         },
         {
+            "title": "Имею скафандр - готов путешествовать!",
+            "author": "Роберт Хайнлайн",
+            "image": "bs-skafandr.png",
+            "height": "6.5"
+        },
+        {
+            "title": "Географ глобус пропил",
+            "author": "Алексей Иванов",
+            "image": "bs-geograf.png",
+            "height": "8.35"
+        },
+        {
+            "title": "Ложная слепота",
+            "author": "Питер Уоттс",
+            "image": "bs-blindsight.png",
+            "height": "8.07"
+        },
+        {
             "title": "О чем я говорю, когда говорю о беге",
             "author": "Харуки Мураками",
             "image": "bs-beg.png",
@@ -125,6 +143,18 @@
             "author": "Михаил Зыгарь",
             "image": "bs-empire-must-die.png",
             "height": "8.5"
+        },
+        {
+            "title": "Потрясающие приключения Кавалера & Клея",
+            "author": "Майкл Шейбон",
+            "image": "bs-kavaler-clay.png",
+            "height": "8.27"
+        },
+        {
+            "title": "Крестный отец",
+            "author": "Марио Пьюзо",
+            "image": "bs-godfather.jpg",
+            "height": "7.87"
         }
     ]
 ]
