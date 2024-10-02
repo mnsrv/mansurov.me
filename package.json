@@ -10,7 +10,7 @@
   "author": "Sasha Mansurov",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "3.0.0-alpha.4",
+    "@11ty/eleventy": "^3.0.0",
     "lichess-pgn-viewer": "^2.0.1"
   },
   "engines": {
