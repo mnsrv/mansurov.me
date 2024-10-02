@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     { "src/static/favicon.svg": "./" },
     {
+      dot: true,
       debug: true, // log debug information
     },
   );
