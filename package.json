@@ -14,7 +14,7 @@
     "lichess-pgn-viewer": "^2.0.1"
   },
   "engines": {
-    "node": ">= 18"
+    "node": "20.x"
   },
   "type": "module",
   "private": true,
