@@ -1,6 +1,6 @@
 ---
 title: MovieCast
-subtitle: Trying to live my life
+subtitle: Actor Movie Connections
 eleventyNavigation:
   key: /moviecast
   title: MovieCast
@@ -8,7 +8,5 @@ eleventyNavigation:
 layout: "base.liquid"
 class: "body_home"
 ---
-
-## MovieCast app
 
 [Privacy Policy](/moviecast/privacy-policy)

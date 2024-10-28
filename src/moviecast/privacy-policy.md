@@ -13,9 +13,7 @@ This Privacy Policy explains how MovieCast ("the App") collects, uses, and safeg
 
 ## Information We Collect
 
-### Usage Data
-
-We use TelemetryDeck to collect anonymized usage data. This helps us understand how our users are using our app and how we can improve it. TelemetryDeck does not collect any personally identifiable information. You can read more about TelemetryDeck’s privacy policy at https://telemetrydeck.com/privacy
+We use TelemetryDeck to collect anonymized usage data. This helps us understand how our users are using our app and how we can improve it. TelemetryDeck does not collect any personally identifiable information. You can read more about TelemetryDeck’s privacy policy at <https://telemetrydeck.com/privacy>
 
 We do not collect any personally identifiable information (PII) through our telemetry system.
 
@@ -46,7 +44,7 @@ As a user from the European Union, you have the following rights:
 - Right to object
 - Rights related to automated decision-making
 
-To exercise any of these rights, please contact us at moviecast@mansurov.me.
+To exercise any of these rights, please contact us at [moviecast@mansurov.me](mailto:moviecast@mansurov.me).
 
 ## Children's Privacy
 
@@ -60,8 +58,8 @@ We may update our Privacy Policy from time to time. We will notify you of any ch
 
 If you have any questions about this Privacy Policy, please contact us:
 
-- By email: moviecast@mansurov.me
-- By visiting this page on our website: https://mansurov.me/moviecast/privacy-policy
+- By email: [moviecast@mansurov.me](mailto:moviecast@mansurov.me)
+- By visiting this page on our website: <https://mansurov.me/moviecast/privacy-policy>
 
 ## Consent
 
