@@ -1,5 +1,10 @@
 [
   {
+    "image": "logitech-g640.png",
+    "brand": "Logitech",
+    "title": "G640"
+  },
+  {
     "image": "sonos-beam-gen-2-black.webp",
     "brand": "Sonos",
     "title": "Beam (Gen 2)"
