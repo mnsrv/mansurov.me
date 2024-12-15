@@ -59,9 +59,10 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 nav li {
-  display: inline-block;
+  display: block;
   margin-right: 1em;
 }
 nav li:last-child {
@@ -98,20 +99,31 @@ a:hover {
   opacity: 0.75;
 }
 
+.social {
+  display: block;
+  width: 1.5rem;
+}
+
 .hstack {
   display: flex;
+}
+@media (max-width: 768px) {
+  .hstack {
+    flex-direction: column;
+  }
 }
 
 .col {
   width: 50%;
 }
+@media (max-width: 768px) {
+  .col {
+    width: 100%;
+  }
+}
 
 .padding {
   padding: 1.5rem;
-}
-
-.tar {
-  text-align: right;
 }
 
 .book-author {

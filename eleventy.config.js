@@ -7,6 +7,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/fonts");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/static/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/static/lichesslogo.svg");
+  eleventyConfig.addPassthroughCopy(
+    "src/static/letterboxd-decal-dots-pos-rgb.svg",
+  );
 
   eleventyConfig.addPassthroughCopy("src/static/chess.js");
   eleventyConfig.addPassthroughCopy("src/static/lichess-pgn-viewer.js");
