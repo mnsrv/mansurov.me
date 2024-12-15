@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body class={{class}}>
-    <header>
-      <h1>{{ title }}</h1>
-      <p>{{ subtitle }}</p>
-
+    
+    <header class="padding">
       <nav>
         {% assign navPages = collections.all | eleventyNavigation %}
         <ul>
@@ -26,18 +24,24 @@
       </nav>
     </header>
 
-    <main>
+    <div class="hero padding">
+      <h1>{{ title }}</h1>
+      <p>{{ subtitle }}</p>
+    </div>
+
+    <main class="padding">
       {{ content }}
     </main>
 
-    <footer>
-      <nav>
+    <footer class="hstack">
+      <div class="col padding">© 2016&ndash;2024 Sasha Mansurov.</div>
+
+      <nav class="col padding tar">
         <ul>
           <li><a href="https://letterboxd.com/mansurov/" target="_blank">letterboxd</a></li>
           <li><a href="https://lichess.org/@/sashamjolnir" target="_blank">lichess</a></li>
         </ul>
       </nav>
-      <p>© 2016&ndash;2024 Sasha Mansurov.</p>
     </footer>
   </body>
 </html>

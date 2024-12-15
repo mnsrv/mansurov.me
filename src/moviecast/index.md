@@ -6,7 +6,7 @@ eleventyNavigation:
   title: MovieCast
   order: 1
 layout: "base.liquid"
-class: "body_home"
+class: "body_moviecast"
 ---
 
 # MovieCast Support

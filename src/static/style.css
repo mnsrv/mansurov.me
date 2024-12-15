@@ -9,43 +9,51 @@
   src: url("fonts/pt-mono-v13-cyrillic_latin-regular.woff2");
 }
 
-body {
-  font-family: "PT Mono", monospace;
-  margin: 1em;
-  font-size: 1rem;
+html {
+  font-size: 16px;
   line-height: 1.375;
-  color: black;
-  background-color: white;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
 }
 
-.body_home {
-  background-color: #ffffff;
+body {
+  font-family: "PT Mono", monospace;
+  margin: 0;
+  background-color: rgb(224, 224, 224);
 }
-.body_blog {
-  background-color: #fff1e5;
+
+.body_home .hero {
+  background-color: #001169;
+  color: white;
 }
-.body_books {
+.body_moviecast .hero {
+  background-color: #142119;
+  color: white;
+}
+.body_blog .hero {
+  background-color: #ffe6eb;
+}
+.body_books .hero {
   background-color: #4c5248;
   color: #ffe8ba;
 }
-.body_wishlist {
-  background-color: #ffffff;
+.body_wishlist .hero {
+  background-color: #77000a;
+  color: white;
 }
-.body_calendars {
+.body_calendars .hero {
   background-color: #ddedea;
   color: #000;
 }
-.body_chess {
+.body_chess .hero {
   background-color: #232424;
   color: #919292;
 }
 
-header {
-  margin-bottom: 3em;
-}
-
 nav {
-  margin: 1em 0;
 }
 nav ul {
   list-style: none;
@@ -60,12 +68,12 @@ nav li:last-child {
   margin-right: 0;
 }
 
-footer {
-  margin-top: 3em;
+main {
+  background-color: white;
 }
 
 h1 {
-  font-size: 1em;
+  font-size: 1.5rem;
 }
 h2 {
   font-size: 1em;
@@ -88,6 +96,22 @@ a:hover {
 }
 .hover-opacity:hover {
   opacity: 0.75;
+}
+
+.hstack {
+  display: flex;
+}
+
+.col {
+  width: 50%;
+}
+
+.padding {
+  padding: 1.5rem;
+}
+
+.tar {
+  text-align: right;
 }
 
 .book-author {
@@ -232,11 +256,11 @@ a:hover {
 .wishlist {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 1rem;
 }
 .wishlist-item {
-  width: 300px;
-  border-radius: 10px;
+  width: 16rem;
+  border-radius: 0.5rem;
   background-color: #f4f4f6;
   min-width: 0;
 }
@@ -253,7 +277,7 @@ a:hover {
 }
 .wishlist-info {
   width: 100%;
-  padding: 0 16px 16px;
+  padding: 0 1rem 1rem;
 }
 .wishlist-title {
   white-space: nowrap;

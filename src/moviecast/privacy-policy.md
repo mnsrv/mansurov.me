@@ -2,7 +2,7 @@
 title: Privacy policy
 subtitle: for MovieCast
 layout: "base.liquid"
-class: "body_home"
+class: "body_moviecast"
 ---
 
 <i>Last updated: {{ page.date | date: "%e %b %y" }}</i>
