@@ -4,7 +4,7 @@ subtitle: Actor Movie Connections
 eleventyNavigation:
   key: /moviecast
   title: MovieCast
-  order: 1
+  order: 6
 layout: "base.liquid"
 class: "body_moviecast"
 ---
