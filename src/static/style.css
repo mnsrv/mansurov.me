@@ -71,6 +71,10 @@ nav li:last-child {
 
 main {
   background-color: white;
+  padding: 1.5rem;
+}
+.body_no_padding main {
+  padding: 0;
 }
 
 h1 {
@@ -130,7 +134,6 @@ a:hover {
   opacity: 0.4;
 }
 .books-container {
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 16px;
