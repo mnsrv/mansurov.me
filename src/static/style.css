@@ -108,11 +108,12 @@ a:hover {
   width: 1.5rem;
 }
 
-.hstack {
+.flex {
   display: flex;
+  flex-wrap: wrap;
 }
 @media (max-width: 768px) {
-  .hstack {
+  .flex {
     flex-direction: column;
   }
 }

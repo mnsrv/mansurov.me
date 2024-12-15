@@ -10,7 +10,7 @@ class: "body_books body_no_padding"
 date: Last Modified
 ---
 
-<div class="hstack">
+<div class="flex">
   <div class="col padding">
     <i>updated at: {{ page.date | date: "%e %b %y" }}</i>
     {% for item in booksByYear %}
