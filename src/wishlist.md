@@ -1,6 +1,6 @@
 ---
 title: Wishlist
-subtitle: inspired by <i><a href="https://goods.wtf" target="_blank">goods.wtf</a></i>
+subtitle: inspired by <i><a href="https://goods.so" target="_blank">goods.so</a></i>
 eleventyNavigation:
   key: wishlist
   title: wishlist
@@ -9,7 +9,9 @@ layout: "base.liquid"
 class: "body_wishlist"
 date: Last Modified
 ---
+
 <i>updated at: {{ page.date | date: "%e %b %y" }}</i>
+
 <div class="wishlist">
   {% for item in wishlist %}
   <div class="wishlist-item">
