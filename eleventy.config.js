@@ -6,6 +6,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/style.css");
   eleventyConfig.addPassthroughCopy("src/static/fonts");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/static/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/static/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/static/lichesslogo.svg");
   eleventyConfig.addPassthroughCopy("src/static/lichesslogowhite.svg");
