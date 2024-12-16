@@ -32,7 +32,7 @@ html {
   font-size: 16px;
   line-height: 1.375;
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   html {
     font-size: 14px;
   }
@@ -129,7 +129,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .flex {
     flex-direction: column;
   }
@@ -138,7 +138,7 @@ a:hover {
 .col {
   width: 50%;
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .col {
     width: 100%;
   }
