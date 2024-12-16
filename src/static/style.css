@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+/* Define CSS variables for both themes */
+:root {
+  /* Light theme (default) */
+  --background-color: rgb(224, 224, 224);
+  --main-background: white;
+  --text-color: black;
+  --wishlist-item-bg: #f4f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme */
+    --background-color: #1a1a1a;
+    --main-background: #2d2d2d;
+    --text-color: #e0e0e0;
+    --wishlist-item-bg: #3d3d3d;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -22,7 +41,8 @@ html {
 body {
   font-family: "PT Mono", monospace;
   margin: 0;
-  background-color: rgb(224, 224, 224);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .body_home .hero {
@@ -35,6 +55,7 @@ body {
 }
 .body_blog .hero {
   background-color: #ffe6eb;
+  color: black;
 }
 .body_books .hero {
   background-color: #4c5248;
@@ -46,15 +67,13 @@ body {
 }
 .body_calendars .hero {
   background-color: #ddedea;
-  color: #000;
+  color: black;
 }
 .body_chess .hero {
   background-color: #232424;
   color: #919292;
 }
 
-nav {
-}
 nav ul {
   list-style: none;
   margin: 0;
@@ -66,11 +85,9 @@ nav li {
   padding: 0.75rem;
   display: block;
 }
-nav a {
-}
 
 main {
-  background-color: white;
+  background-color: var(--main-background);
   padding: 1.5rem;
 }
 .body_no_padding main {
@@ -135,7 +152,7 @@ a:hover {
 }
 
 .book-author {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 .books-container {
   display: flex;
@@ -280,7 +297,7 @@ a:hover {
 .wishlist-item {
   width: 16rem;
   border-radius: 0.5rem;
-  background-color: #f4f4f6;
+  background-color: var(--wishlist-item-bg);
   min-width: 0;
 }
 .wishlist-image {
@@ -302,14 +319,13 @@ a:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgba(0, 0, 0, 0.75);
   line-height: 1.5;
 }
 .wishlist-brand {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgba(0, 0, 0, 0.4);
+  opacity: 0.5;
   line-height: 1.5;
 }
 

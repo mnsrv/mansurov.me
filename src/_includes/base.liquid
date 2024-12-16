@@ -37,8 +37,22 @@
 
       <nav class="col padding-half">
         <ul>
-          <li><a href="https://letterboxd.com/mansurov/" target="_blank"><img class="social" src="/static/letterboxd-decal-dots-pos-rgb.svg" alt="letterboxd" /></a></li>
-          <li><a href="https://lichess.org/@/sashamjolnir" target="_blank"><img class="social" src="/static/lichesslogo.svg" alt="lichess" /></a></li>
+          <li>
+            <a href="https://letterboxd.com/mansurov/" target="_blank">
+              <picture>
+                <source srcset="/static/letterboxd-decal-dots-neg-rgb.svg" media="(prefers-color-scheme: dark)">
+                <img class="social" src="/static/letterboxd-decal-dots-pos-rgb.svg" alt="letterboxd">
+              </picture>
+            </a>
+          </li>
+          <li>
+            <a href="https://lichess.org/@/sashamjolnir" target="_blank">
+              <picture>
+                <source srcset="/static/lichesslogowhite.svg" media="(prefers-color-scheme: dark)">
+                <img class="social" src="/static/lichesslogo.svg" alt="lichess">
+              </picture>
+            </a>
+          </li>
         </ul>
       </nav>
     </footer>
