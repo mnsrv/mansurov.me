@@ -295,7 +295,7 @@ a:hover {
   gap: 1rem;
 }
 .wishlist-item {
-  width: 16rem;
+  width: 24rem;
   border-radius: 0.5rem;
   background-color: var(--wishlist-item-bg);
   min-width: 0;
