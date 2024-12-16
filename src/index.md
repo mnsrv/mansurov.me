@@ -1,6 +1,6 @@
 ---
 title: Sasha Mansurov
-subtitle: Trying to live my life
+subtitle: Frontend Engineer in Warsaw
 eleventyNavigation:
   key: /
   title: home
