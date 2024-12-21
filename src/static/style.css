@@ -1,19 +1,14 @@
 @charset "UTF-8";
 
-/* Define CSS variables for both themes */
 :root {
-  /* Light theme (default) */
-  --background-color: rgb(224, 224, 224);
-  --main-background: white;
+  --background-color: white;
   --text-color: black;
   --wishlist-item-bg: #f4f4f6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark theme */
-    --background-color: #1a1a1a;
-    --main-background: #2d2d2d;
+    --background-color: #2d2d2d;
     --text-color: #e0e0e0;
     --wishlist-item-bg: #3d3d3d;
   }
@@ -40,7 +35,7 @@ html {
 
 body {
   font-family: "PT Mono", monospace;
-  margin: 0;
+  margin: 0 0 4rem;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -86,9 +81,6 @@ nav li {
   display: block;
 }
 
-main {
-  background-color: var(--main-background);
-}
 main > .container {
   padding: 1.5rem;
 }
