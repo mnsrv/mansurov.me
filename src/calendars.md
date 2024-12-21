@@ -9,7 +9,6 @@ layout: "base.liquid"
 class: "body_calendars body_no_padding"
 ---
 
-<script src="https://gumroad.com/js/gumroad.js"></script>
 <div class="flex container">
   <div class="col padding">
     <h4>2025 year calendar A2</h4>
@@ -18,7 +17,6 @@ class: "body_calendars body_no_padding"
   <div class="col padding">
 <h4>2024 year calendar A2</h4>
 <p>inspired by <i><a href="https://www.justbenice.ru/product/calendar-2023/" target="_blank">Just Be Nice</a></i></p>
-<p><a class="gumroad-button" href="https://sashamansurov.gumroad.com/l/minimalistic-calendar-2024">Get on</a></p>
 <img src="/images/2024-year-calendar-A2.jpg" alt="2024 year calendar A2" style="max-width: 842px; width: 100%;" />
 </div>
 <div class="col padding">
