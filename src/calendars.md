@@ -10,7 +10,7 @@ class: "body_calendars body_no_padding"
 ---
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
-<div class="flex">
+<div class="flex container">
   <div class="col padding">
     <h4>2025 year calendar A2</h4>
     <p><i>in progress</i></p>

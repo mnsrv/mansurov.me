@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body class="{{class}}">
-    <header class="padding-half">
+    <header class="container padding-half">
       <nav>
         {% assign navPages = collections.all | eleventyNavigation %}
         <ul>
@@ -24,16 +24,18 @@
       </nav>
     </header>
 
-    <div class="hero padding">
-      <h1>{{ title }}</h1>
-      <p>{{ subtitle }}</p>
+    <div class="hero">
+      <div class="container padding">
+        <h1>{{ title }}</h1>
+        <p>{{ subtitle }}</p>
+      </div>
     </div>
 
     <main>
       {{ content }}
     </main>
 
-    <footer class="flex">
+    <footer class="flex container">
       <div class="col padding">© 2016&ndash;2024 Sasha Mansurov.</div>
 
       <nav class="col padding-half">

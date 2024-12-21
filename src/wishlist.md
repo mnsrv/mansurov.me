@@ -6,11 +6,12 @@ eleventyNavigation:
   title: wishlist
   order: 3
 layout: "base.liquid"
-class: "body_wishlist"
+class: "body_wishlist body_no_padding"
 date: Last Modified
 ---
 
-<i>updated at: {{ page.date | date: "%e %b %y" }}</i>
+<div class="container padding">
+<p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
 
 <div class="wishlist">
   {% for item in wishlist %}
@@ -24,4 +25,5 @@ date: Last Modified
     </div>
   </div>
   {% endfor %}
+</div>
 </div>

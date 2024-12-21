@@ -9,9 +9,8 @@ layout: "base.liquid"
 class: "body_home body_no_padding"
 ---
 
-<div class="flex">
-  <div class="col padding"><p>Last 4 watched movies</p><div class="movies">{% for item in rss %}<div class="movie">{{ item.description }}</div>{% endfor %}</div>
-  </div>
+<div class="flex container">
+  <div class="col padding"></div>
   <div class="col padding">
     <svg width="100%" style="max-width: 400px;" viewBox="0 0 126 108" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
