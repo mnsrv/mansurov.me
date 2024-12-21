@@ -10,7 +10,7 @@ class: "body_home body_no_padding"
 ---
 
 <div class="flex container">
-  <div class="col padding"><li>{{ env.runMode }}</li></div>
+  <div class="col padding"></div>
   <div class="col padding">
     <svg width="100%" style="max-width: 400px;" viewBox="0 0 126 108" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
