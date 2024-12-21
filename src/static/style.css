@@ -88,15 +88,16 @@ nav li {
 
 main {
   background-color: var(--main-background);
+}
+main > .container {
   padding: 1.5rem;
 }
-.body_no_padding main {
+.body_no_padding main > .container {
   padding: 0;
 }
 
 h1 {
   font-size: 1.5rem;
-  /*  margin: 0;*/
 }
 h2 {
   font-size: 1em;
@@ -104,14 +105,22 @@ h2 {
 h3 {
   font-size: 1em;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
 p {
   margin-top: 0;
-  /*  margin-bottom: 0;*/
 }
 
 a {
   color: inherit;
   text-decoration: underline;
+  word-wrap: break-word;
 }
 a:hover {
   text-decoration: none;
