@@ -4,14 +4,17 @@ title: New MacBook Setup
 subtitle: I like to setup fresh computer instead of copying it from backup
 layout: "base.liquid"
 class: "body_blog"
+date: 2024-06-07
 ---
 
 Settings
+
 - swap keyboard hotkeys for change language and spotlight (⌘ space for language)
 - remove AppleFontSmoothing and make resolution x2 <https://tonsky.me/blog/monitors/>
 - speed up keyboard <https://ilyabirman.ru/meanwhile/all/speed-up-mac-keyboard/>
 
 Apps
+
 - App Cleaner
 - Bitwarden
 - Dropbox
@@ -31,12 +34,14 @@ Apps
 - VLC
 
 Mac App Store
+
 - HEIC Converter
 - Things 3
 - Transmission
 - The Unarchiver
 
 Terminal
+
 - ohmyzsh
 - xcode command line tools (for git)
 - homebrew
@@ -45,8 +50,11 @@ Terminal
 - generate and add ssh keys to github, gitlab
 
 Programming
+
 - Sublime CLI
 - Alabaster Theme <https://github.com/tonsky/sublime-scheme-alabaster>
 - FiraCode <https://github.com/tonsky/FiraCode/>
 
 Inspiration: <a href="https://www.stuartellis.name/articles/mac-setup/" target="_blank"><i>https://www.stuartellis.name/articles/mac-setup/</i></a>
+
+<i>{{ page.date | date: "%e %b %y" }}</i>

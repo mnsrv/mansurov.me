@@ -4,6 +4,7 @@ title: MovieCast
 subtitle: I created little SwiftUI app
 layout: "base.liquid"
 class: "body_blog"
+date: 2024-11-23
 ---
 
 I wanted to build simple movie explorer on iOS for myself [https://moviecast.app](https://moviecast.app)
@@ -27,3 +28,5 @@ So here will be little timeline of app. I still dont know what features to add f
 - 21.11.24 Email created
 - 21.11.24 Instagram account created
 - 22.11.24 Bluesky account created
+
+<i>{{ page.date | date: "%e %b %y" }}</i>
