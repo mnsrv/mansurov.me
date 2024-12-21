@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    {
+      "source": "/moviecast",
+      "destination": "https://www.moviecast.app"
+    },
+    {
+      "source": "/moviecast/privacy-policy/",
+      "destination": "https://www.moviecast.app/privacy/"
+    }
+  ]
+}
