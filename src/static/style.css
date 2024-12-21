@@ -41,7 +41,7 @@ body {
 }
 
 .body_home .hero {
-  background-color: #001169;
+  background-color: oklch(14.79% 0.0353 253.13);
   color: white;
 }
 .body_moviecast .hero {
