@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 :root {
-  --background-color: white;
-  --text-color: black;
+  --background-color: oklch(97.58% 0.0054 95.1);
+  --text-color: oklch(24.25% 0.0015 197.06);
   --wishlist-item-bg: #f4f4f6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #222222;
-    --text-color: #e0e0e0;
+    --background-color: oklch(24.25% 0.0015 197.06);
+    --text-color: oklch(91.28% 0 0);
     --wishlist-item-bg: #3d3d3d;
   }
 }
@@ -42,15 +42,15 @@ body {
 
 .body_home .hero {
   background-color: oklch(14.79% 0.0353 253.13);
-  color: white;
+  color: oklch(91.28% 0 0);
 }
 .body_moviecast .hero {
   background-color: #142119;
-  color: white;
+  color: oklch(91.28% 0 0);
 }
 .body_blog .hero {
   background-color: #ffe6eb;
-  color: black;
+  color: oklch(24.25% 0.0015 197.06);
 }
 .body_books .hero {
   background-color: #4c5248;
@@ -58,11 +58,11 @@ body {
 }
 .body_wishlist .hero {
   background-color: #77000a;
-  color: white;
+  color: oklch(91.28% 0 0);
 }
 .body_calendars .hero {
   background-color: #ddedea;
-  color: black;
+  color: oklch(24.25% 0.0015 197.06);
 }
 .body_chess .hero {
   background-color: #232424;
@@ -126,6 +126,11 @@ a:hover {
   opacity: 0.75;
 }
 
+table {
+  border-spacing: 0 2rem;
+  border-collapse: separate;
+}
+
 .social {
   display: block;
   width: 1.5rem;
@@ -161,8 +166,9 @@ a:hover {
   padding: 0.75rem;
 }
 
-.book-author {
+i {
   opacity: 0.5;
+  font-style: normal;
 }
 .books-container {
   display: flex;
