@@ -7,6 +7,23 @@ eleventyNavigation:
   order: 4
 layout: "base.liquid"
 class: "body_calendars body_no_padding"
+preloads:
+  - url: /images/2025-year-calendar-A2-en-pink.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-en-blue.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-en-green.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-en-gray.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-ru-pink.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-ru-blue.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-ru-green.jpg
+    type: image/jpeg
+  - url: /images/2025-year-calendar-A2-ru-gray.jpg
+    type: image/jpeg
 ---
 
 <div class="flex container">
