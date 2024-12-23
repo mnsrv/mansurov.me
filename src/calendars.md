@@ -68,7 +68,7 @@ preloads:
         </label>
       </div>
     </fieldset>
-    <a id="pdf-download" href="/files/2025-A2-en-pink.pdf" download="2025-A2-en-pink.pdf" class="download-button">
+    <a id="pdf-download" href="/files/2025-A2-en-pink.pdf" download="2025-A2-en-pink.pdf" class="download-button" data-umami-event="PDF Download">
       Download PDF
     </a>
     <p class="print-hint">Recommended: A2 matte paper, 170 g/m²</p>

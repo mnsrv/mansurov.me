@@ -14,9 +14,11 @@
     <link rel="icon" href="/static/favicon.ico" sizes="32x32">
     <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/static/style.css' | bust }}" />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="f201f308-c021-41a7-b28e-ec41d43554be"></script>
+    {% if env.runMode == "build" %}
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="f201f308-c021-41a7-b28e-ec41d43554be"></script>
+    {% endif %}
   </head>
-  <body class="{{class}}">
+  <body class="{{class}}" data-mode="{{ env.runMode }}">
     <header class="container padding-half">
       <nav>
         {% assign navPages = collections.all | eleventyNavigation %}

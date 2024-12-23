@@ -25,6 +25,11 @@ function updateImage() {
 
   document.querySelector(".image-preview").style.backgroundImage =
     `url(/images/2025-year-calendar-A2-${lang}-${color}.jpg)`;
+
+  umami.track("Calendar Customization", {
+    color: color,
+    language: lang,
+  });
 }
 
 document
