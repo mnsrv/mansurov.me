@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-  --background-color: oklch(97.58% 0.0054 95.1);
+  --background-color: white;
   --text-color: oklch(24.25% 0.0015 197.06);
   --wishlist-item-bg: #f4f4f6;
 }
