@@ -38,19 +38,19 @@ preloads:
       <legend>Select color:</legend>
       <div>
         <label style="--color: #FF6482">
-          <input type="radio" name="color" value="pink" checked />
+          <input type="radio" name="color" value="pink" checked data-umami-event="Calendar Color Changed" data-umami-event-color="pink" />
           Pink
         </label>
         <label style="--color: #409CFF">
-          <input type="radio" name="color" value="blue" />
+          <input type="radio" name="color" value="blue" data-umami-event="Calendar Color Changed" data-umami-event-color="blue" />
           Blue
         </label>
         <label style="--color: #30DB5B">
-          <input type="radio" name="color" value="green" />
+          <input type="radio" name="color" value="green" data-umami-event="Calendar Color Changed" data-umami-event-color="green" />
           Green
         </label>
         <label style="--color: #7C7C80">
-          <input type="radio" name="color" value="gray" />
+          <input type="radio" name="color" value="gray" data-umami-event="Calendar Color Changed" data-umami-event-color="gray" />
           Gray
         </label>
       </div>
@@ -59,11 +59,11 @@ preloads:
       <legend>Select language:</legend>
       <div>
         <label>
-          <input type="radio" name="lang" value="en" checked />
+          <input type="radio" name="lang" value="en" checked data-umami-event="Calendar Language Changed" data-umami-event-language="english" />
           English
         </label>
         <label>
-          <input type="radio" name="lang" value="ru" />
+          <input type="radio" name="lang" value="ru" data-umami-event="Calendar Language Changed" data-umami-event-language="russian" />
           Russian
         </label>
       </div>
