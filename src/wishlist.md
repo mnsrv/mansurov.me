@@ -16,9 +16,11 @@ date: Last Modified
 <div class="wishlist">
   {% for item in wishlist %}
   <div class="wishlist-item">
-    <div class="wishlist-image">
-      <img src="/images/wishlist/{{item.image}}">
-    </div>
+    <a href="{{ item.link }}" target="_blank">
+      <div class="wishlist-image">
+        <img src="/images/wishlist/{{item.image}}">
+      </div>
+    </a>
     <div class="wishlist-info">
       <div class="wishlist-brand">{{ item.brand }}</div>
       <div class="wishlist-title">{{ item.title }}</div>

@@ -8,41 +8,49 @@
   {
     "image": "le-creuset-dutch-oven.png",
     "brand": "Le Creuset",
-    "title": "Dutch Oven 24 cm / 4.2L"
+    "title": "Dutch Oven 24 cm / 4.2L",
+    "link": "https://www.lecreuset.pl/pl_PL/p/okragla-brytfanna-zeliwo/CI1177.html?dwvar_CI1177_color=cerise&dwvar_CI1177_size=24cm-l4-2"
   },
   {
     "image": "sonos-beam-gen-2-black.webp",
     "brand": "Sonos",
-    "title": "Beam (Gen 2)"
+    "title": "Beam (Gen 2)",
+    "link": "https://www.sonos.com/pl-pl/shop/beam"
   },
   {
     "image": "nvidia-geforce-rtx-4070-fe.webp",
     "brand": "NVIDIA",
-    "title": "RTX 4070 FE"
+    "title": "RTX 4070 FE",
+    "link": "https://marketplace.nvidia.com/pl-pl/consumer/graphics-cards/?locale=pl-pl&page=1&limit=12&manufacturer=NVIDIA"
   },
   {
     "image": "sony-wh1000xm4s.webp",
     "brand": "Sony",
-    "title": "WH-1000XM4"
+    "title": "WH-1000XM4",
+    "link": "https://www.sony.pl/electronics/sluchawki-palak-na-glowe/wh-1000xm4/buy/wh1000xm4s.ce7"
   },
   {
     "image": "cooler-master-nr200-white.png",
     "brand": "Cooler Master",
-    "title": "NR200"
+    "title": "NR200",
+    "link": "https://www.coolermaster.com/en-eu/products/masterbox-nr200p-v2/"
   },
   {
     "image": "bellroy-tech-kit.png",
     "brand": "Bellroy",
-    "title": "Tech Kit"
+    "title": "Tech Kit",
+    "link": "https://bellroy.com/products/tech-kit?color=black_ash&material=baida_nylon&size=standard"
   },
   {
     "image": "peak-design-wash-pouch.webp",
     "brand": "Peak Design",
-    "title": "Wash Pouch"
+    "title": "Wash Pouch",
+    "link": "https://www.peakdesign.com/eu/products/wash-pouch?Size=Regular&Color=Black"
   },
   {
     "image": "fenix-e01-v2.png",
     "brand": "Fenix",
-    "title": "E01 V2.0"
+    "title": "E01 V2.0",
+    "link": "https://fenix.pl/product/34854,latarka-led-fenix-e01-v2-0-czarna"
   }
 ]
