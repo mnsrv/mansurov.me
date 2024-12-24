@@ -33,7 +33,7 @@ preloads:
   <div class="col padding">
     <h4>2025 year calendar A2</h4>
     <p>inspired by <i><a href="https://jesseitzler.com/products/the-big-a-calendar" target="_blank">THE BIG A## CALENDAR</a></i></p>
-    <div class="image-preview" style="background-image:url('/images/2025-year-calendar-A2-en-pink.jpg')"></div>
+    <div class="image-preview" style="background-image:url('/images/2025-slice-en-pink.png')"></div>
     <fieldset>
       <legend>Select color:</legend>
       <div>
@@ -117,8 +117,8 @@ preloads:
   .image-preview {
     max-width: 328px;
     height: 91px;
-    background-size: 1684px;
-    background-position: -15px -106px;
+    background-size: contain;
+    background-repeat: no-repeat;
     margin-bottom: 1rem;
   }
 

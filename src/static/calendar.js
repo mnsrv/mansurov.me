@@ -24,7 +24,7 @@ function updateImage() {
   document.querySelector(".print-hint").textContent = helperText;
 
   document.querySelector(".image-preview").style.backgroundImage =
-    `url(/images/2025-year-calendar-A2-${lang}-${color}.jpg)`;
+    `url(/images/2025-slice-${lang}-${color}.png)`;
 }
 
 document
