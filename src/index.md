@@ -95,15 +95,51 @@ class: "body_home"
   </div>
 </section>
 
+<section>
+  <h3>Contact</h3>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>GitHub</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <a href="https://github.com/mnsrv" target="_blank">mnsrv</a>
+      </div>
+    </div>
+  </div>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>Email</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <a href="mailto:email@mansurov.me" target="_blank">email@mansurov.me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <style>
   section {
     margin: 4rem 0;
+  }
+  section:first-of-type {
+    margin-top: 0;
+  }
+  section:last-of-type {
+    margin-bottom: 0;
   }
   .work-block {
     margin: 2.5rem 0;
     display: flex;
     flex-direction: row;
     gap: 2.5rem;
+  }
+  h3 + .work-block {
+    margin-top: 2rem;
+  }
+  .work-block:last-child {
+    margin-bottom: 0;
   }
   @media (max-width: 480px) {
     .work-block {
