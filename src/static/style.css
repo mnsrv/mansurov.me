@@ -177,20 +177,25 @@ i {
   flex-direction: column;
   gap: 16px;
   position: relative;
-  border-top: 16px solid #83492a;
-  border-left: 16px solid #83492a;
-  border-bottom: 16px solid #83492a;
-  border-right: 16px solid #83492a;
+  border: 1rem solid #AB7131;
 }
 .books-row {
   display: flex;
   flex-wrap: wrap-reverse;
   width: 100%;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 0 1rem;
   flex: 1;
-  gap: 16px 0;
-  background-color: #644a37;
+  gap: 1rem 0;
+  min-height: 19rem;
+  background: 
+    /* Vertical gradient for depth */
+    linear-gradient(
+      to right,
+      #6F451F 0%,
+      #BF9656 45%,
+      #BF9656 55%,
+      #6F451F 100%
+    );
 }
 .books-row-polka {
   position: absolute;
@@ -202,11 +207,11 @@ i {
   background-image: linear-gradient(
     to top,
     transparent 0px,
-    #83492a 0px,
-    #83492a 16px,
-    transparent 16px
+    #AB7131 0px,
+    #AB7131 1rem,
+    transparent 1rem
   );
-  background-size: 100% 316px;
+  background-size: 100% 20rem;
   background-repeat: repeat-y;
 }
 .books-row-left {
@@ -219,11 +224,11 @@ i {
   background-image: linear-gradient(
     to right,
     transparent 0px,
-    #6c3f18 0px,
-    #6c3f18 16px,
-    transparent 16px
+    #78491F 0px,
+    #512E10 1.75rem,
+    transparent 1.75rem
   );
-  background-size: 100% 316px;
+  background-size: 100% 20rem;
   background-repeat: repeat-y;
 }
 .books-row-right {
@@ -236,11 +241,11 @@ i {
   background-image: linear-gradient(
     to left,
     transparent 0px,
-    #6c3f18 0px,
-    #6c3f18 16px,
-    transparent 16px
+    #78491F 0px,
+    #512E10 1.75rem,
+    transparent 1.75rem
   );
-  background-size: 100% 316px;
+  background-size: 100% 20rem;
   background-repeat: repeat-y;
 }
 .books-row-background {
@@ -252,13 +257,13 @@ i {
   z-index: 0;
   background-image: linear-gradient(
     to top,
-    rgba(84, 49, 29, 1) 0px,
-    rgba(84, 49, 29, 1) 32px,
-    transparent 32px,
-    transparent 280px,
-    #080101 316px
+    #B08A59 0px,
+    #623F19 2rem,
+    transparent 2rem,
+    transparent 12rem,
+    #35130A 20rem
   );
-  background-size: 100% 316px;
+  background-size: 100% 20rem;
 }
 .books-row-corner-left-bottom {
   position: absolute;
@@ -268,14 +273,14 @@ i {
   height: 100%;
   z-index: 0;
   background-image: linear-gradient(
-    135deg,
-    transparent 0px,
-    #6c3f18 0px,
-    #6c3f18 11px,
-    transparent 11px
+    150deg,
+    transparent 0,
+    #78491F 0,
+    #512E10 0.875rem,
+    transparent 0.875rem
   );
-  background-size: 100% 316px;
-  background-position-y: 284px;
+  background-size: 100% 20rem;
+  background-position-y: 18rem;
   background-repeat: repeat-y;
 }
 .books-row-corner-right-bottom {
@@ -286,19 +291,19 @@ i {
   height: 100%;
   z-index: 0;
   background-image: linear-gradient(
-    225deg,
-    transparent 0px,
-    #6c3f18 0px,
-    #6c3f18 11px,
-    transparent 11px
+    210deg,
+    transparent 0,
+    #78491F 0,
+    #512E10 0.875rem,
+    transparent 0.875rem
   );
-  background-size: 100% 316px;
-  background-position-y: 284px;
+  background-size: 100% 20rem;
+  background-position-y: 18rem;
   background-repeat: repeat-y;
 }
 .books-item-container {
-  height: 300px;
-  padding-bottom: 8px;
+  height: 19rem;
+  padding-bottom: 0.25rem;
   display: flex;
   align-items: flex-end;
 }
