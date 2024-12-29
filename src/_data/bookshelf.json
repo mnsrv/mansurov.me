@@ -79,10 +79,100 @@
             "height": "7.87"
         },
         {
+            "title": "Обломов",
+            "author": "Иван Гончаров",
+            "image": "bs-oblomov.jpg",
+            "height": "7.87"
+        },
+        {
+            "title": "Жутко громко & запредельно близко",
+            "author": "Джонатан Сафран Фоер",
+            "image": "bs-jutko-gromko.jpg",
+            "height": "8.35"
+        },
+        {
+            "title": "Трое в лодке, не считая собаки",
+            "author": "Джером К. Джером",
+            "image": "bs-troe-v-lodke.jpg",
+            "height": "7.87"
+        },
+        {
+            "title": "Бесприданница",
+            "author": "Александр Островский",
+            "image": "bs-bespridannica.png",
+            "height": "8.46"
+        },
+        {
+            "title": "Герой нашего времени",
+            "author": "Михаил Лермонтов",
+            "image": "bs-geroi-nashego-vremeni.png",
+            "height": "7.08"
+        },
+        {
+            "title": "А зори здесь тихие...",
+            "author": "Борис Васильев",
+            "image": "bs-a-zori-zdes-tihie.jpg",
+            "height": "7.87"
+        },
+        {
             "title": "Атлант расправил плечи",
             "author": "Айн Рэнд",
             "image": "bs-atlant.png",
             "height": "8.27"
+        },
+        {
+            "title": "Исчезнувшая",
+            "author": "Гиллиан Флинн",
+            "image": "bs-gone-girl.png",
+            "height": "8.66"
+        },
+        {
+            "title": "Полковнику никто не пишет",
+            "author": "Габриэль Гарсиа Маркес",
+            "image": "bs-polkovniku-nikto-ne-pishet.png",
+            "height": "7.08"
+        },
+        {
+            "title": "Понедельник начинается в субботу",
+            "author": "А. Стругацкий, Б. Стругацкий",
+            "image": "bs-ponedelnik.png",
+            "height": "7.87"
+        },
+        {
+            "title": "Планета людей",
+            "author": "Антуан де Сент-Экзюпери",
+            "image": "bs-planeta-lyudei-malenkii-princ.jpg",
+            "height": "7.87"
+        },
+        {
+            "title": "Преступление и наказание",
+            "author": "Фёдор Достоевский",
+            "image": "bs-prestuplenie-i-nakazanie.jpg",
+            "height": "7.87"
+        },
+        {
+            "title": "Похвала скуке",
+            "author": "Иосиф Бродский",
+            "image": "bs-pohvala-skuke.png",
+            "height": "7.08"
+        },
+        {
+            "title": "Марсианин",
+            "author": "Энди Вейер",
+            "image": "bs-marsianin.png",
+            "height": "8.19"
+        },
+        {
+            "title": "Мастер и Маргарита",
+            "author": "Михаил Булгаков",
+            "image": "bs-master-i-margarita.jpg",
+            "height": "7.87"
+        },
+        {
+            "title": "Автостопом по Галактике",
+            "author": "Дуглас Адамс",
+            "image": "bs-autostop.png",
+            "height": "7.08"
         },
         {
             "title": "Гарри Поттер и Методы рационального мышления",
@@ -159,8 +249,8 @@
         {
             "title": "Палата №6",
             "author": "Антон Чехов",
-            "image": "bs-palata-6.png",
-            "height": "7.08"
+            "image": "bs-palata-6.jpg",
+            "height": "7.87"
         },
         {
             "title": "Конец Вечности",
