@@ -28,11 +28,17 @@ date: Last Modified
 
   <div class="col padding">
     <i>updated at: {{ page.date | date: "%e %b %y" }}</i>
-    {% for item in booksByYear %}
+    {% for item in booksByYear %}<section>
     <h4>{{ item.key }}</h4>
     {% for book in item.values %}
     <p>{{ book.title }} <i>{{ book.author }}</i>{% if book.rating == '5' %} ⭐️{% endif %}</p>
-    {% endfor %}
+    {% endfor %}</section>
     {% endfor %}
   </div>
 </div>
+
+<style>
+  section {
+    margin: 2rem 0;
+  }
+</style>
