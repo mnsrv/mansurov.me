@@ -3,6 +3,8 @@
 :root {
   --background-color: #fffcf0;
   --text-color: #100f0f;
+  --text-color-muted: #6f6e69;
+  --action-color: #205ea6;
   --wishlist-item-bg: rgb(242, 240, 229);
   --wishlist-item-hover: rgb(230, 228, 217);
 }
@@ -11,6 +13,8 @@
   :root {
     --background-color: #100f0f;
     --text-color: #cecdc3;
+    --text-color-muted: #878580;
+    --action-color: #4385be;
     --wishlist-item-bg: #1c1b1a;
     --wishlist-item-hover: #282726;
   }
@@ -118,6 +122,7 @@ a {
 }
 a:hover {
   text-decoration: none;
+  color: var(--action-color);
 }
 
 .hover-opacity {
@@ -175,7 +180,7 @@ table {
 }
 
 i {
-  opacity: 0.5;
+  color: var(--text-color-muted);
   font-style: normal;
 }
 .books-container {
@@ -382,7 +387,7 @@ i {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  opacity: 0.5;
+  color: var(--text-color-muted);
   line-height: 1.5;
 }
 

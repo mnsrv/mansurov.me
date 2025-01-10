@@ -1,6 +1,6 @@
 ---
 title: Wishlist
-subtitle: inspired by <i><a href="https://goods.so" target="_blank">goods.so</a></i>
+subtitle: inspired by <a href="https://goods.so" target="_blank">goods.so</a>
 eleventyNavigation:
   key: wishlist
   title: wishlist

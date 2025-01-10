@@ -32,7 +32,7 @@ preloads:
   </div>
   <div class="col padding">
     <h4>2025 year calendar A2</h4>
-    <p>inspired by <i><a href="https://jesseitzler.com/products/the-big-a-calendar" target="_blank">THE BIG A## CALENDAR</a></i></p>
+    <p>inspired by <a href="https://jesseitzler.com/products/the-big-a-calendar" target="_blank">THE BIG A## CALENDAR</a></p>
     <div class="image-preview" style="background-image:url('/images/2025-slice-en-pink.png')"></div>
     <fieldset>
       <legend>Select color:</legend>
@@ -76,7 +76,7 @@ preloads:
   
   <div class="col padding">
 <h4>2024 year calendar A2</h4>
-<p>inspired by <i><a href="https://www.justbenice.ru/product/calendar-2023/" target="_blank">Just Be Nice</a></i></p>
+<p>inspired by <a href="https://www.justbenice.ru/product/calendar-2023/" target="_blank">Just Be Nice</a></p>
 <img src="/images/2024-year-calendar-A2.jpg" alt="2024 year calendar A2" style="max-width: 842px; width: 100%;" />
 </div>
 <div class="col padding">
@@ -86,17 +86,17 @@ preloads:
 </div>
 <div class="col padding">
 <h4>2022 month calendar A4</h4>
-<p>inspired by <i><a href="https://www.instagram.com/kalstorecom/" target="_blank">KALSTORE</a></i></p>
+<p>inspired by <a href="https://www.instagram.com/kalstorecom/" target="_blank">KALSTORE</a></p>
 <img src="/images/2022-month-calendar-A4.jpg" alt="2022 month calendar A4" style="width: 297.5px;" />
 </div>
 <div class="col padding">
 <h4>2021 year calendar A1</h4>
-<p>inspired by <i><a href="https://www.instagram.com/lelevina/" target="_blank">olia levina</a></i>, <i><a href="https://www.instagram.com/partisanpress/" target="_blank">Partisan Press</a></i></p>
+<p>inspired by <a href="https://www.instagram.com/lelevina/" target="_blank">olia levina</a>, <a href="https://www.instagram.com/partisanpress/" target="_blank">Partisan Press</a></p>
 <img src="/images/2021-year-calendar-A1.jpg" alt="2021 year calendar A1" style="max-width: 1192px; width: 100%;" />
 </div>
 <div class="col padding">
 <h4>2020 month calendar A4</h4>
-<p>inspired by <i><a href="https://github.com/eliheuer/gregorian-wall-calendar" target="_blank">Eli Heuer</a></i></p>
+<p>inspired by <a href="https://github.com/eliheuer/gregorian-wall-calendar" target="_blank">Eli Heuer</a></p>
 <img src="/images/2020-month-calendar-A4.jpg" alt="2020 month calendar A4" style="width: 297.5px;" />
 </div>
 </div>

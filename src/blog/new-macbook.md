@@ -1,7 +1,6 @@
 ---
 tags: posts
 title: New MacBook Setup
-subtitle: I like to setup fresh computer instead of copying it from backup
 layout: "base.liquid"
 class: "body_blog"
 date: 2024-06-07
@@ -55,6 +54,4 @@ Programming
 - Alabaster Theme <https://github.com/tonsky/sublime-scheme-alabaster>
 - FiraCode <https://github.com/tonsky/FiraCode/>
 
-Inspiration: <a href="https://www.stuartellis.name/articles/mac-setup/" target="_blank"><i>https://www.stuartellis.name/articles/mac-setup/</i></a>
-
-<i>{{ page.date | date: "%e %b %y" }}</i>
+Inspiration: <a href="https://www.stuartellis.name/articles/mac-setup/" target="_blank">https://www.stuartellis.name/articles/mac-setup/</a>
