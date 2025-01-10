@@ -1,5 +1,12 @@
 const books = [
   {
+    title: "Дары волхвов",
+    author: "О. Генри",
+    rating: 3,
+    date: "2025-01-01",
+    year: "2025",
+  },
+  {
     title: "Вторая жизнь Уве",
     author: "Фредрик Бакман",
     rating: 4,
