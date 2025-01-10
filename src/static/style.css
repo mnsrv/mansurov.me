@@ -43,32 +43,32 @@ body {
 }
 
 .body_home .hero {
-  background-color: oklch(14.79% 0.0353 253.13);
-  color: oklch(91.28% 0 0);
+  background-color: #1a4f8c;
+  color: #cecdc3;
 }
 .body_moviecast .hero {
   background-color: #142119;
   color: oklch(91.28% 0 0);
 }
 .body_blog .hero {
-  background-color: #ffe6eb;
-  color: oklch(24.25% 0.0015 197.06);
+  background-color: #da702c;
+  color: #100f0f;
 }
 .body_books .hero {
-  background-color: #4c5248;
+  background-color: rgb(83, 105, 7);
   color: #ffe8ba;
 }
 .body_wishlist .hero {
-  background-color: #77000a;
+  background-color: #942822;
   color: oklch(91.28% 0 0);
 }
 .body_calendars .hero {
-  background-color: #ddedea;
+  background-color: #ce5d97;
   color: oklch(24.25% 0.0015 197.06);
 }
 .body_chess .hero {
-  background-color: #232424;
-  color: #919292;
+  background-color: #8b7ec8;
+  color: #100f0f;
 }
 
 nav ul {
