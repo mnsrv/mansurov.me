@@ -3,7 +3,7 @@ title: Sasha Mansurov
 subtitle: Warsaw, Poland
 eleventyNavigation:
   key: /
-  title: home
+  title: mansurov.me
   order: 0
 layout: "base.liquid"
 class: "body_home"
