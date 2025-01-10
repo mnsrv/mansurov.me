@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 :root {
-  --background-color: white;
-  --text-color: oklch(24.25% 0.0015 197.06);
-  --wishlist-item-bg: #f4f4f6;
-  --wishlist-item-hover: #eeeef0;
+  --background-color: #fffcf0;
+  --text-color: #100f0f;
+  --wishlist-item-bg: rgb(242, 240, 229);
+  --wishlist-item-hover: rgb(230, 228, 217);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: oklch(24.25% 0.0015 197.06);
-    --text-color: oklch(91.28% 0 0);
-    --wishlist-item-bg: #3d3d3d;
-    --wishlist-item-hover: #4d4d4d;
+    --background-color: #100f0f;
+    --text-color: #cecdc3;
+    --wishlist-item-bg: #1c1b1a;
+    --wishlist-item-hover: #282726;
   }
 }
 
@@ -26,7 +26,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.375;
 }
 @media (max-width: 960px) {
@@ -161,11 +161,17 @@ table {
   }
 }
 
-.padding {
+.padding,
+.padding-no-mobile {
   padding: 1.5rem;
 }
 .padding-half {
   padding: 0.75rem;
+}
+@media (max-width: 960px) {
+  .padding-no-mobile {
+    padding: 0;
+  }
 }
 
 i {
@@ -177,7 +183,7 @@ i {
   flex-direction: column;
   gap: 16px;
   position: relative;
-  border: 1rem solid #AB7131;
+  border: 1rem solid #ab7131;
 }
 .books-row {
   display: flex;
@@ -188,14 +194,13 @@ i {
   gap: 1rem 0;
   min-height: 19rem;
   background: 
-    /* Vertical gradient for depth */
-    linear-gradient(
-      to right,
-      #6F451F 0%,
-      #BF9656 45%,
-      #BF9656 55%,
-      #6F451F 100%
-    );
+    /* Vertical gradient for depth */ linear-gradient(
+    to right,
+    #6f451f 0%,
+    #bf9656 45%,
+    #bf9656 55%,
+    #6f451f 100%
+  );
 }
 .books-row-polka {
   position: absolute;
@@ -207,8 +212,8 @@ i {
   background-image: linear-gradient(
     to top,
     transparent 0px,
-    #AB7131 0px,
-    #AB7131 1rem,
+    #ab7131 0px,
+    #ab7131 1rem,
     transparent 1rem
   );
   background-size: 100% 20rem;
@@ -224,8 +229,8 @@ i {
   background-image: linear-gradient(
     to right,
     transparent 0px,
-    #78491F 0px,
-    #512E10 1.75rem,
+    #78491f 0px,
+    #512e10 1.75rem,
     transparent 1.75rem
   );
   background-size: 100% 20rem;
@@ -241,8 +246,8 @@ i {
   background-image: linear-gradient(
     to left,
     transparent 0px,
-    #78491F 0px,
-    #512E10 1.75rem,
+    #78491f 0px,
+    #512e10 1.75rem,
     transparent 1.75rem
   );
   background-size: 100% 20rem;
@@ -257,11 +262,11 @@ i {
   z-index: 0;
   background-image: linear-gradient(
     to top,
-    #B08A59 0px,
-    #623F19 2rem,
+    #b08a59 0px,
+    #623f19 2rem,
     transparent 2rem,
     transparent 12rem,
-    #35130A 20rem
+    #35130a 20rem
   );
   background-size: 100% 20rem;
 }
@@ -275,8 +280,8 @@ i {
   background-image: linear-gradient(
     150deg,
     transparent 0,
-    #78491F 0,
-    #512E10 0.875rem,
+    #78491f 0,
+    #512e10 0.875rem,
     transparent 0.875rem
   );
   background-size: 100% 20rem;
@@ -293,8 +298,8 @@ i {
   background-image: linear-gradient(
     210deg,
     transparent 0,
-    #78491F 0,
-    #512E10 0.875rem,
+    #78491f 0,
+    #512e10 0.875rem,
     transparent 0.875rem
   );
   background-size: 100% 20rem;
