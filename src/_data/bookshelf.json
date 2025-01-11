@@ -82,6 +82,7 @@
             "title": "Обломов",
             "author": "Иван Гончаров",
             "image": "bs-oblomov.jpg",
+            "cover": "bc-oblomov.jpg",
             "height": "7.87"
         },
         {
@@ -142,12 +143,14 @@
             "title": "Планета людей",
             "author": "Антуан де Сент-Экзюпери",
             "image": "bs-planeta-lyudei-malenkii-princ.jpg",
+            "cover": "bc-planeta-lyudei-malenkii-princ.jpg",
             "height": "7.87"
         },
         {
             "title": "Преступление и наказание",
             "author": "Фёдор Достоевский",
             "image": "bs-prestuplenie-i-nakazanie.jpg",
+            "cover": "bc-prestuplenie-i-nakazanie.jpg",
             "height": "7.87"
         },
         {
@@ -166,6 +169,7 @@
             "title": "Мастер и Маргарита",
             "author": "Михаил Булгаков",
             "image": "bs-master-i-margarita.jpg",
+            "cover": "bc-master-i-margarita.jpg",
             "height": "7.87"
         },
         {
@@ -244,12 +248,14 @@
             "title": "О чем я говорю, когда говорю о беге",
             "author": "Харуки Мураками",
             "image": "bs-beg.png",
+            "cover": "bc-beg.jpg",
             "height": "7.87"
         },
         {
             "title": "Палата №6",
             "author": "Антон Чехов",
             "image": "bs-palata-6.jpg",
+            "cover": "bc-palata-6.jpg",
             "height": "7.87"
         },
         {
@@ -280,7 +286,8 @@
             "title": "Silo. Dust",
             "author": "Hugh Howey",
             "image": "bs-silo-dust.png",
-            "height": "7.8"
+            "cover": "bc-dust.jpg",
+            "height": "8.00"
         },
         {
             "title": "Империя должна умереть: История русских революций в лицах. 1900-1917",
@@ -298,6 +305,7 @@
             "title": "Крестный отец",
             "author": "Марио Пьюзо",
             "image": "bs-godfather.jpg",
+            "cover": "bc-godfather.jpg",
             "height": "7.87"
         },
         {
@@ -310,6 +318,7 @@
             "title": "Дары волхвов",
             "author": "О. Генри",
             "image": "bs-dary-volkhvov.jpg",
+            "cover": "bc-dary-volkhvov.jpg",
             "height": "7.87"
         }
     ]
