@@ -1,8 +1,7 @@
 ---
 tags: posts
 title: New MacBook Setup
-layout: "base.liquid"
-class: "body_blog"
+layout: "post.liquid"
 date: 2024-06-07
 ---
 

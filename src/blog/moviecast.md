@@ -1,8 +1,7 @@
 ---
 tags: posts
 title: MovieCast
-layout: "base.liquid"
-class: "body_blog"
+layout: "post.liquid"
 date: 2024-11-23
 ---
 
