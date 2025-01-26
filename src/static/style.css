@@ -5,6 +5,7 @@
   --text-color: #100f0f;
   --text-color-muted: #6f6e69;
   --action-color: #205ea6;
+  --visited-color: #66a0c8;
   --selection-color: #c6dde8;
   --wishlist-item-bg: rgb(242, 240, 229);
   --wishlist-item-hover: rgb(230, 228, 217);
@@ -16,6 +17,7 @@
     --text-color: #cecdc3;
     --text-color-muted: #878580;
     --action-color: #4385be;
+    --visited-color: #92bfdb;
     --selection-color: #92bfdb;
     --wishlist-item-bg: #1c1b1a;
     --wishlist-item-hover: #282726;
@@ -106,16 +108,17 @@ a {
 a[target="_blank"] {
   text-decoration: underline;
 }
+a:visited {
+  color: var(--visited-color);
+}
+
+a.muted {
+  text-decoration: none;
+  color: var(--text-color-muted);
+}
 a:hover {
   text-decoration: none;
   color: var(--action-color);
-}
-a.muted {
-  text-decoration: none;
-}
-
-.muted {
-  color: var(--text-color-muted);
 }
 
 .hover-opacity {

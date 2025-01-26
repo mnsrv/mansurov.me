@@ -6,7 +6,6 @@ eleventyNavigation:
   title: blog
   order: 1
 layout: "base.liquid"
-class: "body_blog"
 ---
 
 {% for post in collections.posts reversed %}<p>

@@ -1,6 +1,6 @@
 ---
 title: Sasha Mansurov
-subtitle: Warsaw, Poland
+subtitle: 📍 Warsaw, Poland
 eleventyNavigation:
   key: /
   title: mansurov.me
