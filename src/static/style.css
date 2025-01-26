@@ -168,6 +168,11 @@ table {
     padding: 0;
   }
 }
+@media (max-width: 960px) {
+  .mh {
+    display: none;
+  }
+}
 
 img {
   display: block;
@@ -191,6 +196,11 @@ figcaption {
 
 .ppr {
   padding-right: 2rem;
+}
+@media (max-width: 960px) {
+  .ppr {
+    padding-right: 1rem;
+  }
 }
 
 .books-container {
