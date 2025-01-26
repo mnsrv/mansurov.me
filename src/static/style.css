@@ -162,10 +162,30 @@ table {
   }
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 i {
   color: var(--text-color-muted);
   font-style: normal;
 }
+
+figure {
+  margin: 1rem 0 0.5rem;
+  padding: 0;
+}
+
+figcaption {
+  margin-top: 0.25rem;
+  color: var(--text-color-muted);
+}
+
+.ppr {
+  padding-right: 1rem;
+}
+
 .books-container {
   display: flex;
   flex-direction: column;
