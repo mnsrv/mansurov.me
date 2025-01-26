@@ -99,13 +99,23 @@ p {
 }
 
 a {
-  color: inherit;
-  text-decoration: underline;
+  color: var(--action-color);
+  text-decoration: none;
   word-wrap: break-word;
+}
+a[target="_blank"] {
+  text-decoration: underline;
 }
 a:hover {
   text-decoration: none;
   color: var(--action-color);
+}
+a.muted {
+  text-decoration: none;
+}
+
+.muted {
+  color: var(--text-color-muted);
 }
 
 .hover-opacity {
@@ -183,7 +193,7 @@ figcaption {
 }
 
 .ppr {
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 
 .books-container {
@@ -332,6 +342,7 @@ figcaption {
   left: 100%;
   z-index: 1;
   pointer-events: none;
+  max-width: none;
 }
 .books-item:hover + .books-cover {
   display: block;

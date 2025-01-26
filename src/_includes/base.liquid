@@ -27,7 +27,7 @@
             {% if entry.url == page.url %}
               <li>{{ entry.title }}</li>
             {% else %}
-              <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+              <li><a href="{{ entry.url }}" class="muted">{{ entry.title }}</a></li>
             {% endif %}
           {%- endfor %}
         </ul>

@@ -121,7 +121,7 @@ class: "body_home"
 
 <style>
   section {
-    margin: 4rem 0;
+    margin: 3rem 0;
   }
   section:first-of-type {
     margin-top: 0;
@@ -130,10 +130,10 @@ class: "body_home"
     margin-bottom: 0;
   }
   .work-block {
-    margin: 2.5rem 0;
+    margin: 2rem 0;
     display: flex;
     flex-direction: row;
-    gap: 2.5rem;
+    gap: 2rem;
   }
   h3 + .work-block {
     margin-top: 2rem;
