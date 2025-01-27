@@ -147,6 +147,11 @@ table {
   }
 }
 
+.row {
+  display: flex;
+  align-items: center;
+}
+
 .col {
   width: 50%;
 }

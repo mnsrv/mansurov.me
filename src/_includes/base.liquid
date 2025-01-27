@@ -35,7 +35,11 @@
     </header>
 
     <div class="hero">
-      <div class="container padding">
+      <div class="container row">
+        {% if title == 'Sasha Mansurov' %}
+        <img src="/images/me.jpeg" alt="Sasha Mansurov" style="width: 6rem; height: 6rem; border-radius: 3rem; margin-left: 1.5rem;" />
+        {% endif %}
+        <div class="padding">
         <h1>{{ title }}</h1>
         <i>
           {% if subtitle != null %}
@@ -44,6 +48,7 @@
             {{ page.date | date: "%e %B %Y" }}
           {% endif %}
         </i>
+        </div>
       </div>
     </div>
 
