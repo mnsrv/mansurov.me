@@ -9,49 +9,6 @@ layout: "base.liquid"
 ---
 
 <section>
-  <h3>Side Projects</h3>
-  <div class="work-block">
-    <div class="work-duration">
-      <span><i>2024</i></span>
-    </div>
-    <div class="work-experience">
-      <div class="work-experience-title">
-        <a href="https://moviecast.app" target="_blank">MovieCast app</a>
-      </div>
-      <div class="work-experience-description">
-        <i>SwiftUI, TMDB</i>
-      </div>
-    </div>
-  </div>
-  <div class="work-block">
-    <div class="work-duration">
-      <span><i>2023</i></span>
-    </div>
-    <div class="work-experience">
-      <div class="work-experience-title">
-        <span>mansurov.me</span>
-      </div>
-      <div class="work-experience-description">
-        <i>Eleventy, Vercel</i>
-      </div>
-    </div>
-  </div>
-  <div class="work-block">
-    <div class="work-duration">
-      <span><i>2023</i></span>
-    </div>
-    <div class="work-experience">
-      <div class="work-experience-title">
-        <span>personal Telegram bot</span>
-      </div>
-      <div class="work-experience-description">
-        <i>self-hosted n8n</i>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
   <h3>Work Experience</h3>
   <div class="work-block">
     <div class="work-duration">
@@ -95,7 +52,80 @@ layout: "base.liquid"
 </section>
 
 <section>
-  <h3>Contact</h3>
+  <h3>Side Projects</h3>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>2024</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <a href="https://moviecast.app" target="_blank">MovieCast app</a>
+      </div>
+      <div class="work-experience-description">
+        <i>SwiftUI, TMDB</i>
+      </div>
+    </div>
+  </div>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>2023</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <span>mansurov.me</span>
+      </div>
+      <div class="work-experience-description">
+        <i>Eleventy, Vercel</i>
+      </div>
+    </div>
+  </div>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>2023</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <span>personal Telegram bot</span>
+      </div>
+      <div class="work-experience-description">
+        <i>self-hosted n8n</i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Education</h3>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>2009 — 2014</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        BS in Computer Science at RSU of Oil and Gas
+      </div>
+      <div class="work-experience-description">
+        <i>Use of Multi-Agent Systems in the Oil and Gas Industry</i>
+      </div>
+    </div>
+  </div>
+  <div class="work-block">
+    <div class="work-duration">
+      <span><i>2014 — 2016</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        MS in Informatics and Computer Engineering at RSU of Oil and Gas
+      </div>
+      <div class="work-experience-description">
+        <i>Development of an Integrated Web-Based User Support System</i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Links</h3>
   <div class="work-block">
     <div class="work-duration">
       <span><i>GitHub</i></span>
