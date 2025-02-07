@@ -102,7 +102,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        BS in Computer Science at RSU of Oil and Gas
+        Bachelor of Computer Science at RSU of Oil and Gas
       </div>
       <div class="work-experience-description">
         <i>Use of Multi-Agent Systems in the Oil and Gas Industry</i>
@@ -115,7 +115,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        MS in Informatics and Computer Engineering at RSU of Oil and Gas
+        Master of Science in Information Technology at RSU of Oil and Gas
       </div>
       <div class="work-experience-description">
         <i>Development of an Integrated Web-Based User Support System</i>
