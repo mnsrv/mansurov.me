@@ -6,11 +6,8 @@ eleventyNavigation:
   title: mansurov.me
   order: 0
 layout: "base.liquid"
-class: "body_no_padding"
 ---
 
-<div class="flex container">
-  <div class="col padding">
 <section>
   <h3>Side Projects</h3>
   <div class="work-block">
@@ -78,7 +75,7 @@ class: "body_no_padding"
         <span>Senior Frontend Engineer at Rocketbank</span>
       </div>
       <div class="work-experience-description">
-        <i>TypeScript, React, React Native, MobX, Redux</i>
+        <i>TypeScript, React, React Native, MobX, Redux, Lottie</i>
       </div>
     </div>
   </div>
@@ -88,10 +85,10 @@ class: "body_no_padding"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>Frontend Engineer at Idaproject</span>
+        <span>Frontend Engineer at <a href="https://idaproject.com" target="_blank">Idaproject</a></span>
       </div>
       <div class="work-experience-description">
-        <i>HTML, CSS, JavaScript, jQuery</i>
+        <i>HTML, CSS, JavaScript, jQuery, Canvas</i>
       </div>
     </div>
   </div>
@@ -120,15 +117,6 @@ class: "body_no_padding"
     </div>
   </div>
 </section>
-
-</div>
-  <div class="col padding">
-    <figure>
-    <img src="/images/apollo_8_earthrise_1968.jpg" alt="“Earthrise” by NASA Astronaut Bill Anders" />
-    <figcaption>Earthrise, <a href="https://www.nasa.gov/image-detail/apollo-8-astronaut-bill-anders-captures-earthrise-2/" target="_blank">NASA</a></figcaption>
-  </figure>
-  </div>
-</div>
 
 <style>
   section {
