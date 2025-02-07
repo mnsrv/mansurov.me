@@ -16,7 +16,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>Senior Frontend Engineer at <a href="https://onesoil.ai" target="_blank">OneSoil</a></span>
+        <span>Senior Frontend Engineer at <a href="https://onesoil.ai" target="_blank" class="icon-link" data-link="onesoil">OneSoil</a></span>
       </div>
       <div class="work-experience-description">
         <i>TypeScript, React, React Native, WatermelonDB, Mapbox, Storybook, GitLab CI/CD</i>
@@ -29,7 +29,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>Senior Frontend Engineer at Rocketbank</span>
+        <span>Senior Frontend Engineer at <span class="icon-link" data-link="rocketbank">Rocketbank</span></span>
       </div>
       <div class="work-experience-description">
         <i>TypeScript, React, React Native, MobX, Redux, Lottie</i>
@@ -42,7 +42,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>Frontend Engineer at <a href="https://idaproject.com" target="_blank">Idaproject</a></span>
+        <span>Frontend Engineer at <a href="https://idaproject.com" target="_blank" class="icon-link" data-link="idaproject">Idaproject</a></span>
       </div>
       <div class="work-experience-description">
         <i>HTML, CSS, JavaScript, jQuery, Canvas</i>
@@ -59,7 +59,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <a href="https://moviecast.app" target="_blank">MovieCast app</a>
+        <a href="https://moviecast.app" target="_blank" class="icon-link" data-link="moviecast">MovieCast app</a>
       </div>
       <div class="work-experience-description">
         <i>SwiftUI, TMDB</i>
@@ -72,7 +72,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>mansurov.me</span>
+        <span class="icon-link" data-link="mansurov.me">mansurov.me</span>
       </div>
       <div class="work-experience-description">
         <i>Eleventy, Vercel</i>
@@ -85,7 +85,7 @@ layout: "base.liquid"
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>personal Telegram bot</span>
+        <span class="icon-link" data-link="mikha">personal Telegram bot</span>
       </div>
       <div class="work-experience-description">
         <i>self-hosted n8n</i>
@@ -188,5 +188,34 @@ layout: "base.liquid"
   }
   .work-experience-description {
     margin-top: 0.5rem;
+  }
+  .icon-link[data-link]:before {
+    content: '\3000';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    border-radius: 4px;
+  }
+  .icon-link[data-link="onesoil"]:before {
+    background-image: url(/images/onesoil.png);
+  }
+  .icon-link[data-link="rocketbank"]:before {
+    background-image: url(/images/rocketbank.png);
+  }
+  .icon-link[data-link="idaproject"]:before {
+    background-image: url(/images/idaproject.png);
+  }
+  .icon-link[data-link="moviecast"]:before {
+    background-image: url(/images/moviecast.png);
+  }
+  .icon-link[data-link="mansurov.me"]:before {
+    background-image: url(/static/favicon.svg);
+  }
+  .icon-link[data-link="mikha"]:before {
+    background-image: url(/images/mikha.png);
   }
 </style>
