@@ -189,6 +189,9 @@ layout: "base.liquid"
   .work-experience-description {
     margin-top: 0.5rem;
   }
+  .icon-link {
+    white-space: nowrap;
+  }
   .icon-link[data-link]:before {
     content: '\3000';
     display: inline-block;
@@ -199,6 +202,12 @@ layout: "base.liquid"
     background-repeat: no-repeat;
     background-position-y: center;
     border-radius: 4px;
+  }
+  @media (max-width: 960px) {
+    .icon-link[data-link]:before {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
   .icon-link[data-link="onesoil"]:before {
     background-image: url(/images/onesoil.png);
