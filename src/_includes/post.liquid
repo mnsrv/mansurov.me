@@ -7,4 +7,27 @@ class: "body_no_padding"
   <div class="col padding">
     {{ content }}
   </div>
+  <div class="col padding">
+    {% if summaryBooks.length > 0 %}
+    <section>
+      <h3>Книги</h3>
+      <div class="row">
+      {% for book in summaryBooks %}
+        <img src="/images/books/{{book.cover}}" alt="{{ book.title }}" title="{{ book.title }}" class="book" />
+      {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </div>
 </div>
+
+<style>
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .book {
+    height: 8rem;
+  }
+</style>
