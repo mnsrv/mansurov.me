@@ -32,6 +32,7 @@ const books = [
     rating: 4,
     date: "2024-12-29",
     image: "bs-uve.png",
+    cover: "bc-uve.jpg",
     height: "8.15",
   },
   {
@@ -49,6 +50,7 @@ const books = [
     rating: "4",
     date: "2024-09-06",
     image: "bs-kavaler-clay.png",
+    cover: "bc-kavaler-clay.jpg",
     height: "8.27",
   },
   {
@@ -58,6 +60,7 @@ const books = [
     rating: "3",
     date: "2024-03-07",
     image: "bs-empire-must-die.png",
+    cover: "bc-empire-must-die.jpg",
     height: "8.5",
   },
   {
