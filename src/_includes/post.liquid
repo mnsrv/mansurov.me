@@ -39,6 +39,16 @@ class: "body_no_padding"
       </ul>
     </section>
     {% endif %}
+    {% if summaryConcerts.length > 0 %}
+      <section>
+        <h3>Концерты</h3>
+        <ul>
+        {% for concert in summaryConcerts %}
+          <li>{{ concert.author }} <i>{{ concert.location }}</i>.</li>
+        {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
     {% if summarySeries.length > 0 %}
       <section>
         <h3>Сериалы</h3>

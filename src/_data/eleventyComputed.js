@@ -39,4 +39,10 @@ export default {
     }
     return [];
   },
+  summaryConcerts: (data) => {
+    if (data.layout === "post.liquid" && data.summary) {
+      return data.concerts.filter((c) => c.date.startsWith(data.summary));
+    }
+    return [];
+  },
 };
