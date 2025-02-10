@@ -9,6 +9,11 @@ export default {
     if (data.layout === "post.liquid" && data.summaryBook) {
       return data.quotes.filter((b) => b.song === data.summaryBook);
     }
+    if (data.layout === "post.liquid" && data.summary) {
+      return data.quotes.filter(
+        (q) => q.type !== "book" && q.date.startsWith(data.summary),
+      );
+    }
     return [];
   },
   summaryPosts: (data) => {

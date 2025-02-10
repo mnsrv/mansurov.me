@@ -27,7 +27,7 @@ class: "body_no_padding"
     <section>
       <h3>Цитаты</h3>
       <div>
-      {% for quote in summaryQuotes %}<blockquote><p>{{ quote.title | newline_to_br }}</p>{% if page.fileSlug != quote.link %}<footer>— {{ quote.author }}, <cite>{% if quote.link %}<a href="/blog/{{quote.link}}">{{ quote.song }}</a>{% else %}{{ quote.song }}{% endif %}</cite></footer>{% endif %}</blockquote>{% endfor %}
+      {% for quote in summaryQuotes %}<blockquote><p>{{ quote.title | newline_to_br }}</p>{% if quote.type != "book" %}<footer>— {{ quote.author }}, <cite>{% if quote.link %}<a href="/blog/{{quote.link}}">{{ quote.song }}</a>{% else %}{{ quote.song }}{% endif %}</cite></footer>{% endif %}</blockquote>{% endfor %}
       </div>
     </section>
     {% endif %}
