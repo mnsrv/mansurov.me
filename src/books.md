@@ -31,7 +31,8 @@ date: Last Modified
     {% for item in books.byYear %}<section>
     <h4>{{ item.key }}</h4>
     {% for book in item.values %}
-    <p>{{ book.title }} <i>{{ book.author }}</i>{% if book.rating == '5' %} ⭐️{% endif %}{% if not book.image %}🖼️{% endif %}{% if not book.cover %}📕{% endif %}</p>
+    {% if book.link %}[{{book.title}}](/blog/{{book.link}})
+    {% else %}{{ book.title }}{% endif %} <i>{{ book.author }}</i>{% if book.rating == '5' %} ⭐️{% endif %}{% if not book.image %} 🖼️{% endif %}{% if not book.cover %} 📕{% endif %}
     {% endfor %}</section>
     {% endfor %}
     <p>🖼️ no spine: {{ books.noSpine }}</p>

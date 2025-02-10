@@ -8,13 +8,10 @@ eleventyNavigation:
 layout: "base.liquid"
 ---
 
-{% for quote in quotes %}<blockquote><p>{{ quote.title | newline_to_br }}</p><footer>— {{ quote.author }}, <cite>{{ quote.song }}</cite></footer></blockquote>{% endfor %}
+{% for quote in quotes %}
 
-<style>
-  blockquote {
-    margin: 3rem 0;
-  }
-  blockquote:first-child {
-    margin-top: 0;
-  }
-</style>
+> {{ quote.title | newline_to_br }}
+>
+> — {{ quote.author }}, _{% if quote.link %}[{{ quote.song }}](/blog/{{quote.link}}){% else %}{{ quote.song }}{% endif %}_
+
+{% endfor %}

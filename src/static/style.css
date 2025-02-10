@@ -129,6 +129,12 @@ table {
   border-collapse: separate;
 }
 
+blockquote {
+  padding-left: 1.5em;
+  margin: 1.5em 0;
+  border-left: 2px solid var(--text-color);
+}
+
 .social {
   display: block;
   width: 1.5rem;

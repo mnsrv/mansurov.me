@@ -13,8 +13,21 @@ class: "body_no_padding"
       <h3>Книги</h3>
       <div class="row">
       {% for book in summaryBooks %}
+        {% if book.link %}
+        <a href="/blog/{{book.link}}"><img src="/images/books/{{book.cover}}" alt="{{ book.title }}" title="{{ book.title }}" class="book" /></a>
+        {% else %}
         <img src="/images/books/{{book.cover}}" alt="{{ book.title }}" title="{{ book.title }}" class="book" />
+        {% endif %}
+        
       {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+    {% if summaryQuotes.length > 0 %}
+    <section>
+      <h3>Цитаты</h3>
+      <div>
+      {% for quote in summaryQuotes %}<blockquote><p>{{ quote.title | newline_to_br }}</p>{% if page.fileSlug != quote.link %}<footer>— {{ quote.author }}, <cite>{% if quote.link %}<a href="/blog/{{quote.link}}">{{ quote.song }}</a>{% else %}{{ quote.song }}{% endif %}</cite></footer>{% endif %}</blockquote>{% endfor %}
       </div>
     </section>
     {% endif %}
@@ -22,6 +35,15 @@ class: "body_no_padding"
 </div>
 
 <style>
+  section {
+    margin: 3rem 0;
+  }
+  section:first-of-type {
+    margin-top: 0;
+  }
+  section:last-of-type {
+    margin-bottom: 0;
+  }
   .row {
     display: flex;
     flex-direction: row;
