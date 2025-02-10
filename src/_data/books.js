@@ -17,6 +17,7 @@ const books = [
     image: "bs-kak-jit.png",
     cover: "bc-kak-jit.jpg",
     height: "7.09",
+    link: "lessons-in-stoicism",
   },
   {
     title: "Дары волхвов",
