@@ -33,4 +33,10 @@ export default {
     }
     return [];
   },
+  summarySeries: (data) => {
+    if (data.layout === "post.liquid" && data.summary) {
+      return data.series.filter((s) => s.date.startsWith(data.summary));
+    }
+    return [];
+  },
 };

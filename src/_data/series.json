@@ -1,0 +1,51 @@
+[
+    {
+        "title": "The Penguin",
+        "season": "01",
+        "date": "2025-02-08",
+        "rating": 4,
+        "image": "https://image.tmdb.org/t/p/w185/7hE6LffWtMccJjXxc20Xnh1JbRG.jpg"
+    },
+    {
+        "title": "Shrinking",
+        "season": "02",
+        "date": "2025-02-02",
+        "rating": 5,
+        "image": "https://image.tmdb.org/t/p/w185/oPGwHdAxhNCi2TQIRnOryBUEUvw.jpg"
+    },
+    {
+        "title": "Shrinking",
+        "season": "01",
+        "date": "2025-01-30",
+        "rating": 5,
+        "image": "https://image.tmdb.org/t/p/w185/jFUZebOjrjZfvg7ZSrc19GvTRTg.jpg"
+    },
+    {
+        "title": "Shōgun",
+        "season": "01",
+        "date": "2025-01-23",
+        "rating": 4,
+        "image": "https://image.tmdb.org/t/p/w185/7O4iVfOMQmdCSxhOg1WnzG1AgYT.jpg"
+    },
+    {
+        "title": "Silo",
+        "season": "02",
+        "date": "2025-01-17",
+        "rating": 4,
+        "image": "https://image.tmdb.org/t/p/w185/qblHRA3QDNZi1xrOsJodBxluCnT.jpg"
+    },
+    {
+        "title": "The Day of the Jackal",
+        "season": "01",
+        "date": "2025-01-09",
+        "rating": 4,
+        "image": "https://image.tmdb.org/t/p/w185/7JXRPUz9cavaouE92L5ksrwClL2.jpg"
+    },
+    {
+        "title": "Arcane",
+        "season": "02",
+        "date": "2024-12-30",
+        "rating": 5,
+        "image": "https://image.tmdb.org/t/p/w185/oTGEwkp1mPgWNMgVSM53TWfzgSc.jpg"
+    }
+]
