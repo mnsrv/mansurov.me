@@ -154,6 +154,7 @@ const books = [
     rating: "3",
     date: "2018-12-01",
     image: "bs-9-amber.png",
+    cover: "bc-9-amber.jpg",
     height: "8.19",
   },
   {
@@ -162,6 +163,7 @@ const books = [
     rating: "5",
     date: "2018-08-13",
     image: "bs-feynman.webp",
+    cover: "bc-feynman.jpeg",
     height: "7.08",
   },
   {
