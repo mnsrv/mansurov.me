@@ -11,4 +11,21 @@ export default {
     }
     return [];
   },
+  summaryPosts: (data) => {
+    if (
+      data.layout === "post.liquid" &&
+      data.summary &&
+      data.summary.length === 4
+    ) {
+      return data.collections.posts.filter((p) => {
+        if (data.page.fileSlug === p.page.fileSlug) {
+          return false;
+        }
+        return `${p.page.date.getFullYear()}-${p.page.date.getMonth().toString().padStart(2, "0")}`.startsWith(
+          data.summary,
+        );
+      });
+    }
+    return [];
+  },
 };

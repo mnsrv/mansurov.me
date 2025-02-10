@@ -31,6 +31,14 @@ class: "body_no_padding"
       </div>
     </section>
     {% endif %}
+    {% if summaryPosts.length > 0 %}
+    <section>
+      <h3>Посты</h3>
+      <ul>
+      {% for p in summaryPosts %}<li><a href="{{p.page.url}}">{{ p.data.title }}</a></li>{% endfor %}
+      </ul>
+    </section>
+    {% endif %}
   </div>
 </div>
 
