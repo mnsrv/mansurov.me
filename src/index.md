@@ -19,7 +19,7 @@ layout: "base.liquid"
         <span>Senior Frontend Engineer at <a href="https://onesoil.ai" target="_blank" class="icon-link" data-link="onesoil">OneSoil</a></span>
       </div>
       <div class="work-experience-description">
-        <i>TypeScript, React, React Native, WatermelonDB, Mapbox, Storybook, GitLab CI/CD</i>
+        <i>TypeScript, React, React Native, WatermelonDB, Mapbox, Storybook, Jest, GitLab CI/CD</i>
       </div>
     </div>
   </div>
