@@ -1,10 +1,6 @@
 ---
 title: Series
 subtitle: in progress
-eleventyNavigation:
-  key: series
-  title: series
-  order: 7
 layout: "base.liquid"
 ---
 
