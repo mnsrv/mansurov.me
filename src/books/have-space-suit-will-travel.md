@@ -1,7 +1,7 @@
 ---
-tags: posts
-title: "Книга: Имею скафандр — готов путешествовать"
-layout: "post.liquid"
+tags: bookReviews
+layout: "book.liquid"
+title: "Имею скафандр – готов путешествовать!"
 date: 2019-02-08
 ---
 

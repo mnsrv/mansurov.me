@@ -7,7 +7,6 @@ const books = [
     image: "bs-sasha-privet.png",
     cover: "bc-sasha-privet.jpg",
     height: "8.15",
-    link: "sasha-privet",
   },
   {
     title: "Как жить. Уроки стоицизма от Эпиктета, Сенеки и&nbsp;Марка Аврелия",
@@ -17,7 +16,6 @@ const books = [
     image: "bs-kak-jit.png",
     cover: "bc-kak-jit.jpg",
     height: "7.09",
-    link: "lessons-in-stoicism",
   },
   {
     title: "Дары волхвов",
@@ -147,7 +145,6 @@ const books = [
     date: "2019-02-08",
     image: "bs-skafandr.png",
     height: "6.5",
-    link: "have-space-suit-will-travel",
   },
   {
     title: "Девять принцев Амбера",

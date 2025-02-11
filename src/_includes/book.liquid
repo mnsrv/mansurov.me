@@ -1,0 +1,23 @@
+---
+layout: "base.liquid"
+class: "body_no_padding"
+---
+
+<div class="flex container">
+  <div class="col padding">
+    {% if book.cover %}<p><img src="/images/books/{{book.cover}}" alt="{{book.title}}" title="{{book.title}}" style="height: calc({{book.height}} * 19rem / 10)" /></p>{% endif %}
+
+    {{ content }}
+  </div>
+
+  <div class="col padding">
+    {% if highlights.length > 0 %}
+    <section>
+      <h3>Цитаты</h3>
+      <div>
+      {% for highlight in highlights %}<blockquote><p>{{ highlight | newline_to_br }}</p></blockquote>{% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </div>
+</div>
