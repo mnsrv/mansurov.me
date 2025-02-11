@@ -49,16 +49,6 @@ class: "body_no_padding"
         </ul>
       </section>
     {% endif %}
-    {% if summarySeries.length > 0 %}
-      <section>
-        <h3>Сериалы</h3>
-        <div class="row">
-        {% for serie in summarySeries %}
-          <img src="{{serie.image}}" alt="{{serie.title}} S{{serie.season}}" title="{{serie.title}} S{{serie.season}}" class="serie" />
-        {% endfor %}
-        </div>
-      </section>
-    {% endif %}
   </div>
 </div>
 
@@ -80,9 +70,5 @@ class: "body_no_padding"
   }
   .book {
     height: 10rem;
-  }
-  .serie {
-    width: 3.85rem;
-    border-radius: 0.25rem;
   }
 </style>

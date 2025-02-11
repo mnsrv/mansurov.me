@@ -33,12 +33,6 @@ export default {
     }
     return [];
   },
-  summarySeries: (data) => {
-    if (data.layout === "post.liquid" && data.summary) {
-      return data.series.filter((s) => s.date.startsWith(data.summary));
-    }
-    return [];
-  },
   summaryConcerts: (data) => {
     if (data.layout === "post.liquid" && data.summary) {
       return data.concerts.filter((c) => c.date.startsWith(data.summary));
