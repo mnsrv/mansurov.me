@@ -1,6 +1,6 @@
 ---
 tags: posts
-title: Саша, привет!
+title: "Книга: Саша, привет!"
 layout: "post.liquid"
 date: 2025-02-08
 summaryBook: "Саша, привет!"
