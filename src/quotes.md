@@ -1,10 +1,6 @@
 ---
 title: Quotes
 subtitle: from books, songs, movies
-eleventyNavigation:
-  key: quotes
-  title: quotes
-  order: 6
 layout: "base.liquid"
 ---
 
