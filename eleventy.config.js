@@ -33,6 +33,11 @@ export default function (eleventyConfig) {
     return `${urlPart}?${params}`;
   });
 
+  eleventyConfig.addFilter("debug", (...args) => {
+    console.log(...args);
+    debugger;
+  });
+
   return {
     dir: {
       input: "src",
