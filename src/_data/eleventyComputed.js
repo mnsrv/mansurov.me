@@ -19,6 +19,31 @@ export default {
     }
     return [];
   },
+  summaryActivities: (data) => {
+    if (data.layout === "post.liquid" && data.summary) {
+      const activities = data.activities.filter((a) =>
+        a.start_date_local.startsWith(data.summary),
+      );
+
+      const emojiMap = {
+        Run: "👟",
+        WeightTraining: "💪",
+        Workout: "💪",
+        Soccer: "⚽️",
+        Ride: "🚲",
+        Hike: "🥾",
+      };
+
+      return activities.reduce((acc, activity) => {
+        const emoji = emojiMap[activity.type] || activity.type;
+        if (emoji) {
+          acc[emoji] = (acc[emoji] || 0) + 1;
+        }
+        return acc;
+      }, {});
+    }
+    return {};
+  },
   summaryQuotes: (data) => {
     if (data.layout === "post.liquid" && data.summaryBook) {
       return data.quotes.filter((b) => b.song === data.summaryBook);

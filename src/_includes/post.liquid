@@ -22,6 +22,16 @@ class: "body_no_padding"
       </div>
     </section>
     {% endif %}
+    {% if summaryActivities != empty %}
+    <section>
+      <h3>Спорт</h3>
+      <ul>
+      {% for activity in summaryActivities %}
+        <li>{{ activity[0] }}: {{ activity[1] }}</li>
+      {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
     {% if summaryQuotes.length > 0 %}
     <section>
       <h3>Цитаты</h3>
