@@ -506,6 +506,7 @@ const books = [
     rating: "4",
     date: "2007-01-01",
     image: "bs-twilight-watch.png",
+    cover: "bc-twilight-watch.jpeg",
     height: "7.87",
   },
   {
@@ -514,6 +515,7 @@ const books = [
     rating: "4",
     date: "2007-01-01",
     image: "bs-day-watch.png",
+    cover: "bc-day-watch.jpeg",
     height: "7.87",
   },
   {
@@ -522,6 +524,7 @@ const books = [
     rating: "4",
     date: "2007-01-01",
     image: "bs-night-watch.png",
+    cover: "bc-night-watch.jpeg",
     height: "7.87",
   },
   {
@@ -530,6 +533,7 @@ const books = [
     rating: "3",
     date: "2008-01-01",
     image: "bs-chronicles-of-narnia.png",
+    cover: "bc-chronicles-of-narnia.jpeg",
     height: "7.87",
   },
   {
@@ -538,6 +542,7 @@ const books = [
     rating: "4",
     date: "2007-01-01",
     image: "bs-lotr.png",
+    cover: "bc-lotr.jpeg",
     height: "7.87",
   },
   {
@@ -546,6 +551,7 @@ const books = [
     rating: "4",
     date: "2006-01-01",
     image: "bs-hobbit.png",
+    cover: "bc-hobbit.jpeg",
     height: "8.15",
   },
   {
@@ -554,6 +560,7 @@ const books = [
     rating: "4",
     date: "2007-01-01",
     image: "bs-harry-potter-7.png",
+    cover: "bc-harry-potter-7.jpeg",
     height: "8.25",
   },
   {
@@ -562,6 +569,7 @@ const books = [
     rating: "4",
     date: "2006-01-01",
     image: "bs-harry-potter-6.png",
+    cover: "bc-harry-potter-6.jpeg",
     height: "8.25",
   },
   {
@@ -570,6 +578,7 @@ const books = [
     rating: "4",
     date: "2004-01-01",
     image: "bs-harry-potter-5.png",
+    cover: "bc-harry-potter-5.jpeg",
     height: "8.25",
   },
   {
@@ -578,6 +587,7 @@ const books = [
     rating: "4",
     date: "2003-01-01",
     image: "bs-harry-potter-4.png",
+    cover: "bc-harry-potter-4.jpeg",
     height: "8.25",
   },
   {
@@ -586,6 +596,7 @@ const books = [
     rating: "4",
     date: "2002-01-01",
     image: "bs-harry-potter-3.png",
+    cover: "bc-harry-potter-3.jpeg",
     height: "8.25",
   },
   {
@@ -594,6 +605,7 @@ const books = [
     rating: "4",
     date: "2001-01-01",
     image: "bs-harry-potter-2.png",
+    cover: "bc-harry-potter-2.jpeg",
     height: "8.25",
   },
   {
@@ -602,6 +614,7 @@ const books = [
     rating: "5",
     date: "2000-01-01",
     image: "bs-harry-potter-1.png",
+    cover: "bc-harry-potter-1.jpeg",
     height: "8.25",
   },
 ];
