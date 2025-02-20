@@ -19,7 +19,7 @@ const books = [
   },
   {
     title: "Дары волхвов",
-    author: "О. Генри",
+    author: "О.&nbsp;Генри",
     rating: 3,
     date: "2025-01-01",
     image: "bs-dary-volkhvov.jpg",
@@ -45,7 +45,7 @@ const books = [
     height: "7.87",
   },
   {
-    title: "Потрясающие приключения Кавалера & Клея",
+    title: "Потрясающие приключения Кавалера &amp;&nbsp;Клея",
     author: "Майкл Шейбон",
     rating: "4",
     date: "2024-09-06",
@@ -54,8 +54,7 @@ const books = [
     height: "8.27",
   },
   {
-    title:
-      "Империя должна умереть: История русских революций в лицах. 1900-1917",
+    title: "Империя должна умереть: История русских революций в&nbsp;лицах. 1900-1917",
     author: "Михаил Зыгарь",
     rating: "3",
     date: "2024-03-07",
@@ -114,7 +113,7 @@ const books = [
     height: "7.87",
   },
   {
-    title: "О чем я говорю, когда говорю о беге",
+    title: "О&nbsp;чем я&nbsp;говорю, когда говорю о&nbsp;беге",
     author: "Харуки Мураками",
     rating: "5",
     date: "2021-12-01",
@@ -157,7 +156,7 @@ const books = [
   },
   {
     title: "Вы, конечно, шутите, мистер Фейнман!",
-    author: "Ричард Ф. Фейнман",
+    author: "Ричард Ф.&nbsp;Фейнман",
     rating: "5",
     date: "2018-08-13",
     image: "bs-feynman.webp",
@@ -205,7 +204,7 @@ const books = [
     height: "8.5",
   },
   {
-    title: "Гарри Поттер и Методы рационального мышления",
+    title: "Гарри Поттер и&nbsp;Методы рационального мышления",
     author: "Элиезер Юдковски",
     rating: "5",
     date: "2016-03-01",
@@ -213,7 +212,7 @@ const books = [
     height: "8.27",
   },
   {
-    title: "Автостопом по Галактике",
+    title: "Автостопом по&nbsp;Галактике",
     author: "Дуглас Адамс",
     rating: "3",
     date: "2015-12-01",
@@ -221,7 +220,7 @@ const books = [
     height: "7.08",
   },
   {
-    title: "Мастер и Маргарита",
+    title: "Мастер и&nbsp;Маргарита",
     author: "Михаил Булгаков",
     rating: "3",
     date: "2015-10-27",
@@ -246,7 +245,7 @@ const books = [
     height: "7.08",
   },
   {
-    title: "Преступление и наказание",
+    title: "Преступление и&nbsp;наказание",
     author: "Фёдор Достоевский",
     rating: "3",
     date: "2015-08-01",
@@ -256,7 +255,7 @@ const books = [
   },
   {
     title: "Планета людей",
-    author: "Антуан де Сент-Экзюпери",
+    author: "Антуан де&nbsp;Сент-Экзюпери",
     rating: "4",
     date: "2015-03-16",
     image: "bs-planeta-lyudei-malenkii-princ.jpg",
@@ -264,15 +263,15 @@ const books = [
     height: "7.87",
   },
   {
-    title: "Понедельник начинается в субботу",
-    author: "А. Стругацкий, Б. Стругацкий",
+    title: "Понедельник начинается в&nbsp;субботу",
+    author: "А.&nbsp;Стругацкий, Б.&nbsp;Стругацкий",
     rating: "3",
     date: "2015-02-26",
     image: "bs-ponedelnik.png",
     height: "7.87",
   },
   {
-    title: "Полковнику никто не пишет",
+    title: "Полковнику никто не&nbsp;пишет",
     author: "Габриэль Гарсиа Маркес",
     rating: "2",
     date: "2015-01-20",
@@ -296,7 +295,7 @@ const books = [
     height: "8.27",
   },
   {
-    title: "А зори здесь тихие...",
+    title: "А&nbsp;зори здесь тихие...",
     author: "Борис Васильев",
     rating: "5",
     date: "2014-10-02",
@@ -332,8 +331,8 @@ const books = [
     date: "2014-09-02",
   },
   {
-    title: "Трое в лодке, не считая собаки",
-    author: "Джером К. Джером",
+    title: "Трое в&nbsp;лодке, не&nbsp;считая собаки",
+    author: "Джером К.&nbsp;Джером",
     rating: "2",
     date: "2014-07-23",
     image: "bs-troe-v-lodke.jpg",
@@ -358,7 +357,7 @@ const books = [
     date: "2014-05-30",
   },
   {
-    title: "Жутко громко & запредельно близко",
+    title: "Жутко громко &amp;&nbsp;запредельно близко",
     author: "Джонатан Сафран Фоер",
     rating: "4",
     date: "2014-05-04",
@@ -388,13 +387,13 @@ const books = [
   },
   {
     title: "Маленький принц",
-    author: "Антуан де Сент-Экзюпери",
+    author: "Антуан де&nbsp;Сент-Экзюпери",
     rating: "3",
     date: "2013-12-01",
   },
   {
     title: "Республика ШКИД",
-    author: "Л. Пантелеев, Г. Белых",
+    author: "Л.&nbsp;Пантелеев, Г.&nbsp;Белых",
     rating: "5",
     date: "2013-12-01",
   },
@@ -423,7 +422,7 @@ const books = [
     date: "2013-08-01",
   },
   {
-    title: "Убийства на улице Морг",
+    title: "Убийства на&nbsp;улице Морг",
     author: "Эдгар Аллан По",
     rating: "2",
     date: "2013-07-01",
@@ -459,13 +458,13 @@ const books = [
     date: "2013-04-01",
   },
   {
-    title: "Над пропастью во ржи",
-    author: "Джером Д. Сэлинджер",
+    title: "Над пропастью во&nbsp;ржи",
+    author: "Джером Д.&nbsp;Сэлинджер",
     rating: "4",
     date: "2013-03-01",
   },
   {
-    title: "Старик и море",
+    title: "Старик и&nbsp;море",
     author: "Эрнест Хемингуэй",
     rating: "3",
     date: "2013-02-24",
@@ -529,7 +528,7 @@ const books = [
   },
   {
     title: "Хроники Нарнии",
-    author: "Клайв С. Льюис",
+    author: "Клайв С.&nbsp;Льюис",
     rating: "3",
     date: "2008-01-01",
     image: "bs-chronicles-of-narnia.png",
@@ -538,7 +537,7 @@ const books = [
   },
   {
     title: "Властелин Колец",
-    author: "Джон Р. Р. Толкин",
+    author: "Джон Р.&nbsp;Р.&nbsp;Толкин",
     rating: "4",
     date: "2007-01-01",
     image: "bs-lotr.png",
@@ -547,7 +546,7 @@ const books = [
   },
   {
     title: "Хоббит",
-    author: "Джон Р. Р. Толкин",
+    author: "Джон Р.&nbsp;Р.&nbsp;Толкин",
     rating: "4",
     date: "2006-01-01",
     image: "bs-hobbit.png",
@@ -555,8 +554,8 @@ const books = [
     height: "8.15",
   },
   {
-    title: "Гарри Поттер и Дары смерти",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;Дары смерти",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "4",
     date: "2007-01-01",
     image: "bs-harry-potter-7.png",
@@ -564,8 +563,8 @@ const books = [
     height: "8.25",
   },
   {
-    title: "Гарри Поттер и Принц-полукровка",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;Принц-полукровка",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "4",
     date: "2006-01-01",
     image: "bs-harry-potter-6.png",
@@ -573,8 +572,8 @@ const books = [
     height: "8.25",
   },
   {
-    title: "Гарри Поттер и Орден Феникса",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;Орден Феникса",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "4",
     date: "2004-01-01",
     image: "bs-harry-potter-5.png",
@@ -582,8 +581,8 @@ const books = [
     height: "8.25",
   },
   {
-    title: "Гарри Поттер и Кубок огня",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;Кубок огня",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "4",
     date: "2003-01-01",
     image: "bs-harry-potter-4.png",
@@ -591,8 +590,8 @@ const books = [
     height: "8.25",
   },
   {
-    title: "Гарри Поттер и узник Азкабана",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;узник Азкабана",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "4",
     date: "2002-01-01",
     image: "bs-harry-potter-3.png",
@@ -600,8 +599,8 @@ const books = [
     height: "8.25",
   },
   {
-    title: "Гарри Поттер и Тайная комната",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;Тайная комната",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "4",
     date: "2001-01-01",
     image: "bs-harry-potter-2.png",
@@ -609,8 +608,8 @@ const books = [
     height: "8.25",
   },
   {
-    title: "Гарри Поттер и философский камень",
-    author: "Дж. К. Ролинг",
+    title: "Гарри Поттер и&nbsp;философский камень",
+    author: "Дж. К.&nbsp;Ролинг",
     rating: "5",
     date: "2000-01-01",
     image: "bs-harry-potter-1.png",
