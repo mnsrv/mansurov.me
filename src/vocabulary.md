@@ -8,7 +8,7 @@ eleventyNavigation:
 layout: "base.liquid"
 ---
 
-{% for word in vocabulary %}
+{% for word in vocabulary reversed %}
 
 <p class="word-item">{{ word[0] }}<span class="word-translation"> – {{ word[1] }}</span></p>
 
