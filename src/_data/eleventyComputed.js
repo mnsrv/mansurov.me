@@ -26,9 +26,10 @@ export default {
       );
 
       const emojiMap = {
-        Run: '👟',
-        WeightTraining: '💪',
-        Workout: '💪',
+        Run: '🏃🏻‍♂️',
+        WeightTraining: '🏋🏻‍♂️',
+        Workout: '🤸🏻‍♂️',
+        Yoga: '🧘🏻‍♂️',
         Soccer: '⚽️',
         Ride: '🚲',
         Hike: '🥾',
