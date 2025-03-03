@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Попытка к бегству',
+    author: 'А.&nbsp;Стругацкий, Б.&nbsp;Стругацкий',
+    rating: 3,
+    date: '2025-02-28',
+    image: 'bs-popytka-k-begstvu.jpeg',
+    cover: 'bc-popytka-k-begstvu.jpeg',
+    height: '6.5',
+  },
+  {
     title: 'Саша, привет!',
     author: 'Дмитрий Данилов',
     rating: 3,
