@@ -8,30 +8,30 @@ export default {
     return map;
   },
   book: (data) => {
-    if (data.layout === "book.liquid") {
+    if (data.layout === 'book.liquid') {
       return data.books.list.find((b) => b.title === data.title);
     }
     return undefined;
   },
   summaryBooks: (data) => {
-    if (data.layout === "post.liquid" && data.summary) {
+    if (data.layout === 'post.liquid' && data.summary) {
       return data.books.list.filter((b) => b.date.startsWith(data.summary));
     }
     return [];
   },
   summaryActivities: (data) => {
-    if (data.layout === "post.liquid" && data.summary) {
+    if (data.layout === 'post.liquid' && data.summary) {
       const activities = data.activities.filter((a) =>
         a.start_date_local.startsWith(data.summary),
       );
 
       const emojiMap = {
-        Run: "👟",
-        WeightTraining: "💪",
-        Workout: "💪",
-        Soccer: "⚽️",
-        Ride: "🚲",
-        Hike: "🥾",
+        Run: '👟',
+        WeightTraining: '💪',
+        Workout: '💪',
+        Soccer: '⚽️',
+        Ride: '🚲',
+        Hike: '🥾',
       };
 
       return activities.reduce((acc, activity) => {
@@ -45,19 +45,19 @@ export default {
     return {};
   },
   summaryQuotes: (data) => {
-    if (data.layout === "post.liquid" && data.summaryBook) {
+    if (data.layout === 'post.liquid' && data.summaryBook) {
       return data.quotes.filter((b) => b.song === data.summaryBook);
     }
-    if (data.layout === "post.liquid" && data.summary) {
+    if (data.layout === 'post.liquid' && data.summary) {
       return data.quotes.filter(
-        (q) => q.type !== "book" && q.date.startsWith(data.summary),
+        (q) => q.type !== 'book' && q.date.startsWith(data.summary),
       );
     }
     return [];
   },
   summaryPosts: (data) => {
     if (
-      data.layout === "post.liquid" &&
+      data.layout === 'post.liquid' &&
       data.summary &&
       data.summary.length === 4
     ) {
@@ -65,7 +65,7 @@ export default {
         if (data.page.fileSlug === p.page.fileSlug) {
           return false;
         }
-        return `${p.page.date.getFullYear()}-${p.page.date.getMonth().toString().padStart(2, "0")}`.startsWith(
+        return `${p.page.date.getFullYear()}-${p.page.date.getMonth().toString().padStart(2, '0')}`.startsWith(
           data.summary,
         );
       });
@@ -73,7 +73,7 @@ export default {
     return [];
   },
   summaryConcerts: (data) => {
-    if (data.layout === "post.liquid" && data.summary) {
+    if (data.layout === 'post.liquid' && data.summary) {
       return data.concerts.filter((c) => c.date.startsWith(data.summary));
     }
     return [];
