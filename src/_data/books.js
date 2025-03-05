@@ -87,6 +87,7 @@ const books = [
     rating: '4',
     date: '2023-12-13',
     image: 'bs-bunker-change.png',
+    cover: 'bc-bunker-change.jpg',
     height: '8.11',
   },
   {
@@ -95,6 +96,7 @@ const books = [
     rating: '4',
     date: '2023-08-18',
     image: 'bs-bunker-illusion.png',
+    cover: 'bc-bunker-illusion.jpg',
     height: '8.11',
   },
   {
@@ -103,6 +105,7 @@ const books = [
     rating: '3',
     date: '2022-07-31',
     image: 'bs-luzin.png',
+    cover: 'bc-luzin.jpg',
     height: '8.19',
   },
   {
@@ -110,7 +113,8 @@ const books = [
     author: 'Айзек Азимов',
     rating: '5',
     date: '2022-06-09',
-    image: 'bs-end-of-eternity.png',
+    image: 'bs-end-of-eternity.jpg',
+    cover: 'bc-end-of-eternity.jpg',
     height: '8.11',
   },
   {
@@ -136,7 +140,8 @@ const books = [
     author: 'Питер Уоттс',
     rating: '4',
     date: '2019-08-24',
-    image: 'bs-blindsight.png',
+    image: 'bs-blindsight.jpeg',
+    cover: 'bc-blindsight.jpeg',
     height: '8.07',
   },
   {
@@ -145,6 +150,7 @@ const books = [
     rating: '5',
     date: '2019-06-11',
     image: 'bs-geograf.png',
+    cover: 'bc-geograf.jpg',
     height: '8.35',
   },
   {
@@ -153,6 +159,7 @@ const books = [
     rating: '5',
     date: '2019-02-08',
     image: 'bs-skafandr.png',
+    cover: 'bc-skafandr.jpg',
     height: '6.5',
   },
   {
@@ -178,16 +185,18 @@ const books = [
     author: 'Эрнест Клайн',
     rating: '4',
     date: '2017-11-15',
-    image: 'bs-ready-player-one.png',
-    height: '9.53',
+    image: 'bs-ready-player-one.jpeg',
+    cover: 'bc-ready-player-one.jpeg',
+    height: '7.87',
   },
   {
     title: 'Финансист',
     author: 'Теодор Драйзер',
     rating: '3',
     date: '2017-05-15',
-    image: 'bs-finansist.png',
-    height: '7.48',
+    image: 'bs-finansist.jpg',
+    cover: 'bc-finansist.jpg',
+    height: '7.87',
   },
   {
     title: 'Источник',
@@ -195,6 +204,7 @@ const books = [
     rating: '4',
     date: '2017-03-18',
     image: 'bs-istochnik.png',
+    cover: 'bc-istochnik.jpg',
     height: '8.27',
   },
   {
@@ -302,6 +312,7 @@ const books = [
     rating: '4',
     date: '2014-12-01',
     image: 'bs-atlant.png',
+    cover: 'bc-atlant.jpg',
     height: '8.27',
   },
   {
