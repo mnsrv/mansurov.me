@@ -213,6 +213,7 @@ const books = [
     rating: '4',
     date: '2016-09-10',
     image: 'bs-game-of-thrones.png',
+    cover: 'bc-game-of-thrones.jpeg',
     height: '8.54',
   },
   {
@@ -221,6 +222,7 @@ const books = [
     rating: '3',
     date: '2016-04-01',
     image: 'bs-vsya-kremlevskaya-rat.png',
+    cover: 'bc-vsya-kremlevskaya-rat.jpeg',
     height: '8.5',
   },
   {
@@ -229,6 +231,7 @@ const books = [
     rating: '5',
     date: '2016-03-01',
     image: 'bs-hpmor.png',
+    cover: 'bc-hpmor.jpg',
     height: '8.27',
   },
   {
@@ -237,7 +240,8 @@ const books = [
     rating: '3',
     date: '2015-12-01',
     image: 'bs-autostop.png',
-    height: '7.08',
+    cover: 'bc-autostop.jpg',
+    height: '7.087',
   },
   {
     title: 'Мастер и&nbsp;Маргарита',
@@ -254,6 +258,7 @@ const books = [
     rating: '5',
     date: '2015-10-18',
     image: 'bs-marsianin.png',
+    cover: 'bc-marsianin.jpg',
     height: '8.19',
   },
   {
@@ -262,7 +267,8 @@ const books = [
     rating: '3',
     date: '2015-09-03',
     image: 'bs-pohvala-skuke.png',
-    height: '7.08',
+    cover: 'bc-pohvala-skuke.jpg',
+    height: '7.087',
   },
   {
     title: 'Преступление и&nbsp;наказание',
@@ -288,6 +294,7 @@ const books = [
     rating: '3',
     date: '2015-02-26',
     image: 'bs-ponedelnik.png',
+    cover: 'bc-ponedelnik.jpeg',
     height: '7.87',
   },
   {
@@ -296,7 +303,8 @@ const books = [
     rating: '2',
     date: '2015-01-20',
     image: 'bs-polkovniku-nikto-ne-pishet.png',
-    height: '7.08',
+    cover: 'bc-polkovniku-nikto-ne-pishet.jpg',
+    height: '7.087',
   },
   {
     title: 'Исчезнувшая',
@@ -304,6 +312,7 @@ const books = [
     rating: '3',
     date: '2015-01-01',
     image: 'bs-gone-girl.png',
+    cover: 'bc-gone-girl.jpg',
     height: '8.66',
   },
   {
@@ -321,6 +330,7 @@ const books = [
     rating: '5',
     date: '2014-10-02',
     image: 'bs-a-zori-zdes-tihie.jpg',
+    cover: 'bc-a-zori-zdes-tihie.jpg',
     height: '7.87',
   },
   {
@@ -329,7 +339,8 @@ const books = [
     rating: '5',
     date: '2014-09-29',
     image: 'bs-geroi-nashego-vremeni.png',
-    height: '7.08',
+    cover: 'bc-geroi-nashego-vremeni.jpg',
+    height: '7.087',
   },
   {
     title: 'Бесприданница',
@@ -337,6 +348,7 @@ const books = [
     rating: '4',
     date: '2014-09-26',
     image: 'bs-bespridannica.png',
+    cover: 'bc-bespridannica.jpg',
     height: '8.46',
   },
   {
@@ -362,33 +374,44 @@ const books = [
     author: 'Джером К.&nbsp;Джером',
     rating: '2',
     date: '2014-07-23',
-    image: 'bs-troe-v-lodke.jpg',
-    height: '7.87',
+    image: 'bs-three-men-in-a-boat.jpg',
+    cover: 'bc-three-men-in-a-boat.jpg',
+    height: '7.087',
   },
   {
     title: 'Иностранка',
     author: 'Сергей Довлатов',
     rating: '2',
     date: '2014-07-05',
+    image: 'bs-inostranka.jpg',
+    cover: 'bc-inostranka.jpg',
+    height: '7.087',
   },
   {
     title: 'На дороге',
     author: 'Джек Керуак',
     rating: '2',
     date: '2014-06-30',
+    image: 'bs-on-the-road.jpeg',
+    cover: 'bc-on-the-road.jpeg',
+    height: '7.87',
   },
   {
     title: 'Убить пересмешника',
     author: 'Харпер Ли',
     rating: '5',
     date: '2014-05-30',
+    image: 'bs-to-kill-a-mockingbird.jpg',
+    cover: 'bc-to-kill-a-mockingbird.jpg',
+    height: '7.87',
   },
   {
     title: 'Жутко громко &amp;&nbsp;запредельно близко',
     author: 'Джонатан Сафран Фоер',
     rating: '4',
     date: '2014-05-04',
-    image: 'bs-jutko-gromko.jpg',
+    image: 'bs-extremely-loud-and-incredibly-close.jpg',
+    cover: 'bc-extremely-loud-and-incredibly-close.jpg',
     height: '8.35',
   },
   {
@@ -396,6 +419,9 @@ const books = [
     author: 'Стивен Чбоски',
     rating: '5',
     date: '2014-02-01',
+    image: 'bs-perks-of-being-a-wallflower.jpg',
+    cover: 'bc-perks-of-being-a-wallflower.jpg',
+    height: '7.087',
   },
   {
     title: 'Обломов',

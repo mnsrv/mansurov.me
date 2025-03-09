@@ -35,8 +35,8 @@ date: Last Modified
     {% else %}{{ book.title }}{% endif %} <i>{{ book.author }}</i>{% if book.rating == '5' %} ⭐️{% endif %}{% if not book.image %} 🖼️{% endif %}{% if not book.cover %} 📕{% endif %}
     {% endfor %}</section>
     {% endfor %}
-    <p>🖼️ no spine: {{ books.noSpine }}</p>
-    <p>📕 no cover: {{ books.noCover }}</p>
+    {% if books.noSpine > 0 %}<p>🖼️ no spine: {{ books.noSpine }}</p>{% endif %}
+    {% if books.noCover > 0 %}<p>📕 no cover: {{ books.noCover }}</p>{% endif %}
   </div>
 </div>
 
