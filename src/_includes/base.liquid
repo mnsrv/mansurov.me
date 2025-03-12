@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ title }}{% if title != 'Sasha Mansurov' %} • Sasha Mansurov{% endif %}</title>
     <link rel="preload" href="/static/fonts/pt-mono-v13-cyrillic_latin-regular.woff2" as="font" crossorigin type="font/woff2">
-    <link rel="preload" href="{{ '/static/style.css' | bust }}" as="style" />
     {% if preloads %}
       {% for item in preloads %}
         <link rel="preload" href="{{ item.url }}" as="image" type="{{ item.type }}">
