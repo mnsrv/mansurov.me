@@ -215,6 +215,26 @@ figcaption {
   }
 }
 
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#avatar {
+  animation: rotate-clockwise 2s linear infinite;
+  animation-play-state: paused;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+#avatar:hover {
+  animation-play-state: running;
+}
+
 .books-container {
   display: flex;
   flex-direction: column;
