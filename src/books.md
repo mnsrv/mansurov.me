@@ -21,7 +21,7 @@ date: Last Modified
       <div class="books-row-corner-right-bottom"></div>
       <div class="books-row">{% for book in books.list %}{% if book.image and book.height %}
       <div class="books-item-container">
-      <img src="/images/books/{{book.image}}" alt="{{book.title}} spine" style="height: calc({{book.height}} * 19rem / 10)" class="books-item" fetchpriority="high" />{% if book.cover %}<img src="/images/books/{{book.cover}}" alt="{{book.title}} cover" style="height: calc({{book.height}} * 19rem / 10)" class="books-cover" fetchpriority="low" />{% endif %}
+      <img src="/images/books/{{book.image}}" alt="{{book.title}} spine" style="height: calc({{book.height}} * 19rem / 10)" class="books-item" />{% if book.cover %}<img src="/images/books/{{book.cover}}" alt="{{book.title}} cover" style="height: calc({{book.height}} * 19rem / 10)" class="books-cover" loading="lazy" />{% endif %}
       </div>{% endif %}{% endfor %}</div>
     </div>
   </div>
