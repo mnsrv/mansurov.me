@@ -22,14 +22,13 @@ class: "body_no_padding"
       </div>
     </section>
     {% endif %}
-    {% if summaryActivities != empty %}
+    {% if summaryActivities %}
     <section>
       <h3>Спорт</h3>
-      <ul>
-      {% for activity in summaryActivities %}
-        <li>{{ activity[0] }}: {{ activity[1] }}</li>
-      {% endfor %}
-      </ul>
+      {% include 'activities-table.liquid', 
+         title: summaryActivities.title, 
+         types: summaryActivities.types, 
+         rows: summaryActivities.rows %}
     </section>
     {% endif %}
     {% if summaryQuotes.length > 0 %}

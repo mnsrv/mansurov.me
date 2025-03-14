@@ -1,0 +1,30 @@
+{% comment %}
+  This include renders an activities table.
+  It expects the following parameters:
+  - title: The title for the first column (e.g., "Month", "Year", "Activity")
+  - types: Array of activity types (emojis)
+  - rows: Array of row objects, each with:
+    - label: The label for the first column
+    - counts: Object mapping activity types to counts
+{% endcomment %}
+
+<table>
+  <thead>
+    <tr>
+      <th>{{ title }}</th>
+      {% for type in types %}
+      <th>{{ type }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr>
+      <td>{{ row.label }}</td>
+      {% for type in types %}
+      <td>{% assign count = row.counts[type] | default: 0 %}{% if count == 0 %}<span class="zero">{{ count }}</span>{% else %}{{ count }}{% endif %}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> 
