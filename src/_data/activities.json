@@ -2,676 +2,805 @@
   {
     "type": "Run",
     "id": 13881043205,
-    "start_date_local": "2025-03-14T15:46:08Z"
-  },
-  {
-    "type": "Run",
-    "id": 13880880326,
-    "start_date_local": "2025-03-14T15:46:07Z"
+    "start_date_local": "2025-03-14T15:46:08Z",
+    "distance": 2512.8
   },
   {
     "type": "WeightTraining",
     "id": 13871012342,
-    "start_date_local": "2025-03-13T13:52:24Z"
+    "start_date_local": "2025-03-13T13:52:24Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 13866422209,
-    "start_date_local": "2025-03-12T23:42:25Z"
+    "start_date_local": "2025-03-12T23:42:25Z",
+    "distance": 906.3
   },
   {
     "type": "WeightTraining",
     "id": 13860573296,
-    "start_date_local": "2025-03-11T14:20:17Z"
+    "start_date_local": "2025-03-11T14:20:17Z",
+    "distance": 0
   },
   {
     "type": "Soccer",
     "id": 13845354336,
-    "start_date_local": "2025-03-10T18:40:49Z"
+    "start_date_local": "2025-03-10T18:40:49Z",
+    "distance": 4984
   },
   {
     "type": "Run",
     "id": 13832808566,
-    "start_date_local": "2025-03-09T13:08:22Z"
+    "start_date_local": "2025-03-09T13:08:22Z",
+    "distance": 3002.6
   },
   {
     "type": "Soccer",
     "id": 13781370751,
-    "start_date_local": "2025-03-03T18:46:01Z"
+    "start_date_local": "2025-03-03T18:46:01Z",
+    "distance": 4677.9
   },
   {
     "type": "Soccer",
     "id": 13716314997,
-    "start_date_local": "2025-02-24T18:43:58Z"
+    "start_date_local": "2025-02-24T18:43:58Z",
+    "distance": 5732.8
   },
   {
     "type": "Yoga",
     "id": 13650408524,
-    "start_date_local": "2025-02-17T12:47:47Z"
+    "start_date_local": "2025-02-17T12:47:47Z",
+    "distance": 0
   },
   {
     "type": "Yoga",
     "id": 13642829949,
-    "start_date_local": "2025-02-16T14:01:09Z"
+    "start_date_local": "2025-02-16T14:01:09Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 13636257136,
-    "start_date_local": "2025-02-15T18:49:19Z"
+    "start_date_local": "2025-02-15T18:49:19Z",
+    "distance": 3975.5
   },
   {
     "type": "Run",
     "id": 13595364114,
-    "start_date_local": "2025-02-11T01:54:47Z"
+    "start_date_local": "2025-02-11T01:54:47Z",
+    "distance": 1149.7
   },
   {
     "type": "Run",
     "id": 13568709898,
-    "start_date_local": "2025-02-08T02:35:39Z"
+    "start_date_local": "2025-02-08T02:35:39Z",
+    "distance": 1608.5
   },
   {
     "type": "WeightTraining",
     "id": 13520100400,
-    "start_date_local": "2025-02-02T14:40:36Z"
+    "start_date_local": "2025-02-02T14:40:36Z",
+    "distance": 0
   },
   {
     "type": "Soccer",
     "id": 13468625337,
-    "start_date_local": "2025-01-27T18:39:41Z"
+    "start_date_local": "2025-01-27T18:39:41Z",
+    "distance": 5248.1
   },
   {
     "type": "Run",
     "id": 13448185747,
-    "start_date_local": "2025-01-25T13:48:56Z"
+    "start_date_local": "2025-01-25T13:48:56Z",
+    "distance": 3245.9
   },
   {
     "type": "WeightTraining",
     "id": 13432446296,
-    "start_date_local": "2025-01-23T16:00:15Z"
+    "start_date_local": "2025-01-23T16:00:15Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 13401201736,
-    "start_date_local": "2025-01-19T22:32:18Z"
+    "start_date_local": "2025-01-19T22:32:18Z",
+    "distance": 3570
   },
   {
     "type": "WeightTraining",
     "id": 13399565547,
-    "start_date_local": "2025-01-19T18:16:23Z"
+    "start_date_local": "2025-01-19T18:16:23Z",
+    "distance": 0
   },
   {
     "type": "WeightTraining",
     "id": 13355001994,
-    "start_date_local": "2025-01-14T18:51:25Z"
+    "start_date_local": "2025-01-14T18:51:25Z",
+    "distance": 0
   },
   {
     "type": "Ride",
     "id": 13130161894,
-    "start_date_local": "2024-12-16T21:18:47Z"
+    "start_date_local": "2024-12-16T21:18:47Z",
+    "distance": 2741.3
   },
   {
     "type": "Soccer",
     "id": 13130161929,
-    "start_date_local": "2024-12-16T18:44:37Z"
+    "start_date_local": "2024-12-16T18:44:37Z",
+    "distance": 5168.1
   },
   {
     "type": "Ride",
     "id": 13130161887,
-    "start_date_local": "2024-12-16T18:20:41Z"
+    "start_date_local": "2024-12-16T18:20:41Z",
+    "distance": 3063.8
   },
   {
     "type": "Ride",
     "id": 13032862861,
-    "start_date_local": "2024-12-02T21:07:05Z"
+    "start_date_local": "2024-12-02T21:07:05Z",
+    "distance": 2867.4
   },
   {
     "type": "Soccer",
     "id": 13032863203,
-    "start_date_local": "2024-12-02T18:37:52Z"
+    "start_date_local": "2024-12-02T18:37:52Z",
+    "distance": 6244.8
   },
   {
     "type": "Ride",
     "id": 13032862906,
-    "start_date_local": "2024-12-02T18:17:01Z"
+    "start_date_local": "2024-12-02T18:17:01Z",
+    "distance": 2969.8
   },
   {
     "type": "Ride",
     "id": 12982474403,
-    "start_date_local": "2024-11-25T21:08:17Z"
+    "start_date_local": "2024-11-25T21:08:17Z",
+    "distance": 2907.6
   },
   {
     "type": "Soccer",
     "id": 12982475067,
-    "start_date_local": "2024-11-25T18:38:32Z"
+    "start_date_local": "2024-11-25T18:38:32Z",
+    "distance": 8187.4
   },
   {
     "type": "Ride",
     "id": 12982474485,
-    "start_date_local": "2024-11-25T18:19:09Z"
+    "start_date_local": "2024-11-25T18:19:09Z",
+    "distance": 3190.8
   },
   {
     "type": "Ride",
     "id": 12931784871,
-    "start_date_local": "2024-11-18T21:10:10Z"
+    "start_date_local": "2024-11-18T21:10:10Z",
+    "distance": 2869.5
   },
   {
     "type": "Soccer",
     "id": 12931784895,
-    "start_date_local": "2024-11-18T18:43:20Z"
+    "start_date_local": "2024-11-18T18:43:20Z",
+    "distance": 5955.9
   },
   {
     "type": "Ride",
     "id": 12931784818,
-    "start_date_local": "2024-11-18T18:25:52Z"
+    "start_date_local": "2024-11-18T18:25:52Z",
+    "distance": 2922.7
   },
   {
     "type": "Ride",
     "id": 12823596646,
-    "start_date_local": "2024-11-04T21:13:16Z"
+    "start_date_local": "2024-11-04T21:13:16Z",
+    "distance": 2953
   },
   {
     "type": "Soccer",
     "id": 12823596871,
-    "start_date_local": "2024-11-04T18:38:21Z"
+    "start_date_local": "2024-11-04T18:38:21Z",
+    "distance": 6176.3
   },
   {
     "type": "Ride",
     "id": 12823596590,
-    "start_date_local": "2024-11-04T18:18:15Z"
+    "start_date_local": "2024-11-04T18:18:15Z",
+    "distance": 3155
   },
   {
     "type": "Ride",
     "id": 12767782334,
-    "start_date_local": "2024-10-28T20:31:16Z"
+    "start_date_local": "2024-10-28T20:31:16Z",
+    "distance": 2839.6
   },
   {
     "type": "Soccer",
     "id": 12767782214,
-    "start_date_local": "2024-10-28T18:36:07Z"
+    "start_date_local": "2024-10-28T18:36:07Z",
+    "distance": 7160.3
   },
   {
     "type": "Ride",
     "id": 12767782718,
-    "start_date_local": "2024-10-28T18:04:38Z"
+    "start_date_local": "2024-10-28T18:04:38Z",
+    "distance": 3227.5
   },
   {
     "type": "Ride",
     "id": 12712314007,
-    "start_date_local": "2024-10-21T20:54:24Z"
+    "start_date_local": "2024-10-21T20:54:24Z",
+    "distance": 2290.1
   },
   {
     "type": "Soccer",
     "id": 12710738995,
-    "start_date_local": "2024-10-21T18:38:17Z"
+    "start_date_local": "2024-10-21T18:38:17Z",
+    "distance": 6774.4
   },
   {
     "type": "Ride",
     "id": 12709862176,
-    "start_date_local": "2024-10-21T18:11:34Z"
+    "start_date_local": "2024-10-21T18:11:34Z",
+    "distance": 3112.9
   },
   {
     "type": "WeightTraining",
     "id": 12653265832,
-    "start_date_local": "2024-10-14T15:27:43Z"
+    "start_date_local": "2024-10-14T15:27:43Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 12620202696,
-    "start_date_local": "2024-10-10T12:05:05Z"
+    "start_date_local": "2024-10-10T12:05:05Z",
+    "distance": 1591
   },
   {
     "type": "Run",
     "id": 12620162679,
-    "start_date_local": "2024-10-10T12:05:03Z"
+    "start_date_local": "2024-10-10T12:05:03Z",
+    "distance": 1571.4
   },
   {
     "type": "Run",
     "id": 12620085755,
-    "start_date_local": "2024-10-10T12:02:53Z"
+    "start_date_local": "2024-10-10T12:02:53Z",
+    "distance": 139.2
   },
   {
     "type": "Ride",
     "id": 12600132511,
-    "start_date_local": "2024-10-07T21:04:35Z"
+    "start_date_local": "2024-10-07T21:04:35Z",
+    "distance": 2841.3
   },
   {
     "type": "Soccer",
     "id": 12600132568,
-    "start_date_local": "2024-10-07T18:40:34Z"
+    "start_date_local": "2024-10-07T18:40:34Z",
+    "distance": 6494.6
   },
   {
     "type": "Ride",
     "id": 12600132505,
-    "start_date_local": "2024-10-07T18:26:06Z"
+    "start_date_local": "2024-10-07T18:26:06Z",
+    "distance": 2961.7
   },
   {
     "type": "Ride",
     "id": 12542486484,
-    "start_date_local": "2024-09-30T21:01:53Z"
+    "start_date_local": "2024-09-30T21:01:53Z",
+    "distance": 2878
   },
   {
     "type": "Soccer",
     "id": 12542486301,
-    "start_date_local": "2024-09-30T18:42:36Z"
+    "start_date_local": "2024-09-30T18:42:36Z",
+    "distance": 6650.9
   },
   {
     "type": "Ride",
     "id": 12542486188,
-    "start_date_local": "2024-09-30T18:21:36Z"
+    "start_date_local": "2024-09-30T18:21:36Z",
+    "distance": 3136.6
   },
   {
     "type": "Workout",
     "id": 12442825524,
-    "start_date_local": "2024-09-18T18:09:41Z"
+    "start_date_local": "2024-09-18T18:09:41Z",
+    "distance": 1587.5
   },
   {
     "type": "Hike",
     "id": 12431483434,
-    "start_date_local": "2024-09-17T12:17:43Z"
+    "start_date_local": "2024-09-17T12:17:43Z",
+    "distance": 2578.8
   },
   {
     "type": "Ride",
     "id": 12368888258,
-    "start_date_local": "2024-09-09T21:06:32Z"
+    "start_date_local": "2024-09-09T21:06:32Z",
+    "distance": 2876.6
   },
   {
     "type": "Soccer",
     "id": 12368481730,
-    "start_date_local": "2024-09-09T18:42:21Z"
+    "start_date_local": "2024-09-09T18:42:21Z",
+    "distance": 6250.8
   },
   {
     "type": "Ride",
     "id": 12367446408,
-    "start_date_local": "2024-09-09T18:25:55Z"
+    "start_date_local": "2024-09-09T18:25:55Z",
+    "distance": 3099.4
   },
   {
     "type": "Run",
     "id": 12352104928,
-    "start_date_local": "2024-09-07T19:36:58Z"
+    "start_date_local": "2024-09-07T19:36:58Z",
+    "distance": 5092.5
   },
   {
     "type": "Run",
     "id": 12348736128,
-    "start_date_local": "2024-09-06T19:10:25Z"
+    "start_date_local": "2024-09-06T19:10:25Z",
+    "distance": 821.2
   },
   {
     "type": "Run",
     "id": 12348735286,
-    "start_date_local": "2024-09-06T18:33:54Z"
+    "start_date_local": "2024-09-06T18:33:54Z",
+    "distance": 1708.2
   },
   {
     "type": "Ride",
     "id": 12326290437,
-    "start_date_local": "2024-09-04T19:40:41Z"
+    "start_date_local": "2024-09-04T19:40:41Z",
+    "distance": 2890.9
   },
   {
     "type": "Run",
     "id": 12325858160,
-    "start_date_local": "2024-09-04T19:08:12Z"
+    "start_date_local": "2024-09-04T19:08:12Z",
+    "distance": 791
   },
   {
     "type": "Run",
     "id": 12325590343,
-    "start_date_local": "2024-09-04T18:32:45Z"
+    "start_date_local": "2024-09-04T18:32:45Z",
+    "distance": 2637.6
   },
   {
     "type": "Run",
     "id": 12325317132,
-    "start_date_local": "2024-09-04T18:03:23Z"
+    "start_date_local": "2024-09-04T18:03:23Z",
+    "distance": 967.4
   },
   {
     "type": "Ride",
     "id": 12325315918,
-    "start_date_local": "2024-09-04T17:48:38Z"
+    "start_date_local": "2024-09-04T17:48:38Z",
+    "distance": 3105
   },
   {
     "type": "Ride",
     "id": 12309006449,
-    "start_date_local": "2024-09-02T20:36:31Z"
+    "start_date_local": "2024-09-02T20:36:31Z",
+    "distance": 1097.2
   },
   {
     "type": "Soccer",
     "id": 12309006250,
-    "start_date_local": "2024-09-02T18:41:31Z"
+    "start_date_local": "2024-09-02T18:41:31Z",
+    "distance": 6150.7
   },
   {
     "type": "Ride",
     "id": 12309004207,
-    "start_date_local": "2024-09-02T18:18:46Z"
+    "start_date_local": "2024-09-02T18:18:46Z",
+    "distance": 3138
   },
   {
     "type": "Ride",
     "id": 12287574100,
-    "start_date_local": "2024-08-31T11:35:34Z"
+    "start_date_local": "2024-08-31T11:35:34Z",
+    "distance": 2940.3
   },
   {
     "type": "Run",
     "id": 12287573877,
-    "start_date_local": "2024-08-31T11:06:16Z"
+    "start_date_local": "2024-08-31T11:06:16Z",
+    "distance": 967.2
   },
   {
     "type": "Run",
     "id": 12287573923,
-    "start_date_local": "2024-08-31T10:46:06Z"
+    "start_date_local": "2024-08-31T10:46:06Z",
+    "distance": 2449.8
   },
   {
     "type": "Run",
     "id": 12287574148,
-    "start_date_local": "2024-08-31T10:18:31Z"
+    "start_date_local": "2024-08-31T10:18:31Z",
+    "distance": 909.2
   },
   {
     "type": "Ride",
     "id": 12287573896,
-    "start_date_local": "2024-08-31T10:04:30Z"
+    "start_date_local": "2024-08-31T10:04:30Z",
+    "distance": 3074.5
   },
   {
     "type": "Run",
     "id": 12265891843,
-    "start_date_local": "2024-08-28T19:04:21Z"
+    "start_date_local": "2024-08-28T19:04:21Z",
+    "distance": 816.9
   },
   {
     "type": "Run",
     "id": 12265891042,
-    "start_date_local": "2024-08-28T18:41:10Z"
+    "start_date_local": "2024-08-28T18:41:10Z",
+    "distance": 2700
   },
   {
     "type": "Workout",
     "id": 12265889528,
-    "start_date_local": "2024-08-28T18:16:05Z"
+    "start_date_local": "2024-08-28T18:16:05Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 12265889017,
-    "start_date_local": "2024-08-28T18:07:16Z"
+    "start_date_local": "2024-08-28T18:07:16Z",
+    "distance": 1006
   },
   {
     "type": "Ride",
     "id": 12249144689,
-    "start_date_local": "2024-08-26T20:19:51Z"
+    "start_date_local": "2024-08-26T20:19:51Z",
+    "distance": 2805.4
   },
   {
     "type": "Soccer",
     "id": 12248808445,
-    "start_date_local": "2024-08-26T18:44:15Z"
+    "start_date_local": "2024-08-26T18:44:15Z",
+    "distance": 6082.4
   },
   {
     "type": "Ride",
     "id": 12247879217,
-    "start_date_local": "2024-08-26T18:07:35Z"
+    "start_date_local": "2024-08-26T18:07:35Z",
+    "distance": 3173.5
   },
   {
     "type": "Ride",
     "id": 12228382213,
-    "start_date_local": "2024-08-24T11:45:25Z"
+    "start_date_local": "2024-08-24T11:45:25Z",
+    "distance": 3203.4
   },
   {
     "type": "Run",
     "id": 12227998966,
-    "start_date_local": "2024-08-24T11:18:10Z"
+    "start_date_local": "2024-08-24T11:18:10Z",
+    "distance": 790.6
   },
   {
     "type": "Run",
     "id": 12227998582,
-    "start_date_local": "2024-08-24T10:55:57Z"
+    "start_date_local": "2024-08-24T10:55:57Z",
+    "distance": 2842.1
   },
   {
     "type": "Workout",
     "id": 12227997914,
-    "start_date_local": "2024-08-24T10:34:37Z"
+    "start_date_local": "2024-08-24T10:34:37Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 12227997691,
-    "start_date_local": "2024-08-24T10:26:46Z"
+    "start_date_local": "2024-08-24T10:26:46Z",
+    "distance": 919.2
   },
   {
     "type": "Ride",
     "id": 12227996951,
-    "start_date_local": "2024-08-24T10:08:48Z"
+    "start_date_local": "2024-08-24T10:08:48Z",
+    "distance": 3328.8
   },
   {
     "type": "Workout",
     "id": 12216302287,
-    "start_date_local": "2024-08-22T18:05:08Z"
+    "start_date_local": "2024-08-22T18:05:08Z",
+    "distance": 0
   },
   {
     "type": "Run",
     "id": 12206653307,
-    "start_date_local": "2024-08-21T19:02:54Z"
+    "start_date_local": "2024-08-21T19:02:54Z",
+    "distance": 728.5
   },
   {
     "type": "Run",
     "id": 12206567548,
-    "start_date_local": "2024-08-21T18:39:21Z"
+    "start_date_local": "2024-08-21T18:39:21Z",
+    "distance": 2823.1
   },
   {
     "type": "Run",
     "id": 12206567305,
-    "start_date_local": "2024-08-21T18:06:12Z"
+    "start_date_local": "2024-08-21T18:06:12Z",
+    "distance": 884.9
   },
   {
     "type": "Ride",
     "id": 12189632329,
-    "start_date_local": "2024-08-19T20:25:49Z"
+    "start_date_local": "2024-08-19T20:25:49Z",
+    "distance": 2191.8
   },
   {
     "type": "Ride",
     "id": 12189445153,
-    "start_date_local": "2024-08-19T18:10:44Z"
+    "start_date_local": "2024-08-19T18:10:44Z",
+    "distance": 3323.9
   },
   {
     "type": "Ride",
     "id": 12093774919,
-    "start_date_local": "2024-08-08T12:36:12Z"
+    "start_date_local": "2024-08-08T12:36:12Z",
+    "distance": 3633.3
   },
   {
     "type": "Ride",
     "id": 12071019965,
-    "start_date_local": "2024-08-05T20:44:22Z"
+    "start_date_local": "2024-08-05T20:44:22Z",
+    "distance": 2378.7
   },
   {
     "type": "Ride",
     "id": 12069755240,
-    "start_date_local": "2024-08-05T18:25:18Z"
+    "start_date_local": "2024-08-05T18:25:18Z",
+    "distance": 3197.3
   },
   {
     "type": "Ride",
     "id": 12068013222,
-    "start_date_local": "2024-08-05T14:34:27Z"
+    "start_date_local": "2024-08-05T14:34:27Z",
+    "distance": 2195.3
   },
   {
     "type": "Ride",
     "id": 12035120913,
-    "start_date_local": "2024-08-01T13:59:18Z"
+    "start_date_local": "2024-08-01T13:59:18Z",
+    "distance": 3104.6
   },
   {
     "type": "Ride",
     "id": 12034593301,
-    "start_date_local": "2024-08-01T12:31:21Z"
+    "start_date_local": "2024-08-01T12:31:21Z",
+    "distance": 6000.4
   },
   {
     "type": "Ride",
     "id": 12012538439,
-    "start_date_local": "2024-07-29T20:31:00Z"
+    "start_date_local": "2024-07-29T20:31:00Z",
+    "distance": 2464.6
   },
   {
     "type": "Ride",
     "id": 12012350311,
-    "start_date_local": "2024-07-29T18:23:04Z"
+    "start_date_local": "2024-07-29T18:23:04Z",
+    "distance": 3990.1
   },
   {
     "type": "Ride",
     "id": 11954165539,
-    "start_date_local": "2024-07-22T20:30:33Z"
+    "start_date_local": "2024-07-22T20:30:33Z",
+    "distance": 2456.5
   },
   {
     "type": "Ride",
     "id": 11954004831,
-    "start_date_local": "2024-07-22T18:22:44Z"
+    "start_date_local": "2024-07-22T18:22:44Z",
+    "distance": 3909.5
   },
   {
     "type": "Ride",
     "id": 11896745768,
-    "start_date_local": "2024-07-15T22:16:19Z"
+    "start_date_local": "2024-07-15T22:16:19Z",
+    "distance": 2498.6
   },
   {
     "type": "Ride",
     "id": 11895984570,
-    "start_date_local": "2024-07-15T20:31:13Z"
+    "start_date_local": "2024-07-15T20:31:13Z",
+    "distance": 1010.4
   },
   {
     "type": "Ride",
     "id": 11895940655,
-    "start_date_local": "2024-07-15T18:25:14Z"
+    "start_date_local": "2024-07-15T18:25:14Z",
+    "distance": 3990.2
   },
   {
     "type": "Ride",
     "id": 11852958522,
-    "start_date_local": "2024-07-10T12:02:20Z"
+    "start_date_local": "2024-07-10T12:02:20Z",
+    "distance": 4455.4
   },
   {
     "type": "Ride",
     "id": 11840036453,
-    "start_date_local": "2024-07-08T20:31:11Z"
+    "start_date_local": "2024-07-08T20:31:11Z",
+    "distance": 2399.1
   },
   {
     "type": "Ride",
     "id": 11839783425,
-    "start_date_local": "2024-07-08T18:22:46Z"
+    "start_date_local": "2024-07-08T18:22:46Z",
+    "distance": 3738.8
   },
   {
     "type": "Ride",
     "id": 11832552962,
-    "start_date_local": "2024-07-07T19:24:19Z"
+    "start_date_local": "2024-07-07T19:24:19Z",
+    "distance": 16751.8
   },
   {
     "type": "Ride",
     "id": 11831964958,
-    "start_date_local": "2024-07-07T16:23:30Z"
+    "start_date_local": "2024-07-07T16:23:30Z",
+    "distance": 23288.3
   },
   {
     "type": "Ride",
     "id": 11829992061,
-    "start_date_local": "2024-07-07T15:13:02Z"
+    "start_date_local": "2024-07-07T15:13:02Z",
+    "distance": 2643.1
   },
   {
     "type": "Ride",
     "id": 11815758144,
-    "start_date_local": "2024-07-05T18:22:28Z"
+    "start_date_local": "2024-07-05T18:22:28Z",
+    "distance": 6441.4
   },
   {
     "type": "Ride",
     "id": 11815519461,
-    "start_date_local": "2024-07-05T18:08:57Z"
+    "start_date_local": "2024-07-05T18:08:57Z",
+    "distance": 3259.7
   },
   {
     "type": "Ride",
     "id": 11813345447,
-    "start_date_local": "2024-07-05T12:55:40Z"
+    "start_date_local": "2024-07-05T12:55:40Z",
+    "distance": 2245.2
   },
   {
     "type": "Ride",
     "id": 11806478893,
-    "start_date_local": "2024-07-04T15:18:55Z"
+    "start_date_local": "2024-07-04T15:18:55Z",
+    "distance": 4318.2
   },
   {
     "type": "Ride",
     "id": 11805742607,
-    "start_date_local": "2024-07-04T13:41:24Z"
+    "start_date_local": "2024-07-04T13:41:24Z",
+    "distance": 4353.7
   },
   {
     "type": "Ride",
     "id": 11805555974,
-    "start_date_local": "2024-07-04T13:30:29Z"
+    "start_date_local": "2024-07-04T13:30:29Z",
+    "distance": 1635.3
   },
   {
     "type": "Ride",
     "id": 11804979831,
-    "start_date_local": "2024-07-04T11:56:47Z"
+    "start_date_local": "2024-07-04T11:56:47Z",
+    "distance": 2159.4
   },
   {
     "type": "Ride",
     "id": 11800182669,
-    "start_date_local": "2024-07-03T19:21:49Z"
+    "start_date_local": "2024-07-03T19:21:49Z",
+    "distance": 1113.5
   },
   {
     "type": "Ride",
     "id": 11797132759,
-    "start_date_local": "2024-07-03T12:30:23Z"
+    "start_date_local": "2024-07-03T12:30:23Z",
+    "distance": 2276.9
   },
   {
     "type": "Ride",
     "id": 11784496644,
-    "start_date_local": "2024-07-01T20:41:51Z"
+    "start_date_local": "2024-07-01T20:41:51Z",
+    "distance": 2270
   },
   {
     "type": "Ride",
     "id": 11781262742,
-    "start_date_local": "2024-07-01T13:24:17Z"
+    "start_date_local": "2024-07-01T13:24:17Z",
+    "distance": 2271.2
   },
   {
     "type": "Ride",
     "id": 11761226440,
-    "start_date_local": "2024-06-28T19:24:14Z"
+    "start_date_local": "2024-06-28T19:24:14Z",
+    "distance": 2687.2
   },
   {
     "type": "Ride",
     "id": 11758493591,
-    "start_date_local": "2024-06-28T12:27:25Z"
+    "start_date_local": "2024-06-28T12:27:25Z",
+    "distance": 2345.3
   },
   {
     "type": "Ride",
     "id": 11753171507,
-    "start_date_local": "2024-06-27T18:05:38Z"
+    "start_date_local": "2024-06-27T18:05:38Z",
+    "distance": 1985.2
   },
   {
     "type": "Ride",
     "id": 11752237188,
-    "start_date_local": "2024-06-27T15:43:10Z"
+    "start_date_local": "2024-06-27T15:43:10Z",
+    "distance": 2168.5
   },
   {
     "type": "Ride",
     "id": 11752157447,
-    "start_date_local": "2024-06-27T15:17:47Z"
+    "start_date_local": "2024-06-27T15:17:47Z",
+    "distance": 2203.1
   },
   {
     "type": "Ride",
     "id": 11750819510,
-    "start_date_local": "2024-06-27T12:21:35Z"
+    "start_date_local": "2024-06-27T12:21:35Z",
+    "distance": 2135.8
   },
   {
     "type": "Ride",
     "id": 11728773589,
-    "start_date_local": "2024-06-24T18:21:20Z"
+    "start_date_local": "2024-06-24T18:21:20Z",
+    "distance": 3085
   },
   {
     "type": "Ride",
     "id": 11699116555,
-    "start_date_local": "2024-06-20T19:37:20Z"
+    "start_date_local": "2024-06-20T19:37:20Z",
+    "distance": 2111.9
   },
   {
     "type": "Ride",
     "id": 11696129453,
-    "start_date_local": "2024-06-20T12:35:54Z"
+    "start_date_local": "2024-06-20T12:35:54Z",
+    "distance": 2124.9
   },
   {
     "type": "Ride",
     "id": 11691258293,
-    "start_date_local": "2024-06-19T19:37:00Z"
+    "start_date_local": "2024-06-19T19:37:00Z",
+    "distance": 2071.8
   },
   {
     "type": "Ride",
     "id": 11688320565,
-    "start_date_local": "2024-06-19T13:14:11Z"
+    "start_date_local": "2024-06-19T13:14:11Z",
+    "distance": 2154.6
   },
   {
     "type": "Ride",
     "id": 11682801041,
-    "start_date_local": "2024-06-18T19:20:31Z"
+    "start_date_local": "2024-06-18T19:20:31Z",
+    "distance": 2223
   },
   {
     "type": "Ride",
     "id": 11679705826,
-    "start_date_local": "2024-06-18T12:19:27Z"
+    "start_date_local": "2024-06-18T12:19:27Z",
+    "distance": 2224.9
   }
 ]

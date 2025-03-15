@@ -152,6 +152,11 @@ th:first-child, td:first-child {
   opacity: 0.5;
 }
 
+.total-row {
+  font-weight: bold;
+  border-top: 2px solid var(--text-color-muted);
+}
+
 blockquote {
   padding-left: 1.5em;
   margin: 1.5em 0;

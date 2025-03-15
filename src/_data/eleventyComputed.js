@@ -2,26 +2,33 @@
 const getActivityConfig = () => {
   // Define activity grouping
   const activityGroups = {
-    'Fitness': ['Yoga', 'Workout', 'WeightTraining'],
-    'Run': ['Run'],
     'Soccer': ['Soccer'],
-    'Ride': ['Ride'],
-    'Hike': ['Hike']
+    'Fitness': ['Yoga', 'Workout', 'WeightTraining'],
+    'Hike': ['Hike'],
+    'Run': ['Run'],
+    'Ride': ['Ride']
   };
   
   // Create emoji map for activity groups
   const emojiMap = {
-    'Fitness': '🏋🏻‍♂️',
-    'Run': '🏃🏻‍♂️',
     'Soccer': '⚽️',
-    'Ride': '🚲',
+    'Fitness': '🏋🏻‍♂️',
     'Hike': '🥾',
+    'Run': '🏃🏻‍♂️',
+    'Ride': '🚲'
   };
+  
+  // Define which activities should show distance instead of count
+  const distanceActivities = ['Run', 'Ride'];
+  
+  // Define the order of activities
+  const orderedTypes = ['⚽️', '🏋🏻‍♂️', '🥾', '🏃🏻‍♂️', '🚲'];
   
   return {
     activityGroups,
     emojiMap,
-    types: Object.values(emojiMap)
+    types: orderedTypes,
+    distanceActivities
   };
 };
 
@@ -32,6 +39,50 @@ const getActivityGroup = (activity, config) => {
     }
   }
   return null;
+};
+
+const formatDistance = (meters) => {
+  if (meters === 0) return 0;
+  
+  // Convert to kilometers and round to 1 decimal place
+  const km = (meters / 1000).toFixed(1);
+  return parseFloat(km); // Remove trailing zero if it's a whole number
+};
+
+// Helper function to process an activity and update counts
+const processActivity = (activity, countsObj, config) => {
+  const group = getActivityGroup(activity, config);
+  let activityProcessed = false;
+  
+  if (group) {
+    const emoji = config.emojiMap[group];
+    
+    // If this is a distance-based activity and has distance data, add the distance
+    if (config.distanceActivities.includes(group) && activity.distance) {
+      countsObj[emoji] += activity.distance;
+    } else {
+      // Otherwise just count it
+      countsObj[emoji]++;
+    }
+    
+    activityProcessed = true;
+  }
+  
+  return activityProcessed;
+};
+
+// Helper function to format counts (convert distances to km)
+const formatCounts = (counts, config) => {
+  const formattedCounts = { ...counts };
+  
+  for (const [group, types] of Object.entries(config.activityGroups)) {
+    if (config.distanceActivities.includes(group)) {
+      const emoji = config.emojiMap[group];
+      formattedCounts[emoji] = formatDistance(counts[emoji]);
+    }
+  }
+  
+  return formattedCounts;
 };
 
 const processActivitiesByMonth = (activities) => {
@@ -48,20 +99,14 @@ const processActivitiesByMonth = (activities) => {
     // Process monthly data
     if (!months[yearMonth]) {
       months[yearMonth] = {};
-      // Initialize count for each activity type to 0
+      // Initialize count/distance for each activity type to 0
       types.forEach(type => {
         months[yearMonth][type] = 0;
       });
     }
     
-    // Find which group this activity belongs to
-    const group = getActivityGroup(activity, config);
-    
-    // If activity belongs to a defined group, increment the count
-    if (group) {
-      const emoji = emojiMap[group];
-      months[yearMonth][emoji]++;
-    }
+    // Process the activity
+    processActivity(activity, months[yearMonth], config);
   });
   
   // Convert months to array and sort by date (newest first)
@@ -70,10 +115,13 @@ const processActivitiesByMonth = (activities) => {
       // Split the yearMonth (YYYY-MM) into parts
       const [year, month] = yearMonth.split('-');
       
+      // Format distances for distance-based activities
+      const formattedCounts = formatCounts(counts, config);
+      
       return {
         yearMonth,
         label: `${month}/${year}`,
-        counts
+        counts: formattedCounts
       };
     })
     .sort((a, b) => b.yearMonth.localeCompare(a.yearMonth));
@@ -99,34 +147,63 @@ const processActivitiesByYear = (activities) => {
     // Process yearly data
     if (!years[year]) {
       years[year] = {};
-      // Initialize count for each activity type to 0
+      // Initialize count/distance for each activity type to 0
       types.forEach(type => {
         years[year][type] = 0;
       });
     }
     
-    // Find which group this activity belongs to
-    const group = getActivityGroup(activity, config);
-    
-    // If activity belongs to a defined group, increment the count
-    if (group) {
-      const emoji = emojiMap[group];
-      years[year][emoji]++;
-    }
+    // Process the activity
+    processActivity(activity, years[year], config);
   });
   
   // Convert years to array and sort by date (newest first)
   const yearRows = Object.entries(years)
-    .map(([year, counts]) => ({
-      label: year,
-      counts
-    }))
+    .map(([year, counts]) => {
+      // Format distances for distance-based activities
+      const formattedCounts = formatCounts(counts, config);
+      
+      return {
+        label: year,
+        counts: formattedCounts
+      };
+    })
     .sort((a, b) => b.label.localeCompare(a.label));
   
   return {
     title: "Year",
     types,
     rows: yearRows
+  };
+};
+
+const processActivitiesForMonth = (activities) => {
+  const config = getActivityConfig();
+  const { types } = config;
+  
+  // Initialize counts for all activity types
+  const counts = {};
+  types.forEach(emoji => {
+    counts[emoji] = 0;
+  });
+  
+  // Count activities or sum distances
+  let hasActivities = false;
+  
+  activities.forEach(activity => {
+    // Process the activity and track if any were processed
+    const processed = processActivity(activity, counts, config);
+    if (processed) {
+      hasActivities = true;
+    }
+  });
+  
+  // Format distances for distance-based activities
+  const formattedCounts = formatCounts(counts, config);
+  
+  return {
+    hasActivities,
+    counts: formattedCounts
   };
 };
 
@@ -162,36 +239,46 @@ export default {
         return null;
       }
       
-      // If summary is a year (4 digits), show monthly data
+      // If summary is a year (4 digits), show monthly data with totals
       if (data.summary.length === 4) {
-        const result = processActivitiesByMonth(activities);
+        const monthlyResult = processActivitiesByMonth(activities);
+        
         // If no rows, return null
-        if (result.rows.length === 0) {
+        if (monthlyResult.rows.length === 0) {
           return null;
         }
-        return result;
+        
+        // Calculate totals for the year
+        const config = getActivityConfig();
+        const { types } = config;
+        
+        // Initialize counts for all activity types
+        const totalCounts = {};
+        types.forEach(type => {
+          totalCounts[type] = 0;
+        });
+        
+        // Process all activities directly instead of summing the monthly counts
+        // This ensures accurate calculations, especially for distance-based activities
+        activities.forEach(activity => {
+          processActivity(activity, totalCounts, config);
+        });
+        
+        // Format distances for distance-based activities
+        const formattedTotalCounts = formatCounts(totalCounts, config);
+        
+        // Add a totals row
+        monthlyResult.rows.push({
+          label: "Total",
+          counts: formattedTotalCounts,
+          isTotal: true // Flag to potentially style differently
+        });
+        
+        return monthlyResult;
       }
       
       // Otherwise show single month data
-      const config = getActivityConfig();
-      const { emojiMap, types } = config;
-      
-      // Initialize counts for all activity types
-      const counts = {};
-      types.forEach(emoji => {
-        counts[emoji] = 0;
-      });
-      
-      // Count activities
-      let hasActivities = false;
-      activities.forEach(activity => {
-        const group = getActivityGroup(activity, config);
-        if (group) {
-          const emoji = emojiMap[group];
-          counts[emoji]++;
-          hasActivities = true;
-        }
-      });
+      const { hasActivities, counts } = processActivitiesForMonth(activities);
       
       // If no activities found in any category, return null
       if (!hasActivities) {
@@ -205,7 +292,7 @@ export default {
       
       return {
         title: "Month",
-        types,
+        types: getActivityConfig().types,
         rows: [{
           label: monthLabel,
           counts

@@ -6,6 +6,7 @@
   - rows: Array of row objects, each with:
     - label: The label for the first column
     - counts: Object mapping activity types to counts
+    - isTotal: (optional) Boolean indicating if this is a totals row
 {% endcomment %}
 
 <table>
@@ -19,7 +20,7 @@
   </thead>
   <tbody>
     {% for row in rows %}
-    <tr>
+    <tr {% if row.isTotal %}class="total-row"{% endif %}>
       <td>{{ row.label }}</td>
       {% for type in types %}
       <td>{% assign count = row.counts[type] | default: 0 %}{% if count == 0 %}<span class="zero">{{ count }}</span>{% else %}{{ count }}{% endif %}</td>
