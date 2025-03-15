@@ -56,7 +56,7 @@ html {
 
 body {
   font-family: "PT Mono", monospace;
-  margin: 0 0 4rem;
+  margin: 0 0 3rem;
   background-color: var(--background-color);
   color: var(--text-color);
 }
