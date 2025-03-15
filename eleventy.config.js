@@ -15,8 +15,12 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/static/calendar.js");
   eleventyConfig.addPassthroughCopy("src/static/chess.js");
-  eleventyConfig.addPassthroughCopy("src/static/lichess-pgn-viewer.js");
-  eleventyConfig.addPassthroughCopy("src/static/lichess-pgn-viewer.css");
+  eleventyConfig.addPassthroughCopy("src/static/chessground.js");
+  eleventyConfig.addPassthroughCopy("src/static/chessground.css");
+  eleventyConfig.addPassthroughCopy("src/static/chessground.base.css");
+  eleventyConfig.addPassthroughCopy("src/static/chessground.brown.css");
+  eleventyConfig.addPassthroughCopy("src/static/chessground.cburnett.css");
+  eleventyConfig.addPassthroughCopy("src/static/chess-puzzles.js");
 
   eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");

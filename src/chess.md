@@ -4,16 +4,17 @@ subtitle: My favorite puzzles
 layout: "base.liquid"
 class: "body_chess body_no_padding"
 ---
-
-<link rel="stylesheet" href="/static/lichess-pgn-viewer.css" />
+<link rel="stylesheet" href="{{ '/static/chessground.css' | bust }}" />
+<link rel="stylesheet" href="{{ '/static/chessground.base.css' | bust }}" />
+<link rel="stylesheet" href="{{ '/static/chessground.brown.css' | bust }}" />
+<link rel="stylesheet" href="{{ '/static/chessground.cburnett.css' | bust }}" />
 
 <div class="container">
   <div class="col padding">
-    Réti endgame study
-
+    <h3>Réti endgame study</h3>
     <div id="reti" class="chess"></div>
 
   </div>
 </div>
 
-<script src="/static/chess.js" type="module"></script>
+<script src="/static/chess-puzzles.js" type="module"></script>
