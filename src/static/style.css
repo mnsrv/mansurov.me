@@ -487,6 +487,12 @@ figcaption {
   width: 500px;
   height: 500px;
 }
+.puzzle-selector {
+  margin-bottom: 1rem;
+}
+.puzzle-controls {
+  margin-top: 1rem;
+}
 
 cg-board {
   background-color: #bfcfdd;

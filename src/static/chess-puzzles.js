@@ -63,10 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add the chessboard to the container
   puzzleContainer.appendChild(el);
   
-  // Create puzzle title
-  const puzzleTitle = document.createElement('h3');
-  puzzleTitle.className = 'puzzle-title';
-  
   // Create controls
   const controlsDiv = document.createElement('div');
   controlsDiv.className = 'puzzle-controls';
@@ -91,8 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   feedbackDiv.className = 'puzzle-feedback';
   
   // Add elements to the container
-  puzzleContainer.prepend(puzzleTitle);
-  controlsDiv.appendChild(puzzleSelector);
+  puzzleContainer.prepend(puzzleSelector);
   controlsDiv.appendChild(resetButton);
   puzzleContainer.appendChild(controlsDiv);
   puzzleContainer.appendChild(feedbackDiv);
@@ -238,9 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Find the puzzle by ID
     const puzzle = puzzles.find(p => p.id === puzzleId) || puzzles[0];
     currentPuzzle = puzzle;
-    
-    // Update the puzzle title
-    puzzleTitle.textContent = puzzle.name;
     
     // Clear move history
     moveHistory = [];
