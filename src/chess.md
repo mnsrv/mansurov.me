@@ -1,6 +1,10 @@
 ---
 title: Chess
 subtitle: My favorite puzzles
+eleventyNavigation:
+  key: chess
+  title: chess
+  order: 5
 layout: "base.liquid"
 class: "body_chess body_no_padding"
 ---

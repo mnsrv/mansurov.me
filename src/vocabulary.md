@@ -4,7 +4,7 @@ subtitle: new words for me
 eleventyNavigation:
   key: vocabulary
   title: vocabulary
-  order: 5
+  order: 6
 layout: "base.liquid"
 ---
 
