@@ -59,24 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const feedbackDiv = document.createElement('div');
   feedbackDiv.className = 'puzzle-feedback';
   
-  // Move counter display
-  const moveCounterDiv = document.createElement('div');
-  moveCounterDiv.className = 'move-counter';
-  moveCounterDiv.textContent = `Your Moves: 0/${maxPlayerMoves}`;
-  
-  // Move history display
-  const historyDiv = document.createElement('div');
-  historyDiv.className = 'move-history';
-  historyDiv.innerHTML = '<h3>Move History</h3><div class="moves"></div>';
-  
   // Add controls to the container
   controlsDiv.appendChild(resetButton);
-  controlsDiv.appendChild(moveCounterDiv);
   puzzleContainer.appendChild(controlsDiv);
   puzzleContainer.appendChild(feedbackDiv);
-  puzzleContainer.appendChild(historyDiv);
-  
-  const movesDisplay = historyDiv.querySelector('.moves');
   
   // Initialize chess with the FEN
   const chess = new Chess(fen);
@@ -100,37 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
   
-  // Function to update move history display
-  const updateMoveDisplay = () => {
-    movesDisplay.innerHTML = '';
-    
+  // Function to get player moves
+  const getPlayerMoves = () => {
     // Count player moves (white moves)
-    const playerMoves = moveHistory.filter((_, index) => index % 2 === 0);
-    
-    // Update move counter to show only player moves
-    moveCounterDiv.textContent = `Your Moves: ${playerMoves.length}/${maxPlayerMoves}`;
-    
-    // Display moves in standard chess notation format
-    for (let i = 0; i < moveHistory.length; i++) {
-      const moveNumber = Math.floor(i / 2) + 1;
-      const moveText = document.createElement('span');
-      
-      if (i % 2 === 0) {
-        moveText.textContent = `${moveNumber}. ${moveHistory[i]} `;
-      } else {
-        moveText.textContent = `${moveHistory[i]} `;
-      }
-      
-      movesDisplay.appendChild(moveText);
-    }
-    
-    return playerMoves;
+    return moveHistory.filter((_, index) => index % 2 === 0);
   };
   
   // Function to check the solution
   const checkSolution = () => {
     // Get player moves (white moves)
-    const playerMoves = moveHistory.filter((_, index) => index % 2 === 0);
+    const playerMoves = getPlayerMoves();
     
     // Check if any of the defined solutions match the player's moves
     let isCorrect = false;
@@ -200,8 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Record the move in SAN format
       moveHistory.push(move.san);
       
-      // Update the move display and get player moves
-      const playerMoves = updateMoveDisplay();
+      // Get player moves
+      const playerMoves = getPlayerMoves();
       
       // Update the board
       cg.set({
@@ -211,6 +176,24 @@ document.addEventListener('DOMContentLoaded', () => {
           dests: toDests(chess),
         },
       });
+      
+      // Check for stalemate after the move
+      if (chess.isStalemate()) {
+        setTimeout(() => {
+          // Use the same format as incorrect solution
+          feedbackDiv.textContent = 'Incorrect solution. Try again!';
+          feedbackDiv.className = 'puzzle-feedback error';
+          
+          // Disable further moves
+          cg.set({
+            movable: {
+              color: 'none',
+              dests: new Map(),
+            }
+          });
+        }, 300);
+        return;
+      }
       
       // Check if this is the player's second move
       if (playerMoves.length >= maxPlayerMoves) {
@@ -244,12 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
     
-    // Clear feedback and move display
+    // Clear feedback
     feedbackDiv.textContent = '';
     feedbackDiv.className = 'puzzle-feedback';
-    updateMoveDisplay();
   });
-  
-  // Initialize the move display
-  updateMoveDisplay();
 });
