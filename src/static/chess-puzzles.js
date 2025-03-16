@@ -4,17 +4,34 @@
 // This represents the position shown in the image
 // Format: piece placement / active color / castling availability / en passant target / halfmove clock / fullmove counter
 const fen = "8/8/p7/k1p5/8/1QK5/8/8 w - - 0 1"  // Réti endgame study from image
+const fen2 = 'r5k1/pR6/K7/7n/3Q4/8/8/8 w - - 0 1'
 
-// Define multiple correct solutions as arrays of move sequences in algebraic notation
-// Each array represents one valid solution path (including both player and opponent moves)
-const correctSolutions = [
-    ["Qb7", "c4", "Qb4"],
-    ["Qb7", "Ka4", "Qxa6"],
+// Define puzzles with their FEN positions and solutions
+const puzzles = [
+  {
+    id: 'puzzle1',
+    name: 'Мат в два хода (Л. Куббель, 1941)',
+    fen: "8/8/p7/k1p5/8/1QK5/8/8 w - - 0 1",
+    solutions: [
+      ["Qb7", "c4", "Qb4"],
+      ["Qb7", "Ka4", "Qxa6"],
+    ],
+    maxPlayerMoves: 2
+  },
+  {
+    id: 'puzzle2',
+    name: 'Мат в два хода (Л. Куббель, 1939)',
+    fen: 'r5k1/pR6/K7/7n/3Q4/8/8/8 w - - 0 1',
+    solutions: [
+      ["Qd7", "Kf8", "Qf7"],
+      ["Qd7", "Kh8", "Qh7"],
+      ["Qd7", "Nf4", "Qg7"],
+      ["Qd7", "Rf8", "Qh7"],
+      ["Qd7", "Rb8", "Rxb8"],
+    ],
+    maxPlayerMoves: 2
+  }
 ];
-
-// Set the maximum number of player moves for this puzzle
-// In chess puzzles, we typically count only the player's moves, not the opponent's responses
-const maxPlayerMoves = 2; // For a "win in 2" puzzle
 
 import { Chessground } from './chessground.js';
 import { Chess, SQUARES } from './chess.js';
@@ -46,9 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add the chessboard to the container
   puzzleContainer.appendChild(el);
   
+  // Create puzzle title
+  const puzzleTitle = document.createElement('h3');
+  puzzleTitle.className = 'puzzle-title';
+  
   // Create controls
   const controlsDiv = document.createElement('div');
   controlsDiv.className = 'puzzle-controls';
+  
+  // Puzzle selector
+  const puzzleSelector = document.createElement('select');
+  puzzleSelector.className = 'puzzle-selector';
+  puzzles.forEach(puzzle => {
+    const option = document.createElement('option');
+    option.value = puzzle.id;
+    option.textContent = puzzle.name;
+    puzzleSelector.appendChild(option);
+  });
   
   // Reset button
   const resetButton = document.createElement('button');
@@ -59,23 +90,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const feedbackDiv = document.createElement('div');
   feedbackDiv.className = 'puzzle-feedback';
   
-  // Add controls to the container
+  // Add elements to the container
+  puzzleContainer.prepend(puzzleTitle);
+  controlsDiv.appendChild(puzzleSelector);
   controlsDiv.appendChild(resetButton);
   puzzleContainer.appendChild(controlsDiv);
   puzzleContainer.appendChild(feedbackDiv);
   
-  // Initialize chess with the FEN
-  const chess = new Chess(fen);
-  
-  // Store the initial position for reset
-  const initialFen = fen;
-  
-  // Track all moves made in SAN format
-  const moveHistory = [];
+  // Initialize variables
+  let currentPuzzle = puzzles[0];
+  let chess = new Chess(currentPuzzle.fen);
+  let moveHistory = [];
   
   // Initialize the board
   const cg = Chessground(el, {
-    fen: initialFen,
+    fen: currentPuzzle.fen,
     movable: {
       color: 'both', // Allow playing both sides
       free: false,
@@ -101,16 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let isCorrect = false;
     
     // Only check if we have solutions defined and player has made enough moves
-    if (correctSolutions.length > 0 && playerMoves.length >= maxPlayerMoves) {
+    if (currentPuzzle.solutions.length > 0 && playerMoves.length >= currentPuzzle.maxPlayerMoves) {
       // Try to match against each possible solution
-      for (const solution of correctSolutions) {
+      for (const solution of currentPuzzle.solutions) {
         // Check if the full move sequence matches this solution
         // We need to compare player and opponent moves
         let solutionMatches = true;
         
         // We need at least 2*maxPlayerMoves-1 moves to check a solution
         // (player move, opponent move, player move, ...)
-        const minMovesNeeded = Math.min(2 * maxPlayerMoves - 1, solution.length);
+        const minMovesNeeded = Math.min(2 * currentPuzzle.maxPlayerMoves - 1, solution.length);
         
         if (moveHistory.length < minMovesNeeded) {
           continue;
@@ -195,8 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      // Check if this is the player's second move
-      if (playerMoves.length >= maxPlayerMoves) {
+      // Check if this is the player's final move
+      if (playerMoves.length >= currentPuzzle.maxPlayerMoves) {
         setTimeout(() => {
           checkSolution();
         }, 300); // Small delay to allow the player to see the move
@@ -204,22 +233,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   
-  // Set up the move handler
-  cg.set({
-    movable: { events: { after: onMove } },
-  });
-  
-  // Reset button handler
-  resetButton.addEventListener('click', () => {
+  // Function to load a puzzle
+  const loadPuzzle = (puzzleId) => {
+    // Find the puzzle by ID
+    const puzzle = puzzles.find(p => p.id === puzzleId) || puzzles[0];
+    currentPuzzle = puzzle;
+    
+    // Update the puzzle title
+    puzzleTitle.textContent = puzzle.name;
+    
     // Clear move history
-    moveHistory.length = 0;
+    moveHistory = [];
     
     // Reset the chess.js instance
-    chess.load(initialFen);
+    chess = new Chess(puzzle.fen);
     
     // Reset the board
     cg.set({
-      fen: initialFen,
+      fen: puzzle.fen,
       turnColor: toColor(chess),
       movable: {
         color: 'both',
@@ -230,5 +261,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clear feedback
     feedbackDiv.textContent = '';
     feedbackDiv.className = 'puzzle-feedback';
+  };
+  
+  // Set up the move handler
+  cg.set({
+    movable: { events: { after: onMove } },
   });
+  
+  // Reset button handler
+  resetButton.addEventListener('click', () => {
+    loadPuzzle(currentPuzzle.id);
+  });
+  
+  // Puzzle selector handler
+  puzzleSelector.addEventListener('change', (e) => {
+    loadPuzzle(e.target.value);
+  });
+  
+  // Initialize with the first puzzle
+  loadPuzzle(puzzles[0].id);
 });

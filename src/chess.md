@@ -10,7 +10,6 @@ class: "body_chess body_no_padding"
 
 <div class="container">
   <div class="col padding">
-    <h3>Мат в два хода (Л. Куббель, 1941)</h3>
     <div id="reti" class="chess"></div>
 
   </div>
