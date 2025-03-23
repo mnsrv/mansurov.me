@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Табия тридцать два',
+    author: 'Алексей Конаков',
+    rating: 3,
+    date: '2025-03-22',
+    image: 'bs-tabiya-tridtsat-dva.jpg',
+    cover: 'bc-tabiya-tridtsat-dva.jpeg',
+    height: '8.31',
+  },
+  {
     title: 'Попытка к бегству',
     author: 'А.&nbsp;Стругацкий, Б.&nbsp;Стругацкий',
     rating: 3,
