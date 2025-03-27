@@ -1,6 +1,6 @@
 ---
 title: Sasha Mansurov
-subtitle: 📍 Warsaw, Poland
+subtitle: ネーヴァ ギヴ アップ!!
 eleventyNavigation:
   key: /
   title: mansurov.me
