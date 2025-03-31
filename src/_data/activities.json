@@ -318,18 +318,6 @@
     "distance": 1591
   },
   {
-    "type": "Run",
-    "id": 12620162679,
-    "start_date_local": "2024-10-10T12:05:03Z",
-    "distance": 1571.4
-  },
-  {
-    "type": "Run",
-    "id": 12620085755,
-    "start_date_local": "2024-10-10T12:02:53Z",
-    "distance": 139.2
-  },
-  {
     "type": "Ride",
     "id": 12600132511,
     "start_date_local": "2024-10-07T21:04:35Z",
