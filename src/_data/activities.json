@@ -1,5 +1,29 @@
 [
   {
+    "type": "WeightTraining",
+    "id": 14080921508,
+    "start_date_local": "2025-04-04T20:55:35Z",
+    "distance": 0
+  },
+  {
+    "type": "Run",
+    "id": 14071650985,
+    "start_date_local": "2025-04-03T20:39:22Z",
+    "distance": 5087.1
+  },
+  {
+    "type": "WeightTraining",
+    "id": 14058414512,
+    "start_date_local": "2025-04-02T13:41:40Z",
+    "distance": 0
+  },
+  {
+    "type": "Run",
+    "id": 14047863658,
+    "start_date_local": "2025-04-01T14:02:51Z",
+    "distance": 3103.2
+  },
+  {
     "type": "Soccer",
     "id": 14042672996,
     "start_date_local": "2025-03-31T18:34:58Z",
