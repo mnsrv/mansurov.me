@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Маус',
+    author: 'Арт Шпигельман',
+    rating: 4,
+    date: '2025-04-06',
+    image: 'bs-maus.jpg',
+    cover: 'bc-maus.jpg',
+    height: '9.45',
+  },
+  {
     title: 'Табия тридцать два',
     author: 'Алексей Конаков',
     rating: 3,
