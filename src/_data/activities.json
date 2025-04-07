@@ -1,5 +1,11 @@
 [
   {
+    "type": "Run",
+    "id": 14086762603,
+    "start_date_local": "2025-04-05T14:01:12Z",
+    "distance": 3308.7
+  },
+  {
     "type": "WeightTraining",
     "id": 14080921508,
     "start_date_local": "2025-04-04T20:55:35Z",
