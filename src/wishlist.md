@@ -1,10 +1,6 @@
 ---
 title: Wishlist
 subtitle: inspired by <a href="https://goods.so" target="_blank">goods.so</a>
-eleventyNavigation:
-  key: wishlist
-  title: wishlist
-  order: 3
 layout: "base.liquid"
 class: "body_wishlist body_no_padding"
 date: Last Modified

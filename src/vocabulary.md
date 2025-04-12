@@ -1,10 +1,6 @@
 ---
 title: Vocabulary
 subtitle: new words for me
-eleventyNavigation:
-  key: vocabulary
-  title: vocabulary
-  order: 6
 layout: "base.liquid"
 ---
 

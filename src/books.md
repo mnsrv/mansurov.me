@@ -1,10 +1,6 @@
 ---
 title: Books
 subtitle: Place for some quote
-eleventyNavigation:
-  key: books
-  title: books
-  order: 2
 layout: "base.liquid"
 class: "body_books body_no_padding"
 date: Last Modified

@@ -1,10 +1,6 @@
 ---
 title: Blog
 subtitle: Letters for memory
-eleventyNavigation:
-  key: blog
-  title: blog
-  order: 1
 layout: "base.liquid"
 class: "body_no_padding"
 ---
