@@ -1,10 +1,10 @@
 ---
-title: About me
+title: About
 subtitle: Hello, it's me
 eleventyNavigation:
   key: about
   title: about
-  order: 0
+  order: 1
 layout: "base.liquid"
 ---
 
@@ -17,8 +17,8 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
 - learning [vocabulary](/vocabulary)
 - tracking [activities](/activities)
 - studying [chess](/chess)
-- saving [quotes](/quotes)
-- recording [concerts](/concerts)
+<!-- - saving [quotes](/quotes) -->
+<!-- - recording [concerts](/concerts) -->
 
 
 <section>
