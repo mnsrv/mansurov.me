@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Что мой сын должен знать об устройстве этого мира',
+    author: 'Фредрик Бакман',
+    rating: 3,
+    date: '2025-04-23',
+    image: 'bs-things-my-son-needs-to-know-about-the-world.jpg',
+    cover: 'bc-things-my-son-needs-to-know-about-the-world.jpg',
+    height: '7.087',
+  },
+  {
     title: 'Маус',
     author: 'Арт Шпигельман',
     rating: 4,
@@ -58,9 +67,9 @@ const books = [
     author: 'Фредрик Бакман',
     rating: 4,
     date: '2024-12-29',
-    image: 'bs-uve.png',
-    cover: 'bc-uve.jpg',
-    height: '8.15',
+    image: 'bs-a-man-called-ove.jpg',
+    cover: 'bc-a-man-called-ove.jpg',
+    height: '7.87',
   },
   {
     title: 'Крестный отец',
