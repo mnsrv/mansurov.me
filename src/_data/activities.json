@@ -1,5 +1,17 @@
 [
   {
+    "type": "Soccer",
+    "id": 14316059011,
+    "start_date_local": "2025-04-28T18:38:27Z",
+    "distance": 6215.4
+  },
+  {
+    "type": "Run",
+    "id": 14306167450,
+    "start_date_local": "2025-04-27T20:41:43Z",
+    "distance": 10000.7
+  },
+  {
     "type": "Run",
     "id": 14275512283,
     "start_date_local": "2025-04-24T20:35:06Z",
