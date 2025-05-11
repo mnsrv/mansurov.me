@@ -1,5 +1,41 @@
 [
   {
+    "type": "Run",
+    "id": 14444504534,
+    "start_date_local": "2025-05-11T11:31:47Z",
+    "distance": 10082.1
+  },
+  {
+    "type": "Run",
+    "id": 14443405517,
+    "start_date_local": "2025-05-11T10:51:11Z",
+    "distance": 1677.4
+  },
+  {
+    "type": "Run",
+    "id": 14428509444,
+    "start_date_local": "2025-05-09T20:46:17Z",
+    "distance": 3049.1
+  },
+  {
+    "type": "Run",
+    "id": 14408352746,
+    "start_date_local": "2025-05-07T19:34:37Z",
+    "distance": 3234.3
+  },
+  {
+    "type": "Run",
+    "id": 14408352728,
+    "start_date_local": "2025-05-07T18:54:22Z",
+    "distance": 1343
+  },
+  {
+    "type": "Run",
+    "id": 14398515966,
+    "start_date_local": "2025-05-06T21:18:01Z",
+    "distance": 3540.9
+  },
+  {
     "type": "Soccer",
     "id": 14389129680,
     "start_date_local": "2025-05-05T11:04:07Z",
