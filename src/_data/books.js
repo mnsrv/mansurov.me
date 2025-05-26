@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Project Hail Mary',
+    author: 'Andy Weir',
+    rating: 5,
+    date: '2025-05-22',
+    image: 'bs-project-hail-mary.jpg',
+    cover: 'bc-project-hail-mary.jpg',
+    height: '9.6',
+  },
+  {
     title: 'Что мой сын должен знать об устройстве этого мира',
     author: 'Фредрик Бакман',
     rating: 3,
