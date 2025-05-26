@@ -28,7 +28,7 @@ date: Last Modified
     <h4>{{ item.key }}</h4>
     {% for book in item.values %}
     {% if mapBooksReviews[book.title] %}[{{book.title}}](/books/{{mapBooksReviews[book.title]}})
-    {% else %}{{ book.title }}{% endif %} <i>{{ book.author }}</i>{% if book.rating == '5' %} ⭐️{% endif %}{% if not book.image %} 🖼️{% endif %}{% if not book.cover %} 📕{% endif %}
+    {% else %}{{ book.title }}{% endif %} <i>{{ book.author }}</i>{% if book.rating == 5 %} ⭐️{% endif %}{% if not book.image %} 🖼️{% endif %}{% if not book.cover %} 📕{% endif %}
     {% endfor %}</section>
     {% endfor %}
     {% if books.noSpine > 0 %}<p>🖼️ no spine: {{ books.noSpine }}</p>{% endif %}

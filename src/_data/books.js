@@ -83,7 +83,7 @@ const books = [
   {
     title: 'Крестный отец',
     author: 'Марио Пьюзо',
-    rating: '4',
+    rating: 4,
     date: '2024-09-22',
     image: 'bs-godfather.jpg',
     cover: 'bc-godfather.jpg',
@@ -92,7 +92,7 @@ const books = [
   {
     title: 'Потрясающие приключения Кавалера &amp;&nbsp;Клея',
     author: 'Майкл Шейбон',
-    rating: '4',
+    rating: 4,
     date: '2024-09-06',
     image: 'bs-kavaler-clay.png',
     cover: 'bc-kavaler-clay.jpg',
@@ -102,7 +102,7 @@ const books = [
     title:
       'Империя должна умереть: История русских революций в&nbsp;лицах. 1900-1917',
     author: 'Михаил Зыгарь',
-    rating: '3',
+    rating: 3,
     date: '2024-03-07',
     image: 'bs-empire-must-die.png',
     cover: 'bc-empire-must-die.jpg',
@@ -111,7 +111,7 @@ const books = [
   {
     title: 'Silo. Dust',
     author: 'Hugh Howey',
-    rating: '4',
+    rating: 4,
     date: '2024-01-12',
     image: 'bs-silo-dust.png',
     cover: 'bc-dust.jpg',
@@ -120,7 +120,7 @@ const books = [
   {
     title: 'Бункер. Смена',
     author: 'Хью Хауи',
-    rating: '4',
+    rating: 4,
     date: '2023-12-13',
     image: 'bs-bunker-change.png',
     cover: 'bc-bunker-change.jpg',
@@ -129,7 +129,7 @@ const books = [
   {
     title: 'Бункер. Иллюзия',
     author: 'Хью Хауи',
-    rating: '4',
+    rating: 4,
     date: '2023-08-18',
     image: 'bs-bunker-illusion.png',
     cover: 'bc-bunker-illusion.jpg',
@@ -138,7 +138,7 @@ const books = [
   {
     title: 'Защита Лужина',
     author: 'Владимир Набоков',
-    rating: '3',
+    rating: 3,
     date: '2022-07-31',
     image: 'bs-luzin.png',
     cover: 'bc-luzin.jpg',
@@ -147,7 +147,7 @@ const books = [
   {
     title: 'Конец Вечности',
     author: 'Айзек Азимов',
-    rating: '5',
+    rating: 5,
     date: '2022-06-09',
     image: 'bs-end-of-eternity.jpg',
     cover: 'bc-end-of-eternity.jpg',
@@ -156,7 +156,7 @@ const books = [
   {
     title: 'Палата №6',
     author: 'Антон Чехов',
-    rating: '4',
+    rating: 4,
     date: '2022-01-14',
     image: 'bs-palata-6.jpg',
     cover: 'bc-palata-6.jpg',
@@ -165,7 +165,7 @@ const books = [
   {
     title: 'О&nbsp;чем я&nbsp;говорю, когда говорю о&nbsp;беге',
     author: 'Харуки Мураками',
-    rating: '5',
+    rating: 5,
     date: '2021-12-01',
     image: 'bs-beg.png',
     cover: 'bc-beg.jpg',
@@ -174,7 +174,7 @@ const books = [
   {
     title: 'Ложная слепота',
     author: 'Питер Уоттс',
-    rating: '4',
+    rating: 4,
     date: '2019-08-24',
     image: 'bs-blindsight.jpeg',
     cover: 'bc-blindsight.jpeg',
@@ -183,7 +183,7 @@ const books = [
   {
     title: 'Географ глобус пропил',
     author: 'Алексей Иванов',
-    rating: '5',
+    rating: 5,
     date: '2019-06-11',
     image: 'bs-geograf.png',
     cover: 'bc-geograf.jpg',
@@ -192,7 +192,7 @@ const books = [
   {
     title: 'Имею скафандр – готов путешествовать!',
     author: 'Роберт Хайнлайн',
-    rating: '5',
+    rating: 5,
     date: '2019-02-08',
     image: 'bs-skafandr.png',
     cover: 'bc-skafandr.jpg',
@@ -201,7 +201,7 @@ const books = [
   {
     title: 'Девять принцев Амбера',
     author: 'Роджер Желязны',
-    rating: '3',
+    rating: 3,
     date: '2018-12-01',
     image: 'bs-9-amber.png',
     cover: 'bc-9-amber.jpg',
@@ -210,7 +210,7 @@ const books = [
   {
     title: 'Вы, конечно, шутите, мистер Фейнман!',
     author: 'Ричард Ф.&nbsp;Фейнман',
-    rating: '5',
+    rating: 5,
     date: '2018-08-13',
     image: 'bs-feynman.webp',
     cover: 'bc-feynman.jpeg',
@@ -219,7 +219,7 @@ const books = [
   {
     title: 'Первому игроку приготовиться',
     author: 'Эрнест Клайн',
-    rating: '4',
+    rating: 4,
     date: '2017-11-15',
     image: 'bs-ready-player-one.jpeg',
     cover: 'bc-ready-player-one.jpeg',
@@ -228,7 +228,7 @@ const books = [
   {
     title: 'Финансист',
     author: 'Теодор Драйзер',
-    rating: '3',
+    rating: 3,
     date: '2017-05-15',
     image: 'bs-finansist.jpg',
     cover: 'bc-finansist.jpg',
@@ -237,7 +237,7 @@ const books = [
   {
     title: 'Источник',
     author: 'Айн Рэнд',
-    rating: '4',
+    rating: 4,
     date: '2017-03-18',
     image: 'bs-istochnik.png',
     cover: 'bc-istochnik.jpg',
@@ -246,7 +246,7 @@ const books = [
   {
     title: 'Игра престолов',
     author: 'Джордж Мартин',
-    rating: '4',
+    rating: 4,
     date: '2016-09-10',
     image: 'bs-game-of-thrones.png',
     cover: 'bc-game-of-thrones.jpeg',
@@ -255,7 +255,7 @@ const books = [
   {
     title: 'Вся кремлевская рать. Краткая история современной России',
     author: 'Михаил Зыгарь',
-    rating: '3',
+    rating: 3,
     date: '2016-04-01',
     image: 'bs-vsya-kremlevskaya-rat.png',
     cover: 'bc-vsya-kremlevskaya-rat.jpeg',
@@ -264,7 +264,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;Методы рационального мышления',
     author: 'Элиезер Юдковски',
-    rating: '5',
+    rating: 5,
     date: '2016-03-01',
     image: 'bs-hpmor.png',
     cover: 'bc-hpmor.jpg',
@@ -273,7 +273,7 @@ const books = [
   {
     title: 'Автостопом по&nbsp;Галактике',
     author: 'Дуглас Адамс',
-    rating: '3',
+    rating: 3,
     date: '2015-12-01',
     image: 'bs-autostop.png',
     cover: 'bc-autostop.jpg',
@@ -282,7 +282,7 @@ const books = [
   {
     title: 'Мастер и&nbsp;Маргарита',
     author: 'Михаил Булгаков',
-    rating: '3',
+    rating: 3,
     date: '2015-10-27',
     image: 'bs-master-i-margarita.jpg',
     cover: 'bc-master-i-margarita.jpg',
@@ -291,7 +291,7 @@ const books = [
   {
     title: 'Марсианин',
     author: 'Энди Вейер',
-    rating: '5',
+    rating: 5,
     date: '2015-10-18',
     image: 'bs-marsianin.png',
     cover: 'bc-marsianin.jpg',
@@ -300,7 +300,7 @@ const books = [
   {
     title: 'Похвала скуке',
     author: 'Иосиф Бродский',
-    rating: '3',
+    rating: 3,
     date: '2015-09-03',
     image: 'bs-pohvala-skuke.png',
     cover: 'bc-pohvala-skuke.jpg',
@@ -309,7 +309,7 @@ const books = [
   {
     title: 'Преступление и&nbsp;наказание',
     author: 'Фёдор Достоевский',
-    rating: '3',
+    rating: 3,
     date: '2015-08-01',
     image: 'bs-prestuplenie-i-nakazanie.jpg',
     cover: 'bc-prestuplenie-i-nakazanie.jpg',
@@ -318,7 +318,7 @@ const books = [
   {
     title: 'Планета людей',
     author: 'Антуан де&nbsp;Сент-Экзюпери',
-    rating: '4',
+    rating: 4,
     date: '2015-03-16',
     image: 'bs-planeta-lyudei-malenkii-princ.jpg',
     cover: 'bc-planeta-lyudei-malenkii-princ.jpg',
@@ -327,7 +327,7 @@ const books = [
   {
     title: 'Понедельник начинается в&nbsp;субботу',
     author: 'А.&nbsp;Стругацкий, Б.&nbsp;Стругацкий',
-    rating: '3',
+    rating: 3,
     date: '2015-02-26',
     image: 'bs-ponedelnik.png',
     cover: 'bc-ponedelnik.jpeg',
@@ -336,7 +336,7 @@ const books = [
   {
     title: 'Полковнику никто не&nbsp;пишет',
     author: 'Габриэль Гарсиа Маркес',
-    rating: '2',
+    rating: 2,
     date: '2015-01-20',
     image: 'bs-polkovniku-nikto-ne-pishet.png',
     cover: 'bc-polkovniku-nikto-ne-pishet.jpg',
@@ -345,7 +345,7 @@ const books = [
   {
     title: 'Исчезнувшая',
     author: 'Гиллиан Флинн',
-    rating: '3',
+    rating: 3,
     date: '2015-01-01',
     image: 'bs-gone-girl.png',
     cover: 'bc-gone-girl.jpg',
@@ -354,7 +354,7 @@ const books = [
   {
     title: 'Атлант расправил плечи',
     author: 'Айн Рэнд',
-    rating: '4',
+    rating: 4,
     date: '2014-12-01',
     image: 'bs-atlant.png',
     cover: 'bc-atlant.jpg',
@@ -363,7 +363,7 @@ const books = [
   {
     title: 'А&nbsp;зори здесь тихие...',
     author: 'Борис Васильев',
-    rating: '5',
+    rating: 5,
     date: '2014-10-02',
     image: 'bs-a-zori-zdes-tihie.jpg',
     cover: 'bc-a-zori-zdes-tihie.jpg',
@@ -372,7 +372,7 @@ const books = [
   {
     title: 'Герой нашего времени',
     author: 'Михаил Лермонтов',
-    rating: '5',
+    rating: 5,
     date: '2014-09-29',
     image: 'bs-geroi-nashego-vremeni.png',
     cover: 'bc-geroi-nashego-vremeni.jpg',
@@ -381,7 +381,7 @@ const books = [
   {
     title: 'Бесприданница',
     author: 'Александр Островский',
-    rating: '4',
+    rating: 4,
     date: '2014-09-26',
     image: 'bs-bespridannica.png',
     cover: 'bc-bespridannica.jpg',
@@ -390,7 +390,7 @@ const books = [
   {
     title: 'У',
     author: 'Эрленд Лу',
-    rating: '4',
+    rating: 4,
     date: '2014-09-21',
     image: 'bs-u.jpg',
     cover: 'bc-u.jpg',
@@ -399,7 +399,7 @@ const books = [
   {
     title: 'Во власти женщины',
     author: 'Эрленд Лу',
-    rating: '2',
+    rating: 2,
     date: '2014-09-02',
     image: 'bs-vo-vlasti-zhenshiny.jpg',
     cover: 'bc-vo-vlasti-zhenshiny.jpg',
@@ -408,7 +408,7 @@ const books = [
   {
     title: 'Трое в&nbsp;лодке, не&nbsp;считая собаки',
     author: 'Джером К.&nbsp;Джером',
-    rating: '2',
+    rating: 2,
     date: '2014-07-23',
     image: 'bs-three-men-in-a-boat.jpg',
     cover: 'bc-three-men-in-a-boat.jpg',
@@ -417,7 +417,7 @@ const books = [
   {
     title: 'Иностранка',
     author: 'Сергей Довлатов',
-    rating: '2',
+    rating: 2,
     date: '2014-07-05',
     image: 'bs-inostranka.jpg',
     cover: 'bc-inostranka.jpg',
@@ -426,7 +426,7 @@ const books = [
   {
     title: 'На дороге',
     author: 'Джек Керуак',
-    rating: '2',
+    rating: 2,
     date: '2014-06-30',
     image: 'bs-on-the-road.jpeg',
     cover: 'bc-on-the-road.jpeg',
@@ -435,7 +435,7 @@ const books = [
   {
     title: 'Убить пересмешника',
     author: 'Харпер Ли',
-    rating: '5',
+    rating: 5,
     date: '2014-05-30',
     image: 'bs-to-kill-a-mockingbird.jpg',
     cover: 'bc-to-kill-a-mockingbird.jpg',
@@ -444,7 +444,7 @@ const books = [
   {
     title: 'Жутко громко &amp;&nbsp;запредельно близко',
     author: 'Джонатан Сафран Фоер',
-    rating: '4',
+    rating: 4,
     date: '2014-05-04',
     image: 'bs-extremely-loud-and-incredibly-close.jpg',
     cover: 'bc-extremely-loud-and-incredibly-close.jpg',
@@ -453,7 +453,7 @@ const books = [
   {
     title: 'Хорошо быть тихоней',
     author: 'Стивен Чбоски',
-    rating: '5',
+    rating: 5,
     date: '2014-02-01',
     image: 'bs-perks-of-being-a-wallflower.jpg',
     cover: 'bc-perks-of-being-a-wallflower.jpg',
@@ -462,7 +462,7 @@ const books = [
   {
     title: 'Обломов',
     author: 'Иван Гончаров',
-    rating: '5',
+    rating: 5,
     date: '2014-02-01',
     image: 'bs-oblomov.jpg',
     cover: 'bc-oblomov.jpg',
@@ -471,7 +471,7 @@ const books = [
   {
     title: 'Цветы для Элджернона',
     author: 'Дэниел Киз',
-    rating: '5',
+    rating: 5,
     date: '2013-12-01',
     image: 'bs-flowers-for-algernon.jpg',
     cover: 'bc-flowers-for-algernon.jpg',
@@ -480,7 +480,7 @@ const books = [
   {
     title: 'Маленький принц',
     author: 'Антуан де&nbsp;Сент-Экзюпери',
-    rating: '3',
+    rating: 3,
     date: '2013-12-01',
     image: 'bs-le-petite-prince.jpg',
     cover: 'bc-le-petite-prince.jpg',
@@ -489,7 +489,7 @@ const books = [
   {
     title: 'Республика ШКИД',
     author: 'Л.&nbsp;Пантелеев, Г.&nbsp;Белых',
-    rating: '5',
+    rating: 5,
     date: '2013-12-01',
     image: 'bs-respublika-shkid.jpg',
     cover: 'bc-respublika-shkid.jpg',
@@ -498,7 +498,7 @@ const books = [
   // {
   //   title: 'Кондуит и&nbsp;Швамбрания',
   //   author: 'Лев Кассиль',
-  //   rating: '5',
+  //   rating: 5,
   //   date: '2013-11-01',
   //   image: 'bs-kondiut-i-shvambrianiya.jpg',
   //   cover: 'bc-kondiut-i-shvambrianiya.jpg',
@@ -507,7 +507,7 @@ const books = [
   {
     title: '1984',
     author: 'Джордж Оруэлл',
-    rating: '5',
+    rating: 5,
     date: '2013-11-01',
     image: 'bs-1984.jpg',
     cover: 'bc-1984.jpg',
@@ -516,7 +516,7 @@ const books = [
   {
     title: 'Скотный двор',
     author: 'Джордж Оруэлл',
-    rating: '4',
+    rating: 4,
     date: '2013-09-01',
     image: 'bs-animal-farm.jpg',
     cover: 'bc-animal-farm.jpg',
@@ -525,7 +525,7 @@ const books = [
   {
     title: 'Наивно. Супер',
     author: 'Эрленд Лу',
-    rating: '5',
+    rating: 5,
     date: '2013-08-01',
     image: 'bs-naivno-super.jpg',
     cover: 'bc-naivno-super.jpg',
@@ -534,7 +534,7 @@ const books = [
   {
     title: 'Портрет Дориана Грея',
     author: 'Оскар Уайльд',
-    rating: '4',
+    rating: 4,
     date: '2013-08-01',
     image: 'bs-dorian-grey.jpg',
     cover: 'bc-dorian-grey.jpg',
@@ -543,7 +543,7 @@ const books = [
   {
     title: 'Убийство на&nbsp;улице Морг',
     author: 'Эдгар Аллан По',
-    rating: '2',
+    rating: 2,
     date: '2013-07-01',
     image: 'bs-morg-street.jpg',
     cover: 'bc-morg-street.jpg',
@@ -552,7 +552,7 @@ const books = [
   {
     title: 'Моя любимая жена',
     author: 'Тони Парсонс',
-    rating: '2',
+    rating: 2,
     date: '2013-06-01',
     image: 'bs-my-favorite-wife.jpg',
     cover: 'bc-my-favorite-wife.jpg',
@@ -561,7 +561,7 @@ const books = [
   {
     title: 'Чемодан',
     author: 'Сергей Довлатов',
-    rating: '4',
+    rating: 4,
     date: '2013-06-01',
     image: 'bs-chemodan.jpeg',
     cover: 'bc-chemodan.jpg',
@@ -570,7 +570,7 @@ const books = [
   {
     title: 'Солярис',
     author: 'Станислав Лем',
-    rating: '2',
+    rating: 2,
     date: '2013-05-01',
     image: 'bs-solaris.jpeg',
     cover: 'bc-solaris.jpeg',
@@ -579,7 +579,7 @@ const books = [
   {
     title: 'Великий Гэтсби',
     author: 'Фрэнсис Скотт Фицджеральд',
-    rating: '4',
+    rating: 4,
     date: '2013-05-01',
     image: 'bs-great-gatsby.jpg',
     cover: 'bc-great-gatsby.jpg',
@@ -588,7 +588,7 @@ const books = [
   {
     title: '11/22/63',
     author: 'Стивен Кинг',
-    rating: '4',
+    rating: 4,
     date: '2013-04-01',
     image: 'bs-11-22-63.jpeg',
     cover: 'bc-11-22-63.jpeg',
@@ -597,7 +597,7 @@ const books = [
   {
     title: 'Над пропастью во&nbsp;ржи',
     author: 'Джером Д.&nbsp;Сэлинджер',
-    rating: '4',
+    rating: 4,
     date: '2013-03-01',
     image: 'bs-catcher-in-the-rye.jpg',
     cover: 'bc-catcher-in-the-rye.jpg',
@@ -606,7 +606,7 @@ const books = [
   {
     title: 'Старик и&nbsp;море',
     author: 'Эрнест Хемингуэй',
-    rating: '3',
+    rating: 3,
     date: '2013-02-24',
     image: 'bs-old-man-and-the-sea.jpeg',
     cover: 'bc-old-man-and-the-sea.jpeg',
@@ -615,7 +615,7 @@ const books = [
   {
     title: 'Стив Джобс',
     author: 'Уолтер Айзексон',
-    rating: '3',
+    rating: 3,
     date: '2012-10-01',
     image: 'bs-steve-jobs.jpg',
     cover: 'bc-steve-jobs.jpeg',
@@ -624,7 +624,7 @@ const books = [
   {
     title: 'Сойка-пересмешница',
     author: 'Сьюзен Коллинз',
-    rating: '4',
+    rating: 4,
     date: '2012-06-01',
     image: 'bs-mockingjay.jpeg',
     cover: 'bc-mockingjay.jpeg',
@@ -633,7 +633,7 @@ const books = [
   {
     title: 'И вспыхнет пламя',
     author: 'Сьюзен Коллинз',
-    rating: '4',
+    rating: 4,
     date: '2012-05-01',
     image: 'bs-catching-fire.jpeg',
     cover: 'bc-catching-fire.jpeg',
@@ -642,7 +642,7 @@ const books = [
   {
     title: 'Голодные игры',
     author: 'Сьюзен Коллинз',
-    rating: '4',
+    rating: 4,
     date: '2012-04-01',
     image: 'bs-hunger-games.jpeg',
     cover: 'bc-hunger-games.jpeg',
@@ -651,7 +651,7 @@ const books = [
   {
     title: 'Марсианские хроники',
     author: 'Рэй Брэдбери',
-    rating: '3',
+    rating: 3,
     date: '2012-02-01',
     image: 'bs-martian-chronicles.jpg',
     cover: 'bc-martian-chronicles.jpg',
@@ -660,7 +660,7 @@ const books = [
   {
     title: 'Механизмы радости',
     author: 'Рэй Брэдбери',
-    rating: '2',
+    rating: 2,
     date: '2012-01-01',
     image: 'bs-mechanisms-of-joy.jpg',
     cover: 'bc-mechanisms-of-joy.jpg',
@@ -669,7 +669,7 @@ const books = [
   {
     title: 'Приключения Шерлока Холмса',
     author: 'Артур Конан Дойл',
-    rating: '3',
+    rating: 3,
     date: '2012-01-01',
     image: 'bs-sherlock-holms.jpg',
     cover: 'bc-sherlock-holms.jpg',
@@ -678,7 +678,7 @@ const books = [
   {
     title: 'Метро 2034',
     author: 'Дмитрий Глуховский',
-    rating: '3',
+    rating: 3,
     date: '2009-12-01',
     image: 'bs-metro-2034.jpeg',
     cover: 'bc-metro-2034.jpeg',
@@ -687,7 +687,7 @@ const books = [
   {
     title: 'Метро 2033',
     author: 'Дмитрий Глуховский',
-    rating: '4',
+    rating: 4,
     date: '2009-11-01',
     image: 'bs-metro-2033.jpeg',
     cover: 'bc-metro-2033.jpeg',
@@ -696,7 +696,7 @@ const books = [
   {
     title: 'Сумеречный Дозор',
     author: 'Сергей Лукьяненко',
-    rating: '4',
+    rating: 4,
     date: '2007-01-01',
     image: 'bs-twilight-watch.png',
     cover: 'bc-twilight-watch.jpeg',
@@ -705,7 +705,7 @@ const books = [
   {
     title: 'Дневной Дозор',
     author: 'Сергей Лукьяненко',
-    rating: '4',
+    rating: 4,
     date: '2007-01-01',
     image: 'bs-day-watch.png',
     cover: 'bc-day-watch.jpeg',
@@ -714,7 +714,7 @@ const books = [
   {
     title: 'Ночной Дозор',
     author: 'Сергей Лукьяненко',
-    rating: '4',
+    rating: 4,
     date: '2007-01-01',
     image: 'bs-night-watch.png',
     cover: 'bc-night-watch.jpeg',
@@ -723,7 +723,7 @@ const books = [
   {
     title: 'Хроники Нарнии',
     author: 'Клайв С.&nbsp;Льюис',
-    rating: '3',
+    rating: 3,
     date: '2008-01-01',
     image: 'bs-chronicles-of-narnia.png',
     cover: 'bc-chronicles-of-narnia.jpeg',
@@ -732,7 +732,7 @@ const books = [
   {
     title: 'Властелин Колец',
     author: 'Джон Р.&nbsp;Р.&nbsp;Толкин',
-    rating: '4',
+    rating: 4,
     date: '2007-01-01',
     image: 'bs-lotr.png',
     cover: 'bc-lotr.jpeg',
@@ -741,7 +741,7 @@ const books = [
   {
     title: 'Хоббит',
     author: 'Джон Р.&nbsp;Р.&nbsp;Толкин',
-    rating: '4',
+    rating: 4,
     date: '2006-01-01',
     image: 'bs-hobbit.png',
     cover: 'bc-hobbit.jpeg',
@@ -750,7 +750,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;Дары смерти',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '4',
+    rating: 4,
     date: '2007-01-01',
     image: 'bs-harry-potter-7.png',
     cover: 'bc-harry-potter-7.jpeg',
@@ -759,7 +759,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;Принц-полукровка',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '4',
+    rating: 4,
     date: '2006-01-01',
     image: 'bs-harry-potter-6.png',
     cover: 'bc-harry-potter-6.jpeg',
@@ -768,7 +768,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;Орден Феникса',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '4',
+    rating: 4,
     date: '2004-01-01',
     image: 'bs-harry-potter-5.png',
     cover: 'bc-harry-potter-5.jpeg',
@@ -777,7 +777,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;Кубок огня',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '4',
+    rating: 4,
     date: '2003-01-01',
     image: 'bs-harry-potter-4.png',
     cover: 'bc-harry-potter-4.jpeg',
@@ -786,7 +786,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;узник Азкабана',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '4',
+    rating: 4,
     date: '2002-01-01',
     image: 'bs-harry-potter-3.png',
     cover: 'bc-harry-potter-3.jpeg',
@@ -795,7 +795,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;Тайная комната',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '4',
+    rating: 4,
     date: '2001-01-01',
     image: 'bs-harry-potter-2.png',
     cover: 'bc-harry-potter-2.jpeg',
@@ -804,7 +804,7 @@ const books = [
   {
     title: 'Гарри Поттер и&nbsp;философский камень',
     author: 'Дж. К.&nbsp;Ролинг',
-    rating: '5',
+    rating: 5,
     date: '2000-01-01',
     image: 'bs-harry-potter-1.png',
     cover: 'bc-harry-potter-1.jpeg',
