@@ -838,7 +838,7 @@ export default function () {
   });
   return {
     byYear,
-    list: books.slice().reverse(),
+    list: books,
     noSpine: books.filter((b) => !b.image).length,
     noCover: books.filter((b) => !b.cover).length,
   };
