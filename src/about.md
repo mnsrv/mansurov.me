@@ -17,9 +17,8 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
 - learning [vocabulary](/vocabulary)
 - tracking [activities](/activities)
 - studying [chess](/chess)
-<!-- - saving [quotes](/quotes) -->
-<!-- - recording [concerts](/concerts) -->
-
+  <!-- - saving [quotes](/quotes) -->
+  <!-- - recording [concerts](/concerts) -->
 
 <section>
   <h3>Work Experience</h3>
@@ -85,28 +84,23 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>
-          <svg class="eye-icon" width="20" height="20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="100" fill="#ECECEC"/>
-            <circle id="eye-pupil" cx="135" cy="100" r="35" fill="black"/>
-          </svg>mansurov.me
-        </span>
+        <span class="icon-link" data-link="mikha">personal Telegram bot</span>
       </div>
       <div class="work-experience-description">
-        <i>Eleventy, Vercel</i>
+        <i>self-hosted n8n</i>
       </div>
     </div>
   </div>
   <div class="work-block">
     <div class="work-duration">
-      <span><i>2023</i></span>
+      <span><i>2016</i></span>
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span class="icon-link" data-link="mikha">personal Telegram bot</span>
+        <span class="icon-link" data-link="mansurov.me">mansurov.me</span>
       </div>
       <div class="work-experience-description">
-        <i>self-hosted n8n</i>
+        <i>Eleventy, Vercel</i>
       </div>
     </div>
   </div>
@@ -236,51 +230,10 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
   .icon-link[data-link="moviecast"]:before {
     background-image: url(/images/moviecast.png);
   }
+  .icon-link[data-link="mansurov.me"]:before {
+    background-image: url(/static/favicon.svg);
+  }
   .icon-link[data-link="mikha"]:before {
     background-image: url(/images/mikha.png);
   }
-  .eye-icon {
-    display: inline-block;
-    width: 1.25rem;
-    height: 1.25rem;
-    vertical-align: top;
-    margin-right: 6px;
-  }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const pupil = document.getElementById('eye-pupil');
-    if (!pupil) return;
-    
-    const eyeSvg = pupil.parentElement;
-    const maxRadius = 40;
-    
-    function updatePupilPosition(e) {
-      const mouseX = e ? e.clientX : window.innerWidth / 2;
-      const mouseY = e ? e.clientY : window.innerHeight / 2;
-      
-      const rect = eyeSvg.getBoundingClientRect();
-      const svgCenterX = rect.left + rect.width / 2;
-      const svgCenterY = rect.top + rect.height / 2;
-      
-      const deltaX = mouseX - svgCenterX;
-      const deltaY = mouseY - svgCenterY;
-      const angle = Math.atan2(deltaY, deltaX);
-      
-      const maxDistance = Math.min(window.innerWidth, window.innerHeight) / 2;
-      const distance = Math.hypot(deltaX, deltaY);
-      const distanceFactor = Math.min(1, Math.pow(distance / maxDistance, 0.7));
-      
-      const newX = 100 + Math.cos(angle) * distanceFactor * maxRadius;
-      const newY = 100 + Math.sin(angle) * distanceFactor * maxRadius;
-      
-      if (!isNaN(newX) && !isNaN(newY)) {
-        pupil.setAttribute('cx', newX);
-        pupil.setAttribute('cy', newY);
-      }
-    }
-    
-    document.addEventListener('mousemove', updatePupilPosition, { passive: true });
-  });
-</script>
