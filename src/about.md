@@ -231,7 +231,7 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
     background-image: url(/images/moviecast.png);
   }
   .icon-link[data-link="mansurov.me"]:before {
-    background-image: url(/static/favicon.svg);
+    background-image: url(/favicon.svg);
   }
   .icon-link[data-link="mikha"]:before {
     background-image: url(/images/mikha.png);
