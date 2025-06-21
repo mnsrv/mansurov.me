@@ -1,0 +1,114 @@
+{% comment %}
+  Renders an activities calendar for a given month and year.
+  Parameters:
+    - year: 4-digit year (e.g., 2025)
+    - month: 1- or 2-digit month (e.g., 6 or 06)
+    - activities: array of { date, activity }
+{% endcomment %}
+
+{% assign week_days = "Mon,Tue,Wed,Thu,Fri,Sat,Sun" | split: "," %}
+
+{% assign days_in_month = "31,28,31,30,31,30,31,31,30,31,30,31" | split: "," %}
+{% assign month_num = month | plus: 0 %}
+{% assign year_num = year | plus: 0 %}
+{% assign month_index = month_num | plus: 0 | minus: 1 %}
+{% assign days = days_in_month[month_index] | plus: 0 %}
+
+{%- comment -%}
+  Leap year check for February (LiquidJS-compatible)
+{%- endcomment -%}
+{% assign mod4 = year_num | modulo: 4 %}
+{% assign mod100 = year_num | modulo: 100 %}
+{% assign mod400 = year_num | modulo: 400 %}
+{% assign is_leap = false %}
+{% if mod4 == 0 %}
+  {% if mod100 != 0 or mod400 == 0 %}
+    {% assign is_leap = true %}
+  {% endif %}
+{% endif %}
+{% if month_num == 2 and is_leap %}
+  {% assign days = 29 %}
+{% endif %}
+
+{% assign first_date = year_num | append: "-" | append: month_num | append: "-01" | date: "%Y-%m-%d" %}
+{% assign first_day_of_week = first_date | date: "%w" | plus: 0 %}
+{% assign first_day_of_week = first_day_of_week | minus: 1 %}
+{% if first_day_of_week < 0 %}
+  {% assign first_day_of_week = 6 %}
+{% endif %}
+
+{%- comment -%}
+  Precompute days_list as an array of day numbers (1..days)
+{%- endcomment -%}
+{% assign days_array = '' %}
+{% for i in (1..days) %}
+  {% assign days_array = days_array | append: i | append: ',' %}
+{% endfor %}
+{% assign days_list = days_array | split: ',' %}
+
+{% assign total_cells = days | plus: first_day_of_week %}
+{% assign num_weeks = total_cells | divided_by: 7 %}
+{% if total_cells modulo 7 != 0 %}
+  {% assign num_weeks = num_weeks | plus: 1 %}
+{% endif %}
+{% assign num_weeks_int = num_weeks | floor %}
+{% if num_weeks > num_weeks_int %}
+  {% assign num_weeks_int = num_weeks_int | plus: 1 %}
+{% endif %}
+{% assign week_max = num_weeks_int | minus: 2 %}
+
+<table class="activities-calendar">
+  <tbody>
+    {% for week in (0..week_max) %}
+      <tr>
+        {% for dow in (0..6) %}
+          {% assign cell = week | times: 7 | plus: dow %}
+          {% assign day_num = cell | minus: first_day_of_week | plus: 1 %}
+          {% if day_num < 1 or day_num > days %}
+            <td></td>
+          {% else %}
+            {% assign padded_month = month_num | prepend: "0" | slice: -2, 2 %}
+            {% assign padded_day = day_num | prepend: "0" | slice: -2, 2 %}
+            {% assign date_str = year_num | append: "-" | append: padded_month | append: "-" | append: padded_day %}
+            {% assign day_activities = activities | where: "date", date_str | first %}
+            {% assign activity_emoji = day_activities.activity | default: '' %}
+            {% assign has_activity = activity_emoji != '' %}
+            <td class="{{ activity_class }}">
+              {% if has_activity %}
+                <div class="calendar-activity">{{ activity_emoji }}</div>
+              {% else %}
+                <div class="calendar-day">{{ day_num }}</div>
+              {% endif %}
+            </td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<style>
+.activities-calendar {
+  border-collapse: collapse;
+  margin: 1em 0;
+  width: 100%;
+  max-width: 400px;
+}
+.activities-calendar th, .activities-calendar td {
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 14%;
+  height: 48px;
+  padding: 2px;
+}
+.activities-calendar .calendar-day {
+  font-weight: bold;
+  font-size: 1em;
+  color: #666;
+}
+.activities-calendar .calendar-activity {
+  font-size: 1.2em;
+  line-height: 1;
+  padding: 2px;
+}
+</style> 

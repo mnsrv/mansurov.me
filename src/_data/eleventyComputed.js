@@ -12,7 +12,7 @@ const getActivityConfig = () => {
   // Create emoji map for activity groups
   const emojiMap = {
     'Soccer': '⚽️',
-    'Fitness': '🏋🏻‍♂️',
+    'Fitness': '💪🏻',
     'Hike': '🥾',
     'Run': '🏃🏻‍♂️',
     'Ride': '🚲'
@@ -22,7 +22,7 @@ const getActivityConfig = () => {
   const distanceActivities = ['Run', 'Ride'];
   
   // Define the order of activities
-  const orderedTypes = ['⚽️', '🏋🏻‍♂️', '🥾', '🏃🏻‍♂️', '🚲'];
+  const orderedTypes = ['⚽️', '💪🏻', '🥾', '🏃🏻‍♂️', '🚲'];
   
   return {
     activityGroups,
@@ -207,6 +207,56 @@ const processActivitiesForMonth = (activities) => {
   };
 };
 
+const processActivitiesByDay = (activities) => {
+  const config = getActivityConfig();
+  const { emojiMap } = config;
+  
+  // Define priority order for activities (higher index = higher priority)
+  const activityPriority = {
+    'Hike': 5,
+    'Soccer': 4,
+    'Run': 3,
+    'Fitness': 2,
+    'Ride': 1,
+  };
+  
+  // Group activities by date
+  const days = {};
+  
+  activities.forEach(activity => {
+    // Extract date from the activity (format: YYYY-MM-DDT...)
+    const date = activity.start_date_local.substring(0, 10); // Gets YYYY-MM-DD
+    
+    if (!days[date]) {
+      days[date] = [];
+    }
+    
+    // Get the activity group and emoji
+    const group = getActivityGroup(activity, config);
+    if (group) {
+      const emoji = emojiMap[group];
+      const priority = activityPriority[group] || 0;
+      days[date].push({ emoji, priority, group });
+    }
+  });
+  
+  // Convert to array format similar to sleep data
+  const dayRows = Object.entries(days)
+    .map(([date, activities]) => {
+      // Sort activities by priority (highest first) and take the first one
+      activities.sort((a, b) => b.priority - a.priority);
+      const topActivity = activities[0];
+      
+      return {
+        date,
+        activity: topActivity.emoji
+      };
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+  
+  return dayRows;
+};
+
 export default {
   mapBooksReviews: (data) => {
     let reviews = data.collections.bookReviews || [];
@@ -313,6 +363,10 @@ export default {
       monthly,
       yearly
     };
+  },
+  
+  activitiesByDay: (data) => {
+    return processActivitiesByDay(data.activities);
   },
   
   summaryQuotes: (data) => {
