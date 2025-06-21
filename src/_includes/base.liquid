@@ -10,8 +10,8 @@
         <link rel="preload" href="{{ item.url }}" as="image" type="{{ item.type }}">
       {% endfor %}
     {% endif %}
-    <link rel="icon" href="/static/favicon.ico" sizes="32x32">
-    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/static/style.css' | bust }}" />
     {% if env.runMode == "build" %}
       <script defer src="https://cloud.umami.is/script.js" data-website-id="f201f308-c021-41a7-b28e-ec41d43554be"></script>
