@@ -6,6 +6,7 @@ eleventyNavigation:
   title: mansurov.me
   order: 0
 layout: "base.liquid"
+class: "body_no_padding"
 templateEngineOverride: liquid
 ---
 
