@@ -3,7 +3,7 @@
 :root {
   --background-color: #fffcf0;
   --text-color: #100f0f;
-  --text-color-muted: #6f6e69;
+  --text-color-muted: #b7b5ac;
   --action-color: #205ea6;
   --visited-color: #66a0c8;
   --hover-color: #163b66;
@@ -16,7 +16,7 @@
   :root {
     --background-color: #100f0f;
     --text-color: #cecdc3;
-    --text-color-muted: #878580;
+    --text-color-muted: #575653;
     --action-color: #4385be;
     --visited-color: #92bfdb;
     --hover-color: #1a4f8c;
@@ -31,8 +31,8 @@
 }
 
 @font-face {
-  font-family: 'PT Mono';
-  src: url('fonts/pt-mono-v13-cyrillic_latin-regular.woff2');
+  font-family: "PT Mono";
+  src: url("fonts/pt-mono-v13-cyrillic_latin-regular.woff2");
 }
 
 ::selection {
@@ -55,7 +55,7 @@ html {
 }
 
 body {
-  font-family: 'PT Mono', monospace;
+  font-family: "PT Mono", monospace;
   margin: 0 0 3rem;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -108,7 +108,7 @@ a {
   text-decoration: none;
   word-wrap: break-word;
 }
-a[target='_blank'] {
+a[target="_blank"] {
   text-decoration: underline;
 }
 a:visited {

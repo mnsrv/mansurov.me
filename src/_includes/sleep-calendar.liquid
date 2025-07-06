@@ -85,7 +85,7 @@
                 {% assign score_class = 'score-poor' %}
               {% endif %}
             {% endif %}
-            <td class="{{ score_class }}">
+            <td class="{{ score_class }}" data-date="{{ date_str }}">
               {% if night and night.score != "--" %}
                 <div class="calendar-score">{{ night.score }}</div>
               {% elsif night and night.score == "--" %}
@@ -114,7 +114,7 @@
   width: 14%;
   height: 48px;
   padding: 2px;
-  color: #666;
+  color: var(--text-color-muted);
 }
 .sleep-calendar .calendar-day {
   font-weight: bold;
@@ -139,4 +139,27 @@
 .sleep-calendar .score-poor {
   color: #D14D41;
 }
-</style> 
+.sleep-calendar .today {
+  border: 2px solid var(--action-color);
+}
+.sleep-calendar .today .calendar-day {
+  color: var(--action-color);
+}
+.sleep-calendar .today .calendar-score {
+  color: var(--action-color);
+}
+</style>
+
+<script>
+(function() {
+  const today = new Date();
+  const todayStr = today.getFullYear() + '-' + 
+                   String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                   String(today.getDate()).padStart(2, '0');
+  
+  const todayCell = document.querySelector('.sleep-calendar td[data-date="' + todayStr + '"]');
+  if (todayCell) {
+    todayCell.classList.add('today');
+  }
+})();
+</script> 

@@ -73,7 +73,7 @@
             {% assign day_activities = activities | where: "date", date_str | first %}
             {% assign activity_emoji = day_activities.activity | default: '' %}
             {% assign has_activity = activity_emoji != '' %}
-            <td class="{{ activity_class }}">
+            <td class="{{ activity_class }}" data-date="{{ date_str }}">
               {% if has_activity %}
                 <div class="calendar-activity">{{ activity_emoji }}</div>
               {% else %}
@@ -104,11 +104,34 @@
 .activities-calendar .calendar-day {
   font-weight: bold;
   font-size: 1em;
-  color: #666;
+  color: var(--text-color-muted);
 }
 .activities-calendar .calendar-activity {
   font-size: 1.2em;
   line-height: 1;
   padding: 2px;
 }
-</style> 
+.activities-calendar .today {
+  border: 2px solid var(--action-color);
+}
+.activities-calendar .today .calendar-day {
+  color: var(--action-color);
+}
+.activities-calendar .today .calendar-activity {
+  color: var(--action-color);
+}
+</style>
+
+<script>
+(function() {
+  const today = new Date();
+  const todayStr = today.getFullYear() + '-' + 
+                   String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                   String(today.getDate()).padStart(2, '0');
+  
+  const todayCell = document.querySelector('.activities-calendar td[data-date="' + todayStr + '"]');
+  if (todayCell) {
+    todayCell.classList.add('today');
+  }
+})();
+</script> 
