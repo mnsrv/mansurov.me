@@ -5,12 +5,32 @@ eleventyNavigation:
   key: /
   title: mansurov.me
   order: 0
-layout: 'base.liquid'
+layout: "base.liquid"
+templateEngineOverride: liquid
 ---
 
+<div class="flex container">
+  <div class="col padding">
 <div class="indexRow">
-<div>{% for book in books.list limit: 1 %}{% if mapBooksReviews[book.title] %}<a href="/books/{{mapBooksReviews[book.title]}}"><img class="indexBook" src="/images/books/{{book.cover}}" alt="{{book.title}} cover" style="" /></a>{% else %}<img class="indexBook" src="/images/books/{{book.cover}}" alt="{{book.title}} cover" />{% endif %}{% endfor %}</div><div><a href="https://open.spotify.com/playlist/7m2tz2kVmcckLek7cCus6e?go=1" target="_blank"><img class="indexSpotify" src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845fe61e03c06dd9483569dae5" alt="On The Go · Stas Polyakov" /></a></div><div>
-<a href="https://unsplash.com/photos/gray-asphalt-road-between-green-grass-field-under-blue-sky-during-daytime-NErnyM53U5Q" target="_blank"><img src="https://images.unsplash.com/photo-1582033307729-3ab3c1fe5857?q=80&amp;h=1200" alt="gray asphalt road between green grass field under blue sky during daytime" class="indexUnsplash" /></a></div>
+<div>{% for book in books.list limit: 1 %}{% if mapBooksReviews[book.title] %}<a href="/books/{{mapBooksReviews[book.title]}}"><img class="indexBook" src="/images/books/{{book.cover}}" alt="{{book.title}} cover" style="" /></a>{% else %}<img class="indexBook" src="/images/books/{{book.cover}}" alt="{{book.title}} cover" />{% endif %}{% endfor %}</div>
+</div>
+</div>
+
+<div class="col padding">
+<div class="currentMonthCalendar">
+  <h2><a href="/activities">Activities</a></h2>
+  {% assign now = 'now' | date: '%Y-%m-%d' %}
+  {% assign current_year = now | slice: 0, 4 | plus: 0 %}
+  {% assign current_month = now | slice: 5, 2 | plus: 0 %}
+  {% assign current_date = current_year | append: '-' | append: current_month | append: '-01' %}
+  {% assign current_month_activities = activitiesByDay | where_exp: "activity", "activity.date contains current_date | slice: 0, 7" %}
+  {% include 'activities-calendar.liquid', year: current_year, month: current_month, activities: current_month_activities %}
+</div>
+
+<div class="currentMonthSleep">
+  <h2><a href="/sleep">Sleep</a></h2>
+  {% include 'sleep-calendar.liquid', year: current_year, month: current_month %}
+</div>
 </div>
 
 <style>
@@ -28,22 +48,5 @@ layout: 'base.liquid'
   }
   .indexBook:hover {
     transform: rotate(0deg);
-  }
-  .indexSpotify {
-    height: 150px;
-    border-radius: 12px;
-    transition: opacity 0.4s;
-  }
-  .indexSpotify:hover {
-    opacity: 0.8;
-  }
-  .indexUnsplash {
-    border-radius: 12px;
-    height: 400px;
-    transition: transform 0.3s ease;
-    transform: rotate(1deg);
-  }
-  .indexUnsplash:hover {
-    transform: scale(0.98);
   }
 </style>
