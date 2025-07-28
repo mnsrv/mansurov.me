@@ -5,6 +5,8 @@ layout: "base.liquid"
 templateEngineOverride: liquid
 ---
 
+{% include "activities-graph.liquid" %}
+
 {% include 'activities-calendars.liquid', activities: activitiesByDay %}
 
 <h2>Yearly Summary</h2>
