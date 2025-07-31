@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones',
+    author: 'James Clear',
+    rating: 4,
+    date: '2025-07-20',
+    image: 'bs-atomic-habits.png',
+    cover: 'bc-atomic-habits.png',
+    height: '8.46',
+  },
+  {
     title: 'Project Hail Mary',
     author: 'Andy Weir',
     rating: 5,
