@@ -2,7 +2,7 @@
 tags: bookReviews
 layout: "book.liquid"
 title: "Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones"
-date: 2025-05-22
+date: 2025-07-20
 highlights:
   - "You should be far more concerned with your current trajectory than with your current results."
   - "Your outcomes are a lagging measure of your habits. Your net worth is a lagging measure of your financial habits. Your weight is a lagging measure of your eating habits. Your knowledge is a lagging measure of your learning habits. Your clutter is a lagging measure of your cleaning habits. You get what you repeat."
