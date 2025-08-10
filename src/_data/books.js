@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Chess Story',
+    author: 'Stefan Zweig',
+    rating: 4,
+    date: '2025-08-10',
+    image: 'bs-chess-story.jpg',
+    cover: 'bc-chess-story.jpg',
+    height: '7.97',
+  },
+  {
     title: 'Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones',
     author: 'James Clear',
     rating: 4,
