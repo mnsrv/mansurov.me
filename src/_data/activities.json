@@ -1,5 +1,47 @@
 [
   {
+    "type": "WeightTraining",
+    "id": 15952679914,
+    "start_date_local": "2025-09-27T14:03:16Z",
+    "distance": 0
+  },
+  {
+    "type": "WeightTraining",
+    "id": 15935919904,
+    "start_date_local": "2025-09-25T21:24:16Z",
+    "distance": 0
+  },
+  {
+    "type": "Soccer",
+    "id": 15919819204,
+    "start_date_local": "2025-09-24T11:48:40Z",
+    "distance": 2215.4
+  },
+  {
+    "type": "WeightTraining",
+    "id": 15908158949,
+    "start_date_local": "2025-09-23T12:29:29Z",
+    "distance": 0
+  },
+  {
+    "type": "Ride",
+    "id": 15901956786,
+    "start_date_local": "2025-09-22T20:54:00Z",
+    "distance": 2891.5
+  },
+  {
+    "type": "Soccer",
+    "id": 15901956844,
+    "start_date_local": "2025-09-22T18:41:49Z",
+    "distance": 6031.8
+  },
+  {
+    "type": "Ride",
+    "id": 15901956686,
+    "start_date_local": "2025-09-22T18:11:10Z",
+    "distance": 3200.4
+  },
+  {
     "type": "Ride",
     "id": 15822840364,
     "start_date_local": "2025-09-15T20:49:59Z",
