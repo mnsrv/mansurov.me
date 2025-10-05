@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Норвежский лес',
+    author: 'Харуки Мураками',
+    rating: 4,
+    date: '2025-09-30',
+    image: 'bs-norwegian-wood.jpg',
+    cover: 'bc-norwegian-wood.jpeg',
+    height: '7.87',
+  },
+  {
     title: 'Chess Story',
     author: 'Stefan Zweig',
     rating: 4,
@@ -9,7 +18,8 @@ const books = [
     height: '7.97',
   },
   {
-    title: 'Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones',
+    title:
+      'Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones',
     author: 'James Clear',
     rating: 4,
     date: '2025-07-20',
