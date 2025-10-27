@@ -1,5 +1,23 @@
 [
   {
+    "type": "WeightTraining",
+    "id": 16242125070,
+    "start_date_local": "2025-10-24T15:54:11Z",
+    "distance": 0
+  },
+  {
+    "type": "Soccer",
+    "id": 16219931925,
+    "start_date_local": "2025-10-22T10:59:57Z",
+    "distance": 2231.9
+  },
+  {
+    "type": "WeightTraining",
+    "id": 16215703702,
+    "start_date_local": "2025-10-21T22:43:30Z",
+    "distance": 0
+  },
+  {
     "type": "Soccer",
     "id": 16206329231,
     "start_date_local": "2025-10-20T18:45:15Z",
