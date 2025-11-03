@@ -57,6 +57,37 @@
 {% endif %}
 {% assign week_max = num_weeks_int | minus: 2 %}
 
+{% comment %} Calculate average, min, and max by iterating through all days {% endcomment %}
+{% assign month_sum = 0 %}
+{% assign month_count = 0 %}
+{% assign month_min = 999 %}
+{% assign month_max = 0 %}
+{% for day_num in (1..days) %}
+  {% assign padded_month = month_num | prepend: "0" | slice: -2, 2 %}
+  {% assign padded_day = day_num | prepend: "0" | slice: -2, 2 %}
+  {% assign date_str = year_num | append: "-" | append: padded_month | append: "-" | append: padded_day %}
+  {% assign night = sleep | where: "date", date_str | first %}
+  {% if night and night.score != "--" and night.score != "" %}
+    {% assign score_num = night.score | plus: 0 %}
+    {% assign month_sum = month_sum | plus: score_num %}
+    {% assign month_count = month_count | plus: 1 %}
+    {% if score_num < month_min %}
+      {% assign month_min = score_num %}
+    {% endif %}
+    {% if score_num > month_max %}
+      {% assign month_max = score_num %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign month_avg = 0 %}
+{% if month_count > 0 %}
+  {% assign month_avg = month_sum | divided_by: month_count | round %}
+{% endif %}
+
+{% if month_count > 0 %}
+<div style="margin-bottom: 0.5em; color: var(--text-color-muted);">Average: {{ month_avg }} | Min: {{ month_min }} | Max: {{ month_max }}</div>
+{% endif %}
+
 <table class="sleep-calendar">
   <tbody>
     {% for week in (0..week_max) %}
