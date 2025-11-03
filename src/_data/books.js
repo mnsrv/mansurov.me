@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Mythos: The Greek Myths Retold',
+    author: 'Stephen Fry',
+    rating: 4,
+    date: '2025-10-31',
+    image: 'bs-mythos.jpg',
+    cover: 'bc-mythos.jpg',
+    height: '7.8',
+  },
+  {
     title: 'Норвежский лес',
     author: 'Харуки Мураками',
     rating: 4,
