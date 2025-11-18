@@ -257,6 +257,28 @@ const processActivitiesByDay = (activities) => {
   return dayRows;
 };
 
+const getAllActivities = (data) => {
+  const activities = data.activities || [];
+  const soccer = data.soccer || [];
+
+  const activityDates = new Set(
+    activities
+      .filter((a) => a.start_date_local)
+      .map((a) => a.start_date_local.substring(0, 10))
+  );
+
+  const soccerFormatted = soccer
+    .filter((s) => !activityDates.has(s.date))
+    .map((s, i) => ({
+      id: i,
+      type: 'Soccer',
+      start_date_local: s.date,
+      distance: 0,
+    }));
+
+  return [...activities, ...soccerFormatted].filter((a) => a);
+};
+
 export default {
   mapBooksReviews: (data) => {
     let reviews = data.collections.bookReviews || [];
@@ -280,7 +302,7 @@ export default {
   },
   summaryActivities: (data) => {
     if (data.layout === 'post.liquid' && data.summary) {
-      const activities = data.activities.filter((a) =>
+      const activities = getAllActivities(data).filter((a) =>
         a.start_date_local.startsWith(data.summary),
       );
       
@@ -355,8 +377,9 @@ export default {
   },
   
   activitiesByMonth: (data) => {
-    const monthly = processActivitiesByMonth(data.activities);
-    const yearly = processActivitiesByYear(data.activities);
+    const allActivities = getAllActivities(data);
+    const monthly = processActivitiesByMonth(allActivities);
+    const yearly = processActivitiesByYear(allActivities);
     
     return {
       types: monthly.types,
@@ -366,7 +389,7 @@ export default {
   },
   
   activitiesByDay: (data) => {
-    return processActivitiesByDay(data.activities);
+    return processActivitiesByDay(getAllActivities(data));
   },
   
   summaryQuotes: (data) => {
