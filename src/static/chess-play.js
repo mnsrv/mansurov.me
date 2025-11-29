@@ -47,19 +47,27 @@ export function aiPlay(
       return;
     }
     
+    // Check if game is over after player's move
+    const isGameOver = chess.isGameOver();
+    
     // Update board after player move
     cg.set({
       fen: chess.fen(),
       turnColor: toColor(chess),
       check: chess.isCheck(),
+      selectable: {
+        enabled: !isGameOver,
+      },
+      draggable: {
+        enabled: !isGameOver,
+      },
       movable: {
         color: toColor(chess),
         dests: toDests(chess),
       },
     });
     
-    // Check if game is over after player's move
-    if (chess.isGameOver()) {
+    if (isGameOver) {
       return;
     }
     
@@ -81,11 +89,20 @@ export function aiPlay(
         });
         
         if (engineMove) {
+          // Check if game is over after engine move
+          const isGameOver = chess.isGameOver();
+          
           // Update chessground board
           cg.set({
             fen: chess.fen(),
             turnColor: toColor(chess),
             check: chess.isCheck(),
+            selectable: {
+              enabled: !isGameOver,
+            },
+            draggable: {
+              enabled: !isGameOver,
+            },
             movable: {
               color: toColor(chess),
               dests: toDests(chess),
