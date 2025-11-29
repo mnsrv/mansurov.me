@@ -51,6 +51,7 @@ export function aiPlay(
     cg.set({
       fen: chess.fen(),
       turnColor: toColor(chess),
+      check: chess.isCheck(),
       movable: {
         color: toColor(chess),
         dests: toDests(chess),
@@ -84,6 +85,7 @@ export function aiPlay(
           cg.set({
             fen: chess.fen(),
             turnColor: toColor(chess),
+            check: chess.isCheck(),
             movable: {
               color: toColor(chess),
               dests: toDests(chess),
@@ -99,6 +101,9 @@ export function aiPlay(
 export function initChessPlay(el) {
     const chess = new Chess();
     const cg = Chessground(el, {
+      highlight: {
+        check: true,
+      },
       movable: {
         color: "white",
         free: false,
@@ -106,6 +111,7 @@ export function initChessPlay(el) {
       },
     });
     cg.set({
+      check: chess.isCheck(),
       movable: {
         events: {
           after: aiPlay(cg, chess, 1000, 4), // depth = 4
