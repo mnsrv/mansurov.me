@@ -55,6 +55,7 @@ export function aiPlay(
       fen: chess.fen(),
       turnColor: toColor(chess),
       check: chess.isCheck(),
+      lastMove: [playerMove.from, playerMove.to],
       selectable: {
         enabled: !isGameOver,
       },
@@ -97,6 +98,7 @@ export function aiPlay(
             fen: chess.fen(),
             turnColor: toColor(chess),
             check: chess.isCheck(),
+            lastMove: [engineMove.from, engineMove.to],
             selectable: {
               enabled: !isGameOver,
             },
