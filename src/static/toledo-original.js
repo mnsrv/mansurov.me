@@ -186,7 +186,15 @@ function coordinateToId(coordinate) {
 function idToCoordinate(squareId) {
   var file = (squareId - 21) % 10;
   var rank = Math.floor((squareId - 21) / 10);
-  return String.fromCharCode(97 + file) + (8 - rank);
+  
+  // Validate: file must be 0-7 (a-h), not 8 or 9 (padding columns)
+  // File 9 means we're in a padding column, which is invalid
+  if (file > 7) {
+    return null; // Invalid square (padding column)
+  }
+  
+  // Use same method as original: 'abcdefgh'[file]
+  return 'abcdefgh'[file] + (8 - rank);
 }
 
 /**
@@ -292,9 +300,24 @@ function getBestMove(depth) {
   X(0, 0, 0, 21, u, depth);
   
   // Check if a move was found
+  // Validate squares are in valid range and not padding columns
   if (B && b && B >= 21 && B <= 98 && b >= 21 && b <= 98) {
+    // Check if squares are in padding columns (file 8 or 9)
+    var fromFile = (B - 21) % 10;
+    var toFile = (b - 21) % 10;
+    
+    if (fromFile > 7 || toFile > 7) {
+      // Invalid move - square is in padding column
+      return null;
+    }
+    
     var fromSquare = idToCoordinate(B);
     var toSquare = idToCoordinate(b);
+    
+    // Double-check conversion succeeded
+    if (!fromSquare || !toSquare) {
+      return null;
+    }
     
     var move = {
       from: fromSquare,
@@ -340,5 +363,14 @@ export function toledoGetMove(fen, depth) {
     return null;
   }
   
-  return getBestMove(depth);
+  // Get the move (coordinates are saved in B, b, i)
+  var move = getBestMove(depth);
+  
+  // Reload FEN to restore board state (search function modifies it)
+  // This ensures we have correct piece information for future searches
+  if (move) {
+    loadFen(fen);
+  }
+  
+  return move;
 }
