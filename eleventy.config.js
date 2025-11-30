@@ -22,6 +22,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/chessground.cburnett.css");
   eleventyConfig.addPassthroughCopy("src/static/chess-puzzles.js");
   eleventyConfig.addPassthroughCopy("src/static/chess-play.js");
+  eleventyConfig.addPassthroughCopy("src/static/toledo-original.js");
 
   eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");

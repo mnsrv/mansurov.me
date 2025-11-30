@@ -220,13 +220,11 @@ function idToCoordinate(squareId) {
 function resetBoard() {
   B = i = y = u = b = 0;
   G = 120;
+  // UCI implementation: correctly identifies valid squares
+  // Valid squares: 21-98 AND (k-20)%10 must be 1-8 (columns 1-8, files a-h)
+  // This correctly excludes padding columns (0, 9) and padding rows
   for (var k = 0; k < 120; k++) {
-    I[k] = k % x ? 
-      // If on board (not padding)
-      (k / x % x < 2 | k % x < 2 ? 
-        7 :  // Border squares (invalid)
-        0) :  // Empty squares on board
-      7;  // Padding squares
+    I[k] = ((k >= 21) && (k <= 98) && ((k - 20) % 10 > 0) && ((k - 20) % 10 < 9)) ? 0 : 7;
   }
 }
 
