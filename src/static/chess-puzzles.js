@@ -61,13 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
   puzzleContainer.className = 'puzzle-container';
   el.parentNode.insertBefore(puzzleContainer, el.nextSibling);
   
-  // Add the chessboard to the container
-  puzzleContainer.appendChild(el);
-  
-  // Create controls
-  const controlsDiv = document.createElement('div');
-  controlsDiv.className = 'puzzle-controls';
-  
   // Puzzle selector
   const puzzleSelector = document.createElement('select');
   puzzleSelector.className = 'puzzle-selector';
@@ -78,6 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
     puzzleSelector.appendChild(option);
   });
   
+  // Create controls
+  const controlsDiv = document.createElement('div');
+  controlsDiv.className = 'puzzle-controls';
+  
   // Reset button
   const resetButton = document.createElement('button');
   resetButton.textContent = 'Reset Position';
@@ -86,12 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Feedback area
   const feedbackDiv = document.createElement('div');
   feedbackDiv.className = 'puzzle-feedback';
+  feedbackDiv.innerHTML = '&nbsp;'; // Non-breaking space to maintain height
   
-  // Add elements to the container
-  puzzleContainer.prepend(puzzleSelector);
+  // Add elements to the container - all controls above the board
+  puzzleContainer.appendChild(puzzleSelector);
   controlsDiv.appendChild(resetButton);
   puzzleContainer.appendChild(controlsDiv);
   puzzleContainer.appendChild(feedbackDiv);
+  
+  // Add the chessboard to the container (after controls)
+  puzzleContainer.appendChild(el);
   
   // Initialize variables
   let currentPuzzle = puzzles[0];
@@ -339,8 +340,8 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
     
-    // Clear feedback
-    feedbackDiv.textContent = '';
+    // Clear feedback (use non-breaking space to maintain height)
+    feedbackDiv.innerHTML = '&nbsp;';
     feedbackDiv.className = 'puzzle-feedback';
   };
   

@@ -494,7 +494,16 @@ figcaption {
   margin-bottom: 1rem;
 }
 .puzzle-controls {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.puzzle-feedback {
+  margin-bottom: 1rem;
+}
+.puzzle-feedback.success {
+  color: green;
+}
+.puzzle-feedback.error {
+  color: red;
 }
 
 cg-board {
