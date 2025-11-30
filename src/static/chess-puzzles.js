@@ -35,6 +35,7 @@ const puzzles = [
 
 import { Chessground } from './chessground.js';
 import { Chess, SQUARES } from './chess.js';
+import { toledoGetMove } from './toledo-original.js';
 
 export function toDests(chess) {
   const dests = new Map();
@@ -53,7 +54,7 @@ export function toColor(chess) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.getElementById('reti');
+  const el = document.getElementById('chessboard');
   
   // Create UI elements
   const puzzleContainer = document.createElement('div');
@@ -100,8 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize the board
   const cg = Chessground(el, {
     fen: currentPuzzle.fen,
+    highlight: {
+      check: true,
+    },
     movable: {
-      color: 'both', // Allow playing both sides
+      color: 'white', // Only white (player) can move
       free: false,
       dests: toDests(chess),
     },
@@ -166,6 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Disable further moves
         cg.set({
+          selectable: {
+            enabled: false,
+          },
+          draggable: {
+            enabled: false,
+          },
           movable: {
             color: 'none',
             dests: new Map(),
@@ -192,12 +202,24 @@ document.addEventListener('DOMContentLoaded', () => {
       // Get player moves
       const playerMoves = getPlayerMoves();
       
+      // Check if game is over
+      const isGameOver = chess.isGameOver();
+      
       // Update the board
       cg.set({
+        fen: chess.fen(),
         turnColor: toColor(chess),
+        check: chess.isCheck(),
+        lastMove: [move.from, move.to],
+        selectable: {
+          enabled: !isGameOver,
+        },
+        draggable: {
+          enabled: !isGameOver,
+        },
         movable: {
-          color: 'both', // Keep allowing both sides to move
-          dests: toDests(chess),
+          color: isGameOver ? 'none' : toColor(chess),
+          dests: isGameOver ? new Map() : toDests(chess),
         },
       });
       
@@ -210,6 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
           
           // Disable further moves
           cg.set({
+            selectable: {
+              enabled: false,
+            },
+            draggable: {
+              enabled: false,
+            },
             movable: {
               color: 'none',
               dests: new Map(),
@@ -219,11 +247,65 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      // Check if this is the player's final move
-      if (playerMoves.length >= currentPuzzle.maxPlayerMoves) {
+      // If it's black's turn (opponent), make engine move
+      if (chess.turn() === 'b' && !isGameOver) {
         setTimeout(() => {
-          checkSolution();
-        }, 300); // Small delay to allow the player to see the move
+          if (chess.isGameOver()) {
+            return;
+          }
+          
+          // Get engine move
+          const engineMove = toledoGetMove(chess.fen(), 4);
+          
+          if (engineMove && engineMove.from && engineMove.to) {
+            // Make the move
+            const move = chess.move({
+              from: engineMove.from,
+              to: engineMove.to,
+              promotion: engineMove.promotion || 'q',
+            });
+            
+            if (move) {
+              // Record the move
+              moveHistory.push(move.san);
+              
+              const isGameOver = chess.isGameOver();
+              
+              // Update board
+              cg.set({
+                fen: chess.fen(),
+                turnColor: toColor(chess),
+                check: chess.isCheck(),
+                lastMove: [move.from, move.to],
+                selectable: {
+                  enabled: !isGameOver,
+                },
+                draggable: {
+                  enabled: !isGameOver,
+                },
+                movable: {
+                  color: isGameOver ? 'none' : toColor(chess),
+                  dests: isGameOver ? new Map() : toDests(chess),
+                },
+              });
+              
+              // Check if this is the player's final move
+              const playerMoves = getPlayerMoves();
+              if (playerMoves.length >= currentPuzzle.maxPlayerMoves) {
+                setTimeout(() => {
+                  checkSolution();
+                }, 300);
+              }
+            }
+          }
+        }, 500); // Small delay for engine move
+      } else {
+        // Check if this is the player's final move
+        if (playerMoves.length >= currentPuzzle.maxPlayerMoves) {
+          setTimeout(() => {
+            checkSolution();
+          }, 300); // Small delay to allow the player to see the move
+        }
       }
     }
   };
@@ -244,8 +326,15 @@ document.addEventListener('DOMContentLoaded', () => {
     cg.set({
       fen: puzzle.fen,
       turnColor: toColor(chess),
+      check: chess.isCheck(),
+      selectable: {
+        enabled: true,
+      },
+      draggable: {
+        enabled: true,
+      },
       movable: {
-        color: 'both',
+        color: 'white', // Only white (player) can move
         dests: toDests(chess),
       },
     });

@@ -16,4 +16,5 @@ class: "body_chess body_no_padding"
   </div>
 </div>
 
-<script src="/static/chess-play.js" type="module"></script>
+<script src="/static/chess-puzzles.js" type="module"></script>
+<!-- <script src="/static/chess-play.js" type="module"></script> -->
