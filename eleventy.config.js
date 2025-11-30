@@ -14,6 +14,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static/favicon.svg": "/favicon.svg" });
 
   eleventyConfig.addPassthroughCopy("src/static/calendar.js");
+  eleventyConfig.addPassthroughCopy("src/static/awsm.css");
   eleventyConfig.addPassthroughCopy("src/static/chess.js");
   eleventyConfig.addPassthroughCopy("src/static/chessground.js");
   eleventyConfig.addPassthroughCopy("src/static/chessground.css");
