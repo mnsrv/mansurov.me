@@ -77,8 +77,10 @@ function X(w, c, h, e, S, s) {
           // Move to next square in piece's movement pattern
           r = I[p += l[C]];  // r = piece at destination square
           
-          // Check if this is a valid move to consider
-          if (!w | p == w) {
+          // CRITICAL: Skip padding columns (where p % 10 is 0 or 9)
+          // Padding columns are invalid squares on the board
+          // Check if this is a valid move to consider AND not a padding column
+          if ((!w | p == w) && (p % 10 !== 0 && p % 10 !== 9)) {
             // Calculate en passant square
             g = q | p + a - S ? 0 : S;
             
@@ -188,13 +190,28 @@ function idToCoordinate(squareId) {
   var rank = Math.floor((squareId - 21) / 10);
   
   // Validate: file must be 0-7 (a-h), not 8 or 9 (padding columns)
-  // File 9 means we're in a padding column, which is invalid
+  // File 8 or 9 means we're in a padding column, which is invalid
   if (file > 7) {
     return null; // Invalid square (padding column)
   }
   
-  // Use same method as original: 'abcdefgh'[file]
-  return 'abcdefgh'[file] + (8 - rank);
+  // Get file character - must exist for valid file (0-7)
+  var fileChar = 'abcdefgh'[file];
+  
+  // Double-check: fileChar should never be undefined for file 0-7
+  if (!fileChar || fileChar.length !== 1) {
+    return null; // Safety check failed
+  }
+  
+  // Build coordinate string
+  var result = fileChar + (8 - rank);
+  
+  // Final validation: result must be exactly 2 characters, valid file and rank
+  if (result.length !== 2 || result[0] < 'a' || result[0] > 'h' || result[1] < '1' || result[1] > '8') {
+    return null; // Invalid coordinate format
+  }
+  
+  return result;
 }
 
 /**
