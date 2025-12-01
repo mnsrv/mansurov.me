@@ -31,8 +31,8 @@
 }
 
 @font-face {
-  font-family: "PT Mono";
-  src: url("fonts/pt-mono-v13-cyrillic_latin-regular.woff2");
+  font-family: 'PT Mono';
+  src: url('fonts/pt-mono-v13-cyrillic_latin-regular.woff2');
 }
 
 ::selection {
@@ -55,7 +55,7 @@ html {
 }
 
 body {
-  font-family: "PT Mono", monospace;
+  font-family: 'PT Mono', monospace;
   margin: 0 0 3rem;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -108,7 +108,7 @@ a {
   text-decoration: none;
   word-wrap: break-word;
 }
-a[target="_blank"] {
+a[target='_blank'] {
   text-decoration: underline;
 }
 a:visited {
@@ -489,6 +489,18 @@ figcaption {
 .cg-wrap {
   width: 500px;
   height: 500px;
+}
+@media (max-width: 960px) {
+  .cg-wrap {
+    width: 300px;
+    height: 300px;
+  }
+  .cg-wrap coords.ranks {
+    top: -14px !important;
+  }
+  .cg-wrap coords.files {
+    left: 12px !important;
+  }
 }
 .puzzle-selector {
   margin-bottom: 1rem;
