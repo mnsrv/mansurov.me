@@ -1,5 +1,23 @@
 [
   {
+    "image": "mizuno-wave-rider-29-gtx-2.png",
+    "brand": "Mizuno",
+    "title": "Wave Rider GTX 2",
+    "link": "https://emea.mizuno.com/eu/pl-pl/wave-rider-gtx-2/J1GC247902.html"
+  },
+  {
+    "image": "blunt-umbrella-classic.png",
+    "brand": "BLUNT Umbrellas",
+    "title": "Classic",
+    "link": "https://bluntumbrellas.eu/products/classic-copy?variant=55073765687682"
+  },
+  {
+    "image": "TX-02-banner.svg",
+    "brand": "U.S. Graphics Company",
+    "title": "Berkeley Mono",
+    "link": "https://usgraphics.com/products/berkeley-mono"
+  },
+  {
     "image": "henson-al13.png",
     "brand": "Henson",
     "title": "AL13",
@@ -18,22 +36,10 @@
     "link": "https://store.dji.com/pl/product/osmo-pocket-3"
   },
   {
-    "image": "elgato-4k-x.webp",
-    "brand": "Elgato",
-    "title": "4K X",
-    "link": "https://www.elgato.com/pl/en/p/game-capture-4k-x"
-  },
-  {
     "image": "perplexity-classic-logo-cap.png",
     "brand": "Perplexity",
     "title": "Classic Logo Cap",
-    "link": "https://perplexity.supply/shop/classic-logo-cap"
-  },
-  {
-    "image": "le-creuset-dutch-oven.png",
-    "brand": "Le Creuset",
-    "title": "Dutch Oven 24 cm / 4.2L",
-    "link": "https://www.lecreuset.pl/pl_PL/p/okragla-brytfanna-zeliwo/CI1177.html?dwvar_CI1177_color=cerise&dwvar_CI1177_size=24cm-l4-2"
+    "link": "https://perplexity.supply/products/classic-logo-cap"
   },
   {
     "image": "lezyne-macro-drive-1400-front.png",
