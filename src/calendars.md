@@ -78,10 +78,6 @@ preloads:
     opacity: 0.9;
   }
 
-  .download-button:active {
-    transform: scale(0.98);
-  }
-
   .print-hint {
     margin-top: 0.5rem;
     opacity: 0.5;
