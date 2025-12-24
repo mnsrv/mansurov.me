@@ -1,75 +1,31 @@
 ---
 title: Calendars
-subtitle: I design and print calendar for myself
+subtitle: I design and print calendar every year
 layout: "base.liquid"
 class: "body_calendars body_no_padding"
 preloads:
-  - url: /images/2025-year-calendar-A2-en-pink.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-en-blue.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-en-green.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-en-gray.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-ru-pink.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-ru-blue.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-ru-green.jpg
-    type: image/jpeg
-  - url: /images/2025-year-calendar-A2-ru-gray.jpg
+  - url: /images/2026-year-calendar-A2.jpg
     type: image/jpeg
 ---
 
 <div class="flex container">
   <div class="col padding">
-    <img id="calendar-image" src="/images/2025-year-calendar-A2-en-pink.jpg" alt="2025 year calendar A2 en pink" style="max-width: 842px; width: 100%;" />
+    <img id="calendar-image" src="/images/2026-year-calendar-A2.jpg" alt="2026 year calendar A2" style="max-width: 842px; width: 100%;" />
   </div>
   <div class="col padding">
-    <h4>2025 year calendar A2</h4>
-    <p>inspired by <a href="https://jesseitzler.com/products/the-big-a-calendar" target="_blank">THE BIG A## CALENDAR</a></p>
-    <div class="image-preview" style="background-image:url('/images/2025-slice-en-pink.png')"></div>
-    <fieldset>
-      <legend>Select color:</legend>
-      <div>
-        <label style="--color: #FF6482">
-          <input type="radio" name="color" value="pink" checked data-umami-event="Calendar Color Changed" data-umami-event-color="pink" />
-          Pink
-        </label>
-        <label style="--color: #409CFF">
-          <input type="radio" name="color" value="blue" data-umami-event="Calendar Color Changed" data-umami-event-color="blue" />
-          Blue
-        </label>
-        <label style="--color: #30DB5B">
-          <input type="radio" name="color" value="green" data-umami-event="Calendar Color Changed" data-umami-event-color="green" />
-          Green
-        </label>
-        <label style="--color: #7C7C80">
-          <input type="radio" name="color" value="gray" data-umami-event="Calendar Color Changed" data-umami-event-color="gray" />
-          Gray
-        </label>
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend>Select language:</legend>
-      <div>
-        <label>
-          <input type="radio" name="lang" value="en" checked data-umami-event="Calendar Language Changed" data-umami-event-language="english" />
-          English
-        </label>
-        <label>
-          <input type="radio" name="lang" value="ru" data-umami-event="Calendar Language Changed" data-umami-event-language="russian" />
-          Russian
-        </label>
-      </div>
-    </fieldset>
-    <a id="pdf-download" href="/files/2025-A2-en-pink.pdf" download="2025-A2-en-pink.pdf" target="_blank" class="download-button" data-umami-event="PDF Download">
+    <h4>2026 year calendar A2</h4>
+    <p>inspired by <a href="https://en.wikipedia.org/wiki/International_Fixed_Calendar" target="_blank">International Fixed Calendar</a></p>
+    <div class="image-preview" style="background-image:url('/images/2026-slice.png')"></div>
+    <a id="pdf-download" href="/files/2026-A2.pdf" download="2026-A2.pdf" target="_blank" class="download-button" data-umami-event="PDF Download">
       Download PDF
     </a>
     <p class="print-hint">Recommended: A2 matte paper, 170 g/m²</p>
   </div>
-  
+  <div class="col padding">
+<h4>2025 year calendar A2</h4>
+    <p>inspired by <a href="https://jesseitzler.com/products/the-big-a-calendar" target="_blank">THE BIG A## CALENDAR</a></p>
+    <img src="/images/2025-year-calendar-A2-en-pink.jpg" alt="2025 year calendar A2 en pink" style="max-width: 842px; width: 100%;" />
+</div>
   <div class="col padding">
 <h4>2024 year calendar A2</h4>
 <p>inspired by <a href="https://www.justbenice.ru/product/calendar-2023/" target="_blank">Just Be Nice</a></p>
@@ -87,7 +43,7 @@ preloads:
 </div>
 <div class="col padding">
 <h4>2021 year calendar A1</h4>
-<p>inspired by <a href="https://www.instagram.com/lelevina/" target="_blank">olia levina</a>, <a href="https://www.instagram.com/partisanpress/" target="_blank">Partisan Press</a></p>
+<p>inspired by <a href="https://boringshop.ru/ok2025" target="_blank">Окей Календарь</a>, <a href="https://www.instagram.com/partisanpress/" target="_blank">Partisan Press</a></p>
 <img src="/images/2021-year-calendar-A1.jpg" alt="2021 year calendar A1" style="max-width: 1192px; width: 100%;" />
 </div>
 <div class="col padding">
@@ -98,21 +54,9 @@ preloads:
 </div>
 
 <style>
-  input[type="radio"] {
-    accent-color: var(--color);
-  }
-
-  label {
-    color: var(--color);
-  }
-
-  fieldset {
-    margin-bottom: 1rem;
-  }
-
   .image-preview {
-    max-width: 328px;
-    height: 91px;
+    max-width: 350px;
+    height: 82px;
     background-size: contain;
     background-repeat: no-repeat;
     margin-bottom: 1rem;
@@ -121,9 +65,9 @@ preloads:
   .download-button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #FF6482;
-    color: white;
-    border-radius: 24px;
+    background-color: #eee;
+    color: black;
+    border-radius: 0;
     text-decoration: none;
     font-weight: 500;
     font-size: 17px;
@@ -147,5 +91,3 @@ preloads:
     font-style: italic;
   }
 </style>
-
-<script src="/static/calendar.js" type="module"></script>
