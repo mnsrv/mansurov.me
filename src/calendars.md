@@ -71,7 +71,7 @@ preloads:
     text-decoration: none;
     font-weight: 500;
     font-size: 17px;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
   }
 
   .download-button:hover {
