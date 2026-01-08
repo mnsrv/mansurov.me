@@ -1,5 +1,29 @@
 [
   {
+    "image": "muji-socks.png",
+    "brand": "MUJI",
+    "title": "Socks",
+    "link": "https://www.muji.eu/products/mens-right-angle-trainer-socks-18813-18813"
+  },
+  {
+    "image": "clair-obscur-expedition-33-ps5.png",
+    "brand": "Playstation 5",
+    "title": "Clair Obscur: Expedition 33",
+    "link": "https://perfectblue.pl/produkt/gra-ps5-clair-obscur-expedition-33/"
+  },
+  {
+    "image": "lofree-flow-light84-marble.png",
+    "brand": "Lofree",
+    "title": "Flow Lite84",
+    "link": "https://www.lofree.co/products/flow-lite84-mechanical-keyboard?variant=46080169083099"
+  },
+  {
+    "image": "dell-ultrasharp-u2725qe.png",
+    "brand": "Dell",
+    "title": "UltraSharp U2725QE",
+    "link": "https://www.x-kom.pl/p/1336112-monitor-led-27-265-284-dell-ultrasharp-u2725qe.html"
+  },
+  {
     "image": "mizuno-wave-rider-29-gtx-2.png",
     "brand": "Mizuno",
     "title": "Wave Rider GTX 2",
