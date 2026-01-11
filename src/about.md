@@ -8,7 +8,8 @@ eleventyNavigation:
 layout: "base.liquid"
 ---
 
-I'm Sasha. I consider myself as software engineer. This is my digital garden.
+<section class="mb-4">
+  <p>I'm Sasha Mansurov. Software engineer. This is my digital garden.</p>
 
 - writing [blog](/blog)
 - reading [books](/books)
@@ -17,11 +18,13 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
 - learning [vocabulary](/vocabulary)
 - tracking [activities](/activities)
 - studying [chess](/chess)
-  <!-- - saving [quotes](/quotes) -->
-  <!-- - recording [concerts](/concerts) -->
+    <!-- - saving [quotes](/quotes) -->
+    <!-- - recording [concerts](/concerts) -->
+  </section>
 
-<section>
-  <h3>Work Experience</h3>
+<section class="mb-4">
+  <h2>Work Experience</h2>
+  <hr />
   <div class="work-block">
     <div class="work-duration">
       <span><i>2019 — 2024</i></span>
@@ -63,8 +66,9 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
   </div>
 </section>
 
-<section>
-  <h3>Side Projects</h3>
+<section class="mb-4">
+  <h2>Side Projects</h2>
+  <hr />
   <div class="work-block">
     <div class="work-duration">
       <span><i>2024</i></span>
@@ -106,8 +110,9 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
   </div>
 </section>
 
-<section>
-  <h3>Education</h3>
+<section class="mb-4">
+  <h2>Education</h2>
+  <hr />
   <div class="work-block">
     <div class="work-duration">
       <span><i>2009 — 2014</i></span>
@@ -136,8 +141,9 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
   </div>
 </section>
 
-<section>
-  <h3>Links</h3>
+<section class="mb-4">
+  <h2>Links</h2>
+  <hr />
   <div class="work-block">
     <div class="work-duration">
       <span><i>GitHub</i></span>
@@ -161,12 +167,6 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
 </section>
 
 <style>
-  section {
-    margin: 3rem 0;
-  }
-  section:last-of-type {
-    margin-bottom: 0;
-  }
   .work-block {
     margin: 2rem 0;
     display: flex;
