@@ -2,7 +2,6 @@
 title: Calendars
 subtitle: I design and print calendar every year
 layout: "base.liquid"
-class: "body_calendars body_no_padding"
 preloads:
   - url: /images/2026-year-calendar-A2.jpg
     type: image/jpeg

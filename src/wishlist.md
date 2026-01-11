@@ -6,7 +6,7 @@ class: "body_wishlist body_no_padding"
 date: Last Modified
 ---
 
-<div class="container padding">
+<div class="mb-4">
 <p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
 
 <div class="wishlist">
