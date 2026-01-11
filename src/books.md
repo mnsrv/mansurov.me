@@ -1,13 +1,12 @@
 ---
 title: Books
 subtitle: Place for some quote
-layout: 'base.liquid'
-class: 'body_books body_no_padding'
+layout: "base.liquid"
 date: Last Modified
 ---
 
-<div class="flex container">
-  <div class="col padding-no-mobile">
+<div class="columns">
+  <div class="col">
     <div class="books-container">
       <div class="books-row-polka"></div>
       <div class="books-row-left"></div>
@@ -22,7 +21,7 @@ date: Last Modified
     </div>
   </div>
 
-  <div class="col padding">
+  <div class="col">
     <p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
     {% for item in books.byYear %}<section>
     <h4>{{ item.key }}</h4>

@@ -3,14 +3,14 @@ layout: "base.liquid"
 class: "body_no_padding"
 ---
 
-<div class="flex container">
-  <div class="col padding">
+<div class="columns">
+  <div class="col">
     {% if book.cover %}<p><img src="/images/books/{{book.cover}}" alt="{{book.title}}" title="{{book.title}}" style="height: calc({{book.height}} * 19rem / 10)" /></p>{% endif %}
 
     {{ content }}
   </div>
 
-  <div class="col padding">
+  <div class="col">
     {% if highlights.length > 0 %}
     <section>
       <h3>Цитаты</h3>
