@@ -212,7 +212,7 @@ I'm Sasha. I consider myself as software engineer. This is my digital garden.
     background-position-y: center;
     border-radius: 4px;
   }
-  @media (max-width: 960px) {
+  @media (max-width: 720px) {
     .icon-link[data-link]:before {
       width: 1.5rem;
       height: 1.5rem;

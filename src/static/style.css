@@ -5,25 +5,10 @@
   --text-color: #100f0f;
   --text-color-muted: #b7b5ac;
   --action-color: #205ea6;
-  --visited-color: #66a0c8;
   --hover-color: #163b66;
   --selection-color: #c6dde8;
   --wishlist-item-bg: rgb(242, 240, 229);
   --wishlist-item-hover: rgb(230, 228, 217);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #100f0f;
-    --text-color: #cecdc3;
-    --text-color-muted: #575653;
-    --action-color: #4385be;
-    --visited-color: #92bfdb;
-    --hover-color: #1a4f8c;
-    --selection-color: #92bfdb;
-    --wishlist-item-bg: #1c1b1a;
-    --wishlist-item-hover: #282726;
-  }
 }
 
 * {
@@ -31,8 +16,8 @@
 }
 
 @font-face {
-  font-family: 'PT Mono';
-  src: url('fonts/pt-mono-v13-cyrillic_latin-regular.woff2');
+  font-family: "PT Mono";
+  src: url("fonts/pt-mono-v13-cyrillic_latin-regular.woff2");
 }
 
 ::selection {
@@ -44,10 +29,11 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
+  background-color: #eee;
 }
-@media (max-width: 960px) {
+@media (max-width: 720px) {
   html {
     font-size: 14px;
     line-height: 1.5;
@@ -55,9 +41,13 @@ html {
 }
 
 body {
-  font-family: 'PT Mono', monospace;
-  margin: 0 0 3rem;
-  background-color: var(--background-color);
+  font-family: "PT Mono", monospace;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #888;
+  box-shadow: 2px 2px #ccc;
+  max-width: 60rem;
+  background-color: #fff;
   color: var(--text-color);
 }
 
@@ -67,17 +57,7 @@ nav ul {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-}
-nav li {
-  padding: 0.25rem 0.75rem;
-  display: block;
-}
-
-main > .container {
-  padding: 1.5rem;
-}
-.body_no_padding main > .container {
-  padding: 0;
+  gap: 1rem;
 }
 
 h1 {
@@ -108,11 +88,8 @@ a {
   text-decoration: none;
   word-wrap: break-word;
 }
-a[target='_blank'] {
+a[target="_blank"] {
   text-decoration: underline;
-}
-a:visited {
-  color: var(--visited-color);
 }
 
 a.muted {
@@ -172,14 +149,20 @@ blockquote {
 }
 
 .container {
-  max-width: 1200px;
+  width: 100%;
+  padding: 0 0.5rem;
   margin: 0 auto;
 }
 .flex {
   display: flex;
   flex-wrap: wrap;
 }
-@media (max-width: 960px) {
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+}
+@media (max-width: 720px) {
   .flex {
     flex-direction: column;
   }
@@ -192,29 +175,89 @@ blockquote {
 
 .col {
   width: 50%;
+  padding: 0.5rem;
 }
-@media (max-width: 960px) {
+.col-3 {
+  width: 25%;
+  padding: 0.5rem;
+}
+
+@media (max-width: 720px) {
   .col {
     width: 100%;
   }
-}
-
-.padding,
-.padding-no-mobile {
-  padding: 1.5rem;
-}
-.padding-half {
-  padding: 0.75rem;
-}
-@media (max-width: 960px) {
-  .padding-no-mobile {
-    padding: 0;
+  .col-3 {
+    width: 50%;
   }
 }
-@media (max-width: 960px) {
+
+.square {
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.square img {
+  width: 100%;
+  height: calc(100% - 2rem - 2px);
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
   .mh {
     display: none;
   }
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  height: 1.75rem;
+  padding: 0.1rem 0.5rem 0;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #000;
+  border: 0.1rem solid #000;
+  box-shadow: 2px 2px #bbb;
+  background: #fff;
+}
+.btn:hover {
+  color: #fff;
+  background: #000;
+}
+.bg-blue {
+  background: #205ea6;
+}
+.white {
+  color: #fff;
+}
+
+.img-card {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #aaa;
+  box-shadow: 2px 2px #ddd;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px dashed #000;
 }
 
 img {
@@ -240,7 +283,7 @@ figcaption {
 .ppr {
   padding-right: 2rem;
 }
-@media (max-width: 960px) {
+@media (max-width: 720px) {
   .ppr {
     padding-right: 1rem;
   }
@@ -426,7 +469,7 @@ figcaption {
   column-gap: 1rem;
   padding: 0;
 }
-@media (max-width: 960px) {
+@media (max-width: 720px) {
   .wishlist {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -490,7 +533,7 @@ figcaption {
   width: 500px;
   height: 500px;
 }
-@media (max-width: 960px) {
+@media (max-width: 720px) {
   .cg-wrap {
     width: 300px;
     height: 300px;

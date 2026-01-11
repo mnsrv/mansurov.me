@@ -19,35 +19,33 @@
     {% endif %}
   </head>
   <body class="{{class}}" data-mode="{{ env.runMode }}">
-    <header class="container padding-half">
+    <header class="container mb-4">
       <nav>
         {% assign navPages = collections.all | eleventyNavigation %}
         <ul>
           {%- for entry in navPages %}
-            {% if entry.url == page.url %}
-              <li>{{ entry.title }}</li>
-            {% else %}
-              <li><a href="{{ entry.url }}" class="muted">{{ entry.title }}</a></li>
-            {% endif %}
+            <li><a href="{{ entry.url }}" class="btn {% if entry.url == page.url %}active{% endif %}">{{ entry.title }}</a></li>
           {%- endfor %}
         </ul>
       </nav>
     </header>
 
-    <div class="hero">
-      <div class="container row">
-        {% if title == 'Sasha Mansurov' %}
-        <img src="/images/me.jpeg" id="avatar" alt="Sasha Mansurov" style="width: 6rem; height: 6rem; border-radius: 3rem; margin-left: 1.5rem;" />
-        {% endif %}
-        <div class="padding">
-        <h1>{{ title }}</h1>
-        <i>
-          {% if subtitle != null %}
-            {{ subtitle }}
-          {% else %}
-            {{ page.date | date: "%e %B %Y" }}
-          {% endif %}
-        </i>
+    <div class="container mb-4">
+      <div class="columns">
+        <div class="col">
+          <h1>{{ title }}</h1>
+            <i>
+            {% if subtitle != null %}
+              {{ subtitle }}
+            {% else %}
+              {{ page.date | date: "%e %B %Y" }}
+            {% endif %}
+            </i>
+        </div>
+        <div class="col">
+          {% if title == 'Sasha Mansurov' %}
+            <img src="/images/me.jpeg" id="avatar" alt="Sasha Mansurov" style="width: 4rem; height: 4rem; border-radius: 0.5rem;" />
+            {% endif %}
         </div>
       </div>
     </div>
@@ -57,5 +55,10 @@
         {{ content }}
       </div>
     </main>
+
+    <footer class="container">
+      <hr style="border-top-style: solid" />
+      <i>© 2016&ndash;2026 Sasha Mansurov. Made in Warsaw</i>
+    </footer>
   </body>
 </html>
