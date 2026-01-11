@@ -4,7 +4,7 @@ subtitle: Hello, it's me
 eleventyNavigation:
   key: about
   title: about
-  order: 1
+  order: 2
 layout: "base.liquid"
 ---
 
