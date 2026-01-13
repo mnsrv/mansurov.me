@@ -1,3 +1,4 @@
+import Fetch from "@11ty/eleventy-fetch";
 import Parser from "rss-parser";
 
 const parser = new Parser();
@@ -11,7 +12,15 @@ function extractImageFromContent(content) {
 
 export default async function () {
   try {
-    const feed = await parser.parseURL("https://letterboxd.com/mansurov/rss");
+    // Use Eleventy Fetch to get RSS XML with proper caching and waiting
+    const rssXml = await Fetch("https://letterboxd.com/mansurov/rss", {
+      duration: "1h", // Cache for 1 hour
+      type: "text", // Get as text (XML)
+      removeUrlQueryParams: true, // Ignore cache-busting query params
+    });
+
+    // Parse the RSS XML
+    const feed = await parser.parseString(rssXml);
 
     return feed.items
       .sort((a, b) => {

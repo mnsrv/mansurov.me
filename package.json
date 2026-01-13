@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-fetch": "^5.1.1",
     "chess.js": "^1.1.0",
     "chessground": "^9.1.1",
     "rss-parser": "^3.13.0"
