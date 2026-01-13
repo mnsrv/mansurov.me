@@ -6,22 +6,17 @@ class: "body_wishlist body_no_padding"
 date: Last Modified
 ---
 
-<div class="mb-4">
 <p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
 
-<div class="wishlist">
-  {% for item in wishlist %}
-  <div class="wishlist-item">
-    <a href="{{ item.link }}" target="_blank">
-      <div class="wishlist-image">
-        <img src="/images/wishlist/{{item.image}}">
-      </div>
-    </a>
-    <div class="wishlist-info">
-      <div class="wishlist-brand">{{ item.brand }}</div>
-      <div class="wishlist-title">{{ item.title }}</div>
+<div class="columns mb-3">
+  {% for wish in wishlist %}
+    <div class="col-3">
+      <a href="{{ wish.link }}" target="_blank">
+        <div class="square img-card mb-2">
+          <img src="/images/wishlist/{{wish.image}}" alt="{{wish.brand}} {{wish.title}}" />
+        </div>
+      </a>
+      <span>{{wish.brand}} {{wish.title}}</span>
     </div>
-  </div>
   {% endfor %}
-</div>
 </div>

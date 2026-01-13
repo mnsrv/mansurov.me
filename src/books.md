@@ -5,8 +5,10 @@ layout: "base.liquid"
 date: Last Modified
 ---
 
+<p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
+
 <div class="columns">
-  <div class="col">
+  <div class="col-12">
     <div class="books-container">
       <div class="books-row-polka"></div>
       <div class="books-row-left"></div>
@@ -21,8 +23,7 @@ date: Last Modified
     </div>
   </div>
 
-  <div class="col">
-    <p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
+  <div class="col-12">
     {% for item in books.byYear %}<section>
     <h4>{{ item.key }}</h4>
     {% for book in item.values %}

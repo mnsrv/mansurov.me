@@ -29,7 +29,7 @@ templateEngineOverride: liquid
 <div class="columns mb-3">
   <div class="col-3">
     <p>Updated 9 Jan 26</p>
-    <p><a href="/wishlist" class="btn bg-blue white">All Wishes ></a></p>
+    <p><a href="/wishlist" class="btn bg-blue white">Wishlist ></a></p>
   </div>
   {% for wish in wishlist limit: 3 %}
     <div class="col-3">
@@ -38,7 +38,7 @@ templateEngineOverride: liquid
           <img src="/images/wishlist/{{wish.image}}" alt="{{wish.brand}} {{wish.title}}" />
         </div>
       </a>
-      <span>{{wish.title}}</span>
+      <span>{{wish.brand}} {{wish.title}}</span>
     </div>
   {% endfor %}
 </div>
@@ -63,7 +63,7 @@ templateEngineOverride: liquid
         <div class="square img-card mb-2">
           <img src="/images/books/{{book.cover}}" alt="{{book.title}} cover" />
         </div>
-        <span>{{book.title}}</span>
+        <span>{{book.title}}. {{book.author}}</span>
       {% endif %}
     </div>
   {% endfor %}
