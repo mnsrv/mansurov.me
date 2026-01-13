@@ -18,7 +18,9 @@ templateEngineOverride: liquid
     <p><a href="/calendars" class="btn bg-blue white">All Calendars ></a></p>
   </div>
   <div class="col">
-    <img class="img-card" src="/images/2026-year-calendar-A2.jpg" alt="2026 year calendar A2" />
+    <div class="square img-card" style="aspect-ratio: 1684/1191;">
+      <img src="/images/2026-year-calendar-A2.jpg" alt="2026 year calendar A2" />
+    </div>
   </div>
 </div>
 
