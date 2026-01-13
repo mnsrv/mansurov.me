@@ -66,3 +66,21 @@ templateEngineOverride: liquid
     </div>
   {% endfor %}
 </div>
+
+<h2>Last Watched Movies</h2>
+<hr />
+<div class="columns mb-3">
+  <div class="col-3">
+    <p><a href="https://letterboxd.com/mansurov/" target="_blank" class="btn bg-blue white">Letterboxd ></a></p>
+  </div>
+  {% for movie in movies %}
+    <div class="col-3">
+      <a href="{{ movie.link }}" target="_blank">
+        <div class="square img-card mb-2">
+          <img src="{{ movie.image }}" alt="{{ movie.title }}" />
+        </div>
+      </a>
+      <span>{{ movie.title }}</span>
+    </div>
+  {% endfor %}
+</div>
