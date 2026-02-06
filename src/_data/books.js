@@ -1,5 +1,23 @@
 const books = [
   {
+    title: 'Пляж',
+    author: 'Алекс Гарленд',
+    rating: 4,
+    date: '2026-02-03',
+    image: 'bs-beach.jpg',
+    cover: 'bc-beach.jpg',
+    height: '8',
+  },
+  {
+    title: 'Имя розы',
+    author: 'Умберто Эко',
+    rating: 4,
+    date: '2026-01-03',
+    image: 'bs-the-name-of-the-rose.webp',
+    cover: 'bc-the-name-of-the-rose.webp',
+    height: '8.58',
+  },
+  {
     title: 'Mythos: The Greek Myths Retold',
     author: 'Stephen Fry',
     rating: 4,
