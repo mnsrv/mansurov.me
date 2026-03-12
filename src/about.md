@@ -15,8 +15,8 @@ layout: "base.liquid"
 - reading [books](/books)
 - designing [calendars](/calendars)
 - collecting [wishlist](/wishlist)
-- learning [vocabulary](/vocabulary)
-- tracking [activities](/activities)
+  <!-- - learning [vocabulary](/vocabulary) -->
+  <!-- - tracking [activities](/activities) -->
 - studying [chess](/chess)
     <!-- - saving [quotes](/quotes) -->
     <!-- - recording [concerts](/concerts) -->
@@ -71,11 +71,24 @@ layout: "base.liquid"
   <hr />
   <div class="work-block">
     <div class="work-duration">
+      <span><i>2026</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <a href="https://moviecast.mansurov.me" target="_blank" class="icon-link" data-link="moviecast">MovieCast</a>
+      </div>
+      <div class="work-experience-description">
+        <i>Astro, PostgreSQL, TMDB</i>
+      </div>
+    </div>
+  </div>
+  <div class="work-block">
+    <div class="work-duration">
       <span><i>2024</i></span>
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <a href="https://moviecast.app" target="_blank" class="icon-link" data-link="moviecast">MovieCast app</a>
+        <span class="icon-link" data-link="moviecast-ios">MovieCast iOS</span>
       </div>
       <div class="work-experience-description">
         <i>SwiftUI, TMDB</i>
@@ -226,6 +239,9 @@ layout: "base.liquid"
   }
   .icon-link[data-link="idaproject"]:before {
     background-image: url(/images/idaproject.png);
+  }
+  .icon-link[data-link="moviecast-ios"]:before {
+    background-image: url(/images/moviecast-ios.png);
   }
   .icon-link[data-link="moviecast"]:before {
     background-image: url(/images/moviecast.png);
