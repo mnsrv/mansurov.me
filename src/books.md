@@ -2,10 +2,9 @@
 title: Books
 subtitle: Place for some quote
 layout: "base.liquid"
-date: Last Modified
 ---
 
-<p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
+<p><i>Updated {{ lastUpdatedBooks }}</i></p>
 
 <div class="columns">
   <div class="col-12">

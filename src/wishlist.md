@@ -3,10 +3,9 @@ title: Wishlist
 subtitle: inspired by <a href="https://goods.so" target="_blank">goods.so</a>
 layout: "base.liquid"
 class: "body_wishlist body_no_padding"
-date: Last Modified
 ---
 
-<p><i>updated at: {{ page.date | date: "%e %b %y" }}</i></p>
+<p><i>Updated {{ lastUpdatedWishlist }}</i></p>
 
 <div class="columns mb-3">
   {% for wish in wishlist %}

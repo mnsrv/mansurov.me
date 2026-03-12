@@ -22,13 +22,17 @@ export default async function () {
     // Parse the RSS XML
     const feed = await parser.parseString(rssXml);
 
-    return feed.items
+    const sorted = feed.items
       .sort((a, b) => {
         const dateA = a.isoDate ? new Date(a.isoDate) : new Date(a.pubDate);
         const dateB = b.isoDate ? new Date(b.isoDate) : new Date(b.pubDate);
         return dateB - dateA;
       })
-      .filter((item) => item.content)
+      .filter((item) => item.content);
+
+    const latestDate = sorted[0]?.isoDate || sorted[0]?.pubDate || null;
+
+    const items = sorted
       .slice(0, 3)
       .map((item) => ({
         title: item.title,
@@ -36,8 +40,10 @@ export default async function () {
         image: extractImageFromContent(item.content),
       }))
       .filter((item) => item.image);
+
+    return { items, lastUpdated: latestDate };
   } catch (error) {
     console.error("Error fetching RSS feed:", error);
-    return [];
+    return { items: [], lastUpdated: null };
   }
 }

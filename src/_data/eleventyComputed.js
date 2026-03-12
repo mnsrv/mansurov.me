@@ -1,3 +1,14 @@
+import { execSync } from 'child_process';
+
+function formatShortDate(dateString) {
+  return new Date(dateString).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: '2-digit',
+    timeZone: 'UTC',
+  });
+}
+
 // Helper functions for activities
 const getActivityConfig = () => {
   // Define activity grouping
@@ -433,5 +444,37 @@ export default {
       return data.concerts.filter((c) => c.date.startsWith(data.summary));
     }
     return [];
+  },
+
+  lastUpdatedBooks: () => {
+    try {
+      const gitDate = execSync(
+        'git log -1 --format=%aI -- src/_data/books.js',
+        { encoding: 'utf-8' },
+      ).trim();
+      if (gitDate) return formatShortDate(gitDate);
+    } catch {
+      // ignore
+    }
+    return null;
+  },
+
+  lastUpdatedWishlist: () => {
+    try {
+      const gitDate = execSync(
+        'git log -1 --format=%aI -- src/_data/wishlist.json',
+        { encoding: 'utf-8' },
+      ).trim();
+      if (gitDate) return formatShortDate(gitDate);
+    } catch {
+      // ignore
+    }
+    return null;
+  },
+
+  lastUpdatedMovies: (data) => {
+    const lastUpdated = data.movies?.lastUpdated;
+    if (lastUpdated) return formatShortDate(lastUpdated);
+    return null;
   },
 };

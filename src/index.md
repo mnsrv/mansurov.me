@@ -28,7 +28,7 @@ templateEngineOverride: liquid
 <hr />
 <div class="columns mb-3">
   <div class="col-3">
-    <p>Updated 9 Jan 26</p>
+    <p>Updated {{ lastUpdatedWishlist }}</p>
     <p><a href="/wishlist" class="btn bg-blue white">Wishlist ></a></p>
   </div>
   {% for wish in wishlist limit: 3 %}
@@ -47,7 +47,7 @@ templateEngineOverride: liquid
 <hr />
 <div class="columns mb-3">
   <div class="col-3">
-    <p>Updated 3 Nov 25</p>
+    <p>Updated {{ lastUpdatedBooks }}</p>
     <p><a href="/books" class="btn bg-blue white">All Books ></a></p>
   </div>
   {% for book in books.list limit: 3 %}
@@ -73,9 +73,10 @@ templateEngineOverride: liquid
 <hr />
 <div class="columns mb-3">
   <div class="col-3">
+    {% if lastUpdatedMovies %}<p>Updated {{ lastUpdatedMovies }}</p>{% endif %}
     <p><a href="https://letterboxd.com/mansurov/" target="_blank" class="btn bg-blue white">Letterboxd ></a></p>
   </div>
-  {% for movie in movies %}
+  {% for movie in movies.items %}
     <div class="col-3">
       <a href="{{ movie.link }}" target="_blank">
         <div class="square img-card mb-2">
