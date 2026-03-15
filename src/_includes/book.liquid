@@ -4,7 +4,7 @@ layout: "base.liquid"
 
 <div class="columns">
   <div class="col">
-    {% if book.cover %}<p><img src="/images/books/{{book.cover}}" alt="{{book.title}}" title="{{book.title}}" style="height: calc({{book.height}} * 19rem / 10)" /></p>{% endif %}
+    {% if book.cover %}<div class="book-cover" style="width: fit-content;"><img src="/images/books/{{book.cover}}" alt="{{book.title}}" title="{{book.title}}" style="height: calc({{book.height}} * 19rem / 10); width: auto;" /></div>{% endif %}
 
     {{ content }}
   </div>

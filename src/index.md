@@ -43,24 +43,20 @@ templateEngineOverride: liquid
   {% endfor %}
 </div>
 
-<h2>Last Read Books</h2>
+<h2><a href="/books">Books</a></h2>
 <hr />
 <div class="columns mb-3">
-  <div class="col-3">
-    <p>Updated {{ lastUpdatedBooks }}</p>
-    <p><a href="/books" class="btn bg-blue white">All Books ></a></p>
-  </div>
-  {% for book in books.list limit: 3 %}
-    <div class="col-3">
+  {% for book in books.list limit: 4 %}
+    <div class="col-3 book-card">
       {% if mapBooksReviews[book.title] %}
         <a href="/books/{{mapBooksReviews[book.title]}}">
-          <div class="square img-card mb-2">
-            <img src="/images/books/{{book.cover}}" alt="{{book.title}} cover" style="" />
+          <div class="book-cover mb-2">
+            <img src="/images/books/{{book.cover}}" alt="{{book.title}} cover" />
           </div>
         </a>
         <span>{{book.title}}</span>
       {% else %}
-        <div class="square img-card mb-2">
+        <div class="book-cover mb-2">
           <img src="/images/books/{{book.cover}}" alt="{{book.title}} cover" />
         </div>
         <span>{{book.title}}. {{book.author}}</span>
