@@ -24,25 +24,6 @@ templateEngineOverride: liquid
   </div>
 </div>
 
-<h2>Last Added Wishes</h2>
-<hr />
-<div class="columns mb-3">
-  <div class="col-3">
-    <p>Updated {{ lastUpdatedWishlist }}</p>
-    <p><a href="/wishlist" class="btn bg-blue white">Wishlist ></a></p>
-  </div>
-  {% for wish in wishlist limit: 3 %}
-    <div class="col-3">
-      <a href="{{ wish.link }}" target="_blank">
-        <div class="square img-card mb-2">
-          <img src="/images/wishlist/{{wish.image}}" alt="{{wish.brand}} {{wish.title}}" />
-        </div>
-      </a>
-      <span>{{wish.brand}} {{wish.title}}</span>
-    </div>
-  {% endfor %}
-</div>
-
 <h2><a href="/books">Books</a></h2>
 <hr />
 <div class="columns mb-3">
@@ -80,6 +61,25 @@ templateEngineOverride: liquid
         </div>
       </a>
       <span>{{ movie.title }}</span>
+    </div>
+  {% endfor %}
+</div>
+
+<h2>Last Added Wishes</h2>
+<hr />
+<div class="columns mb-3">
+  <div class="col-3">
+    <p>Updated {{ lastUpdatedWishlist }}</p>
+    <p><a href="/wishlist" class="btn bg-blue white">Wishlist ></a></p>
+  </div>
+  {% for wish in wishlist limit: 3 %}
+    <div class="col-3">
+      <a href="{{ wish.link }}" target="_blank">
+        <div class="square img-card mb-2">
+          <img src="/images/wishlist/{{wish.image}}" alt="{{wish.brand}} {{wish.title}}" />
+        </div>
+      </a>
+      <span>{{wish.brand}} {{wish.title}}</span>
     </div>
   {% endfor %}
 </div>
