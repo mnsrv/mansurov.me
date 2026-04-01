@@ -23,6 +23,7 @@ export default async function () {
     const feed = await parser.parseString(rssXml);
 
     const sorted = feed.items
+      .filter((item) => item.guid?.startsWith("letterboxd-review"))
       .sort((a, b) => {
         const dateA = a.isoDate ? new Date(a.isoDate) : new Date(a.pubDate);
         const dateB = b.isoDate ? new Date(b.isoDate) : new Date(b.pubDate);
