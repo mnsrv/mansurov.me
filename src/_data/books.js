@@ -45,8 +45,7 @@ const books = [
     height: '7.97',
   },
   {
-    title:
-      'Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones',
+    title: 'Atomic Habits: An Easy and Proven Way to Build Good Habits and Break Bad Ones',
     author: 'James Clear',
     rating: 4,
     date: '2025-07-20',
@@ -154,8 +153,7 @@ const books = [
     height: '8.27',
   },
   {
-    title:
-      'Империя должна умереть: История русских революций в&nbsp;лицах. 1900-1917',
+    title: 'Империя должна умереть: История русских революций в&nbsp;лицах. 1900-1917',
     author: 'Михаил Зыгарь',
     rating: 3,
     date: '2024-03-07',
@@ -865,36 +863,36 @@ const books = [
     cover: 'bc-harry-potter-1.jpeg',
     height: '8.25',
   },
-];
+]
 
 function groupByArray(xs, key) {
   return xs.reduce(function (rv, x) {
-    let v = key instanceof Function ? key(x) : x[key];
-    let el = rv.find((r) => r && r.key === v);
+    let v = key instanceof Function ? key(x) : x[key]
+    let el = rv.find(r => r && r.key === v)
     if (el) {
-      el.values.push(x);
+      el.values.push(x)
     } else {
-      rv.push({ key: v, values: [x] });
+      rv.push({ key: v, values: [x] })
     }
-    return rv;
-  }, []);
+    return rv
+  }, [])
 }
 
 export default function () {
-  const byYear = groupByArray(books, (book) => {
+  const byYear = groupByArray(books, book => {
     if (book.date) {
-      const year = book.date.slice(0, 4);
+      const year = book.date.slice(0, 4)
       if (Number(year) < 2009) {
-        return '< 2009';
+        return '< 2009'
       }
-      return year;
+      return year
     }
-    return 'Once upon a time...';
-  });
+    return 'Once upon a time...'
+  })
   return {
     byYear,
     list: books,
-    noSpine: books.filter((b) => !b.image).length,
-    noCover: books.filter((b) => !b.cover).length,
-  };
+    noSpine: books.filter(b => !b.image).length,
+    noCover: books.filter(b => !b.cover).length,
+  }
 }
