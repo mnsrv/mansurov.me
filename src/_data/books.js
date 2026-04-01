@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Грозовой перевал',
+    author: 'Эмили Бронте',
+    rating: 3,
+    date: '2026-03-31',
+    image: 'bs-wuthering-heights.jpg',
+    cover: 'bc-wuthering-heights.jpg',
+    height: '8.46',
+  },
+  {
     title: 'Пляж',
     author: 'Алекс Гарленд',
     rating: 4,
