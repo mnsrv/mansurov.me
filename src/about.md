@@ -5,7 +5,7 @@ eleventyNavigation:
   key: about
   title: about
   order: 2
-layout: "base.liquid"
+layout: 'base.liquid'
 ---
 
 <section class="mb-4">
@@ -27,11 +27,11 @@ layout: "base.liquid"
   <hr />
   <div class="work-block">
     <div class="work-duration">
-      <span><i>2025 —</i></span>
+      <span><i>2025 — now</i></span>
     </div>
     <div class="work-experience">
       <div class="work-experience-title">
-        <span>Senior Full-stack Engineer at <a href="https://www.variantgroup.com" target="_blank" class="icon-link" data-link="variant">Variant Group</a></span>
+        <span>Senior Full-stack Engineer at <a href="https://www.variantgroup.com" target="_blank" class="icon-link" data-link="variantgroup">Variant Group</a></span>
       </div>
       <div class="work-experience-description">
         <i>TypeScript, React, Node.js, Turborepo, Langfuse</i>
@@ -243,6 +243,9 @@ layout: "base.liquid"
       width: 1.5rem;
       height: 1.5rem;
     }
+  }
+  .icon-link[data-link="variantgroup"]:before {
+    background-image: url(/images/variantgroup.png);
   }
   .icon-link[data-link="onesoil"]:before {
     background-image: url(/images/onesoil.png);
