@@ -27,6 +27,19 @@ layout: "base.liquid"
   <hr />
   <div class="work-block">
     <div class="work-duration">
+      <span><i>2025 —</i></span>
+    </div>
+    <div class="work-experience">
+      <div class="work-experience-title">
+        <span>Senior Full-stack Engineer at <a href="https://www.variantgroup.com" target="_blank" class="icon-link" data-link="variant">Variant Group</a></span>
+      </div>
+      <div class="work-experience-description">
+        <i>TypeScript, React, Node.js, Turborepo, Langfuse</i>
+      </div>
+    </div>
+  </div>
+  <div class="work-block">
+    <div class="work-duration">
       <span><i>2019 — 2024</i></span>
     </div>
     <div class="work-experience">
