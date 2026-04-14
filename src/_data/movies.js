@@ -1,50 +1,50 @@
-import Fetch from "@11ty/eleventy-fetch";
-import Parser from "rss-parser";
+import Fetch from '@11ty/eleventy-fetch'
+import Parser from 'rss-parser'
 
-const parser = new Parser();
+const parser = new Parser()
 
 function extractImageFromContent(content) {
-  if (!content) return null;
+  if (!content) return null
 
-  const imgMatch = content.match(/<img[^>]+src="([^"]+)"/i);
-  return imgMatch ? imgMatch[1] : null;
+  const imgMatch = content.match(/<img[^>]+src="([^"]+)"/i)
+  return imgMatch ? imgMatch[1] : null
 }
 
 export default async function () {
   try {
     // Use Eleventy Fetch to get RSS XML with proper caching and waiting
-    const rssXml = await Fetch("https://letterboxd.com/mansurov/rss", {
-      duration: "1h", // Cache for 1 hour
-      type: "text", // Get as text (XML)
+    const rssXml = await Fetch('https://letterboxd.com/mansurov/rss', {
+      duration: '1h', // Cache for 1 hour
+      type: 'text', // Get as text (XML)
       removeUrlQueryParams: true, // Ignore cache-busting query params
-    });
+    })
 
     // Parse the RSS XML
-    const feed = await parser.parseString(rssXml);
+    const feed = await parser.parseString(rssXml)
 
     const sorted = feed.items
-      .filter((item) => item.guid?.startsWith("letterboxd-review"))
+      .filter(item => item.guid?.startsWith('letterboxd-review'))
       .sort((a, b) => {
-        const dateA = a.isoDate ? new Date(a.isoDate) : new Date(a.pubDate);
-        const dateB = b.isoDate ? new Date(b.isoDate) : new Date(b.pubDate);
-        return dateB - dateA;
+        const dateA = a.isoDate ? new Date(a.isoDate) : new Date(a.pubDate)
+        const dateB = b.isoDate ? new Date(b.isoDate) : new Date(b.pubDate)
+        return dateB - dateA
       })
-      .filter((item) => item.content);
+      .filter(item => item.content)
 
-    const latestDate = sorted[0]?.isoDate || sorted[0]?.pubDate || null;
+    const latestDate = sorted[0]?.isoDate || sorted[0]?.pubDate || null
 
     const items = sorted
-      .slice(0, 3)
-      .map((item) => ({
+      .slice(0, 4)
+      .map(item => ({
         title: item.title,
         link: item.link,
         image: extractImageFromContent(item.content),
       }))
-      .filter((item) => item.image);
+      .filter(item => item.image)
 
-    return { items, lastUpdated: latestDate };
+    return { items, lastUpdated: latestDate }
   } catch (error) {
-    console.error("Error fetching RSS feed:", error);
-    return { items: [], lastUpdated: null };
+    console.error('Error fetching RSS feed:', error)
+    return { items: [], lastUpdated: null }
   }
 }

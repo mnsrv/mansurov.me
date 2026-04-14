@@ -5,7 +5,7 @@ eleventyNavigation:
   key: /
   title: mansurov.me
   order: 0
-layout: "base.liquid"
+layout: 'base.liquid'
 templateEngineOverride: liquid
 ---
 
@@ -46,21 +46,16 @@ templateEngineOverride: liquid
   {% endfor %}
 </div>
 
-<h2>Last Watched Movies</h2>
+<h2><a href="https://letterboxd.com/mansurov/" target="_blank">Letterboxd</a></h2>
 <hr />
 <div class="columns mb-3">
-  <div class="col-3">
-    {% if lastUpdatedMovies %}<p>Updated {{ lastUpdatedMovies }}</p>{% endif %}
-    <p><a href="https://letterboxd.com/mansurov/" target="_blank" class="btn bg-blue white">Letterboxd ></a></p>
-  </div>
   {% for movie in movies.items %}
-    <div class="col-3">
+    <div class="col-3 book-card">
       <a href="{{ movie.link }}" target="_blank">
-        <div class="square img-card mb-2">
+        <div class="poster">
           <img src="{{ movie.image }}" alt="{{ movie.title }}" />
         </div>
       </a>
-      <span>{{ movie.title }}</span>
     </div>
   {% endfor %}
 </div>
