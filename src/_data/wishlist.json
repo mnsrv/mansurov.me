@@ -1,5 +1,11 @@
 [
   {
+    "image":"sonos-sub-mini.png",
+    "brand": "Sonos",
+    "title": "Sub Mini",
+    "link": "https://www.sonos.com/pl-pl/shop/sub-mini"
+  },
+  {
     "image": "clair-obscur-expedition-33-ps5.png",
     "brand": "PS5",
     "title": "Clair Obscur: Expedition 33",
