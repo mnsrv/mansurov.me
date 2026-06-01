@@ -1,0 +1,29 @@
+{% comment %}
+  Renders the knockout bracket. Param: knockout — { round32[], round16[], quarterfinals[], semifinals[], thirdPlace, final }
+  Each round is a horizontally-scrolling column of match cards.
+{% endcomment %}
+
+<div class="wc-bracket">
+  <div class="wc-round">
+    <h3>Round of 32</h3>
+    {% for m in knockout.round32 %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
+  </div>
+  <div class="wc-round">
+    <h3>Round of 16</h3>
+    {% for m in knockout.round16 %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
+  </div>
+  <div class="wc-round">
+    <h3>Quarter-finals</h3>
+    {% for m in knockout.quarterfinals %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
+  </div>
+  <div class="wc-round">
+    <h3>Semi-finals</h3>
+    {% for m in knockout.semifinals %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
+  </div>
+  <div class="wc-round">
+    <h3>Final</h3>
+    {% include "worldcup-match.liquid", m: knockout.final %}
+    <h3 class="wc-third-title">Third place</h3>
+    {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
+  </div>
+</div>

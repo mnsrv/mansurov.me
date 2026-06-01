@@ -1,0 +1,50 @@
+{% comment %}
+  Renders one World Cup group: standings table (computed) + fixtures.
+  Param: group — { name, standings[], matches[] }
+  Top 2 rows are highlighted as qualified.
+{% endcomment %}
+
+<div class="wc-group">
+  <h3>Group {{ group.name }}</h3>
+  <table class="wc-table">
+    <thead>
+      <tr>
+        <th class="wc-pos">#</th>
+        <th class="wc-team">Team</th>
+        <th title="Played">P</th>
+        <th title="Won">W</th>
+        <th title="Drawn">D</th>
+        <th title="Lost">L</th>
+        <th title="Goals for / against">+/&minus;</th>
+        <th title="Goal difference">GD</th>
+        <th title="Points">Pts</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in group.standings %}
+        <tr class="{% if row.rank <= 2 %}wc-qualify{% elsif row.rank == 3 %}wc-third{% endif %}">
+          <td class="wc-pos">{{ row.rank }}</td>
+          <td class="wc-team">{% if row.flag != "" %}{{ row.flag }} {% endif %}{{ row.name }}</td>
+          <td>{{ row.played }}</td>
+          <td>{{ row.won }}</td>
+          <td>{{ row.drawn }}</td>
+          <td>{{ row.lost }}</td>
+          <td>{{ row.gf }}:{{ row.ga }}</td>
+          <td>{% if row.gd > 0 %}+{% endif %}{{ row.gd }}</td>
+          <td class="wc-pts">{{ row.points }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <ul class="wc-fixtures">
+    {% for m in group.matches %}
+      <li>
+        {% if m.date %}<span class="wc-date">{{ m.date | date: "%e %b" }}</span>{% endif %}
+        <span class="wc-home">{{ m.home }}</span>
+        <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% else %}v{% endif %}</span>
+        <span class="wc-away">{{ m.away }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

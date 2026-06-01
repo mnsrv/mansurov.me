@@ -1,0 +1,17 @@
+{% comment %}
+  Renders one knockout match card. Param: m — { label, date, home, away, homeScore, awayScore }
+  Bolds the winner once both scores are filled in.
+{% endcomment %}
+{% assign hasScore = false %}
+{% if m.homeScore != null and m.awayScore != null %}{% assign hasScore = true %}{% endif %}
+<div class="wc-match">
+  <div class="wc-match-label">{{ m.label }}{% if m.date %} &middot; {{ m.date | date: "%e %b" }}{% endif %}</div>
+  <div class="wc-match-row {% if hasScore and m.homeScore > m.awayScore %}wc-win{% endif %}">
+    <span class="wc-match-team">{{ m.home }}</span>
+    <span class="wc-match-goals">{% if hasScore %}{{ m.homeScore }}{% endif %}</span>
+  </div>
+  <div class="wc-match-row {% if hasScore and m.awayScore > m.homeScore %}wc-win{% endif %}">
+    <span class="wc-match-team">{{ m.away }}</span>
+    <span class="wc-match-goals">{% if hasScore %}{{ m.awayScore }}{% endif %}</span>
+  </div>
+</div>

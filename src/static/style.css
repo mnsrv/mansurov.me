@@ -649,3 +649,133 @@ figcaption {
 cg-board {
   background-color: #bfcfdd;
 }
+
+/* ---------- World Cup 2026 ---------- */
+.wc-groups {
+  margin-bottom: 1rem;
+}
+.wc-group h3 {
+  margin: 0.25rem 0 0.5rem;
+}
+table.wc-table {
+  table-layout: auto;
+  width: 100%;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.wc-table th,
+.wc-table td {
+  padding: 0.3rem 0.35rem;
+  height: auto;
+  width: auto;
+  text-align: center;
+}
+.wc-table th.wc-team,
+.wc-table td.wc-team {
+  text-align: left;
+  width: auto;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wc-table th:first-child,
+.wc-table td:first-child {
+  width: 1.5rem;
+  font-weight: normal;
+}
+.wc-table .wc-pts {
+  font-weight: bold;
+}
+.wc-table tr:nth-child(even),
+.wc-table tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+.wc-table tbody tr.wc-qualify {
+  background-color: var(--selection-color);
+}
+.wc-table tbody tr.wc-third td.wc-pos {
+  border-left: 3px solid var(--action-color);
+}
+
+.wc-fixtures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+}
+.wc-fixtures li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.1rem 0;
+}
+.wc-fixtures .wc-date {
+  color: var(--text-color-muted);
+  width: 3.5rem;
+  flex: none;
+}
+.wc-fixtures .wc-home {
+  flex: 1;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wc-fixtures .wc-away {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wc-fixtures .wc-score {
+  flex: none;
+  min-width: 2rem;
+  text-align: center;
+  color: var(--text-color-muted);
+}
+
+/* Knockout bracket */
+.wc-bracket {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  align-items: flex-start;
+}
+.wc-round {
+  flex: 1;
+  min-width: 11rem;
+}
+.wc-round h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.wc-round .wc-third-title {
+  margin-top: 1.5rem;
+}
+.wc-match {
+  border: 1px solid var(--text-color-muted);
+  box-shadow: 2px 2px #ddd;
+  background: var(--wishlist-item-bg);
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+.wc-match-label {
+  padding: 0.2rem 0.4rem;
+  color: var(--text-color-muted);
+  font-size: 0.75rem;
+  border-bottom: 1px solid var(--text-color-muted);
+}
+.wc-match-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0.4rem;
+}
+.wc-match-row.wc-win {
+  font-weight: bold;
+}
+.wc-match-goals {
+  flex: none;
+  padding-left: 0.5rem;
+}
