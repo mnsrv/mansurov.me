@@ -47,4 +47,18 @@
       </li>
     {% endfor %}
   </ul>
+
+  <details class="wc-teaminfo">
+    <summary>Team profiles</summary>
+    <dl>
+      {% for t in group.teams %}
+        <dt>{% if t.flag != "" %}{{ t.flag }} {% endif %}{{ t.name }}</dt>
+        <dd>
+          <span title="Head coach">👔 {{ t.coach }}</span>
+          <span title="Best World Cup result">🏆 {{ t.best }}</span>
+          <span title="Star player">⭐ {{ t.star }}</span>
+        </dd>
+      {% endfor %}
+    </dl>
+  </details>
 </div>

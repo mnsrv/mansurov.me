@@ -779,3 +779,31 @@ table.wc-table {
   flex: none;
   padding-left: 0.5rem;
 }
+
+/* World Cup — team profiles */
+.wc-teaminfo {
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+.wc-teaminfo summary {
+  cursor: pointer;
+  color: var(--action-color);
+  margin-bottom: 0.4rem;
+}
+.wc-teaminfo dl {
+  margin: 0;
+}
+.wc-teaminfo dt {
+  font-weight: bold;
+  margin-top: 0.4rem;
+}
+.wc-teaminfo dd {
+  margin: 0 0 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.9rem;
+  color: var(--text-color);
+}
+.wc-teaminfo dd span {
+  white-space: nowrap;
+}

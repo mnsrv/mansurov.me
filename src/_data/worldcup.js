@@ -1,15 +1,15 @@
 // FIFA World Cup 2026 — editable data + computed group standings.
 //
-// Teams, seeded positions, full group fixtures (dates + matchups) and the
-// Round-of-32 bracket feeders are the real draw/schedule (5 Dec 2025 draw),
-// verified against Wikipedia (Group L cross-checked vs ESPN). 11 Jun – 19 Jul 2026.
+// Teams (with coach / best WC result / star), seeded positions, full group fixtures
+// and Round-of-32 bracket feeders are the real draw & schedule, verified vs Wikipedia
+// (Morocco & Saudi coaches re-checked vs FIFA/news). 11 Jun – 19 Jul 2026.
 //
 // HOW TO MAINTAIN:
-//   1. As matches are played, fill in homeScore / awayScore (numbers) on the
-//      relevant "matches" entry. Standings recompute automatically — never edit
-//      the table by hand.
-//   2. In "knockout", replace feeder labels ("Winner A", "3rd A/B/C/D/F") with the
-//      actual team once known, fill in scores, and add a "date" if you like.
+//   1. As matches are played, fill in homeScore / awayScore (numbers) on the relevant
+//      "matches" entry. Standings recompute automatically — never edit the table by hand.
+//   2. Edit a team's "coach" / "best" / "star" any time (e.g. a coach change).
+//   3. In "knockout", replace feeder labels ("Winner A", "3rd A/B/C/D/F") with the actual
+//      team once known, fill in scores, and add a "date" if you like.
 
 const data = {
   "groups": [
@@ -18,19 +18,31 @@ const data = {
       "teams": [
         {
           "name": "Mexico",
-          "flag": "🇲🇽"
+          "flag": "🇲🇽",
+          "coach": "Javier Aguirre",
+          "best": "Quarter-finals (1970, 1986)",
+          "star": "Edson Álvarez"
         },
         {
           "name": "South Africa",
-          "flag": "🇿🇦"
+          "flag": "🇿🇦",
+          "coach": "Hugo Broos",
+          "best": "Group stage",
+          "star": "Ronwen Williams"
         },
         {
           "name": "South Korea",
-          "flag": "🇰🇷"
+          "flag": "🇰🇷",
+          "coach": "Hong Myung-bo",
+          "best": "Fourth place (2002)",
+          "star": "Son Heung-min"
         },
         {
           "name": "Czechia",
-          "flag": "🇨🇿"
+          "flag": "🇨🇿",
+          "coach": "Miroslav Koubek",
+          "best": "Group stage (2006)",
+          "star": "Patrik Schick"
         }
       ],
       "matches": [
@@ -83,19 +95,31 @@ const data = {
       "teams": [
         {
           "name": "Canada",
-          "flag": "🇨🇦"
+          "flag": "🇨🇦",
+          "coach": "Jesse Marsch",
+          "best": "Group stage (1986, 2022)",
+          "star": "Alphonso Davies"
         },
         {
           "name": "Bosnia and Herzegovina",
-          "flag": "🇧🇦"
+          "flag": "🇧🇦",
+          "coach": "Sergej Barbarez",
+          "best": "Group stage (2014)",
+          "star": "Edin Džeko"
         },
         {
           "name": "Qatar",
-          "flag": "🇶🇦"
+          "flag": "🇶🇦",
+          "coach": "Julen Lopetegui",
+          "best": "Group stage (2022)",
+          "star": "Almoez Ali"
         },
         {
           "name": "Switzerland",
-          "flag": "🇨🇭"
+          "flag": "🇨🇭",
+          "coach": "Murat Yakin",
+          "best": "Quarter-finals (1934, 1938, 1954)",
+          "star": "Granit Xhaka"
         }
       ],
       "matches": [
@@ -148,19 +172,31 @@ const data = {
       "teams": [
         {
           "name": "Brazil",
-          "flag": "🇧🇷"
+          "flag": "🇧🇷",
+          "coach": "Carlo Ancelotti",
+          "best": "Champions (×5)",
+          "star": "Vinícius Júnior"
         },
         {
           "name": "Morocco",
-          "flag": "🇲🇦"
+          "flag": "🇲🇦",
+          "coach": "Mohamed Ouahbi",
+          "best": "Fourth place (2022)",
+          "star": "Achraf Hakimi"
         },
         {
           "name": "Haiti",
-          "flag": "🇭🇹"
+          "flag": "🇭🇹",
+          "coach": "Sébastien Migné",
+          "best": "Group stage (1974)",
+          "star": "Duckens Nazon"
         },
         {
           "name": "Scotland",
-          "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+          "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+          "coach": "Steve Clarke",
+          "best": "Group stage",
+          "star": "Andy Robertson"
         }
       ],
       "matches": [
@@ -213,19 +249,31 @@ const data = {
       "teams": [
         {
           "name": "United States",
-          "flag": "🇺🇸"
+          "flag": "🇺🇸",
+          "coach": "Mauricio Pochettino",
+          "best": "Third place (1930)",
+          "star": "Christian Pulisic"
         },
         {
           "name": "Paraguay",
-          "flag": "🇵🇾"
+          "flag": "🇵🇾",
+          "coach": "Gustavo Alfaro",
+          "best": "Quarter-finals (2010)",
+          "star": "Miguel Almirón"
         },
         {
           "name": "Australia",
-          "flag": "🇦🇺"
+          "flag": "🇦🇺",
+          "coach": "Tony Popovic",
+          "best": "Round of 16 (2006, 2022)",
+          "star": "Mathew Ryan"
         },
         {
           "name": "Türkiye",
-          "flag": "🇹🇷"
+          "flag": "🇹🇷",
+          "coach": "Vincenzo Montella",
+          "best": "Third place (2002)",
+          "star": "Arda Güler"
         }
       ],
       "matches": [
@@ -278,19 +326,31 @@ const data = {
       "teams": [
         {
           "name": "Germany",
-          "flag": "🇩🇪"
+          "flag": "🇩🇪",
+          "coach": "Julian Nagelsmann",
+          "best": "Champions (×4)",
+          "star": "Joshua Kimmich"
         },
         {
           "name": "Curaçao",
-          "flag": "🇨🇼"
+          "flag": "🇨🇼",
+          "coach": "Dick Advocaat",
+          "best": "Debut (2026)",
+          "star": "Rangelo Janga"
         },
         {
           "name": "Ivory Coast",
-          "flag": "🇨🇮"
+          "flag": "🇨🇮",
+          "coach": "Emerse Faé",
+          "best": "Group stage",
+          "star": "Nicolas Pépé"
         },
         {
           "name": "Ecuador",
-          "flag": "🇪🇨"
+          "flag": "🇪🇨",
+          "coach": "Sebastián Beccacece",
+          "best": "Round of 16 (2006)",
+          "star": "Enner Valencia"
         }
       ],
       "matches": [
@@ -343,19 +403,31 @@ const data = {
       "teams": [
         {
           "name": "Netherlands",
-          "flag": "🇳🇱"
+          "flag": "🇳🇱",
+          "coach": "Ronald Koeman",
+          "best": "Runners-up (1974, 1978, 2010)",
+          "star": "Memphis Depay"
         },
         {
           "name": "Japan",
-          "flag": "🇯🇵"
+          "flag": "🇯🇵",
+          "coach": "Hajime Moriyasu",
+          "best": "Round of 16 (×4)",
+          "star": "Takefusa Kubo"
         },
         {
           "name": "Sweden",
-          "flag": "🇸🇪"
+          "flag": "🇸🇪",
+          "coach": "Graham Potter",
+          "best": "Runners-up (1958)",
+          "star": "Alexander Isak"
         },
         {
           "name": "Tunisia",
-          "flag": "🇹🇳"
+          "flag": "🇹🇳",
+          "coach": "Sabri Lamouchi",
+          "best": "Group stage",
+          "star": "Ellyes Skhiri"
         }
       ],
       "matches": [
@@ -408,19 +480,31 @@ const data = {
       "teams": [
         {
           "name": "Belgium",
-          "flag": "🇧🇪"
+          "flag": "🇧🇪",
+          "coach": "Rudi Garcia",
+          "best": "Third place (2018)",
+          "star": "Kevin De Bruyne"
         },
         {
           "name": "Egypt",
-          "flag": "🇪🇬"
+          "flag": "🇪🇬",
+          "coach": "Hossam Hassan",
+          "best": "Round of 16 (1934)",
+          "star": "Mohamed Salah"
         },
         {
           "name": "Iran",
-          "flag": "🇮🇷"
+          "flag": "🇮🇷",
+          "coach": "Amir Ghalenoei",
+          "best": "Group stage",
+          "star": "Mehdi Taremi"
         },
         {
           "name": "New Zealand",
-          "flag": "🇳🇿"
+          "flag": "🇳🇿",
+          "coach": "Darren Bazeley",
+          "best": "Group stage (1982, 2010)",
+          "star": "Chris Wood"
         }
       ],
       "matches": [
@@ -473,19 +557,31 @@ const data = {
       "teams": [
         {
           "name": "Spain",
-          "flag": "🇪🇸"
+          "flag": "🇪🇸",
+          "coach": "Luis de la Fuente",
+          "best": "Champions (2010)",
+          "star": "Rodri"
         },
         {
           "name": "Cape Verde",
-          "flag": "🇨🇻"
+          "flag": "🇨🇻",
+          "coach": "Bubista",
+          "best": "Debut (2026)",
+          "star": "Ryan Mendes"
         },
         {
           "name": "Saudi Arabia",
-          "flag": "🇸🇦"
+          "flag": "🇸🇦",
+          "coach": "Georgios Donis",
+          "best": "Round of 16 (1994)",
+          "star": "Salem Al-Dawsari"
         },
         {
           "name": "Uruguay",
-          "flag": "🇺🇾"
+          "flag": "🇺🇾",
+          "coach": "Marcelo Bielsa",
+          "best": "Champions (1930, 1950)",
+          "star": "Federico Valverde"
         }
       ],
       "matches": [
@@ -538,19 +634,31 @@ const data = {
       "teams": [
         {
           "name": "France",
-          "flag": "🇫🇷"
+          "flag": "🇫🇷",
+          "coach": "Didier Deschamps",
+          "best": "Champions (1998, 2018)",
+          "star": "Kylian Mbappé"
         },
         {
           "name": "Senegal",
-          "flag": "🇸🇳"
+          "flag": "🇸🇳",
+          "coach": "Pape Thiaw",
+          "best": "Quarter-finals (2002)",
+          "star": "Sadio Mané"
         },
         {
           "name": "Iraq",
-          "flag": "🇮🇶"
+          "flag": "🇮🇶",
+          "coach": "Graham Arnold",
+          "best": "Group stage (1986)",
+          "star": "Aymen Hussein"
         },
         {
           "name": "Norway",
-          "flag": "🇳🇴"
+          "flag": "🇳🇴",
+          "coach": "Ståle Solbakken",
+          "best": "Round of 16 (1938, 1998)",
+          "star": "Erling Haaland"
         }
       ],
       "matches": [
@@ -603,19 +711,31 @@ const data = {
       "teams": [
         {
           "name": "Argentina",
-          "flag": "🇦🇷"
+          "flag": "🇦🇷",
+          "coach": "Lionel Scaloni",
+          "best": "Champions (1978, 1986, 2022)",
+          "star": "Lionel Messi"
         },
         {
           "name": "Algeria",
-          "flag": "🇩🇿"
+          "flag": "🇩🇿",
+          "coach": "Vladimir Petković",
+          "best": "Round of 16 (2014)",
+          "star": "Riyad Mahrez"
         },
         {
           "name": "Austria",
-          "flag": "🇦🇹"
+          "flag": "🇦🇹",
+          "coach": "Ralf Rangnick",
+          "best": "Third place (1954)",
+          "star": "David Alaba"
         },
         {
           "name": "Jordan",
-          "flag": "🇯🇴"
+          "flag": "🇯🇴",
+          "coach": "Jamal Sellami",
+          "best": "Debut (2026)",
+          "star": "Mousa Al-Tamari"
         }
       ],
       "matches": [
@@ -668,19 +788,31 @@ const data = {
       "teams": [
         {
           "name": "Portugal",
-          "flag": "🇵🇹"
+          "flag": "🇵🇹",
+          "coach": "Roberto Martínez",
+          "best": "Third place (1966)",
+          "star": "Cristiano Ronaldo"
         },
         {
           "name": "DR Congo",
-          "flag": "🇨🇩"
+          "flag": "🇨🇩",
+          "coach": "Sébastien Desabre",
+          "best": "Group stage (1974, as Zaire)",
+          "star": "Chancel Mbemba"
         },
         {
           "name": "Uzbekistan",
-          "flag": "🇺🇿"
+          "flag": "🇺🇿",
+          "coach": "Fabio Cannavaro",
+          "best": "Debut (2026)",
+          "star": "Eldor Shomurodov"
         },
         {
           "name": "Colombia",
-          "flag": "🇨🇴"
+          "flag": "🇨🇴",
+          "coach": "Néstor Lorenzo",
+          "best": "Quarter-finals (2014)",
+          "star": "Luis Díaz"
         }
       ],
       "matches": [
@@ -733,19 +865,31 @@ const data = {
       "teams": [
         {
           "name": "England",
-          "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+          "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "coach": "Thomas Tuchel",
+          "best": "Champions (1966)",
+          "star": "Harry Kane"
         },
         {
           "name": "Croatia",
-          "flag": "🇭🇷"
+          "flag": "🇭🇷",
+          "coach": "Zlatko Dalić",
+          "best": "Runners-up (2018)",
+          "star": "Luka Modrić"
         },
         {
           "name": "Ghana",
-          "flag": "🇬🇭"
+          "flag": "🇬🇭",
+          "coach": "Carlos Queiroz",
+          "best": "Quarter-finals (2010)",
+          "star": "Mohammed Kudus"
         },
         {
           "name": "Panama",
-          "flag": "🇵🇦"
+          "flag": "🇵🇦",
+          "coach": "Thomas Christiansen",
+          "best": "Group stage (2018)",
+          "star": "Aníbal Godoy"
         }
       ],
       "matches": [
