@@ -807,3 +807,39 @@ table.wc-table {
 .wc-teaminfo dd span {
   white-space: nowrap;
 }
+
+/* World Cup — home page "next matches" */
+.wc-home-fixtures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.wc-home-fixtures li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.15rem 0;
+}
+.wc-home-fixtures .wc-hf-date {
+  color: var(--text-color-muted);
+  width: 3.5rem;
+  flex: none;
+}
+.wc-home-fixtures .wc-hf-home {
+  flex: 1;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wc-home-fixtures .wc-hf-away {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wc-home-fixtures .wc-hf-v {
+  flex: none;
+  color: var(--text-color-muted);
+}

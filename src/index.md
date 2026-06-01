@@ -9,18 +9,26 @@ layout: 'base.liquid'
 templateEngineOverride: liquid
 ---
 
-<h2>Calendar</h2>
+<h2><a href="/worldcup">World Cup 2026</a></h2>
 <hr />
 <div class="columns mb-3">
   <div class="col">
-    <p>2026 year calendar A2</p>
-    <p>inspired by <a href="https://en.wikipedia.org/wiki/International_Fixed_Calendar" target="_blank">International Fixed Calendar</a></p>
-    <p><a href="/calendars" class="btn bg-blue white">All Calendars ></a></p>
+    <p>🇨🇦 🇲🇽 🇺🇸 48 teams · 11 June – 19 July</p>
+    <p>Groups, standings and the full knockout bracket.</p>
+    <p><a href="/worldcup" class="btn bg-blue white">World Cup ></a></p>
   </div>
   <div class="col">
-    <div class="square img-card" style="aspect-ratio: 1684/1191;">
-      <img src="/images/2026-year-calendar-A2.jpg" alt="2026 year calendar A2" />
-    </div>
+    <p>Next matches</p>
+    <ul class="wc-home-fixtures">
+      {% for m in worldcup.upcoming limit: 5 %}
+        <li>
+          <span class="wc-hf-date">{{ m.date | date: "%e %b" }}</span>
+          <span class="wc-hf-home">{{ m.home }} {{ m.homeFlag }}</span>
+          <span class="wc-hf-v">v</span>
+          <span class="wc-hf-away">{{ m.awayFlag }} {{ m.away }}</span>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 

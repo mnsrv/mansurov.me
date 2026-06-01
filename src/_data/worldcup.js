@@ -1250,5 +1250,20 @@ export default function () {
     ...g,
     standings: computeStandings(g),
   }));
-  return { groups, knockout: data.knockout };
+
+  // Flatten group fixtures, attach flags, keep only not-yet-played, sort by date.
+  // Used for the "next matches" preview on the home page.
+  const flagByName = {};
+  data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
+  const upcoming = data.groups
+    .flatMap((g) => g.matches.map((m) => ({ ...m, group: g.name })))
+    .filter((m) => m.homeScore == null || m.awayScore == null)
+    .sort((a, b) => (a.date || "").localeCompare(b.date || ""))
+    .map((m) => ({
+      ...m,
+      homeFlag: flagByName[m.home] || "",
+      awayFlag: flagByName[m.away] || "",
+    }));
+
+  return { groups, knockout: data.knockout, upcoming };
 }
