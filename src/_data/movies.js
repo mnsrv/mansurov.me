@@ -11,6 +11,7 @@ function extractImageFromContent(content) {
 }
 
 export default async function () {
+  return { items: [], lastUpdated: null }
   try {
     // Use Eleventy Fetch to get RSS XML with proper caching and waiting
     const rssXml = await Fetch('https://letterboxd.com/mansurov/rss', {

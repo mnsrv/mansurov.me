@@ -54,7 +54,7 @@ templateEngineOverride: liquid
   {% endfor %}
 </div>
 
-<h2><a href="https://letterboxd.com/mansurov/" target="_blank">Letterboxd</a></h2>
+<!-- <h2><a href="https://letterboxd.com/mansurov/" target="_blank">Letterboxd</a></h2>
 <hr />
 <div class="columns mb-3">
   {% for movie in movies.items %}
@@ -66,7 +66,7 @@ templateEngineOverride: liquid
       </a>
     </div>
   {% endfor %}
-</div>
+</div> -->
 
 <h2>Last Added Wishes</h2>
 <hr />
