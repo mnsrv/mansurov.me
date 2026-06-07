@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Heroes: Mortals and Monsters, Quests and Adventures',
+    author: 'Stephen Fry',
+    rating: 3,
+    date: '2026-06-04',
+    image: 'bs-heroes.png',
+    cover: 'bc-heroes.jpg',
+    height: '7.8',
+  },
+  {
     title: 'Грозовой перевал',
     author: 'Эмили Бронте',
     rating: 3,
