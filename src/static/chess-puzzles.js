@@ -1,104 +1,122 @@
-// const retiFen = "7K/8/k1P5/7p/8/8/8/8 w - - 0 1"  // Original Réti endgame study
-
-// New FEN string created from image
-// This represents the position shown in the image
-// Format: piece placement / active color / castling availability / en passant target / halfmove clock / fullmove counter
-const fen = "8/8/p7/k1p5/8/1QK5/8/8 w - - 0 1"  // Réti endgame study from image
-const fen2 = 'r5k1/pR6/K7/7n/3Q4/8/8/8 w - - 0 1'
-
 // Define puzzles with their FEN positions and solutions
 const puzzles = [
   {
+    id: 'puzzle0',
+    name: 'Ничья (Этюд Рети)',
+    fen: '7K/8/k1P5/7p/8/8/8/8 w - - 0 1',
+    solutions: [
+      ['Kg7', 'h4', 'Kf6', 'Kb6', 'Ke5', 'Kxc6', 'Kf4', 'h3', 'Kg3', 'h2', 'Kxh2'],
+      ['Kg7', 'h4', 'Kf6', 'h3', 'Ke7', 'h2', 'c7', 'Kb7', 'Kd7', 'h1=Q', 'c8=Q', 'Kb6'],
+      ['Kg7', 'h4', 'Kf6', 'h3', 'Ke7', 'Kb6', 'Kd7', 'h2', 'c7', 'h1=Q', 'c8=Q', 'Qd5'],
+      ['Kg7', 'h4', 'Kf6', 'Kb6', 'Ke5', 'h3', 'Kd6', 'h2', 'c7', 'h1=Q', 'c8=Q'],
+    ],
+    maxPlayerMoves: 6,
+  },
+  {
     id: 'puzzle1',
     name: 'Мат в два хода (Л. Куббель, 1941)',
-    fen: "8/8/p7/k1p5/8/1QK5/8/8 w - - 0 1",
+    fen: '8/8/p7/k1p5/8/1QK5/8/8 w - - 0 1',
     solutions: [
-      ["Qb7", "c4", "Qb4"],
-      ["Qb7", "Ka4", "Qxa6"],
+      ['Qb7', 'c4', 'Qb4'],
+      ['Qb7', 'Ka4', 'Qxa6'],
     ],
-    maxPlayerMoves: 2
+    maxPlayerMoves: 2,
   },
   {
     id: 'puzzle2',
     name: 'Мат в два хода (Л. Куббель, 1939)',
     fen: 'r5k1/pR6/K7/7n/3Q4/8/8/8 w - - 0 1',
     solutions: [
-      ["Qd7", "Kf8", "Qf7"],
-      ["Qd7", "Kh8", "Qh7"],
-      ["Qd7", "Nf4", "Qg7"],
-      ["Qd7", "Rf8", "Qh7"],
-      ["Qd7", "Rb8", "Rxb8"],
+      ['Qd7', 'Kf8', 'Qf7'],
+      ['Qd7', 'Kh8', 'Qh7'],
+      ['Qd7', 'Nf4', 'Qg7'],
+      ['Qd7', 'Rf8', 'Qh7'],
+      ['Qd7', 'Rb8', 'Rxb8'],
     ],
-    maxPlayerMoves: 2
-  }
-];
+    maxPlayerMoves: 2,
+  },
+  {
+    id: 'puzzle3',
+    name: 'Мат в три хода (сложно)',
+    fen: '8/1n4K1/qpB4p/3R3P/4kp1N/2p4P/2P1pP2/6R1 w - - 0 1',
+    solutions: [
+      ['Rf1', 'exf1=Q', 'Nf3', 'Qg2', 'Rg5'],
+      ['Rf1', 'f3', 'Rg1', 'e1=Q', 'Rg4'],
+      ['Rf1', 'b5', 'f3', 'Ke3', 'Ng2'],
+      ['Rf1', 'exf1=Q', 'Nf3', 'Na5', 'Rxa5'],
+      ['Rf1', 'exf1=Q', 'Nf3', 'b5', 'Re5'],
+      ['Rf1', 'exf1=Q', 'Nf3', 'Kxf3', 'Rd2'],
+    ],
+    maxPlayerMoves: 3,
+  },
+]
 
-import { Chessground } from './chessground.js';
-import { Chess, SQUARES } from './chess.js';
-import { toledoGetMove } from './toledo-original.js';
+import { Chessground } from './chessground.js'
+import { Chess, SQUARES } from './chess.js'
+import { toledoGetMove } from './toledo-original.js'
 
 export function toDests(chess) {
-  const dests = new Map();
-  SQUARES.forEach((s) => {
-    const ms = chess.moves({ square: s, verbose: true });
+  const dests = new Map()
+  SQUARES.forEach(s => {
+    const ms = chess.moves({ square: s, verbose: true })
     if (ms.length)
       dests.set(
         s,
-        ms.map((m) => m.to),
-      );
-  });
-  return dests;
+        ms.map(m => m.to),
+      )
+  })
+  return dests
 }
 export function toColor(chess) {
-  return chess.turn() === 'w' ? 'white' : 'black';
+  return chess.turn() === 'w' ? 'white' : 'black'
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.getElementById('chessboard');
-  
+  const el = document.getElementById('chessboard')
+
   // Create UI elements
-  const puzzleContainer = document.createElement('div');
-  puzzleContainer.className = 'puzzle-container';
-  el.parentNode.insertBefore(puzzleContainer, el.nextSibling);
-  
+  const puzzleContainer = document.createElement('div')
+  puzzleContainer.className = 'puzzle-container'
+  el.parentNode.insertBefore(puzzleContainer, el.nextSibling)
+
   // Puzzle selector
-  const puzzleSelector = document.createElement('select');
-  puzzleSelector.className = 'puzzle-selector';
+  const puzzleSelector = document.createElement('select')
+  puzzleSelector.className = 'puzzle-selector'
   puzzles.forEach(puzzle => {
-    const option = document.createElement('option');
-    option.value = puzzle.id;
-    option.textContent = puzzle.name;
-    puzzleSelector.appendChild(option);
-  });
-  
+    const option = document.createElement('option')
+    option.value = puzzle.id
+    option.textContent = puzzle.name
+    puzzleSelector.appendChild(option)
+  })
+
   // Create controls
-  const controlsDiv = document.createElement('div');
-  controlsDiv.className = 'puzzle-controls';
-  
+  const controlsDiv = document.createElement('div')
+  controlsDiv.className = 'puzzle-controls'
+
   // Reset button
-  const resetButton = document.createElement('button');
-  resetButton.textContent = 'Reset Position';
-  resetButton.className = 'puzzle-reset-btn';
-  
+  const resetButton = document.createElement('button')
+  resetButton.textContent = 'Reset Position'
+  resetButton.className = 'puzzle-reset-btn'
+
   // Feedback area
-  const feedbackDiv = document.createElement('div');
-  feedbackDiv.className = 'puzzle-feedback';
-  feedbackDiv.innerHTML = '&nbsp;'; // Non-breaking space to maintain height
-  
+  const feedbackDiv = document.createElement('div')
+  feedbackDiv.className = 'puzzle-feedback'
+  feedbackDiv.innerHTML = '&nbsp;' // Non-breaking space to maintain height
+
   // Add elements to the container - all controls above the board
-  puzzleContainer.appendChild(puzzleSelector);
-  controlsDiv.appendChild(resetButton);
-  puzzleContainer.appendChild(controlsDiv);
-  puzzleContainer.appendChild(feedbackDiv);
-  
+  puzzleContainer.appendChild(puzzleSelector)
+  controlsDiv.appendChild(resetButton)
+  puzzleContainer.appendChild(controlsDiv)
+  puzzleContainer.appendChild(feedbackDiv)
+
   // Add the chessboard to the container (after controls)
-  puzzleContainer.appendChild(el);
-  
+  puzzleContainer.appendChild(el)
+
   // Initialize variables
-  let currentPuzzle = puzzles[0];
-  let chess = new Chess(currentPuzzle.fen);
-  let moveHistory = [];
-  
+  let currentPuzzle = puzzles[0]
+  let chess = new Chess(currentPuzzle.fen)
+  let moveHistory = []
+
   // Initialize the board
   const cg = Chessground(el, {
     fen: currentPuzzle.fen,
@@ -113,62 +131,68 @@ document.addEventListener('DOMContentLoaded', () => {
     draggable: {
       showGhost: true,
     },
-  });
-  
+  })
+
   // Function to get player moves
   const getPlayerMoves = () => {
     // Count player moves (white moves)
-    return moveHistory.filter((_, index) => index % 2 === 0);
-  };
-  
+    return moveHistory.filter((_, index) => index % 2 === 0)
+  }
+
   // Function to check the solution
   const checkSolution = () => {
     // Get player moves (white moves)
-    const playerMoves = getPlayerMoves();
-    
+    const playerMoves = getPlayerMoves()
+
+    console.log('checkSolution', playerMoves)
+
     // Check if any of the defined solutions match the player's moves
-    let isCorrect = false;
-    
+    let isCorrect = false
+
     // Only check if we have solutions defined and player has made enough moves
     if (currentPuzzle.solutions.length > 0 && playerMoves.length >= currentPuzzle.maxPlayerMoves) {
       // Try to match against each possible solution
       for (const solution of currentPuzzle.solutions) {
         // Check if the full move sequence matches this solution
         // We need to compare player and opponent moves
-        let solutionMatches = true;
-        
+        let solutionMatches = true
+
         // We need at least 2*maxPlayerMoves-1 moves to check a solution
         // (player move, opponent move, player move, ...)
-        const minMovesNeeded = Math.min(2 * currentPuzzle.maxPlayerMoves - 1, solution.length);
-        
+        const minMovesNeeded = Math.min(2 * currentPuzzle.maxPlayerMoves - 1, solution.length)
+
         if (moveHistory.length < minMovesNeeded) {
-          continue;
+          continue
         }
-        
+
         // Compare each move in the sequence
         for (let i = 0; i < minMovesNeeded; i++) {
           // Normalize the moves for comparison by removing all annotations (+, #, !, ?, etc.)
-          const normalizedPlayerMove = moveHistory[i].replace(/[+#!?]+$/, '');
-          const normalizedSolutionMove = solution[i].replace(/[+#!?]+$/, '');
-          
+          const normalizedPlayerMove = moveHistory[i].replace(/[+#!?]+$/, '')
+          const normalizedSolutionMove = solution[i].replace(/[+#!?]+$/, '')
+
+          console.log('normalizedPlayerMove', normalizedPlayerMove)
+          console.log('normalizedSolutionMove', normalizedSolutionMove)
+
           if (normalizedPlayerMove !== normalizedSolutionMove) {
-            solutionMatches = false;
-            break;
+            solutionMatches = false
+            break
           }
         }
-        
+
         // If we found a matching solution, mark as correct and break
         if (solutionMatches) {
-          isCorrect = true;
-          break;
+          isCorrect = true
+          break
         }
       }
-      
+      console.log('moveHistory', moveHistory)
+
       // Display feedback
       if (isCorrect) {
-        feedbackDiv.textContent = 'Correct solution! Well done!';
-        feedbackDiv.className = 'puzzle-feedback success';
-        
+        feedbackDiv.textContent = 'Correct solution! Well done!'
+        feedbackDiv.className = 'puzzle-feedback success'
+
         // Disable further moves
         cg.set({
           selectable: {
@@ -180,32 +204,32 @@ document.addEventListener('DOMContentLoaded', () => {
           movable: {
             color: 'none',
             dests: new Map(),
-          }
-        });
+          },
+        })
       } else {
-        feedbackDiv.textContent = 'Incorrect solution. Try again!';
-        feedbackDiv.className = 'puzzle-feedback error';
+        feedbackDiv.textContent = 'Incorrect solution. Try again!'
+        feedbackDiv.className = 'puzzle-feedback error'
       }
     }
-    
-    return isCorrect;
-  };
-  
+
+    return isCorrect
+  }
+
   // Handle moves
   const onMove = (orig, dest) => {
     // Make the move and get SAN format
-    const move = chess.move({ from: orig, to: dest, promotion: 'q' }); // Default to queen for promotions
-    
+    const move = chess.move({ from: orig, to: dest, promotion: 'q' }) // Default to queen for promotions
+
     if (move) {
       // Record the move in SAN format
-      moveHistory.push(move.san);
-      
+      moveHistory.push(move.san)
+
       // Get player moves
-      const playerMoves = getPlayerMoves();
-      
+      const playerMoves = getPlayerMoves()
+
       // Check if game is over
-      const isGameOver = chess.isGameOver();
-      
+      const isGameOver = chess.isGameOver()
+
       // Update the board
       cg.set({
         fen: chess.fen(),
@@ -222,15 +246,15 @@ document.addEventListener('DOMContentLoaded', () => {
           color: isGameOver ? 'none' : toColor(chess),
           dests: isGameOver ? new Map() : toDests(chess),
         },
-      });
-      
+      })
+
       // Check for stalemate after the move
       if (chess.isStalemate()) {
         setTimeout(() => {
           // Use the same format as incorrect solution
-          feedbackDiv.textContent = 'Incorrect solution. Try again!';
-          feedbackDiv.className = 'puzzle-feedback error';
-          
+          feedbackDiv.textContent = 'Incorrect solution. Try again!'
+          feedbackDiv.className = 'puzzle-feedback error'
+
           // Disable further moves
           cg.set({
             selectable: {
@@ -242,36 +266,36 @@ document.addEventListener('DOMContentLoaded', () => {
             movable: {
               color: 'none',
               dests: new Map(),
-            }
-          });
-        }, 300);
-        return;
+            },
+          })
+        }, 300)
+        return
       }
-      
+
       // If it's black's turn (opponent), make engine move
       if (chess.turn() === 'b' && !isGameOver) {
         setTimeout(() => {
           if (chess.isGameOver()) {
-            return;
+            return
           }
-          
+
           // Get engine move
-          const engineMove = toledoGetMove(chess.fen(), 4);
-          
+          const engineMove = toledoGetMove(chess.fen(), 4)
+
           if (engineMove && engineMove.from && engineMove.to) {
             // Make the move
             const move = chess.move({
               from: engineMove.from,
               to: engineMove.to,
               promotion: engineMove.promotion || 'q',
-            });
-            
+            })
+
             if (move) {
               // Record the move
-              moveHistory.push(move.san);
-              
-              const isGameOver = chess.isGameOver();
-              
+              moveHistory.push(move.san)
+
+              const isGameOver = chess.isGameOver()
+
               // Update board
               cg.set({
                 fen: chess.fen(),
@@ -288,41 +312,41 @@ document.addEventListener('DOMContentLoaded', () => {
                   color: isGameOver ? 'none' : toColor(chess),
                   dests: isGameOver ? new Map() : toDests(chess),
                 },
-              });
-              
+              })
+
               // Check if this is the player's final move
-              const playerMoves = getPlayerMoves();
+              const playerMoves = getPlayerMoves()
               if (playerMoves.length >= currentPuzzle.maxPlayerMoves) {
                 setTimeout(() => {
-                  checkSolution();
-                }, 300);
+                  checkSolution()
+                }, 300)
               }
             }
           }
-        }, 500); // Small delay for engine move
+        }, 500) // Small delay for engine move
       } else {
         // Check if this is the player's final move
         if (playerMoves.length >= currentPuzzle.maxPlayerMoves) {
           setTimeout(() => {
-            checkSolution();
-          }, 300); // Small delay to allow the player to see the move
+            checkSolution()
+          }, 300) // Small delay to allow the player to see the move
         }
       }
     }
-  };
-  
+  }
+
   // Function to load a puzzle
-  const loadPuzzle = (puzzleId) => {
+  const loadPuzzle = puzzleId => {
     // Find the puzzle by ID
-    const puzzle = puzzles.find(p => p.id === puzzleId) || puzzles[0];
-    currentPuzzle = puzzle;
-    
+    const puzzle = puzzles.find(p => p.id === puzzleId) || puzzles[0]
+    currentPuzzle = puzzle
+
     // Clear move history
-    moveHistory = [];
-    
+    moveHistory = []
+
     // Reset the chess.js instance
-    chess = new Chess(puzzle.fen);
-    
+    chess = new Chess(puzzle.fen)
+
     // Reset the board
     cg.set({
       fen: puzzle.fen,
@@ -338,28 +362,28 @@ document.addEventListener('DOMContentLoaded', () => {
         color: 'white', // Only white (player) can move
         dests: toDests(chess),
       },
-    });
-    
+    })
+
     // Clear feedback (use non-breaking space to maintain height)
-    feedbackDiv.innerHTML = '&nbsp;';
-    feedbackDiv.className = 'puzzle-feedback';
-  };
-  
+    feedbackDiv.innerHTML = '&nbsp;'
+    feedbackDiv.className = 'puzzle-feedback'
+  }
+
   // Set up the move handler
   cg.set({
     movable: { events: { after: onMove } },
-  });
-  
+  })
+
   // Reset button handler
   resetButton.addEventListener('click', () => {
-    loadPuzzle(currentPuzzle.id);
-  });
-  
+    loadPuzzle(currentPuzzle.id)
+  })
+
   // Puzzle selector handler
-  puzzleSelector.addEventListener('change', (e) => {
-    loadPuzzle(e.target.value);
-  });
-  
+  puzzleSelector.addEventListener('change', e => {
+    loadPuzzle(e.target.value)
+  })
+
   // Initialize with the first puzzle
-  loadPuzzle(puzzles[0].id);
-});
+  loadPuzzle(puzzles[0].id)
+})
