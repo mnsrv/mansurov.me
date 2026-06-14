@@ -18,11 +18,11 @@ templateEngineOverride: liquid
     <p><a href="/worldcup" class="btn bg-blue white">World Cup ></a></p>
   </div>
   <div class="col">
-    <p>Next matches</p>
+    <p>Next matches <span class="wc-tz">· Warsaw time</span></p>
     <ul class="wc-home-fixtures">
       {% for m in worldcup.upcoming limit: 5 %}
         <li>
-          <span class="wc-hf-date">{{ m.date | date: "%e %b" }}</span>
+          <span class="wc-hf-date">{{ m.warsawDate }} {{ m.warsawTime }}</span>
           <span class="wc-hf-home">{{ m.home }} {{ m.homeFlag }}</span>
           <span class="wc-hf-v">v</span>
           <span class="wc-hf-away">{{ m.awayFlag }} {{ m.away }}</span>

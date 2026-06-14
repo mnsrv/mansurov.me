@@ -1,15 +1,16 @@
 // FIFA World Cup 2026 — editable data + computed group standings.
 //
-// Teams (with coach / best WC result / star), seeded positions, full group fixtures
-// and Round-of-32 bracket feeders are the real draw & schedule, verified vs Wikipedia
-// (Morocco & Saudi coaches re-checked vs FIFA/news). 11 Jun – 19 Jul 2026.
+// Teams (coach / best WC result / star), fixtures, kick-off times and the R32 bracket
+// feeders are the real draw & schedule, verified vs Wikipedia. Each match's "kickoff" is
+// a UTC instant (computed from the venue's local time + offset); the site renders it in
+// Warsaw time (Europe/Warsaw) on the page, so a match's shown day can differ from the
+// US match date for late-night kick-offs. 11 Jun – 19 Jul 2026.
 //
 // HOW TO MAINTAIN:
-//   1. As matches are played, fill in homeScore / awayScore (numbers) on the relevant
-//      "matches" entry. Standings recompute automatically — never edit the table by hand.
-//   2. Edit a team's "coach" / "best" / "star" any time (e.g. a coach change).
-//   3. In "knockout", replace feeder labels ("Winner A", "3rd A/B/C/D/F") with the actual
-//      team once known, fill in scores, and add a "date" if you like.
+//   1. As matches are played, set homeScore / awayScore (numbers) on the "matches" entry.
+//      Standings recompute automatically — never edit the table by hand.
+//   2. "kickoff" is UTC ISO (e.g. "2026-06-11T19:00:00.000Z"); edit only if a time changes.
+//   3. In "knockout", replace feeder labels with the actual team once known, add scores.
 
 const data = {
   "groups": [
@@ -48,20 +49,23 @@ const data = {
       "matches": [
         {
           "date": "2026-06-11",
+          "kickoff": "2026-06-11T19:00:00.000Z",
           "home": "Mexico",
           "away": "South Africa",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 0
         },
         {
           "date": "2026-06-11",
+          "kickoff": "2026-06-12T02:00:00.000Z",
           "home": "South Korea",
           "away": "Czechia",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 1
         },
         {
           "date": "2026-06-18",
+          "kickoff": "2026-06-18T16:00:00.000Z",
           "home": "Czechia",
           "away": "South Africa",
           "homeScore": null,
@@ -69,6 +73,7 @@ const data = {
         },
         {
           "date": "2026-06-18",
+          "kickoff": "2026-06-19T01:00:00.000Z",
           "home": "Mexico",
           "away": "South Korea",
           "homeScore": null,
@@ -76,6 +81,7 @@ const data = {
         },
         {
           "date": "2026-06-24",
+          "kickoff": "2026-06-25T01:00:00.000Z",
           "home": "Czechia",
           "away": "Mexico",
           "homeScore": null,
@@ -83,6 +89,7 @@ const data = {
         },
         {
           "date": "2026-06-24",
+          "kickoff": "2026-06-25T01:00:00.000Z",
           "home": "South Africa",
           "away": "South Korea",
           "homeScore": null,
@@ -125,20 +132,23 @@ const data = {
       "matches": [
         {
           "date": "2026-06-12",
+          "kickoff": "2026-06-12T19:00:00.000Z",
           "home": "Canada",
           "away": "Bosnia and Herzegovina",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-13",
+          "kickoff": "2026-06-13T19:00:00.000Z",
           "home": "Qatar",
           "away": "Switzerland",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-18",
+          "kickoff": "2026-06-18T19:00:00.000Z",
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
           "homeScore": null,
@@ -146,6 +156,7 @@ const data = {
         },
         {
           "date": "2026-06-18",
+          "kickoff": "2026-06-18T22:00:00.000Z",
           "home": "Canada",
           "away": "Qatar",
           "homeScore": null,
@@ -153,6 +164,7 @@ const data = {
         },
         {
           "date": "2026-06-24",
+          "kickoff": "2026-06-24T19:00:00.000Z",
           "home": "Switzerland",
           "away": "Canada",
           "homeScore": null,
@@ -160,6 +172,7 @@ const data = {
         },
         {
           "date": "2026-06-24",
+          "kickoff": "2026-06-24T19:00:00.000Z",
           "home": "Bosnia and Herzegovina",
           "away": "Qatar",
           "homeScore": null,
@@ -202,20 +215,23 @@ const data = {
       "matches": [
         {
           "date": "2026-06-13",
+          "kickoff": "2026-06-13T22:00:00.000Z",
           "home": "Brazil",
           "away": "Morocco",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-13",
+          "kickoff": "2026-06-14T01:00:00.000Z",
           "home": "Haiti",
           "away": "Scotland",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 1
         },
         {
           "date": "2026-06-19",
+          "kickoff": "2026-06-19T22:00:00.000Z",
           "home": "Scotland",
           "away": "Morocco",
           "homeScore": null,
@@ -223,6 +239,7 @@ const data = {
         },
         {
           "date": "2026-06-19",
+          "kickoff": "2026-06-20T00:30:00.000Z",
           "home": "Brazil",
           "away": "Haiti",
           "homeScore": null,
@@ -230,6 +247,7 @@ const data = {
         },
         {
           "date": "2026-06-24",
+          "kickoff": "2026-06-24T22:00:00.000Z",
           "home": "Scotland",
           "away": "Brazil",
           "homeScore": null,
@@ -237,6 +255,7 @@ const data = {
         },
         {
           "date": "2026-06-24",
+          "kickoff": "2026-06-24T22:00:00.000Z",
           "home": "Morocco",
           "away": "Haiti",
           "homeScore": null,
@@ -279,20 +298,23 @@ const data = {
       "matches": [
         {
           "date": "2026-06-12",
+          "kickoff": "2026-06-13T01:00:00.000Z",
           "home": "United States",
           "away": "Paraguay",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 4,
+          "awayScore": 1
         },
         {
           "date": "2026-06-13",
+          "kickoff": "2026-06-14T04:00:00.000Z",
           "home": "Australia",
           "away": "Türkiye",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 0
         },
         {
           "date": "2026-06-19",
+          "kickoff": "2026-06-19T19:00:00.000Z",
           "home": "United States",
           "away": "Australia",
           "homeScore": null,
@@ -300,6 +322,7 @@ const data = {
         },
         {
           "date": "2026-06-19",
+          "kickoff": "2026-06-20T03:00:00.000Z",
           "home": "Türkiye",
           "away": "Paraguay",
           "homeScore": null,
@@ -307,6 +330,7 @@ const data = {
         },
         {
           "date": "2026-06-25",
+          "kickoff": "2026-06-26T02:00:00.000Z",
           "home": "Türkiye",
           "away": "United States",
           "homeScore": null,
@@ -314,6 +338,7 @@ const data = {
         },
         {
           "date": "2026-06-25",
+          "kickoff": "2026-06-26T02:00:00.000Z",
           "home": "Paraguay",
           "away": "Australia",
           "homeScore": null,
@@ -356,6 +381,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-14",
+          "kickoff": "2026-06-14T17:00:00.000Z",
           "home": "Germany",
           "away": "Curaçao",
           "homeScore": null,
@@ -363,6 +389,7 @@ const data = {
         },
         {
           "date": "2026-06-14",
+          "kickoff": "2026-06-14T23:00:00.000Z",
           "home": "Ivory Coast",
           "away": "Ecuador",
           "homeScore": null,
@@ -370,6 +397,7 @@ const data = {
         },
         {
           "date": "2026-06-20",
+          "kickoff": "2026-06-20T20:00:00.000Z",
           "home": "Germany",
           "away": "Ivory Coast",
           "homeScore": null,
@@ -377,6 +405,7 @@ const data = {
         },
         {
           "date": "2026-06-20",
+          "kickoff": "2026-06-21T00:00:00.000Z",
           "home": "Ecuador",
           "away": "Curaçao",
           "homeScore": null,
@@ -384,6 +413,7 @@ const data = {
         },
         {
           "date": "2026-06-25",
+          "kickoff": "2026-06-25T20:00:00.000Z",
           "home": "Curaçao",
           "away": "Ivory Coast",
           "homeScore": null,
@@ -391,6 +421,7 @@ const data = {
         },
         {
           "date": "2026-06-25",
+          "kickoff": "2026-06-25T20:00:00.000Z",
           "home": "Ecuador",
           "away": "Germany",
           "homeScore": null,
@@ -433,6 +464,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-14",
+          "kickoff": "2026-06-14T20:00:00.000Z",
           "home": "Netherlands",
           "away": "Japan",
           "homeScore": null,
@@ -440,6 +472,7 @@ const data = {
         },
         {
           "date": "2026-06-14",
+          "kickoff": "2026-06-15T02:00:00.000Z",
           "home": "Sweden",
           "away": "Tunisia",
           "homeScore": null,
@@ -447,6 +480,7 @@ const data = {
         },
         {
           "date": "2026-06-20",
+          "kickoff": "2026-06-20T17:00:00.000Z",
           "home": "Netherlands",
           "away": "Sweden",
           "homeScore": null,
@@ -454,6 +488,7 @@ const data = {
         },
         {
           "date": "2026-06-20",
+          "kickoff": "2026-06-21T04:00:00.000Z",
           "home": "Tunisia",
           "away": "Japan",
           "homeScore": null,
@@ -461,6 +496,7 @@ const data = {
         },
         {
           "date": "2026-06-25",
+          "kickoff": "2026-06-25T23:00:00.000Z",
           "home": "Japan",
           "away": "Sweden",
           "homeScore": null,
@@ -468,6 +504,7 @@ const data = {
         },
         {
           "date": "2026-06-25",
+          "kickoff": "2026-06-25T23:00:00.000Z",
           "home": "Tunisia",
           "away": "Netherlands",
           "homeScore": null,
@@ -510,6 +547,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-15",
+          "kickoff": "2026-06-16T01:00:00.000Z",
           "home": "Iran",
           "away": "New Zealand",
           "homeScore": null,
@@ -517,6 +555,7 @@ const data = {
         },
         {
           "date": "2026-06-15",
+          "kickoff": "2026-06-15T19:00:00.000Z",
           "home": "Belgium",
           "away": "Egypt",
           "homeScore": null,
@@ -524,6 +563,7 @@ const data = {
         },
         {
           "date": "2026-06-21",
+          "kickoff": "2026-06-21T19:00:00.000Z",
           "home": "Belgium",
           "away": "Iran",
           "homeScore": null,
@@ -531,6 +571,7 @@ const data = {
         },
         {
           "date": "2026-06-21",
+          "kickoff": "2026-06-22T01:00:00.000Z",
           "home": "New Zealand",
           "away": "Egypt",
           "homeScore": null,
@@ -538,6 +579,7 @@ const data = {
         },
         {
           "date": "2026-06-26",
+          "kickoff": "2026-06-27T03:00:00.000Z",
           "home": "Egypt",
           "away": "Iran",
           "homeScore": null,
@@ -545,6 +587,7 @@ const data = {
         },
         {
           "date": "2026-06-26",
+          "kickoff": "2026-06-27T03:00:00.000Z",
           "home": "New Zealand",
           "away": "Belgium",
           "homeScore": null,
@@ -587,6 +630,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-15",
+          "kickoff": "2026-06-15T16:00:00.000Z",
           "home": "Spain",
           "away": "Cape Verde",
           "homeScore": null,
@@ -594,6 +638,7 @@ const data = {
         },
         {
           "date": "2026-06-15",
+          "kickoff": "2026-06-15T22:00:00.000Z",
           "home": "Saudi Arabia",
           "away": "Uruguay",
           "homeScore": null,
@@ -601,6 +646,7 @@ const data = {
         },
         {
           "date": "2026-06-21",
+          "kickoff": "2026-06-21T16:00:00.000Z",
           "home": "Spain",
           "away": "Saudi Arabia",
           "homeScore": null,
@@ -608,6 +654,7 @@ const data = {
         },
         {
           "date": "2026-06-21",
+          "kickoff": "2026-06-21T22:00:00.000Z",
           "home": "Uruguay",
           "away": "Cape Verde",
           "homeScore": null,
@@ -615,6 +662,7 @@ const data = {
         },
         {
           "date": "2026-06-26",
+          "kickoff": "2026-06-27T00:00:00.000Z",
           "home": "Cape Verde",
           "away": "Saudi Arabia",
           "homeScore": null,
@@ -622,6 +670,7 @@ const data = {
         },
         {
           "date": "2026-06-26",
+          "kickoff": "2026-06-27T00:00:00.000Z",
           "home": "Uruguay",
           "away": "Spain",
           "homeScore": null,
@@ -664,6 +713,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-16",
+          "kickoff": "2026-06-16T19:00:00.000Z",
           "home": "France",
           "away": "Senegal",
           "homeScore": null,
@@ -671,6 +721,7 @@ const data = {
         },
         {
           "date": "2026-06-16",
+          "kickoff": "2026-06-16T22:00:00.000Z",
           "home": "Iraq",
           "away": "Norway",
           "homeScore": null,
@@ -678,6 +729,7 @@ const data = {
         },
         {
           "date": "2026-06-22",
+          "kickoff": "2026-06-22T21:00:00.000Z",
           "home": "France",
           "away": "Iraq",
           "homeScore": null,
@@ -685,6 +737,7 @@ const data = {
         },
         {
           "date": "2026-06-22",
+          "kickoff": "2026-06-23T00:00:00.000Z",
           "home": "Norway",
           "away": "Senegal",
           "homeScore": null,
@@ -692,6 +745,7 @@ const data = {
         },
         {
           "date": "2026-06-26",
+          "kickoff": "2026-06-26T19:00:00.000Z",
           "home": "Norway",
           "away": "France",
           "homeScore": null,
@@ -699,6 +753,7 @@ const data = {
         },
         {
           "date": "2026-06-26",
+          "kickoff": "2026-06-26T19:00:00.000Z",
           "home": "Senegal",
           "away": "Iraq",
           "homeScore": null,
@@ -741,6 +796,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-16",
+          "kickoff": "2026-06-17T01:00:00.000Z",
           "home": "Argentina",
           "away": "Algeria",
           "homeScore": null,
@@ -748,6 +804,7 @@ const data = {
         },
         {
           "date": "2026-06-16",
+          "kickoff": "2026-06-17T04:00:00.000Z",
           "home": "Austria",
           "away": "Jordan",
           "homeScore": null,
@@ -755,6 +812,7 @@ const data = {
         },
         {
           "date": "2026-06-22",
+          "kickoff": "2026-06-22T17:00:00.000Z",
           "home": "Argentina",
           "away": "Austria",
           "homeScore": null,
@@ -762,6 +820,7 @@ const data = {
         },
         {
           "date": "2026-06-22",
+          "kickoff": "2026-06-23T03:00:00.000Z",
           "home": "Jordan",
           "away": "Algeria",
           "homeScore": null,
@@ -769,6 +828,7 @@ const data = {
         },
         {
           "date": "2026-06-27",
+          "kickoff": "2026-06-28T02:00:00.000Z",
           "home": "Algeria",
           "away": "Austria",
           "homeScore": null,
@@ -776,6 +836,7 @@ const data = {
         },
         {
           "date": "2026-06-27",
+          "kickoff": "2026-06-28T02:00:00.000Z",
           "home": "Jordan",
           "away": "Argentina",
           "homeScore": null,
@@ -818,6 +879,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-17",
+          "kickoff": "2026-06-17T17:00:00.000Z",
           "home": "Portugal",
           "away": "DR Congo",
           "homeScore": null,
@@ -825,6 +887,7 @@ const data = {
         },
         {
           "date": "2026-06-17",
+          "kickoff": "2026-06-18T02:00:00.000Z",
           "home": "Uzbekistan",
           "away": "Colombia",
           "homeScore": null,
@@ -832,6 +895,7 @@ const data = {
         },
         {
           "date": "2026-06-23",
+          "kickoff": "2026-06-23T17:00:00.000Z",
           "home": "Portugal",
           "away": "Uzbekistan",
           "homeScore": null,
@@ -839,6 +903,7 @@ const data = {
         },
         {
           "date": "2026-06-23",
+          "kickoff": "2026-06-24T02:00:00.000Z",
           "home": "Colombia",
           "away": "DR Congo",
           "homeScore": null,
@@ -846,6 +911,7 @@ const data = {
         },
         {
           "date": "2026-06-27",
+          "kickoff": "2026-06-27T23:30:00.000Z",
           "home": "Colombia",
           "away": "Portugal",
           "homeScore": null,
@@ -853,6 +919,7 @@ const data = {
         },
         {
           "date": "2026-06-27",
+          "kickoff": "2026-06-27T23:30:00.000Z",
           "home": "DR Congo",
           "away": "Uzbekistan",
           "homeScore": null,
@@ -895,6 +962,7 @@ const data = {
       "matches": [
         {
           "date": "2026-06-17",
+          "kickoff": "2026-06-17T20:00:00.000Z",
           "home": "England",
           "away": "Croatia",
           "homeScore": null,
@@ -902,6 +970,7 @@ const data = {
         },
         {
           "date": "2026-06-17",
+          "kickoff": "2026-06-17T23:00:00.000Z",
           "home": "Ghana",
           "away": "Panama",
           "homeScore": null,
@@ -909,6 +978,7 @@ const data = {
         },
         {
           "date": "2026-06-23",
+          "kickoff": "2026-06-23T20:00:00.000Z",
           "home": "England",
           "away": "Ghana",
           "homeScore": null,
@@ -916,6 +986,7 @@ const data = {
         },
         {
           "date": "2026-06-23",
+          "kickoff": "2026-06-23T23:00:00.000Z",
           "home": "Panama",
           "away": "Croatia",
           "homeScore": null,
@@ -923,6 +994,7 @@ const data = {
         },
         {
           "date": "2026-06-27",
+          "kickoff": "2026-06-27T21:00:00.000Z",
           "home": "Panama",
           "away": "England",
           "homeScore": null,
@@ -930,6 +1002,7 @@ const data = {
         },
         {
           "date": "2026-06-27",
+          "kickoff": "2026-06-27T21:00:00.000Z",
           "home": "Croatia",
           "away": "Ghana",
           "homeScore": null,
@@ -1206,64 +1279,64 @@ const data = {
   }
 };
 
-// --- standings computation -------------------------------------------------
+// --- helpers ---------------------------------------------------------------
+
+const WARSAW = "Europe/Warsaw";
+const dateFmt = new Intl.DateTimeFormat("en-GB", { timeZone: WARSAW, day: "numeric", month: "numeric" });
+const timeFmt = new Intl.DateTimeFormat("en-GB", { timeZone: WARSAW, hour: "2-digit", minute: "2-digit", hour12: false });
+
+function warsaw(iso) {
+  if (!iso) return { date: "", time: "" };
+  const d = new Date(iso);
+  return { date: dateFmt.format(d), time: timeFmt.format(d) };
+}
+
+function withWarsaw(match) {
+  const w = warsaw(match.kickoff);
+  return { ...match, warsawDate: w.date, warsawTime: w.time };
+}
 
 function emptyRow(team) {
-  return {
-    name: team.name,
-    flag: team.flag || "",
-    played: 0, won: 0, drawn: 0, lost: 0,
-    gf: 0, ga: 0, gd: 0, points: 0,
-  };
+  return { name: team.name, flag: team.flag || "", played:0, won:0, drawn:0, lost:0, gf:0, ga:0, gd:0, points:0 };
 }
 
 function computeStandings(group) {
   const rows = {};
   group.teams.forEach((t) => { rows[t.name] = emptyRow(t); });
-
   group.matches.forEach((mt) => {
     const hs = mt.homeScore, as = mt.awayScore;
     if (hs == null || as == null) return;
     const h = rows[mt.home], a = rows[mt.away];
     if (!h || !a) return;
     h.played++; a.played++;
-    h.gf += hs; h.ga += as;
-    a.gf += as; a.ga += hs;
+    h.gf += hs; h.ga += as; a.gf += as; a.ga += hs;
     if (hs > as) { h.won++; a.lost++; h.points += 3; }
     else if (hs < as) { a.won++; h.lost++; a.points += 3; }
     else { h.drawn++; a.drawn++; h.points++; a.points++; }
   });
-
   return Object.values(rows)
     .map((r) => ({ ...r, gd: r.gf - r.ga }))
-    .sort((x, y) =>
-      y.points - x.points ||
-      y.gd - x.gd ||
-      y.gf - x.gf ||
-      x.name.localeCompare(y.name)
-    )
+    .sort((x, y) => y.points - x.points || y.gd - x.gd || y.gf - x.gf || x.name.localeCompare(y.name))
     .map((r, i) => ({ ...r, rank: i + 1 }));
 }
 
 export default function () {
   const groups = data.groups.map((g) => ({
     ...g,
+    matches: g.matches.map(withWarsaw).sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || "")),
     standings: computeStandings(g),
   }));
 
-  // Flatten group fixtures, attach flags, keep only not-yet-played, sort by date.
-  // Used for the "next matches" preview on the home page.
   const flagByName = {};
   data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
   const upcoming = data.groups
-    .flatMap((g) => g.matches.map((m) => ({ ...m, group: g.name })))
-    .filter((m) => m.homeScore == null || m.awayScore == null)
-    .sort((a, b) => (a.date || "").localeCompare(b.date || ""))
-    .map((m) => ({
-      ...m,
-      homeFlag: flagByName[m.home] || "",
-      awayFlag: flagByName[m.away] || "",
-    }));
+    .flatMap((g) => g.matches.map((mt) => ({ ...mt, group: g.name })))
+    .filter((mt) => mt.homeScore == null || mt.awayScore == null)
+    .sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || ""))
+    .map((mt) => {
+      const w = warsaw(mt.kickoff);
+      return { ...mt, warsawDate: w.date, warsawTime: w.time, homeFlag: flagByName[mt.home] || "", awayFlag: flagByName[mt.away] || "" };
+    });
 
   return { groups, knockout: data.knockout, upcoming };
 }

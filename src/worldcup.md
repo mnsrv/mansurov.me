@@ -9,7 +9,7 @@ layout: "base.liquid"
 templateEngineOverride: liquid
 ---
 
-<p><i>48 teams, 12 groups. Top two of each group plus the eight best third-placed teams advance to the round of 32. Standings update automatically as scores are filled in.</i></p>
+<p><i>48 teams, 12 groups. Top two of each group plus the eight best third-placed teams advance to the round of 32. Kick-off times shown in Warsaw time (CEST).</i></p>
 
 <h2>Groups</h2>
 <hr />
