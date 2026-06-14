@@ -242,6 +242,12 @@ function loadFen(fen) {
   // Reset board
   resetBoard();
   
+  // Castling-rights field (e.g. "KQkq" or "-"). The engine derives castling
+  // legality from whether king/rook are on their home squares, so we must also
+  // require the matching right here — otherwise it proposes illegal castles
+  // (e.g. e8->c8) that chess.js rejects and throws on.
+  var castling = parts[2] || '-';
+
   // Parse piece placement
   var xPos = 0, yPos = 0;
   var pieceChars = parts[0];
@@ -270,11 +276,17 @@ function loadFen(fen) {
         // Pawn on starting rank
         isOriginal = true;
       } else if (pieceType === 2 && ((isBlack && yPos === 0 && xPos === 4) || (!isBlack && yPos === 7 && xPos === 4))) {
-        // King on starting square
-        isOriginal = true;
+        // King on starting square — only "unmoved" if some castling right remains
+        isOriginal = isBlack
+          ? (castling.indexOf('k') !== -1 || castling.indexOf('q') !== -1)
+          : (castling.indexOf('K') !== -1 || castling.indexOf('Q') !== -1);
       } else if (pieceType === 5 && ((isBlack && (xPos === 0 || xPos === 7) && yPos === 0) || (!isBlack && (xPos === 0 || xPos === 7) && yPos === 7))) {
-        // Rook on starting square
-        isOriginal = true;
+        // Rook on starting square — only "unmoved" if its side's right remains.
+        // a-file rook = queenside (Q/q), h-file rook = kingside (K/k).
+        var right = isBlack
+          ? (xPos === 0 ? 'q' : 'k')
+          : (xPos === 0 ? 'Q' : 'K');
+        isOriginal = castling.indexOf(right) !== -1;
       }
       
       var squareId = 21 + 10 * yPos + xPos;
