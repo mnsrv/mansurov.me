@@ -384,8 +384,8 @@ const data = {
           "kickoff": "2026-06-14T17:00:00.000Z",
           "home": "Germany",
           "away": "Curaçao",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 7,
+          "awayScore": 1
         },
         {
           "date": "2026-06-14",
@@ -467,8 +467,8 @@ const data = {
           "kickoff": "2026-06-14T20:00:00.000Z",
           "home": "Netherlands",
           "away": "Japan",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 2
         },
         {
           "date": "2026-06-14",
