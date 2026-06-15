@@ -9,10 +9,11 @@
     {% for m in day.matches %}
       <li>
         <span class="wc-date"><span class="wc-time">{{ m.warsawTime }}</span></span>
-        <span class="wc-home">{{ m.home }} {{ m.homeFlag }}</span>
+        <span class="wc-home">{{ m.home }}</span>
+        <span class="wc-flag">{{ m.homeFlag }}</span>
         <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% else %}v{% endif %}</span>
-        <span class="wc-away">{{ m.awayFlag }} {{ m.away }}</span>
-        <span class="wc-grp" title="Group {{ m.group }}">{{ m.group }}</span>
+        <span class="wc-flag">{{ m.awayFlag }}</span>
+        <span class="wc-away">{{ m.away }}</span>
       </li>
     {% endfor %}
   </ul>

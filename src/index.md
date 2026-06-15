@@ -23,9 +23,11 @@ templateEngineOverride: liquid
       {% for m in worldcup.upcoming limit: 5 %}
         <li>
           <span class="wc-hf-date">{{ m.warsawDate }} {{ m.warsawTime }}</span>
-          <span class="wc-hf-home">{{ m.home }} {{ m.homeFlag }}</span>
+          <span class="wc-hf-home">{{ m.home }}</span>
+          <span class="wc-hf-flag">{{ m.homeFlag }}</span>
           <span class="wc-hf-v">v</span>
-          <span class="wc-hf-away">{{ m.awayFlag }} {{ m.away }}</span>
+          <span class="wc-hf-flag">{{ m.awayFlag }}</span>
+          <span class="wc-hf-away">{{ m.away }}</span>
         </li>
       {% endfor %}
     </ul>
