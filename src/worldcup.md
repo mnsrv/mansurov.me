@@ -11,16 +11,34 @@ templateEngineOverride: liquid
 
 <p><i>48 teams, 12 groups. Top two of each group plus the eight best third-placed teams advance to the round of 32. Kick-off times shown in Warsaw time (CEST).</i></p>
 
-<h2>Groups</h2>
-<hr />
-<div class="columns wc-groups">
-  {% for group in worldcup.groups %}
-    <div class="col">
-      {% include "worldcup-group.liquid", group: group %}
-    </div>
-  {% endfor %}
-</div>
+<div class="wc-tabs">
+  <input type="radio" name="wc-tab" id="wc-tab-matches" class="wc-tab-input" checked />
+  <input type="radio" name="wc-tab" id="wc-tab-standings" class="wc-tab-input" />
 
-<h2>Knockout</h2>
-<hr />
-{% include "worldcup-bracket.liquid", knockout: worldcup.knockout %}
+  <div class="wc-tab-bar">
+    <label for="wc-tab-matches">Matches</label>
+    <label for="wc-tab-standings">Standings</label>
+  </div>
+
+  <div class="wc-tab-panel wc-panel-matches">
+    <h2>Matches</h2>
+    <hr />
+    {% include "worldcup-schedule.liquid", schedule: worldcup.schedule %}
+  </div>
+
+  <div class="wc-tab-panel wc-panel-standings">
+    <h2>Groups</h2>
+    <hr />
+    <div class="columns wc-groups">
+      {% for group in worldcup.groups %}
+        <div class="col">
+          {% include "worldcup-group.liquid", group: group %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <h2>Knockout</h2>
+    <hr />
+    {% include "worldcup-bracket.liquid", knockout: worldcup.knockout %}
+  </div>
+</div>

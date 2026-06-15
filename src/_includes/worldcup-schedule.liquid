@@ -1,0 +1,19 @@
+{% comment %}
+  Flat group-stage schedule grouped by Warsaw day.
+  Param: schedule — [{ key, label, matches:[{warsawTime, home, homeFlag, away, awayFlag, homeScore, awayScore, group}] }]
+{% endcomment %}
+
+{% for day in schedule %}
+  <h3 class="wc-sched-day">{{ day.label }}</h3>
+  <ul class="wc-fixtures wc-sched">
+    {% for m in day.matches %}
+      <li>
+        <span class="wc-date"><span class="wc-time">{{ m.warsawTime }}</span></span>
+        <span class="wc-home">{{ m.home }} {{ m.homeFlag }}</span>
+        <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% else %}v{% endif %}</span>
+        <span class="wc-away">{{ m.awayFlag }} {{ m.away }}</span>
+        <span class="wc-grp" title="Group {{ m.group }}">{{ m.group }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

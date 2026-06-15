@@ -1284,6 +1284,8 @@ const data = {
 const WARSAW = "Europe/Warsaw";
 const dateFmt = new Intl.DateTimeFormat("en-GB", { timeZone: WARSAW, day: "numeric", month: "numeric" });
 const timeFmt = new Intl.DateTimeFormat("en-GB", { timeZone: WARSAW, hour: "2-digit", minute: "2-digit", hour12: false });
+const dayKeyFmt = new Intl.DateTimeFormat("en-CA", { timeZone: WARSAW, year: "numeric", month: "2-digit", day: "2-digit" });
+const dayLabelFmt = new Intl.DateTimeFormat("en-GB", { timeZone: WARSAW, weekday: "short", day: "numeric", month: "short" });
 
 function warsaw(iso) {
   if (!iso) return { date: "", time: "" };
@@ -1338,5 +1340,21 @@ export default function () {
       return { ...mt, warsawDate: w.date, warsawTime: w.time, homeFlag: flagByName[mt.home] || "", awayFlag: flagByName[mt.away] || "" };
     });
 
-  return { groups, knockout: data.knockout, upcoming };
+  // Full group-stage schedule grouped by Warsaw calendar day, for the Matches tab.
+  const flat = data.groups
+    .flatMap((g) => g.matches.map((mt) => {
+      const w = warsaw(mt.kickoff);
+      return { ...mt, group: g.name, warsawTime: w.time, homeFlag: flagByName[mt.home] || "", awayFlag: flagByName[mt.away] || "" };
+    }))
+    .sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || ""));
+
+  const dayMap = new Map();
+  for (const mt of flat) {
+    const key = dayKeyFmt.format(new Date(mt.kickoff));
+    if (!dayMap.has(key)) dayMap.set(key, { key, label: dayLabelFmt.format(new Date(mt.kickoff)), matches: [] });
+    dayMap.get(key).matches.push(mt);
+  }
+  const schedule = [...dayMap.values()].sort((a, b) => a.key.localeCompare(b.key));
+
+  return { groups, knockout: data.knockout, upcoming, schedule };
 }
