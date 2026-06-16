@@ -392,8 +392,8 @@ const data = {
           "kickoff": "2026-06-14T23:00:00.000Z",
           "home": "Ivory Coast",
           "away": "Ecuador",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 0
         },
         {
           "date": "2026-06-20",
@@ -475,8 +475,8 @@ const data = {
           "kickoff": "2026-06-15T02:00:00.000Z",
           "home": "Sweden",
           "away": "Tunisia",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 5,
+          "awayScore": 1
         },
         {
           "date": "2026-06-20",
@@ -550,16 +550,16 @@ const data = {
           "kickoff": "2026-06-16T01:00:00.000Z",
           "home": "Iran",
           "away": "New Zealand",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 2
         },
         {
           "date": "2026-06-15",
           "kickoff": "2026-06-15T19:00:00.000Z",
           "home": "Belgium",
           "away": "Egypt",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-21",
@@ -633,16 +633,16 @@ const data = {
           "kickoff": "2026-06-15T16:00:00.000Z",
           "home": "Spain",
           "away": "Cape Verde",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 0
         },
         {
           "date": "2026-06-15",
           "kickoff": "2026-06-15T22:00:00.000Z",
           "home": "Saudi Arabia",
           "away": "Uruguay",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-21",
