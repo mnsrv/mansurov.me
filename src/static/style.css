@@ -747,7 +747,23 @@ table.wc-table {
   color: var(--text-color-muted);
 }
 
-/* Knockout bracket */
+/* Knockout bracket — two halves of the draw, meeting at the final */
+.wc-knockout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.wc-half-label {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.wc-final-block {
+  border-top: 1px dashed var(--text-color-muted);
+  border-bottom: 1px dashed var(--text-color-muted);
+  padding: 0.75rem 0;
+  max-width: 13rem;
+}
 .wc-bracket {
   display: flex;
   gap: 1rem;
@@ -759,12 +775,17 @@ table.wc-table {
   flex: 1;
   min-width: 11rem;
 }
-.wc-round h3 {
+.wc-round h4 {
   margin: 0 0 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--text-color-muted);
 }
-.wc-round .wc-third-title {
-  margin-top: 1.5rem;
+.wc-third-title {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--text-color-muted);
 }
 .wc-match {
   border: 1px solid var(--text-color-muted);

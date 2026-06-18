@@ -1,29 +1,43 @@
 {% comment %}
-  Renders the knockout bracket. Param: knockout — { round32[], round16[], quarterfinals[], semifinals[], thirdPlace, final }
-  Each round is a horizontally-scrolling column of match cards.
+  Knockout bracket, split into the two halves of the draw (they only meet in the
+  final). Top half = Round of 32 matches 1–8 → Semi-final 1; bottom half =
+  matches 9–16 → Semi-final 2. Param: knockout.
 {% endcomment %}
 
-<div class="wc-bracket">
-  <div class="wc-round">
-    <h3>Round of 32</h3>
-    {% for m in knockout.round32 %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
-  </div>
-  <div class="wc-round">
-    <h3>Round of 16</h3>
-    {% for m in knockout.round16 %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
-  </div>
-  <div class="wc-round">
-    <h3>Quarter-finals</h3>
-    {% for m in knockout.quarterfinals %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
-  </div>
-  <div class="wc-round">
-    <h3>Semi-finals</h3>
-    {% for m in knockout.semifinals %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
-  </div>
-  <div class="wc-round">
-    <h3>Final</h3>
+{% assign r32a = knockout.round32 | slice: 0, 8 %}
+{% assign r32b = knockout.round32 | slice: 8, 8 %}
+{% assign r16a = knockout.round16 | slice: 0, 4 %}
+{% assign r16b = knockout.round16 | slice: 4, 4 %}
+{% assign qfa = knockout.quarterfinals | slice: 0, 2 %}
+{% assign qfb = knockout.quarterfinals | slice: 2, 2 %}
+{% assign sfa = knockout.semifinals | slice: 0, 1 %}
+{% assign sfb = knockout.semifinals | slice: 1, 1 %}
+
+<div class="wc-knockout">
+  <section class="wc-half">
+    <h3 class="wc-half-label">Top half</h3>
+    <div class="wc-bracket">
+      <div class="wc-round"><h4>Round of 32</h4>{% for m in r32a %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Round of 16</h4>{% for m in r16a %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Quarter-finals</h4>{% for m in qfa %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Semi-final</h4>{% for m in sfa %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+    </div>
+  </section>
+
+  <section class="wc-final-block">
+    <h3 class="wc-half-label">Final</h3>
     {% include "worldcup-match.liquid", m: knockout.final %}
-    <h3 class="wc-third-title">Third place</h3>
+    <h4 class="wc-third-title">Third place</h4>
     {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
-  </div>
+  </section>
+
+  <section class="wc-half">
+    <h3 class="wc-half-label">Bottom half</h3>
+    <div class="wc-bracket">
+      <div class="wc-round"><h4>Round of 32</h4>{% for m in r32b %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Round of 16</h4>{% for m in r16b %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Quarter-finals</h4>{% for m in qfb %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Semi-final</h4>{% for m in sfb %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+    </div>
+  </section>
 </div>
