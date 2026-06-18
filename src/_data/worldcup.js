@@ -716,16 +716,16 @@ const data = {
           "kickoff": "2026-06-16T19:00:00.000Z",
           "home": "France",
           "away": "Senegal",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 3,
+          "awayScore": 1
         },
         {
           "date": "2026-06-16",
           "kickoff": "2026-06-16T22:00:00.000Z",
           "home": "Iraq",
           "away": "Norway",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 4
         },
         {
           "date": "2026-06-22",
@@ -799,16 +799,16 @@ const data = {
           "kickoff": "2026-06-17T01:00:00.000Z",
           "home": "Argentina",
           "away": "Algeria",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 3,
+          "awayScore": 0
         },
         {
           "date": "2026-06-16",
           "kickoff": "2026-06-17T04:00:00.000Z",
           "home": "Austria",
           "away": "Jordan",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 3,
+          "awayScore": 1
         },
         {
           "date": "2026-06-22",
@@ -882,16 +882,16 @@ const data = {
           "kickoff": "2026-06-17T17:00:00.000Z",
           "home": "Portugal",
           "away": "DR Congo",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-17",
           "kickoff": "2026-06-18T02:00:00.000Z",
           "home": "Uzbekistan",
           "away": "Colombia",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 3
         },
         {
           "date": "2026-06-23",
@@ -965,16 +965,16 @@ const data = {
           "kickoff": "2026-06-17T20:00:00.000Z",
           "home": "England",
           "away": "Croatia",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 4,
+          "awayScore": 2
         },
         {
           "date": "2026-06-17",
           "kickoff": "2026-06-17T23:00:00.000Z",
           "home": "Ghana",
           "away": "Panama",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 0
         },
         {
           "date": "2026-06-23",
