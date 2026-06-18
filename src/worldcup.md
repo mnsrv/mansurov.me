@@ -14,10 +14,12 @@ templateEngineOverride: liquid
 <div class="wc-tabs">
   <input type="radio" name="wc-tab" id="wc-tab-matches" class="wc-tab-input" checked />
   <input type="radio" name="wc-tab" id="wc-tab-standings" class="wc-tab-input" />
+  <input type="radio" name="wc-tab" id="wc-tab-knockout" class="wc-tab-input" />
 
   <div class="wc-tab-bar">
     <label for="wc-tab-matches">Matches</label>
-    <label for="wc-tab-standings">Standings</label>
+    <label for="wc-tab-standings">Groups</label>
+    <label for="wc-tab-knockout">Knockout</label>
   </div>
 
   <div class="wc-tab-panel wc-panel-matches">
@@ -36,7 +38,9 @@ templateEngineOverride: liquid
         </div>
       {% endfor %}
     </div>
+  </div>
 
+  <div class="wc-tab-panel wc-panel-knockout">
     <h2>Knockout</h2>
     <hr />
     {% include "worldcup-bracket.liquid", knockout: worldcup.knockout %}

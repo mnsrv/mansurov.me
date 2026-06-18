@@ -887,18 +887,15 @@ table.wc-table {
   display: none;
 }
 #wc-tab-standings:checked ~ .wc-panel-standings,
-#wc-tab-matches:checked ~ .wc-panel-matches {
+#wc-tab-matches:checked ~ .wc-panel-matches,
+#wc-tab-knockout:checked ~ .wc-panel-knockout {
   display: block;
 }
 #wc-tab-standings:checked ~ .wc-tab-bar label[for="wc-tab-standings"],
-#wc-tab-matches:checked ~ .wc-tab-bar label[for="wc-tab-matches"] {
+#wc-tab-matches:checked ~ .wc-tab-bar label[for="wc-tab-matches"],
+#wc-tab-knockout:checked ~ .wc-tab-bar label[for="wc-tab-knockout"] {
   background: #205ea6;
   color: #fff;
-}
-/* keyboard focus visibility */
-.wc-tab-input:focus-visible ~ .wc-tab-bar label[for="wc-tab-standings"],
-.wc-tab-input:focus-visible ~ .wc-tab-bar label[for="wc-tab-matches"] {
-  outline: 2px solid var(--action-color);
 }
 
 /* World Cup — schedule (Matches tab) */
