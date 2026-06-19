@@ -68,16 +68,16 @@ const data = {
           "kickoff": "2026-06-18T16:00:00.000Z",
           "home": "Czechia",
           "away": "South Africa",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-18",
           "kickoff": "2026-06-19T01:00:00.000Z",
           "home": "Mexico",
           "away": "South Korea",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 0
         },
         {
           "date": "2026-06-24",
@@ -151,16 +151,16 @@ const data = {
           "kickoff": "2026-06-18T19:00:00.000Z",
           "home": "Switzerland",
           "away": "Bosnia and Herzegovina",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 4,
+          "awayScore": 1
         },
         {
           "date": "2026-06-18",
           "kickoff": "2026-06-18T22:00:00.000Z",
           "home": "Canada",
           "away": "Qatar",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 6,
+          "awayScore": 0
         },
         {
           "date": "2026-06-24",
