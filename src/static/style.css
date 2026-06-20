@@ -705,6 +705,18 @@ table.wc-table {
 .wc-table tbody tr.wc-third td.wc-pos {
   border-left: 3px solid var(--action-color);
 }
+.wc-table tbody tr.wc-elim {
+  color: var(--text-color-muted);
+}
+.wc-badge {
+  font-size: 0.8rem;
+}
+.wc-badge-q {
+  color: #2a7d2a;
+}
+.wc-badge-out {
+  color: #b00020;
+}
 
 .wc-fixtures {
   list-style: none;

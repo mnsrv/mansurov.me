@@ -234,16 +234,16 @@ const data = {
           "kickoff": "2026-06-19T22:00:00.000Z",
           "home": "Scotland",
           "away": "Morocco",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 1
         },
         {
           "date": "2026-06-19",
           "kickoff": "2026-06-20T00:30:00.000Z",
           "home": "Brazil",
           "away": "Haiti",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 3,
+          "awayScore": 0
         },
         {
           "date": "2026-06-24",
@@ -317,16 +317,16 @@ const data = {
           "kickoff": "2026-06-19T19:00:00.000Z",
           "home": "United States",
           "away": "Australia",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 0
         },
         {
           "date": "2026-06-19",
           "kickoff": "2026-06-20T03:00:00.000Z",
           "home": "Türkiye",
           "away": "Paraguay",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 1
         },
         {
           "date": "2026-06-25",
@@ -1322,12 +1322,102 @@ function computeStandings(group) {
     .map((r, i) => ({ ...r, rank: i + 1 }));
 }
 
+// Per-team group status: "q" = guaranteed top 2 (through), "out" = can no longer
+// reach top 3 (eliminated), "third" = finished 3rd (best-third spot pending),
+// "" = still in contention. Conservative: a team is only marked when it is
+// mathematically certain, so nothing is highlighted until results decide it.
+//
+// Tiebreakers follow the 2026 rules: head-to-head FIRST (points between the tied
+// teams), then overall goal difference / goals. Because head-to-head among the
+// tied teams is decided by who beat whom — known from results already played — it
+// resolves many ties exactly, without needing to guess future goal margins. The
+// deeper GD/GF steps are only used as bounds (favourably for "can still reach",
+// against for "guaranteed"), so the verdicts are never wrong, only cautious.
+function computeGroupStatus(group) {
+  const teams = group.teams.map((t) => t.name);
+  const complete = group.matches.every((m) => m.homeScore != null && m.awayScore != null);
+  const out = {};
+
+  // Completed group: the real table (with full GD) is authoritative.
+  if (complete) {
+    computeStandings(group).forEach((r) => {
+      out[r.name] = r.rank <= 2 ? "q" : r.rank === 3 ? "third" : "out";
+    });
+    return out;
+  }
+
+  const fixed = [];
+  const pending = [];
+  group.matches.forEach((m) => {
+    if (m.homeScore != null && m.awayScore != null) {
+      fixed.push({ home: m.home, away: m.away, res: m.homeScore > m.awayScore ? "h" : m.homeScore < m.awayScore ? "a" : "d" });
+    } else {
+      pending.push({ home: m.home, away: m.away });
+    }
+  });
+
+  const n = pending.length;
+  const clinch = {}, elim = {};
+  teams.forEach((t) => { clinch[t] = true; elim[t] = true; });
+
+  const addPts = (pts, r) => {
+    if (r.res === "h") pts[r.home] += 3;
+    else if (r.res === "a") pts[r.away] += 3;
+    else { pts[r.home]++; pts[r.away]++; }
+  };
+
+  // Enumerate win/draw/loss for every unplayed match (≤ 3^6 cases).
+  for (let mask = 0; mask < 3 ** n; mask++) {
+    const results = fixed.slice();
+    let x = mask;
+    for (let k = 0; k < n; k++) {
+      const o = x % 3; x = (x - o) / 3;
+      results.push({ home: pending[k].home, away: pending[k].away, res: o === 0 ? "h" : o === 1 ? "a" : "d" });
+    }
+
+    const pts = {};
+    teams.forEach((t) => { pts[t] = 0; });
+    results.forEach((r) => addPts(pts, r));
+
+    for (const t of teams) {
+      // Teams level on points with t: break by head-to-head points among them.
+      const cohort = teams.filter((u) => pts[u] === pts[t]);
+      const h2h = {};
+      cohort.forEach((c) => { h2h[c] = 0; });
+      if (cohort.length > 1) {
+        results.forEach((r) => {
+          if (cohort.includes(r.home) && cohort.includes(r.away)) addPts(h2h, r);
+        });
+      }
+
+      let above = 0;   // certainly ranked above t
+      let tiedDeep = 0; // level even on head-to-head → decided by GD (unknown here)
+      for (const u of teams) {
+        if (u === t) continue;
+        if (pts[u] > pts[t]) above++;
+        else if (pts[u] === pts[t]) {
+          if (h2h[u] > h2h[t]) above++;
+          else if (h2h[u] === h2h[t]) tiedDeep++;
+        }
+      }
+      if (above + tiedDeep + 1 > 2) clinch[t] = false; // worst case outside top 2
+      if (above + 1 < 4) elim[t] = false;              // best case still top 3
+    }
+  }
+
+  teams.forEach((t) => { out[t] = clinch[t] ? "q" : elim[t] ? "out" : ""; });
+  return out;
+}
+
 export default function () {
-  const groups = data.groups.map((g) => ({
-    ...g,
-    matches: g.matches.map(withWarsaw).sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || "")),
-    standings: computeStandings(g),
-  }));
+  const groups = data.groups.map((g) => {
+    const status = computeGroupStatus(g);
+    return {
+      ...g,
+      matches: g.matches.map(withWarsaw).sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || "")),
+      standings: computeStandings(g).map((r) => ({ ...r, status: status[r.name] || "" })),
+    };
+  });
 
   const flagByName = {};
   data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
