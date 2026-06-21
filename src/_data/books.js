@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Белые ночи',
+    author: 'Фёдор Достоевский',
+    rating: 1,
+    date: '2026-06-21',
+    image: 'bs-white-nights.jpg',
+    cover: 'bc-white-nights.jpg',
+    height: '7.87',
+  },
+  {
     title: 'Heroes: Mortals and Monsters, Quests and Adventures',
     author: 'Stephen Fry',
     rating: 3,
