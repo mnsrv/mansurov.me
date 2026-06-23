@@ -1340,10 +1340,11 @@ function computeGroupStatus(group) {
 
   // Completed group: the real table (with full GD) is authoritative.
   if (complete) {
-    computeStandings(group).forEach((r) => {
+    const table = computeStandings(group);
+    table.forEach((r) => {
       out[r.name] = r.rank <= 2 ? "q" : r.rank === 3 ? "third" : "out";
     });
-    return out;
+    return { status: out, winner: table[0].name, runnerUp: table[1].name };
   }
 
   const fixed = [];
@@ -1358,7 +1359,8 @@ function computeGroupStatus(group) {
 
   const n = pending.length;
   const clinch = {}, elim = {};
-  teams.forEach((t) => { clinch[t] = true; elim[t] = true; });
+  const gBest = {}, gWorst = {}; // best (lowest) and worst (highest) possible finishing rank
+  teams.forEach((t) => { clinch[t] = true; elim[t] = true; gBest[t] = 99; gWorst[t] = 0; });
 
   const addPts = (pts, r) => {
     if (r.res === "h") pts[r.home] += 3;
@@ -1400,27 +1402,62 @@ function computeGroupStatus(group) {
           else if (h2h[u] === h2h[t]) tiedDeep++;
         }
       }
-      if (above + tiedDeep + 1 > 2) clinch[t] = false; // worst case outside top 2
-      if (above + 1 < 4) elim[t] = false;              // best case still top 3
+      const best = above + 1;
+      const worst = above + tiedDeep + 1;
+      if (worst > 2) clinch[t] = false; // worst case outside top 2
+      if (best < 4) elim[t] = false;    // best case still top 3
+      if (best < gBest[t]) gBest[t] = best;
+      if (worst > gWorst[t]) gWorst[t] = worst;
     }
   }
 
   teams.forEach((t) => { out[t] = clinch[t] ? "q" : elim[t] ? "out" : ""; });
-  return out;
+
+  // A slot is settled only when the exact position can't change in any scenario.
+  const winner = teams.find((t) => gWorst[t] === 1) || null;        // always 1st
+  const runnerUp = teams.find((t) => gBest[t] === 2 && gWorst[t] === 2) || null; // always 2nd
+  return { status: out, winner, runnerUp };
 }
 
 export default function () {
+  const flagByName = {};
+  data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
+
+  // Map of settled bracket slots → team, e.g. "Winner A" / "Runner-up D",
+  // filled only once a group's position is mathematically locked.
+  const slot = {};
   const groups = data.groups.map((g) => {
-    const status = computeGroupStatus(g);
+    const outlook = computeGroupStatus(g);
+    if (outlook.winner) slot["Winner " + g.name] = outlook.winner;
+    if (outlook.runnerUp) slot["Runner-up " + g.name] = outlook.runnerUp;
     return {
       ...g,
       matches: g.matches.map(withWarsaw).sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || "")),
-      standings: computeStandings(g).map((r) => ({ ...r, status: status[r.name] || "" })),
+      standings: computeStandings(g).map((r) => ({ ...r, status: outlook.status[r.name] || "" })),
     };
   });
 
-  const flagByName = {};
-  data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
+  // Resolve knockout feeder labels ("Winner A", "Runner-up D") to the real team
+  // where known; otherwise keep the label. Adds team/flag fields for rendering.
+  const resolveSide = (label) => {
+    const team = slot[label];
+    return team
+      ? { label, team, flag: flagByName[team] || "", resolved: true }
+      : { label, team: label, flag: "", resolved: false };
+  };
+  const resolveMatch = (m) => {
+    const h = resolveSide(m.home), a = resolveSide(m.away);
+    return { ...m, homeTeam: h.team, homeFlag: h.flag, homeResolved: h.resolved, awayTeam: a.team, awayFlag: a.flag, awayResolved: a.resolved };
+  };
+  const knockout = {
+    round32: data.knockout.round32.map(resolveMatch),
+    round16: data.knockout.round16.map(resolveMatch),
+    quarterfinals: data.knockout.quarterfinals.map(resolveMatch),
+    semifinals: data.knockout.semifinals.map(resolveMatch),
+    thirdPlace: resolveMatch(data.knockout.thirdPlace),
+    final: resolveMatch(data.knockout.final),
+  };
+
   const upcoming = data.groups
     .flatMap((g) => g.matches.map((mt) => ({ ...mt, group: g.name })))
     .filter((mt) => mt.homeScore == null || mt.awayScore == null)
@@ -1444,7 +1481,13 @@ export default function () {
     if (!dayMap.has(key)) dayMap.set(key, { key, label: dayLabelFmt.format(new Date(mt.kickoff)), matches: [] });
     dayMap.get(key).matches.push(mt);
   }
-  const schedule = [...dayMap.values()].sort((a, b) => a.key.localeCompare(b.key));
+  // Upcoming days first (soonest → latest); finished days pushed to the bottom,
+  // most recent first. "Past" = every match that day already has a score.
+  const days = [...dayMap.values()].sort((a, b) => a.key.localeCompare(b.key));
+  const isPast = (d) => d.matches.every((m) => m.homeScore != null && m.awayScore != null);
+  const upcomingDays = days.filter((d) => !isPast(d));
+  const pastDays = days.filter(isPast).reverse().map((d) => ({ ...d, past: true }));
+  const schedule = [...upcomingDays, ...pastDays];
 
-  return { groups, knockout: data.knockout, upcoming, schedule };
+  return { groups, knockout, upcoming, schedule };
 }

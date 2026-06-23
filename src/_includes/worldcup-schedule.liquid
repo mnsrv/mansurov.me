@@ -3,8 +3,13 @@
   Param: schedule — [{ key, label, matches:[{warsawTime, home, homeFlag, away, awayFlag, homeScore, awayScore, group}] }]
 {% endcomment %}
 
+{% assign shownSep = false %}
 {% for day in schedule %}
-  <h3 class="wc-sched-day">{{ day.label }}</h3>
+  {% if day.past and shownSep == false %}
+    <h3 class="wc-sched-sep">Played</h3>
+    {% assign shownSep = true %}
+  {% endif %}
+  <h3 class="wc-sched-day {% if day.past %}wc-sched-past{% endif %}">{{ day.label }}</h3>
   <ul class="wc-fixtures wc-sched">
     {% for m in day.matches %}
       <li>

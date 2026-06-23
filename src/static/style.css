@@ -666,31 +666,46 @@ cg-board {
   margin: 0.25rem 0 0.5rem;
 }
 table.wc-table {
-  table-layout: auto;
+  table-layout: fixed;
   width: 100%;
   margin: 0.5rem 0;
   font-size: 0.9rem;
 }
 .wc-table th,
 .wc-table td {
-  padding: 0.3rem 0.35rem;
+  padding: 0.3rem 0.2rem;
   height: auto;
-  width: auto;
   text-align: center;
 }
 .wc-table th.wc-team,
 .wc-table td.wc-team {
   text-align: left;
-  width: auto;
   font-weight: normal;
+}
+.wc-table td.wc-team {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.wc-table td.wc-team .wc-tname {
+  flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.wc-table td.wc-team .wc-badge {
+  flex: none;
+}
 .wc-table th:first-child,
 .wc-table td:first-child {
-  width: 1.5rem;
+  width: 1.4rem;
   font-weight: normal;
+}
+/* numeric columns: keep them tight so the team name gets the rest */
+.wc-table th:not(.wc-team):not(.wc-pos),
+.wc-table td:not(.wc-team):not(.wc-pos) {
+  width: 2rem;
 }
 .wc-table .wc-pts {
   font-weight: bold;
@@ -946,4 +961,21 @@ table.wc-table {
 }
 .wc-home-fixtures .wc-hf-flag {
   flex: none;
+}
+
+/* World Cup — knockout slot labels not yet resolved to a team */
+.wc-match-slot {
+  color: var(--text-color-muted);
+}
+
+/* World Cup — schedule: finished days pushed below a separator */
+.wc-sched-sep {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color-muted);
+  border-top: 1px dashed var(--text-color-muted);
+  padding-top: 0.75rem;
+}
+.wc-sched-day.wc-sched-past {
+  color: var(--text-color-muted);
 }
