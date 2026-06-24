@@ -906,8 +906,8 @@ const data = {
           "kickoff": "2026-06-24T02:00:00.000Z",
           "home": "Colombia",
           "away": "DR Congo",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 0
         },
         {
           "date": "2026-06-27",
@@ -989,8 +989,8 @@ const data = {
           "kickoff": "2026-06-23T23:00:00.000Z",
           "home": "Panama",
           "away": "Croatia",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 1
         },
         {
           "date": "2026-06-27",
@@ -1437,6 +1437,17 @@ export default function () {
     };
   });
 
+  // Ranking of the 12 third-placed teams; the best 8 advance. Cross-group, so no
+  // head-to-head — ordered by points, then goal difference, then goals scored.
+  const thirds = groups
+    .map((g) => {
+      const r = g.standings.find((s) => s.rank === 3);
+      return r ? { group: g.name, ...r } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.points - a.points || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name))
+    .map((r, i) => ({ ...r, seed: i + 1, advancing: i < 8 }));
+
   // Resolve knockout feeder labels ("Winner A", "Runner-up D") to the real team
   // where known; otherwise keep the label. Adds team/flag fields for rendering.
   const resolveSide = (label) => {
@@ -1489,5 +1500,5 @@ export default function () {
   const pastDays = days.filter(isPast).reverse().map((d) => ({ ...d, past: true }));
   const schedule = [...upcomingDays, ...pastDays];
 
-  return { groups, knockout, upcoming, schedule };
+  return { groups, knockout, upcoming, schedule, thirds };
 }
