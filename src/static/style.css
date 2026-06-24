@@ -979,3 +979,14 @@ table.wc-table {
 .wc-sched-day.wc-sched-past {
   color: var(--text-color-muted);
 }
+
+/* World Cup — third-placed teams table */
+.wc-thirds {
+  max-width: 32rem;
+}
+.wc-thirds .wc-grp {
+  width: 2rem;
+}
+.wc-table tbody tr.wc-cutline td {
+  border-bottom: 2px solid var(--action-color);
+}

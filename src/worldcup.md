@@ -38,6 +38,11 @@ templateEngineOverride: liquid
         </div>
       {% endfor %}
     </div>
+
+    <h2>Third-placed teams</h2>
+    <hr />
+    <p><i>The eight best third-placed teams advance to the round of 32, ranked by points, then goal difference, then goals scored. Provisional until all groups finish.</i></p>
+    {% include "worldcup-thirds.liquid", thirds: worldcup.thirds %}
   </div>
 
   <div class="wc-tab-panel wc-panel-knockout">
