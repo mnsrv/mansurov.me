@@ -1,0 +1,43 @@
+name: World Cup results
+
+# Fetches finished match scores from ESPN and commits them. Vercel auto-deploys
+# on the resulting push. The fetch script is idempotent — if nothing changed it
+# writes nothing and no commit is made.
+
+on:
+  schedule:
+    - cron: "0 */3 * * *" # every 3 hours (UTC)
+  workflow_dispatch: {}     # allow manual runs from the Actions tab
+
+# Avoid overlapping runs racing to push.
+concurrency:
+  group: worldcup-results
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed to push the updated data file
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch results
+        run: npm run results
+
+      - name: Commit & push if changed
+        run: |
+          if [[ -n "$(git status --porcelain src/_data/worldcup.js)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/_data/worldcup.js
+            git commit -m "Update World Cup results"
+            git push
+            echo "Pushed updated results."
+          else
+            echo "No changes to commit."
+          fi
