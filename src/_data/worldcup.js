@@ -416,16 +416,16 @@ const data = {
           "kickoff": "2026-06-25T20:00:00.000Z",
           "home": "Curaçao",
           "away": "Ivory Coast",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 2
         },
         {
           "date": "2026-06-25",
           "kickoff": "2026-06-25T20:00:00.000Z",
           "home": "Ecuador",
           "away": "Germany",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 1
         }
       ]
     },
