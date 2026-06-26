@@ -796,11 +796,24 @@ table.wc-table {
   gap: 1rem;
   overflow-x: auto;
   padding-bottom: 1rem;
-  align-items: flex-start;
+  align-items: stretch; /* every round column the same height as Round of 32 */
 }
 .wc-round {
   flex: 1;
   min-width: 11rem;
+  display: flex;
+  flex-direction: column;
+}
+/* Distribute each round's matches so later rounds line up between their feeders */
+.wc-round-matches {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.6rem; /* minimum gap between matches; space-around adds more in sparse rounds */
+}
+.wc-round-matches .wc-match {
+  margin-bottom: 0;
 }
 .wc-round h4 {
   margin: 0 0 0.5rem;
@@ -963,9 +976,13 @@ table.wc-table {
   flex: none;
 }
 
-/* World Cup — knockout slot labels not yet resolved to a team */
-.wc-match-slot {
+/* World Cup — knockout slot states */
+.wc-state-slot {
   color: var(--text-color-muted);
+}
+.wc-state-projected {
+  color: var(--text-color-muted);
+  font-style: italic;
 }
 
 /* World Cup — schedule: finished days pushed below a separator */
@@ -989,4 +1006,9 @@ table.wc-table {
 }
 .wc-table tbody tr.wc-cutline td {
   border-bottom: 2px solid var(--action-color);
+}
+
+/* World Cup — "/" separator between candidate teams in a bracket slot */
+.wc-or {
+  color: var(--text-color-muted);
 }

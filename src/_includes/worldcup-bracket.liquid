@@ -17,10 +17,10 @@
   <section class="wc-half">
     <h3 class="wc-half-label">Top half</h3>
     <div class="wc-bracket">
-      <div class="wc-round"><h4>Round of 32</h4>{% for m in r32a %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
-      <div class="wc-round"><h4>Round of 16</h4>{% for m in r16a %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
-      <div class="wc-round"><h4>Quarter-finals</h4>{% for m in qfa %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
-      <div class="wc-round"><h4>Semi-final</h4>{% for m in sfa %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Round of 32</h4><div class="wc-round-matches">{% for m in r32a %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
+      <div class="wc-round"><h4>Round of 16</h4><div class="wc-round-matches">{% for m in r16a %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
+      <div class="wc-round"><h4>Quarter-finals</h4><div class="wc-round-matches">{% for m in qfa %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
+      <div class="wc-round"><h4>Semi-final</h4><div class="wc-round-matches">{% for m in sfa %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
     </div>
   </section>
 
@@ -34,10 +34,10 @@
   <section class="wc-half">
     <h3 class="wc-half-label">Bottom half</h3>
     <div class="wc-bracket">
-      <div class="wc-round"><h4>Round of 32</h4>{% for m in r32b %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
-      <div class="wc-round"><h4>Round of 16</h4>{% for m in r16b %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
-      <div class="wc-round"><h4>Quarter-finals</h4>{% for m in qfb %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
-      <div class="wc-round"><h4>Semi-final</h4>{% for m in sfb %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div>
+      <div class="wc-round"><h4>Round of 32</h4><div class="wc-round-matches">{% for m in r32b %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
+      <div class="wc-round"><h4>Round of 16</h4><div class="wc-round-matches">{% for m in r16b %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
+      <div class="wc-round"><h4>Quarter-finals</h4><div class="wc-round-matches">{% for m in qfb %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
+      <div class="wc-round"><h4>Semi-final</h4><div class="wc-round-matches">{% for m in sfb %}{% include "worldcup-match.liquid", m: m %}{% endfor %}</div></div>
     </div>
   </section>
 </div>

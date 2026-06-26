@@ -1,17 +1,26 @@
 {% comment %}
-  Renders one knockout match card. Param: m — { label, date, home, away, homeScore, awayScore }
-  Bolds the winner once both scores are filled in.
+  One knockout match card. Each side is either confirmed (one team), projected
+  (several possible teams, shown "A / B"), or an unresolved slot label.
+  Param: m — { label, date, homeScore, awayScore, homeState, homeTeams, homeLabel, away... }
 {% endcomment %}
 {% assign hasScore = false %}
 {% if m.homeScore != null and m.awayScore != null %}{% assign hasScore = true %}{% endif %}
 <div class="wc-match">
   <div class="wc-match-label">{{ m.label }}{% if m.date %} &middot; {{ m.date | date: "%e %b" }}{% endif %}</div>
   <div class="wc-match-row {% if hasScore and m.homeScore > m.awayScore %}wc-win{% endif %}">
-    <span class="wc-match-team {% unless m.homeResolved %}wc-match-slot{% endunless %}">{% if m.homeFlag != "" %}{{ m.homeFlag }} {% endif %}{{ m.homeTeam | default: m.home }}</span>
+    {% if m.homeState == "slot" %}
+      <span class="wc-match-team wc-state-slot">{{ m.homeLabel }}</span>
+    {% else %}
+      <span class="wc-match-team wc-state-{{ m.homeState }}"{% if m.homeState == "projected" %} title="Possible teams (current standings)"{% endif %}>{% for c in m.homeTeams %}{% if c.flag != "" %}{{ c.flag }} {% endif %}{{ c.name }}{% unless forloop.last %} <span class="wc-or">/</span> {% endunless %}{% endfor %}</span>
+    {% endif %}
     <span class="wc-match-goals">{% if hasScore %}{{ m.homeScore }}{% endif %}</span>
   </div>
   <div class="wc-match-row {% if hasScore and m.awayScore > m.homeScore %}wc-win{% endif %}">
-    <span class="wc-match-team {% unless m.awayResolved %}wc-match-slot{% endunless %}">{% if m.awayFlag != "" %}{{ m.awayFlag }} {% endif %}{{ m.awayTeam | default: m.away }}</span>
+    {% if m.awayState == "slot" %}
+      <span class="wc-match-team wc-state-slot">{{ m.awayLabel }}</span>
+    {% else %}
+      <span class="wc-match-team wc-state-{{ m.awayState }}"{% if m.awayState == "projected" %} title="Possible teams (current standings)"{% endif %}>{% for c in m.awayTeams %}{% if c.flag != "" %}{{ c.flag }} {% endif %}{{ c.name }}{% unless forloop.last %} <span class="wc-or">/</span> {% endunless %}{% endfor %}</span>
+    {% endif %}
     <span class="wc-match-goals">{% if hasScore %}{{ m.awayScore }}{% endif %}</span>
   </div>
 </div>

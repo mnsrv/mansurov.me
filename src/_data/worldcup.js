@@ -1344,7 +1344,7 @@ function computeGroupStatus(group) {
     table.forEach((r) => {
       out[r.name] = r.rank <= 2 ? "q" : r.rank === 3 ? "third" : "out";
     });
-    return { status: out, winner: table[0].name, runnerUp: table[1].name };
+    return { status: out, winnerCandidates: [table[0].name], runnerUpCandidates: [table[1].name] };
   }
 
   const fixed = [];
@@ -1413,23 +1413,30 @@ function computeGroupStatus(group) {
 
   teams.forEach((t) => { out[t] = clinch[t] ? "q" : elim[t] ? "out" : ""; });
 
-  // A slot is settled only when the exact position can't change in any scenario.
-  const winner = teams.find((t) => gWorst[t] === 1) || null;        // always 1st
-  const runnerUp = teams.find((t) => gBest[t] === 2 && gWorst[t] === 2) || null; // always 2nd
-  return { status: out, winner, runnerUp };
+  // Candidate teams for each slot: who can still finish 1st / 2nd. A single
+  // candidate means the slot is settled; several means it's still open (shown as
+  // "A / B"). The team currently in that position is listed first.
+  const rankOf = {};
+  computeStandings(group).forEach((r) => { rankOf[r.name] = r.rank; });
+  const byNatural = (natural) => (a, b) =>
+    (rankOf[a] === natural ? 0 : 1) - (rankOf[b] === natural ? 0 : 1) || rankOf[a] - rankOf[b];
+
+  const winnerCandidates = teams.filter((t) => gBest[t] === 1).sort(byNatural(1));
+  const runnerUpCandidates = teams.filter((t) => gBest[t] <= 2 && gWorst[t] >= 2).sort(byNatural(2));
+  return { status: out, winnerCandidates, runnerUpCandidates };
 }
 
 export default function () {
   const flagByName = {};
   data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
 
-  // Map of settled bracket slots → team, e.g. "Winner A" / "Runner-up D",
-  // filled only once a group's position is mathematically locked.
-  const slot = {};
+  // Candidate teams for each bracket slot ("Winner A" → [team, ...]). One team =
+  // settled; several = still open (e.g. "Norway / France").
+  const candidatesByLabel = {};
   const groups = data.groups.map((g) => {
     const outlook = computeGroupStatus(g);
-    if (outlook.winner) slot["Winner " + g.name] = outlook.winner;
-    if (outlook.runnerUp) slot["Runner-up " + g.name] = outlook.runnerUp;
+    candidatesByLabel["Winner " + g.name] = outlook.winnerCandidates;
+    candidatesByLabel["Runner-up " + g.name] = outlook.runnerUpCandidates;
     return {
       ...g,
       matches: g.matches.map(withWarsaw).sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || "")),
@@ -1448,17 +1455,26 @@ export default function () {
     .sort((a, b) => b.points - a.points || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name))
     .map((r, i) => ({ ...r, seed: i + 1, advancing: i < 8 }));
 
-  // Resolve knockout feeder labels ("Winner A", "Runner-up D") to the real team
-  // where known; otherwise keep the label. Adds team/flag fields for rendering.
+  // Resolve a knockout feeder label to its candidate team(s). "confirmed" = one
+  // possible team (locked), "projected" = several still possible (shown "A / B"),
+  // "slot" = no candidates yet (3rd-place slots / later rounds keep the label).
   const resolveSide = (label) => {
-    const team = slot[label];
-    return team
-      ? { label, team, flag: flagByName[team] || "", resolved: true }
-      : { label, team: label, flag: "", resolved: false };
+    const list = candidatesByLabel[label];
+    if (list && list.length) {
+      return {
+        state: list.length === 1 ? "confirmed" : "projected",
+        teams: list.map((n) => ({ name: n, flag: flagByName[n] || "" })),
+      };
+    }
+    return { state: "slot", label };
   };
   const resolveMatch = (m) => {
     const h = resolveSide(m.home), a = resolveSide(m.away);
-    return { ...m, homeTeam: h.team, homeFlag: h.flag, homeResolved: h.resolved, awayTeam: a.team, awayFlag: a.flag, awayResolved: a.resolved };
+    return {
+      ...m,
+      homeState: h.state, homeTeams: h.teams || [], homeLabel: h.label || m.home,
+      awayState: a.state, awayTeams: a.teams || [], awayLabel: a.label || m.away,
+    };
   };
   const knockout = {
     round32: data.knockout.round32.map(resolveMatch),
