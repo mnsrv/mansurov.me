@@ -677,25 +677,20 @@ table.wc-table {
   height: auto;
   text-align: center;
 }
+.wc-table th {
+  background-color: transparent;
+}
 .wc-table th.wc-team,
 .wc-table td.wc-team {
   text-align: left;
   font-weight: normal;
 }
-.wc-table td.wc-team {
-  display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
-}
 .wc-table td.wc-team .wc-tname {
-  flex: 1;
-  min-width: 0;
+  display: block;
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.wc-table td.wc-team .wc-badge {
-  flex: none;
 }
 .wc-table th:first-child,
 .wc-table td:first-child {
@@ -803,11 +798,13 @@ table.wc-table {
   flex-direction: column;
   justify-content: space-around;
 }
-/* The two matches that meet in the next round, kept close together */
+/* The two matches that meet in the next round, kept close together, with a bit
+   of extra room between pairs */
 .wc-pair {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  margin: 0.75rem 0;
 }
 .wc-round-matches .wc-match {
   margin-bottom: 0;
@@ -826,8 +823,7 @@ table.wc-table {
 }
 .wc-match {
   border: 1px solid var(--text-color-muted);
-  box-shadow: 2px 2px #ddd;
-  background: var(--wishlist-item-bg);
+  background: transparent;
   margin-bottom: 0.6rem;
   font-size: 0.85rem;
 }

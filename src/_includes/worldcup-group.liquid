@@ -15,7 +15,8 @@
         <th title="Won">W</th>
         <th title="Drawn">D</th>
         <th title="Lost">L</th>
-        <th title="Goals for / against">+/&minus;</th>
+        <th title="Goals for">GF</th>
+        <th title="Goals against">GA</th>
         <th title="Goal difference">GD</th>
         <th title="Points">Pts</th>
       </tr>
@@ -29,7 +30,8 @@
           <td>{{ row.won }}</td>
           <td>{{ row.drawn }}</td>
           <td>{{ row.lost }}</td>
-          <td>{{ row.gf }}:{{ row.ga }}</td>
+          <td>{{ row.gf }}</td>
+          <td>{{ row.ga }}</td>
           <td>{% if row.gd > 0 %}+{% endif %}{{ row.gd }}</td>
           <td class="wc-pts">{{ row.points }}</td>
         </tr>
