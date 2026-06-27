@@ -22,9 +22,9 @@
     </thead>
     <tbody>
       {% for row in group.standings %}
-        <tr class="{% if row.status == 'q' %}wc-qualify{% elsif row.status == 'out' %}wc-elim{% elsif row.status == 'third' %}wc-third{% endif %}">
+        <tr class="{% if row.result == 'in' %}wc-adv{% elsif row.result == 'out' %}wc-gone{% endif %}">
           <td class="wc-pos">{{ row.rank }}</td>
-          <td class="wc-team"><span class="wc-tname" title="{{ row.name }}">{% if row.flag != "" %}{{ row.flag }} {% endif %}{{ row.name }}</span>{% if row.status == 'q' %}<span class="wc-badge wc-badge-q" title="Through to knockout">✔</span>{% elsif row.status == 'out' %}<span class="wc-badge wc-badge-out" title="Eliminated">✗</span>{% endif %}</td>
+          <td class="wc-team"><span class="wc-tname" title="{{ row.name }}">{% if row.flag != "" %}{{ row.flag }} {% endif %}{{ row.name }}</span></td>
           <td>{{ row.played }}</td>
           <td>{{ row.won }}</td>
           <td>{{ row.drawn }}</td>

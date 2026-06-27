@@ -1014,23 +1014,7 @@ const data = {
   "knockout": {
     "round32": [
       {
-        "label": "Round of 32 – Match 1",
-        "date": null,
-        "home": "Runner-up A",
-        "away": "Runner-up B",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 2",
-        "date": null,
-        "home": "Winner C",
-        "away": "Runner-up F",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 3",
+        "label": "M74",
         "date": null,
         "home": "Winner E",
         "away": "3rd A/B/C/D/F",
@@ -1038,23 +1022,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 4",
-        "date": null,
-        "home": "Winner F",
-        "away": "Runner-up C",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 5",
-        "date": null,
-        "home": "Runner-up E",
-        "away": "Runner-up I",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 6",
+        "label": "M77",
         "date": null,
         "home": "Winner I",
         "away": "3rd C/D/F/G/H",
@@ -1062,47 +1030,23 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 7",
+        "label": "M73",
         "date": null,
-        "home": "Winner A",
-        "away": "3rd C/E/F/H/I",
+        "home": "Runner-up A",
+        "away": "Runner-up B",
         "homeScore": null,
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 8",
+        "label": "M75",
         "date": null,
-        "home": "Winner L",
-        "away": "3rd E/H/I/J/K",
+        "home": "Winner F",
+        "away": "Runner-up C",
         "homeScore": null,
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 9",
-        "date": null,
-        "home": "Winner G",
-        "away": "3rd A/E/H/I/J",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 10",
-        "date": null,
-        "home": "Winner D",
-        "away": "3rd B/E/F/I/J",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 11",
-        "date": null,
-        "home": "Winner H",
-        "away": "Runner-up J",
-        "homeScore": null,
-        "awayScore": null
-      },
-      {
-        "label": "Round of 32 – Match 12",
+        "label": "M83",
         "date": null,
         "home": "Runner-up K",
         "away": "Runner-up L",
@@ -1110,23 +1054,63 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 13",
+        "label": "M84",
         "date": null,
-        "home": "Winner B",
-        "away": "3rd E/F/G/I/J",
+        "home": "Winner H",
+        "away": "Runner-up J",
         "homeScore": null,
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 14",
+        "label": "M81",
         "date": null,
-        "home": "Runner-up D",
-        "away": "Runner-up G",
+        "home": "Winner D",
+        "away": "3rd B/E/F/I/J",
         "homeScore": null,
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 15",
+        "label": "M82",
+        "date": null,
+        "home": "Winner G",
+        "away": "3rd A/E/H/I/J",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M76",
+        "date": null,
+        "home": "Winner C",
+        "away": "Runner-up F",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M78",
+        "date": null,
+        "home": "Runner-up E",
+        "away": "Runner-up I",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M79",
+        "date": null,
+        "home": "Winner A",
+        "away": "3rd C/E/F/H/I",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M80",
+        "date": null,
+        "home": "Winner L",
+        "away": "3rd E/H/I/J/K",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M86",
         "date": null,
         "home": "Winner J",
         "away": "Runner-up H",
@@ -1134,7 +1118,23 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 32 – Match 16",
+        "label": "M88",
+        "date": null,
+        "home": "Runner-up D",
+        "away": "Runner-up G",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M85",
+        "date": null,
+        "home": "Winner B",
+        "away": "3rd E/F/G/I/J",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "label": "M87",
         "date": null,
         "home": "Winner K",
         "away": "3rd D/E/I/J/L",
@@ -1144,7 +1144,7 @@ const data = {
     ],
     "round16": [
       {
-        "label": "Round of 16 – Match 1",
+        "label": "M89",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1152,7 +1152,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 2",
+        "label": "M90",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1160,7 +1160,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 3",
+        "label": "M93",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1168,7 +1168,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 4",
+        "label": "M94",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1176,7 +1176,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 5",
+        "label": "M91",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1184,7 +1184,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 6",
+        "label": "M92",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1192,7 +1192,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 7",
+        "label": "M95",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1200,7 +1200,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Round of 16 – Match 8",
+        "label": "M96",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1210,7 +1210,7 @@ const data = {
     ],
     "quarterfinals": [
       {
-        "label": "Quarter-final 1",
+        "label": "M97",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1218,7 +1218,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Quarter-final 2",
+        "label": "M98",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1226,7 +1226,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Quarter-final 3",
+        "label": "M99",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1234,7 +1234,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Quarter-final 4",
+        "label": "M100",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1244,7 +1244,7 @@ const data = {
     ],
     "semifinals": [
       {
-        "label": "Semi-final 1",
+        "label": "M101",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1252,7 +1252,7 @@ const data = {
         "awayScore": null
       },
       {
-        "label": "Semi-final 2",
+        "label": "M102",
         "date": null,
         "home": "TBD",
         "away": "TBD",
@@ -1261,7 +1261,7 @@ const data = {
       }
     ],
     "thirdPlace": {
-      "label": "Third-place play-off",
+      "label": "M103 · Third place",
       "date": "2026-07-18",
       "home": "TBD",
       "away": "TBD",
@@ -1269,7 +1269,7 @@ const data = {
       "awayScore": null
     },
     "final": {
-      "label": "Final",
+      "label": "M104 · Final",
       "date": "2026-07-19",
       "home": "TBD",
       "away": "TBD",
@@ -1426,6 +1426,38 @@ function computeGroupStatus(group) {
   return { status: out, winnerCandidates, runnerUpCandidates };
 }
 
+// Range of points the eventual 3rd-placed team of a group could finish on, over
+// every remaining win/draw/loss combination. For a finished group min === max.
+function thirdPointsRange(group) {
+  const teams = group.teams.map((t) => t.name);
+  const base = {};
+  teams.forEach((t) => { base[t] = 0; });
+  const pending = [];
+  group.matches.forEach((m) => {
+    if (m.homeScore != null && m.awayScore != null) {
+      if (m.homeScore > m.awayScore) base[m.home] += 3;
+      else if (m.homeScore < m.awayScore) base[m.away] += 3;
+      else { base[m.home]++; base[m.away]++; }
+    } else pending.push(m);
+  });
+  let min = Infinity, max = -Infinity;
+  for (let mask = 0; mask < 3 ** pending.length; mask++) {
+    const pts = { ...base };
+    let x = mask;
+    for (let k = 0; k < pending.length; k++) {
+      const o = x % 3; x = (x - o) / 3;
+      const m = pending[k];
+      if (o === 0) pts[m.home] += 3;
+      else if (o === 1) pts[m.away] += 3;
+      else { pts[m.home]++; pts[m.away]++; }
+    }
+    const third = teams.map((t) => pts[t]).sort((a, b) => b - a)[2];
+    if (third < min) min = third;
+    if (third > max) max = third;
+  }
+  return { min, max };
+}
+
 export default function () {
   const flagByName = {};
   data.groups.forEach((g) => g.teams.forEach((t) => { flagByName[t.name] = t.flag; }));
@@ -1454,6 +1486,50 @@ export default function () {
     .filter(Boolean)
     .sort((a, b) => b.points - a.points || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name))
     .map((r, i) => ({ ...r, seed: i + 1, advancing: i < 8 }));
+
+  // Certainty of each third-placed team making the best 8. We can only be sure
+  // about a team once its own group is finished (its points are fixed); then we
+  // count how many other groups *could* produce a higher third (points, GD via
+  // unbounded future scores treated as a tie). ≤7 possible above → certainly in;
+  // ≥8 guaranteed above → certainly out; otherwise still open.
+  const complete = {};
+  const range = {};
+  data.groups.forEach((g) => {
+    complete[g.name] = g.matches.every((m) => m.homeScore != null && m.awayScore != null);
+    range[g.name] = thirdPointsRange(g);
+  });
+  const isAbove = (a, b) =>
+    a.points !== b.points ? a.points > b.points
+    : a.gd !== b.gd ? a.gd > b.gd
+    : a.gf !== b.gf ? a.gf > b.gf
+    : a.name < b.name;
+
+  thirds.forEach((X) => {
+    if (!complete[X.group]) { X.certainty = ""; return; }
+    let canBeAbove = 0, mustBeAbove = 0;
+    data.groups.forEach((g) => {
+      if (g.name === X.group) return;
+      if (complete[g.name]) {
+        const Y = thirds.find((t) => t.group === g.name);
+        if (Y && isAbove(Y, X)) { canBeAbove++; mustBeAbove++; }
+      } else {
+        if (range[g.name].max >= X.points) canBeAbove++;
+        if (range[g.name].min > X.points) mustBeAbove++;
+      }
+    });
+    X.certainty = canBeAbove <= 7 ? "in" : mustBeAbove >= 8 ? "out" : "";
+  });
+
+  // Per-row outcome for the group tables: "in" = certainly through (top 2, or a
+  // third certainly in the best 8), "out" = certainly eliminated, "" = still open.
+  const certainIn = new Set(thirds.filter((t) => t.certainty === "in").map((t) => t.name));
+  const certainOut = new Set(thirds.filter((t) => t.certainty === "out").map((t) => t.name));
+  groups.forEach((g) => g.standings.forEach((r) => {
+    if (r.status === "q") r.result = "in";
+    else if (r.status === "out") r.result = "out";
+    else if (r.status === "third") r.result = certainIn.has(r.name) ? "in" : certainOut.has(r.name) ? "out" : "";
+    else r.result = "";
+  }));
 
   // Resolve a knockout feeder label to its candidate team(s). "confirmed" = one
   // possible team (locked), "projected" = several still possible (shown "A / B"),

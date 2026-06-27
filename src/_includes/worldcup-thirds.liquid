@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     {% for t in thirds %}
-      <tr class="{% if t.advancing %}wc-qualify{% else %}wc-elim{% endif %}{% if t.seed == 8 %} wc-cutline{% endif %}">
+      <tr class="{% if t.certainty == 'in' %}wc-adv{% elsif t.certainty == 'out' %}wc-gone{% endif %}{% if t.seed == 8 %} wc-cutline{% endif %}">
         <td class="wc-pos">{{ t.seed }}</td>
         <td class="wc-grp">{{ t.group }}</td>
         <td class="wc-team"><span class="wc-tname" title="{{ t.name }}">{% if t.flag != "" %}{{ t.flag }} {% endif %}{{ t.name }}</span></td>

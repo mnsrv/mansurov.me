@@ -714,23 +714,15 @@ table.wc-table {
 .wc-table tbody tr:nth-child(even) {
   background-color: transparent;
 }
-.wc-table tbody tr.wc-qualify {
-  background-color: var(--selection-color);
+/* Through to knockout: green left border. Eliminated: grey left border + dimmed. */
+.wc-table tbody tr.wc-adv td.wc-pos {
+  border-left: 3px solid #2a7d2a;
 }
-.wc-table tbody tr.wc-third td.wc-pos {
-  border-left: 3px solid var(--action-color);
+.wc-table tbody tr.wc-gone td.wc-pos {
+  border-left: 3px solid var(--text-color-muted);
 }
-.wc-table tbody tr.wc-elim {
-  color: var(--text-color-muted);
-}
-.wc-badge {
-  font-size: 0.8rem;
-}
-.wc-badge-q {
-  color: #2a7d2a;
-}
-.wc-badge-out {
-  color: #b00020;
+.wc-table tbody tr.wc-gone {
+  opacity: 0.6;
 }
 
 .wc-fixtures {
