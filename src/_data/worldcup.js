@@ -997,16 +997,16 @@ const data = {
           "kickoff": "2026-06-27T21:00:00.000Z",
           "home": "Panama",
           "away": "England",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 2
         },
         {
           "date": "2026-06-27",
           "kickoff": "2026-06-27T21:00:00.000Z",
           "home": "Croatia",
           "away": "Ghana",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 2,
+          "awayScore": 1
         }
       ]
     }
@@ -1055,7 +1055,8 @@ const data = {
         "home": "Runner-up K",
         "away": "Runner-up L",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-02T23:00:00.000Z"
       },
       {
         "label": "M84",
@@ -1117,7 +1118,8 @@ const data = {
         "home": "Winner L",
         "away": "3rd E/H/I/J/K",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-01T16:00:00.000Z"
       },
       {
         "label": "M86",
@@ -1446,7 +1448,7 @@ function computeGroupStatus(group) {
 const THIRD_ALLOCATION = {
   "3rd A/B/C/D/F": "D", // M74 → Paraguay
   "3rd C/D/F/G/H": "F", // M77 → Sweden
-  // "3rd C/E/F/H/I": "", // M79
+  "3rd C/E/F/H/I": "E", // M79 → Ecuador
   // "3rd E/H/I/J/K": "", // M80
   "3rd B/E/F/I/J": "B", // M81 → Bosnia and Herzegovina
   // "3rd A/E/H/I/J": "", // M82
