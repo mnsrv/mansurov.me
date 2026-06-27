@@ -1433,9 +1433,9 @@ function computeGroupStatus(group) {
 const THIRD_ALLOCATION = {
   "3rd A/B/C/D/F": "D", // M74 → Paraguay
   "3rd C/D/F/G/H": "F", // M77 → Sweden
-  "3rd B/E/F/I/J": "B", // M81 → Bosnia and Herzegovina
   // "3rd C/E/F/H/I": "", // M79
   // "3rd E/H/I/J/K": "", // M80
+  "3rd B/E/F/I/J": "B", // M81 → Bosnia and Herzegovina
   // "3rd A/E/H/I/J": "", // M82
   // "3rd E/F/G/I/J": "", // M85
   // "3rd D/E/I/J/L": "", // M87
