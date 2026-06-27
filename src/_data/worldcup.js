@@ -582,16 +582,16 @@ const data = {
           "kickoff": "2026-06-27T03:00:00.000Z",
           "home": "Egypt",
           "away": "Iran",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 1
         },
         {
           "date": "2026-06-26",
           "kickoff": "2026-06-27T03:00:00.000Z",
           "home": "New Zealand",
           "away": "Belgium",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 5
         }
       ]
     },
