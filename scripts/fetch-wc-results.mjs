@@ -101,7 +101,7 @@ for (const day of dates(START, END)) {
     const eh = cs.find((c) => c.homeAway === "home");
     const ea = cs.find((c) => c.homeAway === "away");
     if (!eh || !ea) continue;
-    if (inR32) r32events.push([eh.team.displayName, ea.team.displayName]);
+    if (inR32) r32events.push({ home: eh.team.displayName, away: ea.team.displayName, date: ev.date });
     if (ev.status?.type?.state !== "post") continue;
     const home = canon(eh.team.displayName), away = canon(ea.team.displayName);
     if (!home || !away) continue;
@@ -122,14 +122,17 @@ if (reached === 0) {
   process.exit(1);
 }
 
-// Write score changes first so the freshly-imported module reflects them.
-let raw = raw0;
-if (changes.length) {
-  raw = raw0.slice(0, dStart) + JSON.stringify(data, null, 2) + raw0.slice(dEnd);
-  fs.writeFileSync(DATA_FILE, raw);
-}
+// Splice the (mutated) data object back into the file text.
+const spliceData = (text) => {
+  const s = text.indexOf(marker) + marker.length;
+  const e = text.indexOf(";", s);
+  return text.slice(0, s) + JSON.stringify(data, null, 2) + text.slice(e);
+};
 
-// --- pass 2: derive third-place allocation from R32 fixtures ----------------
+// Write score changes first so the freshly-imported module reflects them.
+if (changes.length) fs.writeFileSync(DATA_FILE, spliceData(raw0));
+
+// --- pass 2: derive third-place allocation + R32 kickoff times ---------------
 const mod = await import("../src/_data/worldcup.js?u=" + Date.now());
 const computed = mod.default();
 const winnerByGroup = {}, complete = {}, thirdByGroup = {};
@@ -148,8 +151,8 @@ for (const [grp, label] of Object.entries(WINNER_SLOT)) {
 }
 
 const derived = {};
-for (const [n1, n2] of r32events) {
-  const sides = [[canon(n1), canon(n2)], [canon(n2), canon(n1)]];
+for (const { home, away } of r32events) {
+  const sides = [[canon(home), canon(away)], [canon(away), canon(home)]];
   for (const [a, b] of sides) {
     const w = winnerLookup[a];
     if (!w || !b) continue;
@@ -160,13 +163,29 @@ for (const [n1, n2] of r32events) {
   }
 }
 
-// --- merge into THIRD_ALLOCATION block --------------------------------------
-const taStart = raw.indexOf("const THIRD_ALLOCATION = {");
-const taEnd = raw.indexOf("};", taStart);
-const existing = {};
-raw.slice(taStart, taEnd).replace(/"(3rd[^"]+)":\s*"([A-L])"/g, (_, k, v) => { existing[k] = v; return _; });
-const merged = { ...existing, ...derived };
+// Kick-off time per R32 match (M-label), from ESPN, via a resolved team on it.
+const labelByTeam = {};
+computed.knockout.round32.forEach((m) => {
+  if (m.homeState === "confirmed" && m.homeTeams[0]) labelByTeam[m.homeTeams[0].name] = m.label;
+  if (m.awayState === "confirmed" && m.awayTeams[0]) labelByTeam[m.awayTeams[0].name] = m.label;
+});
+const kickoffByLabel = {};
+for (const { home, away, date } of r32events) {
+  const lbl = labelByTeam[canon(home)] || labelByTeam[canon(away)];
+  if (lbl && date) kickoffByLabel[lbl] = new Date(date).toISOString();
+}
+const kickChanges = [];
+data.knockout.round32.forEach((m) => {
+  const k = kickoffByLabel[m.label];
+  if (k && m.kickoff !== k) { m.kickoff = k; kickChanges.push(m.label); }
+});
 
+// --- merge into THIRD_ALLOCATION block + write everything -------------------
+let raw = spliceData(fs.readFileSync(DATA_FILE, "utf8")); // data now has scores + kickoffs
+const taStart = raw.indexOf("const THIRD_ALLOCATION = {");
+const existing = {};
+raw.slice(taStart, raw.indexOf("};", taStart)).replace(/"(3rd[^"]+)":\s*"([A-L])"/g, (_, k, v) => { existing[k] = v; return _; });
+const merged = { ...existing, ...derived };
 const allocAdded = Object.keys(merged).filter((k) => merged[k] !== existing[k]);
 if (allocAdded.length) {
   const lines = Object.keys(SLOT_MATCH).sort((a, b) => SLOT_MATCH[a].localeCompare(SLOT_MATCH[b])).map((label) => {
@@ -176,6 +195,9 @@ if (allocAdded.length) {
   });
   const block = "const THIRD_ALLOCATION = {\n" + lines.join("\n") + "\n};";
   raw = raw.slice(0, taStart) + block + raw.slice(raw.indexOf("};", taStart) + 2);
+}
+
+if (changes.length || kickChanges.length || allocAdded.length) {
   fs.writeFileSync(DATA_FILE, raw);
 }
 
@@ -188,5 +210,7 @@ if (allocAdded.length) {
   console.log(`Allocated ${allocAdded.length} third-place slot(s):`);
   allocAdded.forEach((k) => console.log(`  ${SLOT_MATCH[k]} ← 3rd of Group ${merged[k]} (${thirdByGroup[merged[k]] || "?"})`));
 }
-if (!changes.length && !allocAdded.length) console.log("No changes.");
-console.log(changes.length || allocAdded.length ? "\nRun `npm run build` to refresh." : "");
+if (kickChanges.length) console.log(`Set kick-off time for ${kickChanges.length} R32 match(es): ${kickChanges.join(", ")}`);
+const any = changes.length || allocAdded.length || kickChanges.length;
+if (!any) console.log("No changes.");
+console.log(any ? "\nRun `npm run build` to refresh." : "");

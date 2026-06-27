@@ -14,30 +14,32 @@
 {% assign sfb = knockout.semifinals | slice: 1, 1 %}
 
 <div class="wc-knockout">
-  <section class="wc-half">
-    <h3 class="wc-half-label">Top half</h3>
-    <div class="wc-bracket">
-      {% include "worldcup-round.liquid", title: "Round of 32", matches: r32a, pair: true %}
-      {% include "worldcup-round.liquid", title: "Round of 16", matches: r16a %}
-      {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfa %}
-      {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa %}
-    </div>
-  </section>
+  <div class="wc-halves">
+    <section class="wc-half">
+      <h3 class="wc-half-label">Top half</h3>
+      <div class="wc-bracket">
+        {% include "worldcup-round.liquid", title: "Round of 32", matches: r32a, pair: true %}
+        {% include "worldcup-round.liquid", title: "Round of 16", matches: r16a %}
+        {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfa %}
+        {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa %}
+      </div>
+    </section>
+
+    <section class="wc-half">
+      <h3 class="wc-half-label">Bottom half</h3>
+      <div class="wc-bracket">
+        {% include "worldcup-round.liquid", title: "Round of 32", matches: r32b, pair: true %}
+        {% include "worldcup-round.liquid", title: "Round of 16", matches: r16b %}
+        {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfb %}
+        {% include "worldcup-round.liquid", title: "Semi-final", matches: sfb %}
+      </div>
+    </section>
+  </div>
 
   <section class="wc-final-block">
     <h3 class="wc-half-label">Final</h3>
     {% include "worldcup-match.liquid", m: knockout.final %}
     <h4 class="wc-third-title">Third place</h4>
     {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
-  </section>
-
-  <section class="wc-half">
-    <h3 class="wc-half-label">Bottom half</h3>
-    <div class="wc-bracket">
-      {% include "worldcup-round.liquid", title: "Round of 32", matches: r32b, pair: true %}
-      {% include "worldcup-round.liquid", title: "Round of 16", matches: r16b %}
-      {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfb %}
-      {% include "worldcup-round.liquid", title: "Semi-final", matches: sfb %}
-    </div>
   </section>
 </div>

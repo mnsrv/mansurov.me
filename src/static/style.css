@@ -761,8 +761,18 @@ table.wc-table {
   color: var(--text-color-muted);
 }
 
-/* Knockout bracket — two halves of the draw, meeting at the final */
+/* Knockout bracket — two halves stacked, final inline just after the semi-finals
+   (centered between them). One horizontal scroll only if it doesn't fit. */
 .wc-knockout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+.wc-halves {
+  flex: none;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -773,21 +783,20 @@ table.wc-table {
   font-weight: bold;
 }
 .wc-final-block {
-  border-top: 1px dashed var(--text-color-muted);
-  border-bottom: 1px dashed var(--text-color-muted);
-  padding: 0.75rem 0;
-  max-width: 13rem;
+  flex: none;
+  align-self: center;
+  width: 9.5rem;
+  border-left: 1px dashed var(--text-color-muted);
+  padding-left: 1rem;
 }
 .wc-bracket {
   display: flex;
-  gap: 2.25rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
+  gap: 1rem;
   align-items: stretch; /* every round column the same height as Round of 32 */
 }
 .wc-round {
   flex: 1;
-  min-width: 11rem;
+  min-width: 8.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -841,9 +850,19 @@ table.wc-table {
 .wc-match-row.wc-win {
   font-weight: bold;
 }
+.wc-match-team {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .wc-match-goals {
   flex: none;
   padding-left: 0.5rem;
+}
+.wc-grp-tag {
+  color: var(--text-color-muted);
 }
 
 /* World Cup — team profiles */

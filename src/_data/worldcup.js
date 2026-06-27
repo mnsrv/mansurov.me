@@ -1019,7 +1019,8 @@ const data = {
         "home": "Winner E",
         "away": "3rd A/B/C/D/F",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-06-29T20:30:00.000Z"
       },
       {
         "label": "M77",
@@ -1027,7 +1028,8 @@ const data = {
         "home": "Winner I",
         "away": "3rd C/D/F/G/H",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-06-30T21:00:00.000Z"
       },
       {
         "label": "M73",
@@ -1035,7 +1037,8 @@ const data = {
         "home": "Runner-up A",
         "away": "Runner-up B",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-06-28T19:00:00.000Z"
       },
       {
         "label": "M75",
@@ -1043,7 +1046,8 @@ const data = {
         "home": "Winner F",
         "away": "Runner-up C",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-06-30T01:00:00.000Z"
       },
       {
         "label": "M83",
@@ -1059,7 +1063,8 @@ const data = {
         "home": "Winner H",
         "away": "Runner-up J",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-02T19:00:00.000Z"
       },
       {
         "label": "M81",
@@ -1067,7 +1072,8 @@ const data = {
         "home": "Winner D",
         "away": "3rd B/E/F/I/J",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-02T00:00:00.000Z"
       },
       {
         "label": "M82",
@@ -1075,7 +1081,8 @@ const data = {
         "home": "Winner G",
         "away": "3rd A/E/H/I/J",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-01T20:00:00.000Z"
       },
       {
         "label": "M76",
@@ -1083,7 +1090,8 @@ const data = {
         "home": "Winner C",
         "away": "Runner-up F",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-06-29T17:00:00.000Z"
       },
       {
         "label": "M78",
@@ -1091,7 +1099,8 @@ const data = {
         "home": "Runner-up E",
         "away": "Runner-up I",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-06-30T17:00:00.000Z"
       },
       {
         "label": "M79",
@@ -1099,7 +1108,8 @@ const data = {
         "home": "Winner A",
         "away": "3rd C/E/F/H/I",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-01T01:00:00.000Z"
       },
       {
         "label": "M80",
@@ -1115,7 +1125,8 @@ const data = {
         "home": "Winner J",
         "away": "Runner-up H",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-03T22:00:00.000Z"
       },
       {
         "label": "M88",
@@ -1123,7 +1134,8 @@ const data = {
         "home": "Runner-up D",
         "away": "Runner-up G",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-03T18:00:00.000Z"
       },
       {
         "label": "M85",
@@ -1131,7 +1143,8 @@ const data = {
         "home": "Winner B",
         "away": "3rd E/F/G/I/J",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-03T03:00:00.000Z"
       },
       {
         "label": "M87",
@@ -1569,8 +1582,10 @@ export default function () {
   };
   const resolveMatch = (m) => {
     const h = resolveSide(m.home), a = resolveSide(m.away);
+    const w = warsaw(m.kickoff);
     return {
       ...m,
+      warsawDate: w.date, warsawTime: w.time,
       homeState: h.state, homeTeams: h.teams || [], homeLabel: h.label || m.home,
       awayState: a.state, awayTeams: a.teams || [], awayLabel: a.label || m.away,
     };
