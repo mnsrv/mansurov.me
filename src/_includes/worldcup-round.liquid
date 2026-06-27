@@ -1,0 +1,20 @@
+{% comment %}
+  One bracket round column. With pair=true the matches are grouped into pairs (the
+  two that meet next) — used for the Round of 32. Otherwise each match is spaced on
+  its own so it lines up centered between its two feeders. Params: title, matches, pair.
+{% endcomment %}
+<div class="wc-round">
+  <h4>{{ title }}</h4>
+  <div class="wc-round-matches">
+    {% if pair %}
+      {% for m in matches %}
+        {% assign rem = forloop.index0 | modulo: 2 %}
+        {% if rem == 0 %}<div class="wc-pair">{% endif %}
+          {% include "worldcup-match.liquid", m: m %}
+        {% if rem == 1 or forloop.last %}</div>{% endif %}
+      {% endfor %}
+    {% else %}
+      {% for m in matches %}{% include "worldcup-match.liquid", m: m %}{% endfor %}
+    {% endif %}
+  </div>
+</div>
