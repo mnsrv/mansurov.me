@@ -1426,6 +1426,21 @@ function computeGroupStatus(group) {
   return { status: out, winnerCandidates, runnerUpCandidates };
 }
 
+// Allocation of third-placed teams to Round-of-32 slots, mirroring FIFA's official
+// table. Key = the slot's feeder label; value = the group letter whose 3rd-placed
+// team fills it. FIFA fills a slot as soon as it locks (even before all groups end),
+// so add entries here as they're confirmed. Uncommented = shown in the bracket.
+const THIRD_ALLOCATION = {
+  "3rd A/B/C/D/F": "D", // M74 → Paraguay
+  "3rd C/D/F/G/H": "F", // M77 → Sweden
+  "3rd B/E/F/I/J": "B", // M81 → Bosnia and Herzegovina
+  // "3rd C/E/F/H/I": "", // M79
+  // "3rd E/H/I/J/K": "", // M80
+  // "3rd A/E/H/I/J": "", // M82
+  // "3rd E/F/G/I/J": "", // M85
+  // "3rd D/E/I/J/L": "", // M87
+};
+
 // Range of points the eventual 3rd-placed team of a group could finish on, over
 // every remaining win/draw/loss combination. For a finished group min === max.
 function thirdPointsRange(group) {
@@ -1531,9 +1546,13 @@ export default function () {
     else r.result = "";
   }));
 
+  // Third-placed team for each group (by letter), for resolving 3rd-place slots.
+  const thirdByGroup = {};
+  groups.forEach((g) => { const r = g.standings.find((s) => s.rank === 3); if (r) thirdByGroup[g.name] = r; });
+
   // Resolve a knockout feeder label to its candidate team(s). "confirmed" = one
   // possible team (locked), "projected" = several still possible (shown "A / B"),
-  // "slot" = no candidates yet (3rd-place slots / later rounds keep the label).
+  // "slot" = no candidates yet (later rounds / unallocated 3rd slots keep the label).
   const resolveSide = (label) => {
     const list = candidatesByLabel[label];
     if (list && list.length) {
@@ -1541,6 +1560,10 @@ export default function () {
         state: list.length === 1 ? "confirmed" : "projected",
         teams: list.map((n) => ({ name: n, flag: flagByName[n] || "" })),
       };
+    }
+    const g = THIRD_ALLOCATION[label]; // a 3rd-place slot FIFA has allocated to a group
+    if (g && thirdByGroup[g]) {
+      return { state: complete[g] ? "confirmed" : "projected", teams: [{ name: thirdByGroup[g].name, flag: thirdByGroup[g].flag || "" }] };
     }
     return { state: "slot", label };
   };
