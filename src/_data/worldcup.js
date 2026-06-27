@@ -1453,7 +1453,7 @@ const THIRD_ALLOCATION = {
   "3rd B/E/F/I/J": "B", // M81 → Bosnia and Herzegovina
   // "3rd A/E/H/I/J": "", // M82
   // "3rd E/F/G/I/J": "", // M85
-  // "3rd D/E/I/J/L": "", // M87
+  "3rd D/E/I/J/L": "L", // M87 → Ghana
 };
 
 // Range of points the eventual 3rd-placed team of a group could finish on, over

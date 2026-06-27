@@ -163,6 +163,13 @@ for (const { home, away } of r32events) {
   }
 }
 
+// Forced allocations: a qualifying third whose group fits only one R32 slot can
+// only go there (e.g. a Group L third → M87), regardless of the other results.
+for (const t of computed.thirds.filter((x) => x.certainty === "in")) {
+  const fits = Object.keys(SLOT_MATCH).filter((label) => label.replace("3rd ", "").split("/").includes(t.group));
+  if (fits.length === 1) derived[fits[0]] = t.group;
+}
+
 // Kick-off time per R32 match (M-label), from ESPN, via a resolved team on it.
 const labelByTeam = {};
 computed.knockout.round32.forEach((m) => {
