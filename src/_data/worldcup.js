@@ -1608,27 +1608,52 @@ export default function () {
       return { ...mt, warsawDate: w.date, warsawTime: w.time, homeFlag: flagByName[mt.home] || "", awayFlag: flagByName[mt.away] || "" };
     });
 
-  // Full group-stage schedule grouped by Warsaw calendar day, for the Matches tab.
-  const flat = data.groups
+  // Full schedule (group + knockout matches with a kick-off) for the Matches tab,
+  // grouped by phase (round) → day. Phases still to come are listed first; finished
+  // phases drop below a "Played" divider.
+  const groupFlat = data.groups
     .flatMap((g) => g.matches.map((mt) => {
       const w = warsaw(mt.kickoff);
-      return { ...mt, group: g.name, warsawTime: w.time, homeFlag: flagByName[mt.home] || "", awayFlag: flagByName[mt.away] || "" };
-    }))
-    .sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || ""));
+      return { kickoff: mt.kickoff, warsawTime: w.time, phaseName: "Group stage", phaseIndex: 0,
+        home: mt.home, homeFlag: flagByName[mt.home] || "", away: mt.away, awayFlag: flagByName[mt.away] || "",
+        homeScore: mt.homeScore, awayScore: mt.awayScore };
+    }));
 
-  const dayMap = new Map();
-  for (const mt of flat) {
-    const key = dayKeyFmt.format(new Date(mt.kickoff));
-    if (!dayMap.has(key)) dayMap.set(key, { key, label: dayLabelFmt.format(new Date(mt.kickoff)), matches: [] });
-    dayMap.get(key).matches.push(mt);
+  const koRounds = [
+    [knockout.round32, "Round of 32", 1],
+    [knockout.round16, "Round of 16", 2],
+    [knockout.quarterfinals, "Quarter-finals", 3],
+    [knockout.semifinals, "Semi-finals", 4],
+    [[knockout.thirdPlace], "Third place", 5],
+    [[knockout.final], "Final", 6],
+  ];
+  const koFlat = koRounds.flatMap(([arr, phaseName, phaseIndex]) =>
+    arr.filter((m) => m.kickoff).map((m) => ({
+      kickoff: m.kickoff, warsawTime: m.warsawTime, phaseName, phaseIndex,
+      home: m.homeState === "confirmed" ? m.homeTeams[0].name : m.home,
+      homeFlag: m.homeState === "confirmed" ? m.homeTeams[0].flag : "",
+      away: m.awayState === "confirmed" ? m.awayTeams[0].name : m.away,
+      awayFlag: m.awayState === "confirmed" ? m.awayTeams[0].flag : "",
+      homeScore: m.homeScore, awayScore: m.awayScore,
+    }))
+  );
+
+  const phaseMap = new Map();
+  for (const e of [...groupFlat, ...koFlat]) {
+    if (!e.kickoff) continue;
+    const d = new Date(e.kickoff);
+    const dateKey = dayKeyFmt.format(d);
+    if (!phaseMap.has(e.phaseIndex)) phaseMap.set(e.phaseIndex, { index: e.phaseIndex, name: e.phaseName, dayMap: new Map() });
+    const ph = phaseMap.get(e.phaseIndex);
+    if (!ph.dayMap.has(dateKey)) ph.dayMap.set(dateKey, { key: dateKey, label: dayLabelFmt.format(d), matches: [] });
+    ph.dayMap.get(dateKey).matches.push(e);
   }
-  // Upcoming days first (soonest → latest); finished days pushed to the bottom,
-  // most recent first. "Past" = every match that day already has a score.
-  const days = [...dayMap.values()].sort((a, b) => a.key.localeCompare(b.key));
-  const isPast = (d) => d.matches.every((m) => m.homeScore != null && m.awayScore != null);
-  const upcomingDays = days.filter((d) => !isPast(d));
-  const pastDays = days.filter(isPast).reverse().map((d) => ({ ...d, past: true }));
-  const schedule = [...upcomingDays, ...pastDays];
+  const schedule = [...phaseMap.values()].map((ph) => {
+    const days = [...ph.dayMap.values()].sort((a, b) => a.key.localeCompare(b.key));
+    days.forEach((d) => d.matches.sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || "")));
+    const past = days.every((d) => d.matches.every((m) => m.homeScore != null && m.awayScore != null));
+    return { name: ph.name, index: ph.index, past, days };
+  }).sort((a, b) => (a.past ? 1 : 0) - (b.past ? 1 : 0) || a.index - b.index);
 
   return { groups, knockout, upcoming, schedule, thirds };
 }

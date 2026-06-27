@@ -1,25 +1,28 @@
 {% comment %}
-  Flat group-stage schedule grouped by Warsaw day.
-  Param: schedule — [{ key, label, matches:[{warsawTime, home, homeFlag, away, awayFlag, homeScore, awayScore, group}] }]
+  Schedule grouped by phase (round) → day. Param: schedule —
+  [{ name, past, days:[{ label, matches:[{warsawTime, home, homeFlag, away, awayFlag, homeScore, awayScore}] }] }]
 {% endcomment %}
 
 {% assign shownSep = false %}
-{% for day in schedule %}
-  {% if day.past and shownSep == false %}
-    <h3 class="wc-sched-sep">Played</h3>
+{% for phase in schedule %}
+  {% if phase.past and shownSep == false %}
+    <hr class="wc-sched-sep" />
     {% assign shownSep = true %}
   {% endif %}
-  <h3 class="wc-sched-day {% if day.past %}wc-sched-past{% endif %}">{{ day.label }}</h3>
-  <ul class="wc-fixtures wc-sched">
-    {% for m in day.matches %}
-      <li>
-        <span class="wc-date"><span class="wc-time">{{ m.warsawTime }}</span></span>
-        <span class="wc-home">{{ m.home }}</span>
-        <span class="wc-flag">{{ m.homeFlag }}</span>
-        <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% else %}v{% endif %}</span>
-        <span class="wc-flag">{{ m.awayFlag }}</span>
-        <span class="wc-away">{{ m.away }}</span>
-      </li>
-    {% endfor %}
-  </ul>
+  <h3 class="wc-sched-phase {% if phase.past %}wc-sched-past{% endif %}">{{ phase.name }}</h3>
+  {% for day in phase.days %}
+    <h4 class="wc-sched-day {% if phase.past %}wc-sched-past{% endif %}">{{ day.label }}</h4>
+    <ul class="wc-fixtures wc-sched">
+      {% for m in day.matches %}
+        <li>
+          <span class="wc-date"><span class="wc-time">{{ m.warsawTime }}</span></span>
+          <span class="wc-home">{{ m.home }}</span>
+          <span class="wc-flag">{{ m.homeFlag }}</span>
+          <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% else %}v{% endif %}</span>
+          <span class="wc-flag">{{ m.awayFlag }}</span>
+          <span class="wc-away">{{ m.away }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
 {% endfor %}

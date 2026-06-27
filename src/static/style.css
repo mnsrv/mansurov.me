@@ -972,9 +972,16 @@ table.wc-table {
 }
 
 /* World Cup — schedule (Matches tab) */
-.wc-sched-day {
-  margin: 1rem 0 0.25rem;
+.wc-sched-phase {
+  margin: 1.5rem 0 0.5rem;
   font-size: 1rem;
+  font-weight: bold;
+}
+.wc-sched-day {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--text-color-muted);
 }
 .wc-fixtures.wc-sched {
   font-size: 0.95rem;
@@ -997,15 +1004,12 @@ table.wc-table {
   font-style: italic;
 }
 
-/* World Cup — schedule: finished days pushed below a separator */
+/* World Cup — schedule: finished phases pushed below a separator */
 .wc-sched-sep {
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text-color-muted);
+  margin: 1.75rem 0 0.5rem;
   border-top: 1px dashed var(--text-color-muted);
-  padding-top: 0.75rem;
 }
-.wc-sched-day.wc-sched-past {
+.wc-sched-phase.wc-sched-past {
   color: var(--text-color-muted);
 }
 
@@ -1024,3 +1028,4 @@ table.wc-table {
 .wc-or {
   color: var(--text-color-muted);
 }
+
