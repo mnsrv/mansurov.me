@@ -831,16 +831,16 @@ const data = {
           "kickoff": "2026-06-28T02:00:00.000Z",
           "home": "Algeria",
           "away": "Austria",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 3,
+          "awayScore": 3
         },
         {
           "date": "2026-06-27",
           "kickoff": "2026-06-28T02:00:00.000Z",
           "home": "Jordan",
           "away": "Argentina",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 1,
+          "awayScore": 3
         }
       ]
     },
@@ -914,16 +914,16 @@ const data = {
           "kickoff": "2026-06-27T23:30:00.000Z",
           "home": "Colombia",
           "away": "Portugal",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 0,
+          "awayScore": 0
         },
         {
           "date": "2026-06-27",
           "kickoff": "2026-06-27T23:30:00.000Z",
           "home": "DR Congo",
           "away": "Uzbekistan",
-          "homeScore": null,
-          "awayScore": null
+          "homeScore": 3,
+          "awayScore": 1
         }
       ]
     },
@@ -1450,10 +1450,10 @@ const THIRD_ALLOCATION = {
   "3rd A/B/C/D/F": "D", // M74 → Paraguay
   "3rd C/D/F/G/H": "F", // M77 → Sweden
   "3rd C/E/F/H/I": "E", // M79 → Ecuador
-  // "3rd E/H/I/J/K": "", // M80
+  "3rd E/H/I/J/K": "K", // M80 → DR Congo
   "3rd B/E/F/I/J": "B", // M81 → Bosnia and Herzegovina
-  // "3rd A/E/H/I/J": "", // M82
-  // "3rd E/F/G/I/J": "", // M85
+  "3rd A/E/H/I/J": "I", // M82 → Senegal
+  "3rd E/F/G/I/J": "J", // M85 → Algeria
   "3rd D/E/I/J/L": "L", // M87 → Ghana
 };
 
