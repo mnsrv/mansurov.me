@@ -1154,7 +1154,8 @@ const data = {
         "home": "Winner K",
         "away": "3rd D/E/I/J/L",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-04T01:30:00.000Z"
       }
     ],
     "round16": [
