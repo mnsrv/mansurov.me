@@ -87,7 +87,9 @@ const matchIndex = new Map(allMatches.map((m) => [[m.home, m.away].sort().join("
 
 // --- pass 1: collect finished scores + cache R32-window events --------------
 const changes = [];
-const r32events = []; // { names: [home, away] }
+const finished = []; // every finished match: { home, away, hs, as } (canonical names)
+const r32events = []; // { home, away, date } — R32 window only, for allocation
+const koEvents = []; // { home, away, date } — whole knockout window, for kick-off times
 let reached = 0;
 for (const day of dates(START, END)) {
   const json = await fetchJson(ESPN(day));
@@ -101,14 +103,17 @@ for (const day of dates(START, END)) {
     const eh = cs.find((c) => c.homeAway === "home");
     const ea = cs.find((c) => c.homeAway === "away");
     if (!eh || !ea) continue;
+    if (day >= R32_START.replaceAll("-", "")) koEvents.push({ home: eh.team.displayName, away: ea.team.displayName, date: ev.date });
     if (inR32) r32events.push({ home: eh.team.displayName, away: ea.team.displayName, date: ev.date });
     if (ev.status?.type?.state !== "post") continue;
     const home = canon(eh.team.displayName), away = canon(ea.team.displayName);
-    if (!home || !away) continue;
+    const hs = Number(eh.score), as = Number(ea.score);
+    if (!home || !away || Number.isNaN(hs) || Number.isNaN(as)) continue;
+    finished.push({ home, away, hs, as });
+    // Group matches are keyed by team name; knockout matches (feeder labels) are
+    // handled in pass 2 once their teams are resolved.
     const m = matchIndex.get([home, away].sort().join("|"));
     if (!m) continue;
-    const hs = Number(eh.score), as = Number(ea.score);
-    if (Number.isNaN(hs) || Number.isNaN(as)) continue;
     const [nh, na] = m.home === home ? [hs, as] : [as, hs];
     if (m.homeScore !== nh || m.awayScore !== na) {
       changes.push(`${m.home} ${nh}–${na} ${m.away}`);
@@ -170,22 +175,52 @@ for (const t of computed.thirds.filter((x) => x.certainty === "in")) {
   if (fits.length === 1) derived[fits[0]] = t.group;
 }
 
-// Kick-off time per R32 match (M-label), from ESPN, via a resolved team on it.
+// Knockout kick-off times (any round), from ESPN, via a resolved team on the match.
 const labelByTeam = {};
-computed.knockout.round32.forEach((m) => {
+[
+  ...computed.knockout.round32, ...computed.knockout.round16, ...computed.knockout.quarterfinals,
+  ...computed.knockout.semifinals, computed.knockout.thirdPlace, computed.knockout.final,
+].forEach((m) => {
   if (m.homeState === "confirmed" && m.homeTeams[0]) labelByTeam[m.homeTeams[0].name] = m.label;
   if (m.awayState === "confirmed" && m.awayTeams[0]) labelByTeam[m.awayTeams[0].name] = m.label;
 });
 const kickoffByLabel = {};
-for (const { home, away, date } of r32events) {
+for (const { home, away, date } of koEvents) {
   const lbl = labelByTeam[canon(home)] || labelByTeam[canon(away)];
   if (lbl && date) kickoffByLabel[lbl] = new Date(date).toISOString();
 }
 const kickChanges = [];
-data.knockout.round32.forEach((m) => {
-  const k = kickoffByLabel[m.label];
-  if (k && m.kickoff !== k) { m.kickoff = k; kickChanges.push(m.label); }
+
+// Knockout scores: match finished games to bracket matches by their resolved teams
+// (the raw data stores feeder labels, so name-matching only works post-resolution).
+const rawKo = [
+  ...data.knockout.round32, ...data.knockout.round16, ...data.knockout.quarterfinals,
+  ...data.knockout.semifinals, data.knockout.thirdPlace, data.knockout.final,
+];
+const rawByLabel = new Map(rawKo.map((m) => [m.label, m]));
+for (const [label, k] of Object.entries(kickoffByLabel)) {
+  const m = rawByLabel.get(label);
+  if (m && m.kickoff !== k) { m.kickoff = k; kickChanges.push(label); }
+}
+const koByTeams = new Map();
+[
+  ...computed.knockout.round32, ...computed.knockout.round16, ...computed.knockout.quarterfinals,
+  ...computed.knockout.semifinals, computed.knockout.thirdPlace, computed.knockout.final,
+].forEach((cm) => {
+  if (cm.homeState === "confirmed" && cm.awayState === "confirmed") {
+    koByTeams.set([cm.homeTeams[0].name, cm.awayTeams[0].name].sort().join("|"), { label: cm.label, home: cm.homeTeams[0].name });
+  }
 });
+for (const f of finished) {
+  const hit = koByTeams.get([f.home, f.away].sort().join("|"));
+  if (!hit) continue;
+  const m = rawByLabel.get(hit.label);
+  const [nh, na] = hit.home === f.home ? [f.hs, f.as] : [f.as, f.hs];
+  if (m.homeScore !== nh || m.awayScore !== na) {
+    changes.push(`${hit.label} ${nh}–${na} (${f.home} v ${f.away})`);
+    m.homeScore = nh; m.awayScore = na;
+  }
+}
 
 // --- merge into THIRD_ALLOCATION block + write everything -------------------
 let raw = spliceData(fs.readFileSync(DATA_FILE, "utf8")); // data now has scores + kickoffs
@@ -217,7 +252,7 @@ if (allocAdded.length) {
   console.log(`Allocated ${allocAdded.length} third-place slot(s):`);
   allocAdded.forEach((k) => console.log(`  ${SLOT_MATCH[k]} ← 3rd of Group ${merged[k]} (${thirdByGroup[merged[k]] || "?"})`));
 }
-if (kickChanges.length) console.log(`Set kick-off time for ${kickChanges.length} R32 match(es): ${kickChanges.join(", ")}`);
+if (kickChanges.length) console.log(`Set kick-off time for ${kickChanges.length} knockout match(es): ${kickChanges.join(", ")}`);
 const any = changes.length || allocAdded.length || kickChanges.length;
 if (!any) console.log("No changes.");
 console.log(any ? "\nRun `npm run build` to refresh." : "");

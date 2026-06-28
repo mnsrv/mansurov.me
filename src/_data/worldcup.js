@@ -1036,8 +1036,8 @@ const data = {
         "date": null,
         "home": "Runner-up A",
         "away": "Runner-up B",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 0,
+        "awayScore": 1,
         "kickoff": "2026-06-28T19:00:00.000Z"
       },
       {
@@ -1162,64 +1162,65 @@ const data = {
       {
         "label": "M89",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W74",
+        "away": "W77",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M90",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W73",
+        "away": "W75",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-04T17:00:00.000Z"
       },
       {
         "label": "M93",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W83",
+        "away": "W84",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M94",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W81",
+        "away": "W82",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M91",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W76",
+        "away": "W78",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M92",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W79",
+        "away": "W80",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M95",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W86",
+        "away": "W88",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M96",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W85",
+        "away": "W87",
         "homeScore": null,
         "awayScore": null
       }
@@ -1228,32 +1229,32 @@ const data = {
       {
         "label": "M97",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W89",
+        "away": "W90",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M98",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W93",
+        "away": "W94",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M99",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W91",
+        "away": "W92",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M100",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W95",
+        "away": "W96",
         "homeScore": null,
         "awayScore": null
       }
@@ -1262,16 +1263,16 @@ const data = {
       {
         "label": "M101",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W97",
+        "away": "W98",
         "homeScore": null,
         "awayScore": null
       },
       {
         "label": "M102",
         "date": null,
-        "home": "TBD",
-        "away": "TBD",
+        "home": "W99",
+        "away": "W100",
         "homeScore": null,
         "awayScore": null
       }
@@ -1566,26 +1567,38 @@ export default function () {
   const thirdByGroup = {};
   groups.forEach((g) => { const r = g.standings.find((s) => s.rank === 3); if (r) thirdByGroup[g.name] = r; });
 
-  // Resolve a knockout feeder label to its candidate team(s). "confirmed" = one
-  // possible team (locked), "projected" = several still possible (shown "A / B"),
-  // "slot" = no candidates yet (later rounds / unallocated 3rd slots keep the label).
+  // Resolve a feeder to a side. Group feeders ("Winner A", "3rd …") use the group
+  // candidates / allocation. Match feeders ("W74", "L101") use the winner/loser of
+  // that match once it's decided; otherwise they stay a "Winner M74"-style label.
+  // outcomes is filled as matches resolve, so it must be processed round by round.
+  const outcomes = {};
   const resolveSide = (label) => {
     const list = candidatesByLabel[label];
     if (list && list.length) {
-      return {
-        state: list.length === 1 ? "confirmed" : "projected",
-        teams: list.map((n) => ({ name: n, flag: flagByName[n] || "" })),
-      };
+      return { state: list.length === 1 ? "confirmed" : "projected", teams: list.map((n) => ({ name: n, flag: flagByName[n] || "" })) };
     }
-    const g = THIRD_ALLOCATION[label]; // a 3rd-place slot FIFA has allocated to a group
+    const g = THIRD_ALLOCATION[label];
     if (g && thirdByGroup[g]) {
       return { state: complete[g] ? "confirmed" : "projected", teams: [{ name: thirdByGroup[g].name, flag: thirdByGroup[g].flag || "" }] };
+    }
+    const ref = /^([WL])M?(\d+)$/.exec(label);
+    if (ref) {
+      const oc = outcomes["M" + ref[2]];
+      const team = oc && oc.decided ? (ref[1] === "W" ? oc.winner : oc.loser) : null;
+      if (team) return { state: "confirmed", teams: [team] };
+      return { state: "slot", label: (ref[1] === "W" ? "Winner " : "Loser ") + "M" + ref[2] };
     }
     return { state: "slot", label };
   };
   const resolveMatch = (m) => {
     const h = resolveSide(m.home), a = resolveSide(m.away);
     const w = warsaw(m.kickoff);
+    let decided = false, winner = null, loser = null;
+    if (m.homeScore != null && m.awayScore != null && m.homeScore !== m.awayScore && h.state === "confirmed" && a.state === "confirmed") {
+      decided = true;
+      [winner, loser] = m.homeScore > m.awayScore ? [h.teams[0], a.teams[0]] : [a.teams[0], h.teams[0]];
+    }
+    outcomes[m.label] = { decided, winner, loser };
     return {
       ...m,
       warsawDate: w.date, warsawTime: w.time,
@@ -1593,6 +1606,7 @@ export default function () {
       awayState: a.state, awayTeams: a.teams || [], awayLabel: a.label || m.away,
     };
   };
+  // Resolve in dependency order so each round can read earlier winners.
   const knockout = {
     round32: data.knockout.round32.map(resolveMatch),
     round16: data.knockout.round16.map(resolveMatch),
@@ -1602,13 +1616,30 @@ export default function () {
     final: resolveMatch(data.knockout.final),
   };
 
-  const upcoming = data.groups
-    .flatMap((g) => g.matches.map((mt) => ({ ...mt, group: g.name })))
+  // Next matches (home page): not-yet-played group + knockout matches, by time.
+  const koAll = [
+    ...knockout.round32, ...knockout.round16, ...knockout.quarterfinals,
+    ...knockout.semifinals, knockout.thirdPlace, knockout.final,
+  ];
+  const upcoming = [
+    ...data.groups.flatMap((g) => g.matches.map((mt) => ({
+      kickoff: mt.kickoff, home: mt.home, homeFlag: flagByName[mt.home] || "",
+      away: mt.away, awayFlag: flagByName[mt.away] || "", homeScore: mt.homeScore, awayScore: mt.awayScore,
+    }))),
+    ...koAll.filter((m) => m.kickoff).map((m) => ({
+      kickoff: m.kickoff,
+      home: m.homeState === "confirmed" ? m.homeTeams[0].name : m.home,
+      homeFlag: m.homeState === "confirmed" ? m.homeTeams[0].flag : "",
+      away: m.awayState === "confirmed" ? m.awayTeams[0].name : m.away,
+      awayFlag: m.awayState === "confirmed" ? m.awayTeams[0].flag : "",
+      homeScore: m.homeScore, awayScore: m.awayScore,
+    })),
+  ]
     .filter((mt) => mt.homeScore == null || mt.awayScore == null)
     .sort((a, b) => (a.kickoff || "").localeCompare(b.kickoff || ""))
     .map((mt) => {
       const w = warsaw(mt.kickoff);
-      return { ...mt, warsawDate: w.date, warsawTime: w.time, homeFlag: flagByName[mt.home] || "", awayFlag: flagByName[mt.away] || "" };
+      return { ...mt, warsawDate: w.date, warsawTime: w.time };
     });
 
   // Full schedule (group + knockout matches with a kick-off) for the Matches tab,
