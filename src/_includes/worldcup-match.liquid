@@ -7,7 +7,7 @@
 {% assign hasScore = false %}
 {% if m.homeScore != null and m.awayScore != null %}{% assign hasScore = true %}{% endif %}
 <div class="wc-match">
-  <div class="wc-match-label">{{ m.label }}{% if m.warsawTime != "" %} &middot; {{ m.warsawDate }} {{ m.warsawTime }}{% elsif m.date %} &middot; {{ m.date | date: "%e %b" }}{% endif %}{% if m.hasPenalties %} &middot; pens{% endif %}</div>
+  <div class="wc-match-label">{{ m.label }}{% if m.warsawTime != "" %} &middot; {{ m.warsawDate }} {{ m.warsawTime }}{% elsif m.date %} &middot; {{ m.date | date: "%e %b" }}{% endif %}</div>
   <div class="wc-match-row {% if m.homeWin %}wc-win{% endif %}">
     {% if m.homeState == "slot" %}
       <span class="wc-match-team wc-state-slot">{{ m.homeLabel }}</span>

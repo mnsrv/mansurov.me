@@ -1097,7 +1097,7 @@ const data = {
         "away": "Runner-up F",
         "homeScore": 2,
         "awayScore": 1,
-        "kickoff": "2026-07-05T20:00:00.000Z"
+        "kickoff": "2026-06-29T17:00:00.000Z"
       },
       {
         "label": "M78",
@@ -1115,7 +1115,7 @@ const data = {
         "away": "3rd C/E/F/H/I",
         "homeScore": 2,
         "awayScore": 0,
-        "kickoff": "2026-07-06T00:00:00.000Z"
+        "kickoff": "2026-07-01T02:00:00.000Z"
       },
       {
         "label": "M80",

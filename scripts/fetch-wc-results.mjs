@@ -188,18 +188,22 @@ for (const t of computed.thirds.filter((x) => x.certainty === "in")) {
   if (fits.length === 1) derived[fits[0]] = t.group;
 }
 
-// Knockout kick-off times (any round), from ESPN, via a resolved team on the match.
-const labelByTeam = {};
+// Knockout kick-off times from ESPN, matched by confirmed team pair (not a single
+// team — sides can appear in more than one round).
+const labelByTeams = new Map();
 [
   ...computed.knockout.round32, ...computed.knockout.round16, ...computed.knockout.quarterfinals,
   ...computed.knockout.semifinals, computed.knockout.thirdPlace, computed.knockout.final,
 ].forEach((m) => {
-  if (m.homeState === "confirmed" && m.homeTeams[0]) labelByTeam[m.homeTeams[0].name] = m.label;
-  if (m.awayState === "confirmed" && m.awayTeams[0]) labelByTeam[m.awayTeams[0].name] = m.label;
+  if (m.homeState === "confirmed" && m.awayState === "confirmed") {
+    labelByTeams.set([m.homeTeams[0].name, m.awayTeams[0].name].sort().join("|"), m.label);
+  }
 });
 const kickoffByLabel = {};
 for (const { home, away, date } of koEvents) {
-  const lbl = labelByTeam[canon(home)] || labelByTeam[canon(away)];
+  const ch = canon(home), ca = canon(away);
+  if (!ch || !ca) continue;
+  const lbl = labelByTeams.get([ch, ca].sort().join("|"));
   if (lbl && date) kickoffByLabel[lbl] = new Date(date).toISOString();
 }
 const kickChanges = [];
