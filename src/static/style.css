@@ -860,6 +860,17 @@ table.wc-table {
 .wc-match-goals {
   flex: none;
   padding-left: 0.5rem;
+  text-align: right;
+}
+.wc-match-pens {
+  font-size: 0.75rem;
+  color: var(--text-color-muted);
+  margin-left: 0.15rem;
+}
+.wc-sched-pens {
+  font-size: 0.8em;
+  color: var(--text-color-muted);
+  white-space: nowrap;
 }
 .wc-grp-tag {
   color: var(--text-color-muted);

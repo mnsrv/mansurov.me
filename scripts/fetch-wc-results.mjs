@@ -36,7 +36,7 @@ const ALIASES = {
   Turkey: "Türkiye", Turkiye: "Türkiye", Curacao: "Curaçao", "Cabo Verde": "Cape Verde",
   "Congo DR": "DR Congo", "Côte d'Ivoire": "Ivory Coast", "Cote d'Ivoire": "Ivory Coast",
 };
-const strip = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const strip = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function fetchJson(url, retries = 3) {
@@ -85,6 +85,21 @@ const allMatches = [
 ];
 const matchIndex = new Map(allMatches.map((m) => [[m.home, m.away].sort().join("|"), m]));
 
+const applyResult = (m, home, away, hs, as, hps, aps, tag) => {
+  const [nh, na] = m.home === home ? [hs, as] : [as, hs];
+  const [nhp, nap] = m.home === home ? [hps, aps] : [aps, hps];
+  if (m.homeScore !== nh || m.awayScore !== na) {
+    changes.push(`${tag} ${nh}–${na} ${m.home} v ${m.away}`);
+    m.homeScore = nh; m.awayScore = na;
+  }
+  if (hps != null && aps != null && !Number.isNaN(hps) && !Number.isNaN(aps)) {
+    if (m.homePenalties !== nhp || m.awayPenalties !== nap) {
+      changes.push(`${tag} pens ${nhp}–${nap} (${m.home} v ${m.away})`);
+      m.homePenalties = nhp; m.awayPenalties = nap;
+    }
+  }
+};
+
 // --- pass 1: collect finished scores + cache R32-window events --------------
 const changes = [];
 const finished = []; // every finished match: { home, away, hs, as } (canonical names)
@@ -108,17 +123,15 @@ for (const day of dates(START, END)) {
     if (ev.status?.type?.state !== "post") continue;
     const home = canon(eh.team.displayName), away = canon(ea.team.displayName);
     const hs = Number(eh.score), as = Number(ea.score);
+    const hps = eh.shootoutScore != null ? Number(eh.shootoutScore) : null;
+    const aps = ea.shootoutScore != null ? Number(ea.shootoutScore) : null;
     if (!home || !away || Number.isNaN(hs) || Number.isNaN(as)) continue;
-    finished.push({ home, away, hs, as });
+    finished.push({ home, away, hs, as, hps, aps });
     // Group matches are keyed by team name; knockout matches (feeder labels) are
     // handled in pass 2 once their teams are resolved.
     const m = matchIndex.get([home, away].sort().join("|"));
     if (!m) continue;
-    const [nh, na] = m.home === home ? [hs, as] : [as, hs];
-    if (m.homeScore !== nh || m.awayScore !== na) {
-      changes.push(`${m.home} ${nh}–${na} ${m.away}`);
-      m.homeScore = nh; m.awayScore = na;
-    }
+    applyResult(m, home, away, hs, as, hps, aps, `${m.home} ${hs}–${as} ${m.away}`);
   }
 }
 
@@ -215,11 +228,7 @@ for (const f of finished) {
   const hit = koByTeams.get([f.home, f.away].sort().join("|"));
   if (!hit) continue;
   const m = rawByLabel.get(hit.label);
-  const [nh, na] = hit.home === f.home ? [f.hs, f.as] : [f.as, f.hs];
-  if (m.homeScore !== nh || m.awayScore !== na) {
-    changes.push(`${hit.label} ${nh}–${na} (${f.home} v ${f.away})`);
-    m.homeScore = nh; m.awayScore = na;
-  }
+  applyResult(m, f.home, f.away, f.hs, f.as, f.hps, f.aps, hit.label);
 }
 
 // --- merge into THIRD_ALLOCATION block + write everything -------------------
