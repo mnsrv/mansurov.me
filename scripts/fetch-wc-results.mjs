@@ -36,7 +36,7 @@ const ALIASES = {
   Turkey: "Türkiye", Turkiye: "Türkiye", Curacao: "Curaçao", "Cabo Verde": "Cape Verde",
   "Congo DR": "DR Congo", "Côte d'Ivoire": "Ivory Coast", "Cote d'Ivoire": "Ivory Coast",
 };
-const strip = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const strip = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function fetchJson(url, retries = 3) {
@@ -85,6 +85,21 @@ const allMatches = [
 ];
 const matchIndex = new Map(allMatches.map((m) => [[m.home, m.away].sort().join("|"), m]));
 
+const applyResult = (m, orientHome, home, away, hs, as, hps, aps, tag) => {
+  const [nh, na] = orientHome === home ? [hs, as] : [as, hs];
+  const [nhp, nap] = orientHome === home ? [hps, aps] : [aps, hps];
+  if (m.homeScore !== nh || m.awayScore !== na) {
+    changes.push(`${tag} ${nh}–${na} ${m.home} v ${m.away}`);
+    m.homeScore = nh; m.awayScore = na;
+  }
+  if (hps != null && aps != null && !Number.isNaN(hps) && !Number.isNaN(aps)) {
+    if (m.homePenalties !== nhp || m.awayPenalties !== nap) {
+      changes.push(`${tag} pens ${nhp}–${nap} (${m.home} v ${m.away})`);
+      m.homePenalties = nhp; m.awayPenalties = nap;
+    }
+  }
+};
+
 // --- pass 1: collect finished scores + cache R32-window events --------------
 const changes = [];
 const finished = []; // every finished match: { home, away, hs, as } (canonical names)
@@ -108,17 +123,15 @@ for (const day of dates(START, END)) {
     if (ev.status?.type?.state !== "post") continue;
     const home = canon(eh.team.displayName), away = canon(ea.team.displayName);
     const hs = Number(eh.score), as = Number(ea.score);
+    const hps = eh.shootoutScore != null ? Number(eh.shootoutScore) : null;
+    const aps = ea.shootoutScore != null ? Number(ea.shootoutScore) : null;
     if (!home || !away || Number.isNaN(hs) || Number.isNaN(as)) continue;
-    finished.push({ home, away, hs, as });
+    finished.push({ home, away, hs, as, hps, aps });
     // Group matches are keyed by team name; knockout matches (feeder labels) are
     // handled in pass 2 once their teams are resolved.
     const m = matchIndex.get([home, away].sort().join("|"));
     if (!m) continue;
-    const [nh, na] = m.home === home ? [hs, as] : [as, hs];
-    if (m.homeScore !== nh || m.awayScore !== na) {
-      changes.push(`${m.home} ${nh}–${na} ${m.away}`);
-      m.homeScore = nh; m.awayScore = na;
-    }
+    applyResult(m, m.home, home, away, hs, as, hps, aps, `${m.home} ${hs}–${as} ${m.away}`);
   }
 }
 
@@ -175,18 +188,22 @@ for (const t of computed.thirds.filter((x) => x.certainty === "in")) {
   if (fits.length === 1) derived[fits[0]] = t.group;
 }
 
-// Knockout kick-off times (any round), from ESPN, via a resolved team on the match.
-const labelByTeam = {};
+// Knockout kick-off times from ESPN, matched by confirmed team pair (not a single
+// team — sides can appear in more than one round).
+const labelByTeams = new Map();
 [
   ...computed.knockout.round32, ...computed.knockout.round16, ...computed.knockout.quarterfinals,
   ...computed.knockout.semifinals, computed.knockout.thirdPlace, computed.knockout.final,
 ].forEach((m) => {
-  if (m.homeState === "confirmed" && m.homeTeams[0]) labelByTeam[m.homeTeams[0].name] = m.label;
-  if (m.awayState === "confirmed" && m.awayTeams[0]) labelByTeam[m.awayTeams[0].name] = m.label;
+  if (m.homeState === "confirmed" && m.awayState === "confirmed") {
+    labelByTeams.set([m.homeTeams[0].name, m.awayTeams[0].name].sort().join("|"), m.label);
+  }
 });
 const kickoffByLabel = {};
 for (const { home, away, date } of koEvents) {
-  const lbl = labelByTeam[canon(home)] || labelByTeam[canon(away)];
+  const ch = canon(home), ca = canon(away);
+  if (!ch || !ca) continue;
+  const lbl = labelByTeams.get([ch, ca].sort().join("|"));
   if (lbl && date) kickoffByLabel[lbl] = new Date(date).toISOString();
 }
 const kickChanges = [];
@@ -215,11 +232,7 @@ for (const f of finished) {
   const hit = koByTeams.get([f.home, f.away].sort().join("|"));
   if (!hit) continue;
   const m = rawByLabel.get(hit.label);
-  const [nh, na] = hit.home === f.home ? [f.hs, f.as] : [f.as, f.hs];
-  if (m.homeScore !== nh || m.awayScore !== na) {
-    changes.push(`${hit.label} ${nh}–${na} (${f.home} v ${f.away})`);
-    m.homeScore = nh; m.awayScore = na;
-  }
+  applyResult(m, hit.home, f.home, f.away, f.hs, f.as, f.hps, f.aps, hit.label);
 }
 
 // --- merge into THIRD_ALLOCATION block + write everything -------------------

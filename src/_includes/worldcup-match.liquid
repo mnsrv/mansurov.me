@@ -1,12 +1,14 @@
 {% comment %}
   One knockout match card. A side is confirmed (one team: flag + name), projected
   (several possible teams: flags only, names on hover), or an unresolved slot label.
+  Regulation scores are shown in the goals column; penalty shootout totals appear
+  in parentheses when the match was decided on pens.
 {% endcomment %}
 {% assign hasScore = false %}
 {% if m.homeScore != null and m.awayScore != null %}{% assign hasScore = true %}{% endif %}
 <div class="wc-match">
   <div class="wc-match-label">{{ m.label }}{% if m.warsawTime != "" %} &middot; {{ m.warsawDate }} {{ m.warsawTime }}{% elsif m.date %} &middot; {{ m.date | date: "%e %b" }}{% endif %}</div>
-  <div class="wc-match-row {% if hasScore and m.homeScore > m.awayScore %}wc-win{% endif %}">
+  <div class="wc-match-row {% if m.homeWin %}wc-win{% endif %}">
     {% if m.homeState == "slot" %}
       <span class="wc-match-team wc-state-slot">{{ m.homeLabel }}</span>
     {% elsif m.homeState == "projected" %}
@@ -14,9 +16,9 @@
     {% else %}
       <span class="wc-match-team">{% if m.homeTeams[0].flag != "" %}{{ m.homeTeams[0].flag }} {% endif %}{{ m.homeTeams[0].name }}</span>
     {% endif %}
-    <span class="wc-match-goals">{% if hasScore %}{{ m.homeScore }}{% endif %}</span>
+    <span class="wc-match-goals">{% if hasScore %}{{ m.homeScore }}{% if m.hasPenalties %}<span class="wc-match-pens">({{ m.homePenalties }})</span>{% endif %}{% endif %}</span>
   </div>
-  <div class="wc-match-row {% if hasScore and m.awayScore > m.homeScore %}wc-win{% endif %}">
+  <div class="wc-match-row {% if m.awayWin %}wc-win{% endif %}">
     {% if m.awayState == "slot" %}
       <span class="wc-match-team wc-state-slot">{{ m.awayLabel }}</span>
     {% elsif m.awayState == "projected" %}
@@ -24,6 +26,6 @@
     {% else %}
       <span class="wc-match-team">{% if m.awayTeams[0].flag != "" %}{{ m.awayTeams[0].flag }} {% endif %}{{ m.awayTeams[0].name }}</span>
     {% endif %}
-    <span class="wc-match-goals">{% if hasScore %}{{ m.awayScore }}{% endif %}</span>
+    <span class="wc-match-goals">{% if hasScore %}{{ m.awayScore }}{% if m.hasPenalties %}<span class="wc-match-pens">({{ m.awayPenalties }})</span>{% endif %}{% endif %}</span>
   </div>
 </div>

@@ -11,6 +11,7 @@
 //      Standings recompute automatically — never edit the table by hand.
 //   2. "kickoff" is UTC ISO (e.g. "2026-06-11T19:00:00.000Z"); edit only if a time changes.
 //   3. In "knockout", replace feeder labels with the actual team once known, add scores.
+//      If regulation ends level, add homePenalties / awayPenalties (shootout only).
 
 const data = {
   "groups": [
@@ -1020,7 +1021,9 @@ const data = {
         "away": "3rd A/B/C/D/F",
         "homeScore": 1,
         "awayScore": 1,
-        "kickoff": "2026-07-04T21:00:00.000Z"
+        "homePenalties": 3,
+        "awayPenalties": 4,
+        "kickoff": "2026-06-29T20:30:00.000Z"
       },
       {
         "label": "M77",
@@ -1047,6 +1050,8 @@ const data = {
         "away": "Runner-up C",
         "homeScore": 1,
         "awayScore": 1,
+        "homePenalties": 2,
+        "awayPenalties": 3,
         "kickoff": "2026-06-30T01:00:00.000Z"
       },
       {
@@ -1092,7 +1097,7 @@ const data = {
         "away": "Runner-up F",
         "homeScore": 2,
         "awayScore": 1,
-        "kickoff": "2026-07-05T20:00:00.000Z"
+        "kickoff": "2026-06-29T17:00:00.000Z"
       },
       {
         "label": "M78",
@@ -1110,7 +1115,7 @@ const data = {
         "away": "3rd C/E/F/H/I",
         "homeScore": 2,
         "awayScore": 0,
-        "kickoff": "2026-07-06T00:00:00.000Z"
+        "kickoff": "2026-07-01T02:00:00.000Z"
       },
       {
         "label": "M80",
@@ -1597,16 +1602,27 @@ export default function () {
     const h = resolveSide(m.home), a = resolveSide(m.away);
     const w = warsaw(m.kickoff);
     let decided = false, winner = null, loser = null;
-    if (m.homeScore != null && m.awayScore != null && m.homeScore !== m.awayScore && h.state === "confirmed" && a.state === "confirmed") {
-      decided = true;
-      [winner, loser] = m.homeScore > m.awayScore ? [h.teams[0], a.teams[0]] : [a.teams[0], h.teams[0]];
+    const scored = m.homeScore != null && m.awayScore != null;
+    const sidesReady = h.state === "confirmed" && a.state === "confirmed";
+    if (scored && sidesReady) {
+      if (m.homeScore !== m.awayScore) {
+        decided = true;
+        [winner, loser] = m.homeScore > m.awayScore ? [h.teams[0], a.teams[0]] : [a.teams[0], h.teams[0]];
+      } else if (m.homePenalties != null && m.awayPenalties != null && m.homePenalties !== m.awayPenalties) {
+        decided = true;
+        [winner, loser] = m.homePenalties > m.awayPenalties ? [h.teams[0], a.teams[0]] : [a.teams[0], h.teams[0]];
+      }
     }
     outcomes[m.label] = { decided, winner, loser };
+    const hasPenalties = scored && m.homeScore === m.awayScore && m.homePenalties != null && m.awayPenalties != null;
     return {
       ...m,
       warsawDate: w.date, warsawTime: w.time,
       homeState: h.state, homeTeams: h.teams || [], homeLabel: h.label || m.home,
       awayState: a.state, awayTeams: a.teams || [], awayLabel: a.label || m.away,
+      decided, hasPenalties,
+      homeWin: decided && winner?.name === h.teams[0]?.name,
+      awayWin: decided && winner?.name === a.teams[0]?.name,
     };
   };
   // Resolve in dependency order so each round can read earlier winners.
@@ -1636,6 +1652,7 @@ export default function () {
       away: m.awayState === "confirmed" ? m.awayTeams[0].name : m.away,
       awayFlag: m.awayState === "confirmed" ? m.awayTeams[0].flag : "",
       homeScore: m.homeScore, awayScore: m.awayScore,
+      homePenalties: m.homePenalties, awayPenalties: m.awayPenalties, hasPenalties: m.hasPenalties,
     })),
   ]
     .filter((mt) => mt.homeScore == null || mt.awayScore == null)
@@ -1672,6 +1689,7 @@ export default function () {
       away: m.awayState === "confirmed" ? m.awayTeams[0].name : m.away,
       awayFlag: m.awayState === "confirmed" ? m.awayTeams[0].flag : "",
       homeScore: m.homeScore, awayScore: m.awayScore,
+      homePenalties: m.homePenalties, awayPenalties: m.awayPenalties, hasPenalties: m.hasPenalties,
     }))
   );
 
