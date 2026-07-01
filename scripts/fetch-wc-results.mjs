@@ -85,9 +85,9 @@ const allMatches = [
 ];
 const matchIndex = new Map(allMatches.map((m) => [[m.home, m.away].sort().join("|"), m]));
 
-const applyResult = (m, home, away, hs, as, hps, aps, tag) => {
-  const [nh, na] = m.home === home ? [hs, as] : [as, hs];
-  const [nhp, nap] = m.home === home ? [hps, aps] : [aps, hps];
+const applyResult = (m, orientHome, home, away, hs, as, hps, aps, tag) => {
+  const [nh, na] = orientHome === home ? [hs, as] : [as, hs];
+  const [nhp, nap] = orientHome === home ? [hps, aps] : [aps, hps];
   if (m.homeScore !== nh || m.awayScore !== na) {
     changes.push(`${tag} ${nh}–${na} ${m.home} v ${m.away}`);
     m.homeScore = nh; m.awayScore = na;
@@ -131,7 +131,7 @@ for (const day of dates(START, END)) {
     // handled in pass 2 once their teams are resolved.
     const m = matchIndex.get([home, away].sort().join("|"));
     if (!m) continue;
-    applyResult(m, home, away, hs, as, hps, aps, `${m.home} ${hs}–${as} ${m.away}`);
+    applyResult(m, m.home, home, away, hs, as, hps, aps, `${m.home} ${hs}–${as} ${m.away}`);
   }
 }
 
@@ -232,7 +232,7 @@ for (const f of finished) {
   const hit = koByTeams.get([f.home, f.away].sort().join("|"));
   if (!hit) continue;
   const m = rawByLabel.get(hit.label);
-  applyResult(m, f.home, f.away, f.hs, f.as, f.hps, f.aps, hit.label);
+  applyResult(m, hit.home, f.home, f.away, f.hs, f.as, f.hps, f.aps, hit.label);
 }
 
 // --- merge into THIRD_ALLOCATION block + write everything -------------------
