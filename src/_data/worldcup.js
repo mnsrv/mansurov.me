@@ -1023,7 +1023,7 @@ const data = {
         "awayScore": 1,
         "homePenalties": 3,
         "awayPenalties": 4,
-        "kickoff": "2026-07-04T21:00:00.000Z"
+        "kickoff": "2026-06-29T20:30:00.000Z"
       },
       {
         "label": "M77",
