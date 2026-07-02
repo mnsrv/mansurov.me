@@ -1068,8 +1068,8 @@ const data = {
         "date": null,
         "home": "Winner H",
         "away": "Runner-up J",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 3,
+        "awayScore": 0,
         "kickoff": "2026-07-02T19:00:00.000Z"
       },
       {
