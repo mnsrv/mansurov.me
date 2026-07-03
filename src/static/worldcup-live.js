@@ -15,6 +15,8 @@
   };
   const strip = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
+  const statusEl = document.getElementById("wc-feed-status");
+
   const datesParam = () => {
     const now = new Date();
     const today = now.toISOString().slice(0, 10).replace(/-/g, "");
@@ -44,10 +46,41 @@
     return String(score);
   };
 
+  const setStatus = (state, text) => {
+    if (!statusEl) return;
+    statusEl.hidden = false;
+    statusEl.className = `wc-feed-status wc-feed-${state}`;
+    statusEl.innerHTML = `<span class="wc-feed-dot" aria-hidden="true"></span><span>${text}</span>`;
+  };
+
+  const badgeFor = (el) => {
+    let badge = el.querySelector(".wc-live-badge");
+    if (badge) return badge;
+    badge = document.createElement("span");
+    badge.className = "wc-live-badge";
+    const score = el.querySelector(".wc-score");
+    const label = el.querySelector(".wc-match-label");
+    if (score) score.before(badge);
+    else if (label) label.prepend(badge);
+    else el.prepend(badge);
+    return badge;
+  };
+
+  const clearLive = () => {
+    document.querySelectorAll("[data-wc-home].wc-live").forEach((el) => el.classList.remove("wc-live"));
+    document.querySelectorAll(".wc-live-badge").forEach((el) => el.remove());
+  };
+
   const apply = (results) => {
+    let liveCount = 0;
     document.querySelectorAll("[data-wc-home]").forEach((el) => {
       const r = results.get([el.dataset.wcHome, el.dataset.wcAway].sort().join("|"));
-      if (!r) return;
+      el.classList.toggle("wc-live", r?.state === "in");
+      if (r?.state === "in") {
+        liveCount++;
+        badgeFor(el).textContent = r.detail || "LIVE";
+      }
+      if (!r || (r.state !== "in" && r.state !== "post")) return;
       const score = el.querySelector(".wc-score");
       if (score) {
         score.textContent = r.hps != null ? `${r.hs}–${r.as} (${r.hps}–${r.aps})` : `${r.hs}–${r.as}`;
@@ -59,18 +92,25 @@
       if (hg) hg.innerHTML = goalsHtml(r.hs, r.hps);
       if (ag) ag.innerHTML = goalsHtml(r.as, r.aps);
     });
+    return liveCount;
   };
 
   const poll = async () => {
+    const known = knownTeams();
+    if (!known.size) {
+      if (statusEl) statusEl.hidden = true;
+      return;
+    }
+    setStatus("wait", "Checking ESPN…");
     try {
-      const known = knownTeams();
-      if (!known.size) return;
       const res = await fetch(`${ESPN}?dates=${datesParam()}`);
-      if (!res.ok) return;
+      if (!res.ok) throw new Error(String(res.status));
       const json = await res.json();
+      clearLive();
       const results = new Map();
       for (const ev of json.events || []) {
-        if (ev.status?.type?.state !== "post") continue;
+        const state = ev.status?.type?.state;
+        if (state !== "in" && state !== "post") continue;
         const cs = ev.competitions?.[0]?.competitors;
         if (!cs) continue;
         const eh = cs.find((c) => c.homeAway === "home");
@@ -84,11 +124,15 @@
         if (Number.isNaN(hs) || Number.isNaN(as)) continue;
         const hps = eh.shootoutScore != null ? Number(eh.shootoutScore) : null;
         const aps = ea.shootoutScore != null ? Number(ea.shootoutScore) : null;
-        results.set([home, away].sort().join("|"), { hs, as, hps, aps });
+        const detail = ev.status?.type?.shortDetail || ev.status?.type?.detail || "";
+        results.set([home, away].sort().join("|"), { hs, as, hps, aps, state, detail });
       }
-      apply(results);
+      const liveCount = apply(results);
+      if (liveCount) setStatus("live", `${liveCount} live · ESPN connected`);
+      else setStatus("ok", "ESPN connected · updates every minute");
     } catch {
-      /* ignore */
+      clearLive();
+      setStatus("err", "ESPN unavailable");
     }
   };
 

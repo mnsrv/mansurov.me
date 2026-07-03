@@ -732,6 +732,10 @@ table.wc-table {
   gap: 0.4rem;
   padding: 0.1rem 0;
 }
+.wc-fixtures li.wc-live {
+  background: rgba(238, 51, 51, 0.07);
+  border-radius: 2px;
+}
 .wc-fixtures .wc-date {
   color: var(--text-color-muted);
   width: 6rem;
@@ -759,6 +763,74 @@ table.wc-table {
   min-width: 2rem;
   text-align: center;
   color: var(--text-color-muted);
+}
+
+.wc-feed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-style: normal;
+  border: 1px solid var(--text-color-muted);
+  border-radius: 999px;
+}
+.wc-feed-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  flex: none;
+  background: var(--text-color-muted);
+}
+.wc-feed-wait .wc-feed-dot {
+  animation: wc-pulse 1.2s ease-in-out infinite;
+}
+.wc-feed-ok .wc-feed-dot {
+  background: #3a9;
+}
+.wc-feed-live .wc-feed-dot {
+  background: #e33;
+  animation: wc-pulse 1.2s ease-in-out infinite;
+}
+.wc-feed-err .wc-feed-dot {
+  background: #e33;
+}
+.wc-live-badge {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 0.35rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #e33;
+  border: 1px solid #e33;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+.wc-live-badge::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: #e33;
+  animation: wc-pulse 1.2s ease-in-out infinite;
+}
+.wc-live .wc-score,
+.wc-live .wc-match-goals {
+  color: inherit;
+  font-weight: bold;
+}
+.wc-match.wc-live {
+  border-color: #e33;
+  box-shadow: 0 0 0 1px #e334;
+}
+@keyframes wc-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
 }
 
 /* Knockout bracket — two halves stacked, final inline just after the semi-finals

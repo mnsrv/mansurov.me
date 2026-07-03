@@ -10,6 +10,7 @@ templateEngineOverride: liquid
 ---
 
 <p><i>48 teams, 12 groups. Top two of each group plus the eight best third-placed teams advance to the round of 32. Kick-off times shown in Warsaw time (CEST).</i></p>
+<p id="wc-feed-status" class="wc-feed-status" hidden></p>
 
 <div class="wc-tabs">
   <input type="radio" name="wc-tab" id="wc-tab-matches" class="wc-tab-input" checked />
