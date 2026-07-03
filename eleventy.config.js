@@ -26,6 +26,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/toledo-original.js");
   eleventyConfig.addPassthroughCopy("src/static/worldcup-live.js");
 
+  eleventyConfig.addShortcode("worldcupLive", () => {
+    const js = fs.readFileSync(path.join("src/static/worldcup-live.js"), "utf8");
+    return `<script>${js}</script>`;
+  });
+
   eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");

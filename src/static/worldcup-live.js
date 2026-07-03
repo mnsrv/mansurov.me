@@ -16,6 +16,8 @@
   const strip = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
   const statusEl = document.getElementById("wc-feed-status");
+  let pollTimer = null;
+  let liveCount = 0;
 
   const datesParam = () => {
     const now = new Date();
@@ -71,28 +73,50 @@
     document.querySelectorAll(".wc-live-badge").forEach((el) => el.remove());
   };
 
+  const scoreFor = (r, team) => {
+    if (r.teams[0] === team) return { score: r.scores[0], pens: r.pens[0] };
+    if (r.teams[1] === team) return { score: r.scores[1], pens: r.pens[1] };
+    return { score: null, pens: null };
+  };
+
   const apply = (results) => {
-    let liveCount = 0;
+    let live = 0;
     document.querySelectorAll("[data-wc-home]").forEach((el) => {
-      const r = results.get([el.dataset.wcHome, el.dataset.wcAway].sort().join("|"));
+      const homeName = el.dataset.wcHome;
+      const awayName = el.dataset.wcAway;
+      const r = results.get([homeName, awayName].sort().join("|"));
       el.classList.toggle("wc-live", r?.state === "in");
       if (r?.state === "in") {
-        liveCount++;
+        live++;
         badgeFor(el).textContent = r.detail || "LIVE";
       }
       if (!r || (r.state !== "in" && r.state !== "post")) return;
+
+      const home = scoreFor(r, homeName);
+      const away = scoreFor(r, awayName);
+      if (home.score == null || away.score == null) return;
+
       const score = el.querySelector(".wc-score");
       if (score) {
-        score.textContent = r.hps != null ? `${r.hs}–${r.as} (${r.hps}–${r.aps})` : `${r.hs}–${r.as}`;
+        score.textContent = home.pens != null
+          ? `${home.score}–${away.score} (${home.pens}–${away.pens})`
+          : `${home.score}–${away.score}`;
       }
+
       const rows = el.querySelectorAll(".wc-match-row");
-      if (rows.length !== 2) return;
-      const hg = rows[0].querySelector(".wc-match-goals");
-      const ag = rows[1].querySelector(".wc-match-goals");
-      if (hg) hg.innerHTML = goalsHtml(r.hs, r.hps);
-      if (ag) ag.innerHTML = goalsHtml(r.as, r.aps);
+      if (rows.length === 2) {
+        const hg = rows[0].querySelector(".wc-match-goals");
+        const ag = rows[1].querySelector(".wc-match-goals");
+        if (hg) hg.innerHTML = goalsHtml(home.score, home.pens);
+        if (ag) ag.innerHTML = goalsHtml(away.score, away.pens);
+      }
     });
-    return liveCount;
+    return live;
+  };
+
+  const schedulePoll = (ms) => {
+    if (pollTimer) clearInterval(pollTimer);
+    pollTimer = setInterval(poll, ms);
   };
 
   const poll = async () => {
@@ -125,17 +149,27 @@
         const hps = eh.shootoutScore != null ? Number(eh.shootoutScore) : null;
         const aps = ea.shootoutScore != null ? Number(ea.shootoutScore) : null;
         const detail = ev.status?.type?.shortDetail || ev.status?.type?.detail || "";
-        results.set([home, away].sort().join("|"), { hs, as, hps, aps, state, detail });
+        results.set([home, away].sort().join("|"), {
+          teams: [home, away],
+          scores: [hs, as],
+          pens: [hps, aps],
+          state,
+          detail,
+        });
       }
-      const liveCount = apply(results);
+      liveCount = apply(results);
       if (liveCount) setStatus("live", `${liveCount} live · ESPN connected`);
       else setStatus("ok", "ESPN connected · updates every minute");
+      schedulePoll(liveCount ? 15_000 : 60_000);
     } catch {
       clearLive();
       setStatus("err", "ESPN unavailable");
+      schedulePoll(60_000);
     }
   };
 
+  if (statusEl && document.querySelectorAll("[data-wc-home]").length) {
+    setStatus("wait", "Loading live scores…");
+  }
   poll();
-  setInterval(poll, 60_000);
 })();

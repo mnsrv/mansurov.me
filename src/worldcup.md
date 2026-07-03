@@ -53,4 +53,4 @@ templateEngineOverride: liquid
   </div>
 </div>
 
-<script src="{{ '/static/worldcup-live.js' | bust }}"></script>
+{% worldcupLive %}
