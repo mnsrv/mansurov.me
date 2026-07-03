@@ -14,7 +14,7 @@
     <h4 class="wc-sched-day {% if phase.past %}wc-sched-past{% endif %}">{{ day.label }}</h4>
     <ul class="wc-fixtures wc-sched">
       {% for m in day.matches %}
-        <li>
+        <li{% if m.homeScore == null or m.awayScore == null %} data-wc-home="{{ m.home }}" data-wc-away="{{ m.away }}"{% endif %}>
           <span class="wc-date"><span class="wc-time">{{ m.warsawTime }}</span></span>
           <span class="wc-home">{{ m.home }}</span>
           <span class="wc-flag">{{ m.homeFlag }}</span>

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Fetch World Cup results from ESPN when a match is live or recently finished.
-// One request per active calendar day. Skips entirely when nothing to poll.
+// Persist World Cup results from ESPN into src/_data/worldcup.js (1 request).
+// Run daily via GitHub Actions; live scores come from worldcup-live.js in the browser.
 //
 //   node scripts/fetch-wc-results.mjs
 
@@ -9,9 +9,6 @@ import fs from "fs";
 const DATA_FILE = "src/_data/worldcup.js";
 const ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard";
 const HEADERS = { "User-Agent": "mansurov.me-worldcup/1.0 (personal site)" };
-const PRE_MS = 15 * 60_000;   // start 15 min before kickoff
-const LIVE_MS = 150 * 60_000; // match + extra time + pens
-const CATCHUP_MS = 6 * 60 * 60_000; // keep trying if a run was missed
 
 const ALIASES = {
   "Bosnia-Herzegovina": "Bosnia and Herzegovina", "Bosnia & Herzegovina": "Bosnia and Herzegovina",
@@ -40,6 +37,13 @@ async function fetchJson(url, retries = 3) {
   return null;
 }
 
+const datesParam = () => {
+  const now = new Date();
+  const today = now.toISOString().slice(0, 10).replace(/-/g, "");
+  const y = new Date(now - 86400000).toISOString().slice(0, 10).replace(/-/g, "");
+  return y === today ? today : `${y}-${today}`;
+};
+
 // ---------------------------------------------------------------------------
 const raw0 = fs.readFileSync(DATA_FILE, "utf8");
 const marker = "const data = ";
@@ -47,33 +51,16 @@ const dStart = raw0.indexOf(marker) + marker.length;
 const dEnd = raw0.indexOf(";", dStart);
 const data = JSON.parse(raw0.slice(dStart, dEnd));
 
+const canonical = new Set();
+data.groups.forEach((g) => g.teams.forEach((t) => canonical.add(t.name)));
+const stripIndex = new Map([...canonical].map((n) => [strip(n), n]));
+const canon = (espn) => ALIASES[espn] || (canonical.has(espn) ? espn : stripIndex.get(strip(espn)) || null);
+
 const allMatches = [
   ...data.groups.flatMap((g) => g.matches),
   ...data.knockout.round32, ...data.knockout.round16, ...data.knockout.quarterfinals,
   ...data.knockout.semifinals, data.knockout.thirdPlace, data.knockout.final,
 ];
-
-const now = Date.now();
-const active = allMatches.filter((m) => {
-  if (!m.kickoff || (m.homeScore != null && m.awayScore != null)) return false;
-  const t = new Date(m.kickoff).getTime();
-  return now >= t - PRE_MS && now <= t + LIVE_MS + CATCHUP_MS;
-});
-
-if (!active.length) {
-  console.log("No matches in active window — skipping fetch.");
-  process.exit(0);
-}
-
-const dates = [...new Set(active.map((m) =>
-  new Date(m.kickoff).toISOString().slice(0, 10).replace(/-/g, ""),
-))];
-console.log(`Polling ${dates.length} date(s) for ${active.length} match(es): ${active.map((m) => m.label || `${m.home} v ${m.away}`).join(", ")}`);
-
-const canonical = new Set();
-data.groups.forEach((g) => g.teams.forEach((t) => canonical.add(t.name)));
-const stripIndex = new Map([...canonical].map((n) => [strip(n), n]));
-const canon = (espn) => ALIASES[espn] || (canonical.has(espn) ? espn : stripIndex.get(strip(espn)) || null);
 const matchIndex = new Map(allMatches.map((m) => [[m.home, m.away].sort().join("|"), m]));
 
 const changes = [];
@@ -98,36 +85,31 @@ const spliceData = (text) => {
   return text.slice(0, s) + JSON.stringify(data, null, 2) + text.slice(e);
 };
 
-// --- fetch scoreboard for each active date (usually 1) ----------------------
-const finished = [];
-const koEvents = [];
-let reached = 0;
-for (const day of dates) {
-  const json = await fetchJson(`${ESPN}?dates=${day}`);
-  if (!json) continue;
-  reached++;
-  for (const ev of json.events || []) {
-    const cs = ev.competitions?.[0]?.competitors;
-    if (!cs) continue;
-    const eh = cs.find((c) => c.homeAway === "home");
-    const ea = cs.find((c) => c.homeAway === "away");
-    if (!eh || !ea) continue;
-    koEvents.push({ home: eh.team.displayName, away: ea.team.displayName, date: ev.date });
-    if (ev.status?.type?.state !== "post") continue;
-    const home = canon(eh.team.displayName), away = canon(ea.team.displayName);
-    const hs = Number(eh.score), as = Number(ea.score);
-    const hps = eh.shootoutScore != null ? Number(eh.shootoutScore) : null;
-    const aps = ea.shootoutScore != null ? Number(ea.shootoutScore) : null;
-    if (!home || !away || Number.isNaN(hs) || Number.isNaN(as)) continue;
-    finished.push({ home, away, hs, as, hps, aps });
-    const m = matchIndex.get([home, away].sort().join("|"));
-    if (m) applyResult(m, m.home, home, away, hs, as, hps, aps, `${m.home} ${hs}–${as} ${m.away}`);
-  }
-}
-
-if (!reached) {
+// --- fetch yesterday–today scoreboard (1 request) ---------------------------
+const json = await fetchJson(`${ESPN}?dates=${datesParam()}`);
+if (!json) {
   console.error("Could not reach ESPN — data left untouched.");
   process.exit(1);
+}
+
+const finished = [];
+const koEvents = [];
+for (const ev of json.events || []) {
+  const cs = ev.competitions?.[0]?.competitors;
+  if (!cs) continue;
+  const eh = cs.find((c) => c.homeAway === "home");
+  const ea = cs.find((c) => c.homeAway === "away");
+  if (!eh || !ea) continue;
+  koEvents.push({ home: eh.team.displayName, away: ea.team.displayName, date: ev.date });
+  if (ev.status?.type?.state !== "post") continue;
+  const home = canon(eh.team.displayName), away = canon(ea.team.displayName);
+  const hs = Number(eh.score), as = Number(ea.score);
+  const hps = eh.shootoutScore != null ? Number(eh.shootoutScore) : null;
+  const aps = ea.shootoutScore != null ? Number(ea.shootoutScore) : null;
+  if (!home || !away || Number.isNaN(hs) || Number.isNaN(as)) continue;
+  finished.push({ home, away, hs, as, hps, aps });
+  const m = matchIndex.get([home, away].sort().join("|"));
+  if (m) applyResult(m, m.home, home, away, hs, as, hps, aps, `${m.home} ${hs}–${as} ${m.away}`);
 }
 
 if (changes.length) fs.writeFileSync(DATA_FILE, spliceData(raw0));

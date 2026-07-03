@@ -41,7 +41,7 @@
 
   <ul class="wc-fixtures">
     {% for m in group.matches %}
-      <li>
+      <li{% if m.homeScore == null or m.awayScore == null %} data-wc-home="{{ m.home }}" data-wc-away="{{ m.away }}"{% endif %}>
         <span class="wc-date">{{ m.warsawDate }} <span class="wc-time">{{ m.warsawTime }}</span></span>
         <span class="wc-home">{{ m.home }}</span>
         <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% else %}v{% endif %}</span>

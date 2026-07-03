@@ -1,15 +1,13 @@
 name: World Cup results
 
-# Fetches finished match scores from ESPN and commits them. Vercel auto-deploys
-# on the resulting push. The fetch script is idempotent — if nothing changed it
-# writes nothing and no commit is made.
+# Daily persist: writes finished scores into worldcup.js for standings/bracket.
+# Live scores while viewing the page come from worldcup-live.js (browser poll).
 
 on:
   schedule:
-    - cron: "*/15 * * * *" # every 15 min; script skips when no match is live
-  workflow_dispatch: {}     # allow manual runs from the Actions tab
+    - cron: "0 7 * * *" # 09:00 Warsaw (CEST) — after overnight matches
+  workflow_dispatch: {}
 
-# Avoid overlapping runs racing to push.
 concurrency:
   group: worldcup-results
   cancel-in-progress: false
@@ -18,7 +16,7 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # needed to push the updated data file
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
