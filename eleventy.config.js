@@ -24,6 +24,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/chess-puzzles.js");
   eleventyConfig.addPassthroughCopy("src/static/chess-play.js");
   eleventyConfig.addPassthroughCopy("src/static/toledo-original.js");
+  eleventyConfig.addPassthroughCopy("src/static/worldcup-live.js");
 
   eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");
