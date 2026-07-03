@@ -1008,6 +1008,14 @@ table.wc-table {
   gap: 0.5rem;
   padding: 0.15rem 0;
 }
+.wc-home-fixtures li.wc-live {
+  background: rgba(238, 51, 51, 0.07);
+  border-radius: 2px;
+}
+.wc-home-fixtures .wc-live-badge {
+  order: -1;
+  flex: 0 0 100%;
+}
 .wc-home-fixtures .wc-hf-date {
   color: var(--text-color-muted);
   width: 6rem;

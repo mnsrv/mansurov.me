@@ -80,14 +80,15 @@
   };
 
   const apply = (results) => {
-    let live = 0;
+    const liveKeys = new Set();
     document.querySelectorAll("[data-wc-home]").forEach((el) => {
       const homeName = el.dataset.wcHome;
       const awayName = el.dataset.wcAway;
-      const r = results.get([homeName, awayName].sort().join("|"));
+      const key = [homeName, awayName].sort().join("|");
+      const r = results.get(key);
       el.classList.toggle("wc-live", r?.state === "in");
       if (r?.state === "in") {
-        live++;
+        liveKeys.add(key);
         badgeFor(el).textContent = r.detail || "LIVE";
       }
       if (!r || (r.state !== "in" && r.state !== "post")) return;
@@ -111,7 +112,7 @@
         if (ag) ag.innerHTML = goalsHtml(away.score, away.pens);
       }
     });
-    return live;
+    return liveKeys.size;
   };
 
   const schedulePoll = (ms) => {
@@ -158,8 +159,10 @@
         });
       }
       liveCount = apply(results);
-      if (liveCount) setStatus("live", `${liveCount} live · ESPN connected`);
-      else setStatus("ok", "ESPN connected · updates every minute");
+      if (liveCount) {
+        const n = liveCount === 1 ? "1 match live" : `${liveCount} matches live`;
+        setStatus("live", `${n} · ESPN connected`);
+      } else setStatus("ok", "ESPN connected · updates every minute");
       schedulePoll(liveCount ? 15_000 : 60_000);
     } catch {
       clearLive();

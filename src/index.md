@@ -19,13 +19,14 @@ templateEngineOverride: liquid
   </div>
   <div class="col">
     <p>Next matches <span class="wc-tz">· Warsaw time</span></p>
+    <p id="wc-feed-status" class="wc-feed-status" hidden></p>
     <ul class="wc-home-fixtures">
       {% for m in worldcup.upcoming limit: 5 %}
-        <li>
+        <li data-wc-home="{{ m.home }}" data-wc-away="{{ m.away }}">
           <span class="wc-hf-date">{{ m.warsawDate }} {{ m.warsawTime }}</span>
           <span class="wc-hf-home">{{ m.home }}</span>
           <span class="wc-hf-flag">{{ m.homeFlag }}</span>
-          <span class="wc-hf-v">v</span>
+          <span class="wc-hf-v wc-score">v</span>
           <span class="wc-hf-flag">{{ m.awayFlag }}</span>
           <span class="wc-hf-away">{{ m.away }}</span>
         </li>
@@ -33,6 +34,7 @@ templateEngineOverride: liquid
     </ul>
   </div>
 </div>
+{% worldcupLive %}
 
 <h2><a href="/books">Books</a></h2>
 <hr />
