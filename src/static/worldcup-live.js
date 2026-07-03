@@ -58,6 +58,10 @@
     statusEl.innerHTML = `<span class="wc-feed-dot" aria-hidden="true"></span><span>${text}</span>`;
   };
 
+  const hideStatus = () => {
+    if (statusEl) statusEl.hidden = true;
+  };
+
   const whenEl = (el) => el.querySelector(".wc-when");
 
   const setWhen = (el, detail) => {
@@ -86,7 +90,6 @@
   };
 
   const apply = (results) => {
-    const liveKeys = new Set();
     document.querySelectorAll("[data-wc-home]").forEach((el) => {
       const homeName = el.dataset.wcHome;
       const awayName = el.dataset.wcAway;
@@ -95,7 +98,6 @@
       const isLive = r?.state === "in";
       el.classList.toggle("wc-live", isLive);
       if (isLive) {
-        liveKeys.add(key);
         setWhen(el, r.detail);
       } else {
         restoreWhen(el);
@@ -121,8 +123,10 @@
         if (ag) ag.innerHTML = goalsHtml(away.score, away.pens);
       }
     });
-    return liveKeys.size;
   };
+
+  const countLive = (results) =>
+    [...results.values()].filter((r) => r.state === "in").length;
 
   const schedulePoll = (ms) => {
     if (pollTimer) clearInterval(pollTimer);
@@ -132,10 +136,9 @@
   const poll = async () => {
     const known = knownTeams();
     if (!known.size) {
-      if (statusEl) statusEl.hidden = true;
+      hideStatus();
       return;
     }
-    setStatus("wait", "Checking ESPN…");
     try {
       const res = await fetch(`${ESPN}?dates=${datesParam()}`);
       if (!res.ok) throw new Error(String(res.status));
@@ -167,11 +170,12 @@
           detail,
         });
       }
-      liveCount = apply(results);
+      liveCount = countLive(results);
+      apply(results);
       if (liveCount) {
         const n = liveCount === 1 ? "1 match live" : `${liveCount} matches live`;
         setStatus("live", `${n} · ESPN connected`);
-      } else setStatus("ok", "ESPN connected · updates every minute");
+      } else hideStatus();
       schedulePoll(liveCount ? 15_000 : 60_000);
     } catch {
       clearLive();
@@ -180,8 +184,5 @@
     }
   };
 
-  if (statusEl && document.querySelectorAll("[data-wc-home]").length) {
-    setStatus("wait", "Loading live scores…");
-  }
   poll();
 })();
