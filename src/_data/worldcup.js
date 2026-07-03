@@ -1140,9 +1140,11 @@ const data = {
         "date": null,
         "home": "Runner-up D",
         "away": "Runner-up G",
-        "homeScore": null,
-        "awayScore": null,
-        "kickoff": "2026-07-03T18:00:00.000Z"
+        "homeScore": 1,
+        "awayScore": 1,
+        "kickoff": "2026-07-03T18:00:00.000Z",
+        "homePenalties": 2,
+        "awayPenalties": 4
       },
       {
         "label": "M85",
