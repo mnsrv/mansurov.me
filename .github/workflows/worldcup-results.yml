@@ -6,7 +6,7 @@ name: World Cup results
 
 on:
   schedule:
-    - cron: "0 */3 * * *" # every 3 hours (UTC)
+    - cron: "*/15 * * * *" # every 15 min; script skips when no match is live
   workflow_dispatch: {}     # allow manual runs from the Actions tab
 
 # Avoid overlapping runs racing to push.
