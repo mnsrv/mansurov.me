@@ -7,7 +7,7 @@
 {% assign hasScore = false %}
 {% if m.homeScore != null and m.awayScore != null %}{% assign hasScore = true %}{% endif %}
 <div class="wc-match"{% if hasScore == false and m.homeState == "confirmed" and m.awayState == "confirmed" %} data-wc-home="{{ m.homeTeams[0].name }}" data-wc-away="{{ m.awayTeams[0].name }}"{% endif %}>
-  <div class="wc-match-label">{{ m.label }}{% if m.warsawTime != "" %} &middot; {{ m.warsawDate }} {{ m.warsawTime }}{% elsif m.date %} &middot; {{ m.date | date: "%e %b" }}{% endif %}</div>
+  <div class="wc-match-label">{{ m.label }}{% if m.warsawTime != "" %} &middot; <span class="wc-when">{{ m.warsawDate }} {{ m.warsawTime }}</span>{% elsif m.date %} &middot; <span class="wc-when">{{ m.date | date: "%e %b" }}</span>{% endif %}</div>
   <div class="wc-match-row {% if m.homeWin %}wc-win{% endif %}">
     {% if m.homeState == "slot" %}
       <span class="wc-match-team wc-state-slot">{{ m.homeLabel }}</span>

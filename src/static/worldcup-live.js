@@ -48,6 +48,9 @@
     return String(score);
   };
 
+  const liveWhenHtml = (detail) =>
+    `<span class="wc-live-when"><span class="wc-live-dot" aria-hidden="true"></span>${detail || "LIVE"}</span>`;
+
   const setStatus = (state, text) => {
     if (!statusEl) return;
     statusEl.hidden = false;
@@ -55,22 +58,25 @@
     statusEl.innerHTML = `<span class="wc-feed-dot" aria-hidden="true"></span><span>${text}</span>`;
   };
 
-  const badgeFor = (el) => {
-    let badge = el.querySelector(".wc-live-badge");
-    if (badge) return badge;
-    badge = document.createElement("span");
-    badge.className = "wc-live-badge";
-    const score = el.querySelector(".wc-score");
-    const label = el.querySelector(".wc-match-label");
-    if (score) score.before(badge);
-    else if (label) label.prepend(badge);
-    else el.prepend(badge);
-    return badge;
+  const whenEl = (el) => el.querySelector(".wc-when");
+
+  const setWhen = (el, detail) => {
+    const when = whenEl(el);
+    if (!when) return;
+    if (!when.dataset.wcWhenDefault) when.dataset.wcWhenDefault = when.innerHTML;
+    when.innerHTML = liveWhenHtml(detail);
+  };
+
+  const restoreWhen = (el) => {
+    const when = whenEl(el);
+    if (when?.dataset.wcWhenDefault) when.innerHTML = when.dataset.wcWhenDefault;
   };
 
   const clearLive = () => {
-    document.querySelectorAll("[data-wc-home].wc-live").forEach((el) => el.classList.remove("wc-live"));
-    document.querySelectorAll(".wc-live-badge").forEach((el) => el.remove());
+    document.querySelectorAll("[data-wc-home].wc-live").forEach((el) => {
+      el.classList.remove("wc-live");
+      restoreWhen(el);
+    });
   };
 
   const scoreFor = (r, team) => {
@@ -86,10 +92,13 @@
       const awayName = el.dataset.wcAway;
       const key = [homeName, awayName].sort().join("|");
       const r = results.get(key);
-      el.classList.toggle("wc-live", r?.state === "in");
-      if (r?.state === "in") {
+      const isLive = r?.state === "in";
+      el.classList.toggle("wc-live", isLive);
+      if (isLive) {
         liveKeys.add(key);
-        badgeFor(el).textContent = r.detail || "LIVE";
+        setWhen(el, r.detail);
+      } else {
+        restoreWhen(el);
       }
       if (!r || (r.state !== "in" && r.state !== "post")) return;
 

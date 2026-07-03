@@ -796,27 +796,20 @@ table.wc-table {
 .wc-feed-err .wc-feed-dot {
   background: #e33;
 }
-.wc-live-badge {
-  flex: none;
+.wc-live-when {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0 0.35rem;
-  font-size: 0.65rem;
-  font-weight: bold;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  gap: 0.3rem;
   color: #e33;
-  border: 1px solid #e33;
-  border-radius: 999px;
-  line-height: 1.4;
+  font-weight: bold;
+  white-space: nowrap;
 }
-.wc-live-badge::before {
-  content: "";
-  width: 0.35rem;
-  height: 0.35rem;
+.wc-live-dot {
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 50%;
   background: #e33;
+  flex: none;
   animation: wc-pulse 1.2s ease-in-out infinite;
 }
 .wc-live .wc-score,
@@ -838,11 +831,7 @@ table.wc-table {
     align-items: center;
     gap: 0.25rem 0.4rem;
   }
-  .wc-fixtures.wc-sched .wc-live-badge {
-    order: 10;
-    flex: 0 0 100%;
-  }
-  .wc-fixtures.wc-sched .wc-date {
+  .wc-fixtures.wc-sched .wc-date.wc-when {
     width: auto;
     min-width: 3.5rem;
   }
@@ -1011,10 +1000,6 @@ table.wc-table {
 .wc-home-fixtures li.wc-live {
   background: rgba(238, 51, 51, 0.07);
   border-radius: 2px;
-}
-.wc-home-fixtures .wc-live-badge {
-  order: -1;
-  flex: 0 0 100%;
 }
 .wc-home-fixtures .wc-hf-date {
   color: var(--text-color-muted);

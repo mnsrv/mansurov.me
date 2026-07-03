@@ -15,7 +15,7 @@
     <ul class="wc-fixtures wc-sched">
       {% for m in day.matches %}
         <li{% if m.homeScore == null or m.awayScore == null %} data-wc-home="{{ m.home }}" data-wc-away="{{ m.away }}"{% endif %}>
-          <span class="wc-date"><span class="wc-time">{{ m.warsawTime }}</span></span>
+          <span class="wc-date wc-when"><span class="wc-time">{{ m.warsawTime }}</span></span>
           <span class="wc-home">{{ m.home }}</span>
           <span class="wc-flag">{{ m.homeFlag }}</span>
           <span class="wc-score">{% if m.homeScore != null and m.awayScore != null %}{{ m.homeScore }}&ndash;{{ m.awayScore }}{% if m.hasPenalties %} <span class="wc-sched-pens">({{ m.homePenalties }}&ndash;{{ m.awayPenalties }})</span>{% endif %}{% else %}v{% endif %}</span>

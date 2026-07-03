@@ -23,7 +23,7 @@ templateEngineOverride: liquid
     <ul class="wc-home-fixtures">
       {% for m in worldcup.upcoming limit: 5 %}
         <li data-wc-home="{{ m.home }}" data-wc-away="{{ m.away }}">
-          <span class="wc-hf-date">{{ m.warsawDate }} {{ m.warsawTime }}</span>
+          <span class="wc-hf-date wc-when">{{ m.warsawDate }} {{ m.warsawTime }}</span>
           <span class="wc-hf-home">{{ m.home }}</span>
           <span class="wc-hf-flag">{{ m.homeFlag }}</span>
           <span class="wc-hf-v wc-score">v</span>
