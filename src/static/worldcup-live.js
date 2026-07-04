@@ -15,9 +15,22 @@
   };
   const strip = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
-  const statusEl = document.getElementById("wc-feed-status");
+  let statusEl = null;
   let pollTimer = null;
   let liveCount = 0;
+
+  const statusAnchor = () =>
+    document.querySelector(".wc-tabs") || document.querySelector(".wc-home-fixtures");
+
+  const ensureStatusEl = () => {
+    if (statusEl?.isConnected) return statusEl;
+    const anchor = statusAnchor();
+    if (!anchor) return null;
+    statusEl = document.createElement("p");
+    statusEl.id = "wc-feed-status";
+    anchor.before(statusEl);
+    return statusEl;
+  };
 
   const datesParam = () => {
     const now = new Date();
@@ -52,14 +65,15 @@
     `<span class="wc-live-when"><span class="wc-live-dot" aria-hidden="true"></span>${detail || "LIVE"}</span>`;
 
   const setStatus = (state, text) => {
-    if (!statusEl) return;
-    statusEl.hidden = false;
-    statusEl.className = `wc-feed-status wc-feed-${state}`;
-    statusEl.innerHTML = `<span class="wc-feed-dot" aria-hidden="true"></span><span>${text}</span>`;
+    const el = ensureStatusEl();
+    if (!el) return;
+    el.className = `wc-feed-status wc-feed-${state}`;
+    el.innerHTML = `<span class="wc-feed-dot" aria-hidden="true"></span><span>${text}</span>`;
   };
 
   const hideStatus = () => {
-    if (statusEl) statusEl.hidden = true;
+    statusEl?.remove();
+    statusEl = null;
   };
 
   const whenEl = (el) => el.querySelector(".wc-when");
