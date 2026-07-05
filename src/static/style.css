@@ -841,23 +841,29 @@ table.wc-table {
   }
 }
 
-/* Knockout bracket — one row of rounds; top and bottom draw halves sit side by side
-   in each column. Past/future rounds are compact (flags + score); the current round
-   expands to fill remaining width — no horizontal scroll. */
+/* Knockout bracket — classic layout: top half left, final centre, bottom half right
+   (rounds mirrored toward the final). Compact past/future rounds; current round
+   expands within its half — no horizontal scroll. */
 .wc-knockout {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  gap: 0.75rem;
+  gap: 0.5rem;
   width: 100%;
   min-width: 0;
 }
-.wc-bracket {
+.wc-bracket-half {
   display: flex;
-  gap: 0.5rem;
-  align-items: stretch;
-  flex: 1;
+  flex: 1 1 0;
   min-width: 0;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+.wc-bracket-top {
+  justify-content: flex-end;
+}
+.wc-bracket-bottom {
+  justify-content: flex-start;
 }
 .wc-round {
   display: flex;
@@ -865,46 +871,21 @@ table.wc-table {
   min-width: 0;
 }
 .wc-round-compact {
-  flex: 0 0 5.75rem;
+  flex: 0 0 2.75rem;
 }
 .wc-round-current {
   flex: 1 1 auto;
-  min-width: 10rem;
+  min-width: 7rem;
   background: var(--selection-color);
   border-radius: 6px;
   padding: 0.35rem 0.4rem 0.5rem;
 }
-.wc-round-body {
-  flex: 1;
-  display: flex;
-  gap: 0.35rem;
-  min-width: 0;
-}
-.wc-draw-half {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-.wc-draw-tag {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-size: 0.6rem;
-  font-weight: bold;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-color-muted);
-  text-align: center;
-}
-.wc-round-current .wc-draw-tag {
-  font-size: 0.65rem;
-}
 .wc-final-block {
   flex: none;
+  align-self: center;
   display: flex;
   flex-direction: column;
-  border-left: 1px dashed var(--text-color-muted);
-  padding-left: 0.75rem;
+  padding: 0 0.35rem;
 }
 .wc-final-block.wc-round-compact {
   width: 3rem;
@@ -913,8 +894,7 @@ table.wc-table {
   width: 10rem;
   background: var(--selection-color);
   border-radius: 6px;
-  padding: 0.35rem 0.5rem 0.5rem 0.75rem;
-  border-left: none;
+  padding: 0.35rem 0.5rem 0.5rem;
 }
 .wc-round-title,
 .wc-round h4 {
@@ -1044,10 +1024,6 @@ table.wc-table {
 }
 .wc-match-compact .wc-match-pens {
   font-size: 0.55rem;
-}
-.wc-round-compact .wc-draw-tag {
-  font-size: 0.52rem;
-  margin-bottom: 0.15rem;
 }
 .wc-sched-pens {
   font-size: 0.8em;

@@ -1,6 +1,6 @@
 {% comment %}
-  Knockout bracket: one row of round columns, each with top and bottom draw halves
-  side by side. They only meet in the final. Param: knockout.
+  Classic knockout bracket: top half on the left, final in the centre, bottom half
+  on the right (rounds mirrored toward the final). Param: knockout.
 {% endcomment %}
 
 {% assign r32a = knockout.round32 | slice: 0, 8 %}
@@ -18,11 +18,11 @@
 {% if finalCurrent %}{% assign finalCompact = false %}{% endif %}
 
 <div class="wc-knockout">
-  <div class="wc-bracket">
-    {% include "worldcup-round.liquid", title: "Round of 32", matchesTop: r32a, matchesBottom: r32b, pair: true, roundId: "round32", currentRound: currentRound %}
-    {% include "worldcup-round.liquid", title: "Round of 16", matchesTop: r16a, matchesBottom: r16b, roundId: "round16", currentRound: currentRound %}
-    {% include "worldcup-round.liquid", title: "Quarter-finals", matchesTop: qfa, matchesBottom: qfb, roundId: "quarterfinals", currentRound: currentRound %}
-    {% include "worldcup-round.liquid", title: "Semi-finals", matchesTop: sfa, matchesBottom: sfb, roundId: "semifinals", currentRound: currentRound %}
+  <div class="wc-bracket-half wc-bracket-top">
+    {% include "worldcup-round.liquid", title: "Round of 32", matches: r32a, pair: true, roundId: "round32", currentRound: currentRound %}
+    {% include "worldcup-round.liquid", title: "Round of 16", matches: r16a, roundId: "round16", currentRound: currentRound %}
+    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfa, roundId: "quarterfinals", currentRound: currentRound %}
+    {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa, roundId: "semifinals", currentRound: currentRound %}
   </div>
 
   <section class="wc-final-block{% if finalCurrent %} wc-round-current{% else %} wc-round-compact{% endif %}">
@@ -31,4 +31,11 @@
     <h4 class="wc-third-title">Third place</h4>
     {% include "worldcup-match.liquid", m: knockout.thirdPlace, compact: finalCompact %}
   </section>
+
+  <div class="wc-bracket-half wc-bracket-bottom">
+    {% include "worldcup-round.liquid", title: "Semi-final", matches: sfb, roundId: "semifinals", currentRound: currentRound %}
+    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfb, roundId: "quarterfinals", currentRound: currentRound %}
+    {% include "worldcup-round.liquid", title: "Round of 16", matches: r16b, roundId: "round16", currentRound: currentRound %}
+    {% include "worldcup-round.liquid", title: "Round of 32", matches: r32b, pair: true, roundId: "round32", currentRound: currentRound %}
+  </div>
 </div>
