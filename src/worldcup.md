@@ -21,14 +21,10 @@ templateEngineOverride: liquid
   </div>
 
   <div class="wc-tab-panel wc-panel-matches">
-    <h2>Matches</h2>
-    <hr />
     {% include "worldcup-schedule.liquid", schedule: worldcup.schedule %}
   </div>
 
   <div class="wc-tab-panel wc-panel-standings">
-    <h2>Groups</h2>
-    <hr />
     <div class="columns wc-groups">
       {% for group in worldcup.groups %}
         <div class="col">
@@ -44,8 +40,6 @@ templateEngineOverride: liquid
   </div>
 
   <div class="wc-tab-panel wc-panel-knockout">
-    <h2>Knockout</h2>
-    <hr />
     {% include "worldcup-bracket.liquid", knockout: worldcup.knockout %}
   </div>
 </div>
