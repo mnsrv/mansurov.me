@@ -1226,7 +1226,8 @@ const data = {
         "home": "W86",
         "away": "W88",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-07T16:00:00.000Z"
       },
       {
         "label": "M96",
@@ -1234,7 +1235,8 @@ const data = {
         "home": "W85",
         "away": "W87",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-07T23:00:00.000Z"
       }
     ],
     "quarterfinals": [
@@ -1244,7 +1246,8 @@ const data = {
         "home": "W89",
         "away": "W90",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-09T20:00:00.000Z"
       },
       {
         "label": "M98",
@@ -1252,7 +1255,8 @@ const data = {
         "home": "W93",
         "away": "W94",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-10T22:00:00.000Z"
       },
       {
         "label": "M99",
@@ -1260,7 +1264,8 @@ const data = {
         "home": "W91",
         "away": "W92",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-11T21:00:00.000Z"
       },
       {
         "label": "M100",
@@ -1268,7 +1273,8 @@ const data = {
         "home": "W95",
         "away": "W96",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-12T02:00:00.000Z"
       }
     ],
     "semifinals": [
@@ -1278,7 +1284,8 @@ const data = {
         "home": "W97",
         "away": "W98",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-14T20:00:00.000Z"
       },
       {
         "label": "M102",
@@ -1286,7 +1293,8 @@ const data = {
         "home": "W99",
         "away": "W100",
         "homeScore": null,
-        "awayScore": null
+        "awayScore": null,
+        "kickoff": "2026-07-15T19:00:00.000Z"
       }
     ],
     "thirdPlace": {
@@ -1295,7 +1303,8 @@ const data = {
       "home": "TBD",
       "away": "TBD",
       "homeScore": null,
-      "awayScore": null
+      "awayScore": null,
+      "kickoff": "2026-07-18T21:00:00.000Z"
     },
     "final": {
       "label": "M104 · Final",
@@ -1303,7 +1312,8 @@ const data = {
       "home": "TBD",
       "away": "TBD",
       "homeScore": null,
-      "awayScore": null
+      "awayScore": null,
+      "kickoff": "2026-07-19T19:00:00.000Z"
     }
   }
 };
