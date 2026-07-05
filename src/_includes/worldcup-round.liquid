@@ -1,7 +1,7 @@
 {% comment %}
   One bracket round column. With pair=true the matches are grouped into pairs (the
-  two that meet next) — used for the Round of 32. Otherwise each match is spaced on
-  its own so it lines up centered between its two feeders. Params: title, matches,
+  two that meet next) — used for the Round of 32. Top and bottom draw halves sit
+  side by side in the same round column. Params: title, matchesTop, matchesBottom,
   pair, roundId, currentRound.
 {% endcomment %}
 {% assign isCurrent = false %}
@@ -10,16 +10,36 @@
 {% if isCurrent %}{% assign compact = false %}{% endif %}
 <div class="wc-round{% if isCurrent %} wc-round-current{% else %} wc-round-compact{% endif %}">
   <h4>{{ title }}</h4>
-  <div class="wc-round-matches">
-    {% if pair %}
-      {% for m in matches %}
-        {% assign rem = forloop.index0 | modulo: 2 %}
-        {% if rem == 0 %}<div class="wc-pair">{% endif %}
-          {% include "worldcup-match.liquid", m: m, compact: compact %}
-        {% if rem == 1 or forloop.last %}</div>{% endif %}
-      {% endfor %}
-    {% else %}
-      {% for m in matches %}{% include "worldcup-match.liquid", m: m, compact: compact %}{% endfor %}
-    {% endif %}
+  <div class="wc-round-body">
+    <div class="wc-draw-half">
+      <span class="wc-draw-tag">Top</span>
+      <div class="wc-round-matches">
+        {% if pair %}
+          {% for m in matchesTop %}
+            {% assign rem = forloop.index0 | modulo: 2 %}
+            {% if rem == 0 %}<div class="wc-pair">{% endif %}
+              {% include "worldcup-match.liquid", m: m, compact: compact %}
+            {% if rem == 1 or forloop.last %}</div>{% endif %}
+          {% endfor %}
+        {% else %}
+          {% for m in matchesTop %}{% include "worldcup-match.liquid", m: m, compact: compact %}{% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="wc-draw-half">
+      <span class="wc-draw-tag">Bottom</span>
+      <div class="wc-round-matches">
+        {% if pair %}
+          {% for m in matchesBottom %}
+            {% assign rem = forloop.index0 | modulo: 2 %}
+            {% if rem == 0 %}<div class="wc-pair">{% endif %}
+              {% include "worldcup-match.liquid", m: m, compact: compact %}
+            {% if rem == 1 or forloop.last %}</div>{% endif %}
+          {% endfor %}
+        {% else %}
+          {% for m in matchesBottom %}{% include "worldcup-match.liquid", m: m, compact: compact %}{% endfor %}
+        {% endif %}
+      </div>
+    </div>
   </div>
 </div>
