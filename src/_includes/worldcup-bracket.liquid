@@ -25,11 +25,9 @@
     {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa, roundId: "semifinals", currentRound: currentRound %}
   </div>
 
-  <section class="wc-final-block{% if finalCurrent %} wc-round-current{% else %} wc-round-compact{% endif %}">
-    <h4 class="wc-round-title">Final</h4>
+  <section class="wc-final-block{% if finalCurrent %} wc-round-current{% else %} wc-round-compact{% endif %}" aria-label="Final">
     {% include "worldcup-match.liquid", m: knockout.final, compact: finalCompact %}
-    <h4 class="wc-third-title">Third place</h4>
-    {% include "worldcup-match.liquid", m: knockout.thirdPlace, compact: finalCompact %}
+    {% include "worldcup-match.liquid", m: knockout.thirdPlace, compact: finalCompact, thirdPlace: true %}
   </section>
 
   <div class="wc-bracket-half wc-bracket-bottom">

@@ -871,50 +871,40 @@ table.wc-table {
   min-width: 0;
 }
 .wc-round-compact {
-  flex: 0 0 2.75rem;
+  flex: 0 0 2.5rem;
 }
 .wc-round-current {
   flex: 1 1 auto;
-  min-width: 7rem;
+  min-width: 6.5rem;
   background: var(--selection-color);
   border-radius: 6px;
-  padding: 0.35rem 0.4rem 0.5rem;
+  padding: 0.3rem 0.35rem 0.4rem;
 }
 .wc-final-block {
   flex: none;
   align-self: center;
   display: flex;
   flex-direction: column;
-  padding: 0 0.35rem;
+  gap: 0.35rem;
+  padding: 0 0.25rem;
 }
 .wc-final-block.wc-round-compact {
-  width: 3rem;
+  width: 2.5rem;
 }
 .wc-final-block.wc-round-current {
-  width: 10rem;
+  width: 8.5rem;
   background: var(--selection-color);
   border-radius: 6px;
-  padding: 0.35rem 0.5rem 0.5rem;
+  padding: 0.35rem 0.45rem 0.45rem;
 }
-.wc-round-title,
-.wc-round h4 {
-  margin: 0 0 0.45rem;
-  font-size: 0.85rem;
-  font-weight: normal;
-  color: var(--text-color-muted);
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.wc-match-third {
+  margin-top: 0.15rem;
+  padding-top: 0.15rem;
+  border-top: 1px dashed rgba(183, 181, 172, 0.75);
 }
-.wc-round-current .wc-round-title,
-.wc-round-current h4 {
-  font-weight: bold;
-  color: inherit;
-}
-.wc-round-compact h4,
-.wc-final-block.wc-round-compact .wc-round-title {
-  font-size: 0.62rem;
+.wc-final-block.wc-round-compact .wc-match-third {
+  margin-top: 0.1rem;
+  padding-top: 0.1rem;
 }
 /* Distribute each round's pairs so later rounds line up between their feeders */
 .wc-round-matches {
@@ -933,17 +923,6 @@ table.wc-table {
 }
 .wc-round-matches .wc-match {
   margin-bottom: 0;
-}
-.wc-third-title {
-  margin: 0.75rem 0 0.45rem;
-  font-size: 0.75rem;
-  font-weight: normal;
-  color: var(--text-color-muted);
-  text-align: center;
-}
-.wc-final-block.wc-round-current .wc-third-title {
-  font-weight: bold;
-  color: inherit;
 }
 .wc-match {
   border: 1px solid var(--text-color-muted);
@@ -1024,6 +1003,52 @@ table.wc-table {
 }
 .wc-match-compact .wc-match-pens {
   font-size: 0.55rem;
+}
+@media (max-width: 720px) {
+  .wc-knockout {
+    gap: 0.25rem;
+  }
+  .wc-bracket-half {
+    gap: 0.2rem;
+  }
+  .wc-round-compact {
+    flex-basis: 2rem;
+  }
+  .wc-round-current {
+    min-width: 4.25rem;
+    padding: 0.2rem 0.25rem 0.3rem;
+    border-radius: 4px;
+  }
+  .wc-final-block.wc-round-compact {
+    width: 2rem;
+  }
+  .wc-final-block.wc-round-current {
+    width: 5.5rem;
+    padding: 0.25rem 0.3rem 0.35rem;
+  }
+  .wc-pair {
+    gap: 0.25rem;
+    margin: 0.35rem 0;
+  }
+  .wc-knockout .wc-match-label {
+    display: none;
+  }
+  .wc-knockout .wc-team-name {
+    display: none;
+  }
+  .wc-knockout .wc-match {
+    font-size: 0.78rem;
+  }
+  .wc-knockout .wc-match-compact {
+    font-size: 0.62rem;
+  }
+  .wc-knockout .wc-match-compact .wc-match-goals {
+    min-width: 0.65rem;
+    font-size: 0.58rem;
+  }
+  .wc-knockout .wc-match-compact .wc-match-pens {
+    display: none;
+  }
 }
 .wc-sched-pens {
   font-size: 0.8em;

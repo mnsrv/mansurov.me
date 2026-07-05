@@ -7,8 +7,7 @@
 {% if roundId == currentRound %}{% assign isCurrent = true %}{% endif %}
 {% assign compact = true %}
 {% if isCurrent %}{% assign compact = false %}{% endif %}
-<div class="wc-round{% if isCurrent %} wc-round-current{% else %} wc-round-compact{% endif %}">
-  <h4>{{ title }}</h4>
+<div class="wc-round{% if isCurrent %} wc-round-current{% else %} wc-round-compact{% endif %}" aria-label="{{ title }}">
   <div class="wc-round-matches">
     {% if pair %}
       {% for m in matches %}
