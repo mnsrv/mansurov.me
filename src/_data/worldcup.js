@@ -1638,6 +1638,14 @@ export default function () {
     thirdPlace: resolveMatch(data.knockout.thirdPlace),
     final: resolveMatch(data.knockout.final),
   };
+  const koRoundOrder = [
+    ["round32", knockout.round32],
+    ["round16", knockout.round16],
+    ["quarterfinals", knockout.quarterfinals],
+    ["semifinals", knockout.semifinals],
+    ["finalstage", [knockout.thirdPlace, knockout.final]],
+  ];
+  knockout.currentRound = koRoundOrder.find(([, ms]) => ms.some((m) => !m.decided))?.[0] || "finalstage";
 
   // Next matches (home page): not-yet-played group + knockout matches, by time.
   const koAll = [
