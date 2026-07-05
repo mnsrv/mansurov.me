@@ -3,18 +3,24 @@
   (several possible teams: flags only, names on hover), or an unresolved slot label.
   Regulation scores are shown in the goals column; penalty shootout totals appear
   in parentheses when the match was decided on pens.
+  When compact=true, only flags (or slot label) and scores are shown — for past/future
+  rounds while the current round gets the full card.
 {% endcomment %}
 {% assign hasScore = false %}
 {% if m.homeScore != null and m.awayScore != null %}{% assign hasScore = true %}{% endif %}
-<div class="wc-match"{% if hasScore == false and m.homeState == "confirmed" and m.awayState == "confirmed" %} data-wc-home="{{ m.homeTeams[0].name }}" data-wc-away="{{ m.awayTeams[0].name }}"{% endif %}>
-  <div class="wc-match-label">{{ m.label }}{% if m.warsawTime != "" %} &middot; <span class="wc-when">{{ m.warsawDate }} {{ m.warsawTime }}</span>{% elsif m.date %} &middot; <span class="wc-when">{{ m.date | date: "%e %b" }}</span>{% endif %}</div>
+<div class="wc-match{% if compact %} wc-match-compact{% endif %}{% if thirdPlace %} wc-match-third{% endif %}"{% if hasScore == false and m.homeState == "confirmed" and m.awayState == "confirmed" %} data-wc-home="{{ m.homeTeams[0].name }}" data-wc-away="{{ m.awayTeams[0].name }}"{% endif %}>
+  {% unless compact %}
+  {% if m.warsawTime != "" or m.date %}
+  <div class="wc-match-label"><span class="wc-when">{% if m.warsawTime != "" %}{{ m.warsawDate }} {{ m.warsawTime }}{% else %}{{ m.date | date: "%e %b" }}{% endif %}</span></div>
+  {% endif %}
+  {% endunless %}
   <div class="wc-match-row {% if m.homeWin %}wc-win{% endif %}">
     {% if m.homeState == "slot" %}
       <span class="wc-match-team wc-state-slot">{{ m.homeLabel }}</span>
     {% elsif m.homeState == "projected" %}
       <span class="wc-match-team wc-state-projected" title="{{ m.homeTeams | map: 'name' | join: ' / ' }}">{% for c in m.homeTeams %}{{ c.flag }}{% unless forloop.last %} {% endunless %}{% endfor %}</span>
     {% else %}
-      <span class="wc-match-team">{% if m.homeTeams[0].flag != "" %}{{ m.homeTeams[0].flag }} {% endif %}{{ m.homeTeams[0].name }}</span>
+      <span class="wc-match-team">{% if m.homeTeams[0].flag != "" %}{{ m.homeTeams[0].flag }}{% unless compact %} {% endunless %}{% endif %}{% unless compact %}<span class="wc-team-name">{{ m.homeTeams[0].name }}</span>{% endunless %}</span>
     {% endif %}
     <span class="wc-match-goals">{% if hasScore %}{{ m.homeScore }}{% if m.hasPenalties %}<span class="wc-match-pens">({{ m.homePenalties }})</span>{% endif %}{% endif %}</span>
   </div>
@@ -24,7 +30,7 @@
     {% elsif m.awayState == "projected" %}
       <span class="wc-match-team wc-state-projected" title="{{ m.awayTeams | map: 'name' | join: ' / ' }}">{% for c in m.awayTeams %}{{ c.flag }}{% unless forloop.last %} {% endunless %}{% endfor %}</span>
     {% else %}
-      <span class="wc-match-team">{% if m.awayTeams[0].flag != "" %}{{ m.awayTeams[0].flag }} {% endif %}{{ m.awayTeams[0].name }}</span>
+      <span class="wc-match-team">{% if m.awayTeams[0].flag != "" %}{{ m.awayTeams[0].flag }}{% unless compact %} {% endunless %}{% endif %}{% unless compact %}<span class="wc-team-name">{{ m.awayTeams[0].name }}</span>{% endunless %}</span>
     {% endif %}
     <span class="wc-match-goals">{% if hasScore %}{{ m.awayScore }}{% if m.hasPenalties %}<span class="wc-match-pens">({{ m.awayPenalties }})</span>{% endif %}{% endif %}</span>
   </div>
