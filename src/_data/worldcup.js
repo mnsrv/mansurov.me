@@ -1198,8 +1198,8 @@ const data = {
         "date": null,
         "home": "W81",
         "away": "W82",
-        "homeScore": null,
-        "awayScore": null,
+        "homeScore": 1,
+        "awayScore": 4,
         "kickoff": "2026-07-07T00:00:00.000Z"
       },
       {
@@ -1236,7 +1236,7 @@ const data = {
         "away": "W87",
         "homeScore": null,
         "awayScore": null,
-        "kickoff": "2026-07-07T23:00:00.000Z"
+        "kickoff": "2026-07-07T20:00:00.000Z"
       }
     ],
     "quarterfinals": [
