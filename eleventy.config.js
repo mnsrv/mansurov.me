@@ -10,6 +10,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/fonts");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/files");
+  eleventyConfig.addPassthroughCopy({ "src/static/_redirects": "/_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/static/favicon.ico": "/favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/static/favicon.svg": "/favicon.svg" });
 

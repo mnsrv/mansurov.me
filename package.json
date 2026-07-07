@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve",
-    "results": "node scripts/fetch-wc-results.mjs"
+    "results": "node scripts/fetch-wc-results.mjs",
+    "deploy": "npm run build && npx wrangler deploy"
   },
   "author": "Sasha Mansurov",
   "license": "MIT",
