@@ -846,7 +846,7 @@ table.wc-table {
 .wc-knockout {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   overflow-x: auto;
   padding-bottom: 1rem;
@@ -859,7 +859,7 @@ table.wc-table {
 }
 .wc-final-block {
   flex: none;
-  align-self: center;
+  align-self: stretch;
   width: 8.5rem;
   display: flex;
   flex-direction: column;
@@ -870,8 +870,14 @@ table.wc-table {
   font-weight: normal;
   color: var(--text-color-muted);
 }
+.wc-final-slots {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .wc-final-slot {
-  margin-top: 0.75rem;
+  margin-top: 0;
 }
 .wc-final-subheader {
   margin: 0 0 0.35rem;
@@ -880,7 +886,7 @@ table.wc-table {
   color: var(--text-color-muted);
 }
 .wc-third-slot {
-  margin-top: 1.8rem;
+  margin-top: 2rem;
 }
 .wc-bracket {
   display: flex;
@@ -935,7 +941,13 @@ table.wc-table {
   padding: 0.2rem 0.4rem;
 }
 .wc-match-row.wc-win {
-  font-weight: bold;
+  font-weight: normal;
+}
+.wc-match.wc-played .wc-match-row {
+  color: var(--text-color-muted);
+}
+.wc-match.wc-played .wc-match-row.wc-win {
+  color: var(--text-color);
 }
 .wc-match-team {
   flex: 1;

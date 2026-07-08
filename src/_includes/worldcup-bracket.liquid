@@ -36,13 +36,15 @@
 
   <section class="wc-final-block">
     <h4 class="wc-final-caption">Final</h4>
-    <div class="wc-final-slot">
-      <h5 class="wc-final-subheader">Final</h5>
-      {% include "worldcup-match.liquid", m: knockout.final %}
-    </div>
-    <div class="wc-final-slot wc-third-slot">
-      <h5 class="wc-final-subheader">Third place</h5>
-      {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
+    <div class="wc-final-slots">
+      <div class="wc-final-slot">
+        <h5 class="wc-final-subheader">Final</h5>
+        {% include "worldcup-match.liquid", m: knockout.final %}
+      </div>
+      <div class="wc-final-slot wc-third-slot">
+        <h5 class="wc-final-subheader">Third place</h5>
+        {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
+      </div>
     </div>
   </section>
 </div>
