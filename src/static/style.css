@@ -849,7 +849,8 @@ table.wc-table {
   align-items: flex-start;
   gap: 1rem;
   overflow-x: auto;
-  padding-bottom: 1rem;
+  padding: 0 0.5rem 1rem;
+  box-sizing: border-box;
 }
 .wc-half {
   flex: none;
@@ -1070,6 +1071,9 @@ table.wc-table {
 #wc-tab-matches:checked ~ .wc-panel-matches,
 #wc-tab-knockout:checked ~ .wc-panel-knockout {
   display: block;
+}
+.wc-panel-knockout {
+  margin: 0 -0.5rem;
 }
 #wc-tab-standings:checked ~ .wc-tab-bar label[for="wc-tab-standings"],
 #wc-tab-matches:checked ~ .wc-tab-bar label[for="wc-tab-matches"],
