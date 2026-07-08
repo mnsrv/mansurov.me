@@ -865,9 +865,7 @@ table.wc-table {
 .wc-final-block {
   flex: none;
   align-self: center;
-  width: 9.5rem;
-  border-left: 1px dashed var(--text-color-muted);
-  padding-left: 1rem;
+  width: 8.5rem;
 }
 .wc-bracket {
   display: flex;
