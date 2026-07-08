@@ -660,7 +660,17 @@ cg-board {
 
 /* ---------- World Cup 2026 ---------- */
 .wc-groups {
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
+  gap: 1rem;
+}
+.wc-groups .col {
+  width: calc(50% - 0.5rem);
+  padding: 0;
+}
+@media (max-width: 720px) {
+  .wc-groups .col {
+    width: 100%;
+  }
 }
 .wc-section-heading {
   margin: 0 0 0.5rem;
