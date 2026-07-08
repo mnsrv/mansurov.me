@@ -857,15 +857,30 @@ table.wc-table {
   flex-direction: column;
   gap: 1rem;
 }
-.wc-half-label {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-}
 .wc-final-block {
   flex: none;
   align-self: center;
   width: 8.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.wc-final-caption {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--text-color-muted);
+}
+.wc-final-slot {
+  margin-top: 0.75rem;
+}
+.wc-final-subheader {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--text-color-muted);
+}
+.wc-third-slot {
+  margin-top: 1.8rem;
 }
 .wc-bracket {
   display: flex;
@@ -898,12 +913,6 @@ table.wc-table {
 }
 .wc-round h4 {
   margin: 0 0 0.5rem;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: var(--text-color-muted);
-}
-.wc-third-title {
-  margin: 1rem 0 0.5rem;
   font-size: 0.9rem;
   font-weight: normal;
   color: var(--text-color-muted);
