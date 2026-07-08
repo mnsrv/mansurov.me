@@ -1,13 +1,10 @@
 {% comment %}
   One bracket round column. With pair=true the matches are grouped into pairs (the
   two that meet next) — used for the Round of 32. Otherwise each match is spaced on
-  its own so it lines up centered between its two feeders.
-  Params: title, matches, pair, showTitle (optional; defaults to true).
+  its own so it lines up centered between its two feeders. Params: title, matches, pair.
 {% endcomment %}
 <div class="wc-round">
-  {% assign shouldShowTitle = showTitle %}
-  {% if shouldShowTitle == nil %}{% assign shouldShowTitle = true %}{% endif %}
-  {% if shouldShowTitle %}<h4>{{ title }}</h4>{% endif %}
+  <h4>{{ title }}</h4>
   <div class="wc-round-matches">
     {% if pair %}
       {% for m in matches %}

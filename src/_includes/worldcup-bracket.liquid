@@ -1,44 +1,26 @@
 {% comment %}
-  Knockout bracket, split into the two halves of the draw (they only meet in the
-  final). Top half = Round of 32 matches 1–8 → Semi-final 1; bottom half =
-  matches 9–16 → Semi-final 2. Param: knockout.
+  Knockout bracket in a single horizontal flow: Round of 32 → Round of 16 →
+  Quarter-finals → Semi-final → Final/Third place.
 {% endcomment %}
-
-{% assign r32a = knockout.round32 | slice: 0, 8 %}
-{% assign r32b = knockout.round32 | slice: 8, 8 %}
-{% assign r16a = knockout.round16 | slice: 0, 4 %}
-{% assign r16b = knockout.round16 | slice: 4, 4 %}
-{% assign qfa = knockout.quarterfinals | slice: 0, 2 %}
-{% assign qfb = knockout.quarterfinals | slice: 2, 2 %}
-{% assign sfa = knockout.semifinals | slice: 0, 1 %}
-{% assign sfb = knockout.semifinals | slice: 1, 1 %}
 
 <div class="wc-knockout wc-bracket">
   <section class="wc-half">
-    {% include "worldcup-round.liquid", title: "Round of 32", matches: r32a, pair: true %}
-    {% include "worldcup-round.liquid", title: "Round of 16", matches: r16a %}
-    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfa %}
-    {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa %}
-  </section>
-
-  <section class="wc-half">
-    {% include "worldcup-round.liquid", title: "Round of 32", matches: r32b, pair: true, showTitle: false %}
-    {% include "worldcup-round.liquid", title: "Round of 16", matches: r16b, showTitle: false %}
-    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfb, showTitle: false %}
-    {% include "worldcup-round.liquid", title: "Semi-final", matches: sfb, showTitle: false %}
-  </section>
-
-  <section class="wc-final-block">
-    <h4 class="wc-final-caption">Final</h4>
-    <div class="wc-final-slots">
-      <div class="wc-final-slot">
-        <h5 class="wc-final-subheader">Final</h5>
-        {% include "worldcup-match.liquid", m: knockout.final %}
+    {% include "worldcup-round.liquid", title: "Round of 32", matches: knockout.round32, pair: true %}
+    {% include "worldcup-round.liquid", title: "Round of 16", matches: knockout.round16 %}
+    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: knockout.quarterfinals %}
+    {% include "worldcup-round.liquid", title: "Semi-final", matches: knockout.semifinals %}
+    <section class="wc-final-block wc-round">
+      <h4 class="wc-final-caption">Final</h4>
+      <div class="wc-final-slots">
+        <div class="wc-final-slot">
+          <h5 class="wc-final-subheader">Final</h5>
+          {% include "worldcup-match.liquid", m: knockout.final %}
+        </div>
+        <div class="wc-final-slot wc-third-slot">
+          <h5 class="wc-final-subheader">Third place</h5>
+          {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
+        </div>
       </div>
-      <div class="wc-final-slot wc-third-slot">
-        <h5 class="wc-final-subheader">Third place</h5>
-        {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
-      </div>
-    </div>
+    </section>
   </section>
 </div>
