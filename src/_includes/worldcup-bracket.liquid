@@ -13,26 +13,20 @@
 {% assign sfa = knockout.semifinals | slice: 0, 1 %}
 {% assign sfb = knockout.semifinals | slice: 1, 1 %}
 
-<div class="wc-knockout">
-  <div class="wc-halves">
-    <section class="wc-half">
-      <div class="wc-bracket">
-        {% include "worldcup-round.liquid", title: "Round of 32", matches: r32a, pair: true %}
-        {% include "worldcup-round.liquid", title: "Round of 16", matches: r16a %}
-        {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfa %}
-        {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa %}
-      </div>
-    </section>
+<div class="wc-knockout wc-bracket">
+  <section class="wc-half">
+    {% include "worldcup-round.liquid", title: "Round of 32", matches: r32a, pair: true %}
+    {% include "worldcup-round.liquid", title: "Round of 16", matches: r16a %}
+    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfa %}
+    {% include "worldcup-round.liquid", title: "Semi-final", matches: sfa %}
+  </section>
 
-    <section class="wc-half">
-      <div class="wc-bracket">
-        {% include "worldcup-round.liquid", title: "Round of 32", matches: r32b, pair: true, showTitle: false %}
-        {% include "worldcup-round.liquid", title: "Round of 16", matches: r16b, showTitle: false %}
-        {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfb, showTitle: false %}
-        {% include "worldcup-round.liquid", title: "Semi-final", matches: sfb, showTitle: false %}
-      </div>
-    </section>
-  </div>
+  <section class="wc-half">
+    {% include "worldcup-round.liquid", title: "Round of 32", matches: r32b, pair: true, showTitle: false %}
+    {% include "worldcup-round.liquid", title: "Round of 16", matches: r16b, showTitle: false %}
+    {% include "worldcup-round.liquid", title: "Quarter-finals", matches: qfb, showTitle: false %}
+    {% include "worldcup-round.liquid", title: "Semi-final", matches: sfb, showTitle: false %}
+  </section>
 
   <section class="wc-final-block">
     <h4 class="wc-final-caption">Final</h4>

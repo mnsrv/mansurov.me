@@ -851,18 +851,19 @@ table.wc-table {
   overflow-x: auto;
   padding-bottom: 1rem;
 }
-.wc-halves {
+.wc-half {
   flex: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
+  align-items: stretch;
 }
 .wc-final-block {
-  flex: none;
+  flex: 1;
   align-self: stretch;
-  width: 8.5rem;
   display: flex;
   flex-direction: column;
+  min-width: 8.5rem;
 }
 .wc-final-caption {
   margin: 0 0 0.5rem;
@@ -872,12 +873,16 @@ table.wc-table {
 }
 .wc-final-slots {
   flex: 1;
+  position: relative;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .wc-final-slot {
+  position: relative;
   margin-top: 0;
+  width: 100%;
+  max-width: 8.5rem;
 }
 .wc-final-subheader {
   margin: 0 0 0.35rem;
@@ -886,7 +891,10 @@ table.wc-table {
   color: var(--text-color-muted);
 }
 .wc-third-slot {
-  margin-top: 2rem;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .wc-bracket {
   display: flex;
