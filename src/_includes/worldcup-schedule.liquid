@@ -9,7 +9,7 @@
     <hr class="wc-sched-sep" />
     {% assign shownSep = true %}
   {% endif %}
-  <h3 class="wc-sched-phase {% if phase.past %}wc-sched-past{% endif %}">{{ phase.name }}</h3>
+  <h3 class="wc-section-heading wc-sched-phase {% if phase.past %}wc-sched-past{% endif %}">{{ phase.name }}</h3>
   {% for day in phase.days %}
     <h4 class="wc-sched-day {% if phase.past %}wc-sched-past{% endif %}">{{ day.label }}</h4>
     <ul class="wc-fixtures wc-sched">

@@ -662,8 +662,11 @@ cg-board {
 .wc-groups {
   margin-bottom: 1rem;
 }
-.wc-group h3 {
-  margin: 0.25rem 0 0.5rem;
+.wc-section-heading {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--text-color-muted);
 }
 table.wc-table {
   table-layout: fixed;
@@ -911,12 +914,6 @@ table.wc-table {
 .wc-round-matches .wc-match {
   margin-bottom: 0;
 }
-.wc-round h4 {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: var(--text-color-muted);
-}
 .wc-match {
   border: 1px solid var(--text-color-muted);
   background: transparent;
@@ -1084,9 +1081,10 @@ table.wc-table {
 
 /* World Cup — schedule (Matches tab) */
 .wc-sched-phase {
-  margin: 1.5rem 0 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
+  margin-top: 1rem;
+}
+.wc-sched-phase:first-of-type {
+  margin-top: 0;
 }
 .wc-sched-day {
   margin: 0.75rem 0 0.25rem;
