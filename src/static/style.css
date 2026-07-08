@@ -859,30 +859,15 @@ table.wc-table {
   align-items: stretch;
 }
 .wc-final-block {
-  flex: 1;
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  min-width: 8.5rem;
-}
-.wc-final-caption {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: var(--text-color-muted);
-}
-.wc-final-slots {
-  flex: 1;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .wc-final-slot {
-  position: relative;
-  margin-top: 0;
+  margin: 0;
   width: 100%;
-  max-width: 8.5rem;
+}
+.wc-final-matches {
+  position: relative;
+  justify-content: center;
 }
 .wc-final-subheader {
   margin: 0 0 0.35rem;
@@ -893,8 +878,8 @@ table.wc-table {
 .wc-third-slot {
   position: absolute;
   top: 58%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
 }
 .wc-bracket {
   display: flex;

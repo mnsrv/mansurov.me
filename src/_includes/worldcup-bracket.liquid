@@ -9,9 +9,9 @@
     {% include "worldcup-round.liquid", title: "Round of 16", matches: knockout.round16 %}
     {% include "worldcup-round.liquid", title: "Quarter-finals", matches: knockout.quarterfinals %}
     {% include "worldcup-round.liquid", title: "Semi-final", matches: knockout.semifinals %}
-    <section class="wc-final-block wc-round">
-      <h4 class="wc-final-caption">Final</h4>
-      <div class="wc-final-slots">
+    <div class="wc-final-block wc-round">
+      <h4>Final</h4>
+      <div class="wc-round-matches wc-final-matches">
         <div class="wc-final-slot">
           <h5 class="wc-final-subheader">Final</h5>
           {% include "worldcup-match.liquid", m: knockout.final %}
@@ -21,6 +21,6 @@
           {% include "worldcup-match.liquid", m: knockout.thirdPlace %}
         </div>
       </div>
-    </section>
+    </div>
   </section>
 </div>
