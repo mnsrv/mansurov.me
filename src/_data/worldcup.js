@@ -1276,7 +1276,7 @@ const data = {
         "away": "W96",
         "homeScore": null,
         "awayScore": null,
-        "kickoff": "2026-07-12T02:00:00.000Z"
+        "kickoff": "2026-07-12T01:00:00.000Z"
       }
     ],
     "semifinals": [
