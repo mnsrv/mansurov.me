@@ -1287,7 +1287,7 @@ const data = {
         "away": "W98",
         "homeScore": null,
         "awayScore": null,
-        "kickoff": "2026-07-14T20:00:00.000Z"
+        "kickoff": "2026-07-14T19:00:00.000Z"
       },
       {
         "label": "M102",
