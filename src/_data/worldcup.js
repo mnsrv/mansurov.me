@@ -1302,8 +1302,8 @@ const data = {
     "thirdPlace": {
       "label": "M103 · Third place",
       "date": "2026-07-18",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "L101",
+      "away": "L102",
       "homeScore": null,
       "awayScore": null,
       "kickoff": "2026-07-18T21:00:00.000Z"
@@ -1311,8 +1311,8 @@ const data = {
     "final": {
       "label": "M104 · Final",
       "date": "2026-07-19",
-      "home": "TBD",
-      "away": "TBD",
+      "home": "W101",
+      "away": "W102",
       "homeScore": null,
       "awayScore": null,
       "kickoff": "2026-07-19T19:00:00.000Z"
