@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Troy: Our Greatest Story Retold',
+    author: 'Stephen Fry',
+    rating: 5,
+    date: '2026-07-18',
+    image: 'bs-troy.jpg',
+    cover: 'bc-troy.jpeg',
+    height: '7.8',
+  },
+  {
     title: 'Белые ночи',
     author: 'Фёдор Достоевский',
     rating: 1,
