@@ -9,32 +9,6 @@ layout: 'base.liquid'
 templateEngineOverride: liquid
 ---
 
-<h2><a href="/worldcup">World Cup 2026</a></h2>
-<hr />
-<div class="columns mb-3">
-  <div class="col">
-    <p>🇨🇦 🇲🇽 🇺🇸 48 teams · 11 June – 19 July</p>
-    <p>Groups, standings and the full knockout bracket.</p>
-    <p><a href="/worldcup" class="btn bg-blue white">World Cup ></a></p>
-  </div>
-  <div class="col">
-    <p>Next matches <span class="wc-tz">· Warsaw time</span></p>
-    <ul class="wc-home-fixtures">
-      {% for m in worldcup.upcoming limit: 5 %}
-        <li data-wc-home="{{ m.home }}" data-wc-away="{{ m.away }}">
-          <span class="wc-hf-date wc-when">{{ m.warsawDate }} {{ m.warsawTime }}</span>
-          <span class="wc-hf-home">{{ m.home }}</span>
-          <span class="wc-hf-flag">{{ m.homeFlag }}</span>
-          <span class="wc-hf-v wc-score">v</span>
-          <span class="wc-hf-flag">{{ m.awayFlag }}</span>
-          <span class="wc-hf-away">{{ m.away }}</span>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-{% worldcupLive %}
-
 <h2><a href="/books">Books</a></h2>
 <hr />
 <div class="columns mb-3">
