@@ -9,7 +9,11 @@ layout: 'base.liquid'
 templateEngineOverride: liquid
 ---
 
-<h2><a href="/books">Books</a></h2>
+<h2>Now</h2>
+<hr />
+<p class="mb-4">Building personal movie explorer – <a href="https://moviecast.mansurov.me" target="_blank" class="icon-link" data-link="moviecast">MovieCast</a></p>
+
+<!-- <h2><a href="/books">Books</a></h2>
 <hr />
 <div class="columns mb-3">
   {% for book in books.list limit: 4 %}
@@ -29,7 +33,7 @@ templateEngineOverride: liquid
       {% endif %}
     </div>
   {% endfor %}
-</div>
+</div> -->
 
 <!-- <h2><a href="https://letterboxd.com/mansurov/" target="_blank">Letterboxd</a></h2>
 <hr />
@@ -45,7 +49,7 @@ templateEngineOverride: liquid
   {% endfor %}
 </div> -->
 
-<h2>Last Added Wishes</h2>
+<!-- <h2>Last Added Wishes</h2>
 <hr />
 <div class="columns mb-3">
   <div class="col-3">
@@ -62,4 +66,4 @@ templateEngineOverride: liquid
       <span>{{wish.brand}} {{wish.title}}</span>
     </div>
   {% endfor %}
-</div>
+</div> -->

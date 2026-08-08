@@ -1,11 +1,7 @@
 ---
 title: World Cup 2026
 subtitle: 🇨🇦 🇲🇽 🇺🇸 &middot; 11 June – 19 July
-eleventyNavigation:
-  key: world cup
-  title: world cup
-  order: 3
-layout: "base.liquid"
+layout: 'base.liquid'
 templateEngineOverride: liquid
 ---
 
@@ -37,6 +33,7 @@ templateEngineOverride: liquid
     <hr />
     <p><i>The eight best third-placed teams advance to the round of 32, ranked by points, then goal difference, then goals scored. Provisional until all groups finish.</i></p>
     {% include "worldcup-thirds.liquid", thirds: worldcup.thirds %}
+
   </div>
 
   <div class="wc-tab-panel wc-panel-knockout">
