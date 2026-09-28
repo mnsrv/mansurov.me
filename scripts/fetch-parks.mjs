@@ -12,6 +12,7 @@ const GEO_FILE = "src/static/parks-geo.json";
 const SIMPLIFY_M = 5; // outline precision in meters
 const WARSAW = 336075; // OSM relation id of Warszawa
 const MIN_AREA_HA = 2;
+const MIN_SQUARE_HA = 1; // skwery are small, 1 ha keeps the proper green ones
 const EXCLUDE = new Set([
   "way/883956400", // Cmentarz Mauzoleum Żołnierzy Radzieckich
 ]); // OSM ids to skip
@@ -182,7 +183,7 @@ const features = elements
     return {
       id: `${el.type}/${el.id}`,
       name: INCLUDE[`${el.type}/${el.id}`] ?? el.tags.name,
-      type: typeOf(el.tags),
+      type: /^Skwer\b/.test(el.tags.name) ? "square" : typeOf(el.tags),
       area,
       rings: outer,
       center: centroid(outer),
@@ -212,7 +213,7 @@ const personal = new Map(previous.map((p) => [p.id, { favorite: p.favorite, visi
 
 const geo = {};
 const parks = merged
-  .filter((m) => m.area >= MIN_AREA_HA * 10000)
+  .filter((m) => m.area >= (m.type === "square" ? MIN_SQUARE_HA : MIN_AREA_HA) * 10000)
   .map((m) => {
     const id = m.ids.find((i) => personal.has(i)) ?? m.ids[0];
     geo[id] = m.rings
@@ -240,4 +241,4 @@ if (lost.length) console.warn("Marked parks no longer found, check manually:", l
 // One park per line, easy to edit by hand.
 fs.writeFileSync(DATA_FILE, "[\n" + parks.map((p) => "  " + JSON.stringify(p)).join(",\n") + "\n]\n");
 fs.writeFileSync(GEO_FILE, JSON.stringify(geo));
-console.log(`${parks.length} parks/forests saved to ${DATA_FILE} (${merged.length - parks.length} smaller than ${MIN_AREA_HA} ha skipped)`);
+console.log(`${parks.length} parks/forests saved to ${DATA_FILE} (${merged.length - parks.length} too small skipped)`);

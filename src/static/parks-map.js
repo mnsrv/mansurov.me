@@ -49,13 +49,14 @@
     layers[park.id] = { layer, park };
   }
 
-  // "Only not visited" hides visited parks on the map too, favorites always stay.
-  document.getElementById("parks-unvisited").addEventListener("change", (e) => {
+  // Same filters as the list (defined in parks.md).
+  const applyFilters = () => {
     for (const { layer, park } of Object.values(layers)) {
-      if (!park.visited || park.favorite) continue;
-      e.target.checked ? layer.remove() : layer.addTo(map);
+      window.parksShown(park) ? layer.addTo(map) : layer.remove();
     }
-  });
+  };
+  document.addEventListener("parks-filter", applyFilters);
+  applyFilters();
 
   // Clicking a park in the list shows it on the map.
   document.querySelectorAll("[data-park]").forEach((link) => {

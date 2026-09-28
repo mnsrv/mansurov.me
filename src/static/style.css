@@ -1184,8 +1184,19 @@ table.wc-table {
   font-size: 0.85rem;
   cursor: pointer;
 }
-.parks-only-unvisited .parks:not(.parks-favorites) .park-visited {
-  display: none;
+.parks-reset {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--action-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.parks-filters .parks-toggle {
+  margin: 0 1rem 0 0;
+  white-space: nowrap;
 }
 .parks-map {
   height: 60vh;

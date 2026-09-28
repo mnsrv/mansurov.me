@@ -1,4 +1,4 @@
-<li class="park{% if park.visited %} park-visited{% endif %}">
+<li class="park{% if park.visited %} park-visited{% endif %}" data-type="{{ park.type }}">
   <span class="park-mark">{% if park.visited %}✓{% else %}○{% endif %}</span>
   <a href="#map" data-park="{{ park.id }}">{{ park.name }}</a>
   {% if park.favorite %}★{% endif %}

@@ -22,6 +22,18 @@ templateEngineOverride: liquid
   <label class="parks-toggle"><input type="checkbox" id="parks-unvisited" /> only not visited</label>
 </p>
 
+<p class="parks-filters mb-3">
+  {% assign types = "park,square,forest,reserve,fort" | split: "," %}
+  {% for type in types %}
+    {% assign ofType = parks | where: "type", type %}
+    {% assign ofTypeVisited = ofType | where: "visited" %}
+    {% if ofType.size > 0 %}
+      <label class="parks-toggle"><input type="checkbox" name="parks-type" value="{{ type }}" checked /> {{ type }}s <span class="parks-meta">{{ ofTypeVisited.size }} / {{ ofType.size }}</span></label>
+    {% endif %}
+  {% endfor %}
+  <button type="button" id="parks-reset" class="parks-reset">reset</button>
+</p>
+
 {% if favorites.size > 0 %}
   <h2>Favorites</h2>
   <hr />
@@ -54,9 +66,31 @@ templateEngineOverride: liquid
 
 <script>
   window.PARKS = {{ parks | json }};
-  document.getElementById("parks-unvisited").addEventListener("change", (e) => {
-    document.body.classList.toggle("parks-only-unvisited", e.target.checked);
+
+  // Filters: park types + "only not visited" (favorites ignore the visited filter).
+  const filters = {};
+  window.parksShown = (park, inFavorites = park.favorite) =>
+    filters.types.has(park.type) && (inFavorites || !filters.unvisited || !park.visited);
+
+  function applyFilters() {
+    filters.types = new Set([...document.querySelectorAll("[name=parks-type]:checked")].map((i) => i.value));
+    filters.unvisited = document.getElementById("parks-unvisited").checked;
+    document.querySelectorAll(".park").forEach((li) => {
+      const park = { type: li.dataset.type, visited: li.classList.contains("park-visited") };
+      li.hidden = !window.parksShown(park, !!li.closest(".parks-favorites"));
+    });
+    document.querySelectorAll(".parks-district-block").forEach((block) => {
+      block.hidden = !block.querySelector(".park:not([hidden])");
+    });
+    document.dispatchEvent(new Event("parks-filter"));
+  }
+  document.querySelectorAll(".parks-toggle input").forEach((input) => input.addEventListener("change", applyFilters));
+  document.getElementById("parks-reset").addEventListener("click", () => {
+    document.querySelectorAll("[name=parks-type]").forEach((input) => (input.checked = true));
+    document.getElementById("parks-unvisited").checked = false;
+    applyFilters();
   });
+  applyFilters();
 </script>
 <script src="/static/leaflet/leaflet.js"></script>
 <script src="{{ '/static/parks-map.js' | bust }}"></script>
