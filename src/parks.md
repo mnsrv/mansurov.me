@@ -25,7 +25,7 @@ templateEngineOverride: liquid
 {% if favorites.size > 0 %}
   <h2>Favorites</h2>
   <hr />
-  <ul class="parks parks-favorites mb-4">
+  <ul class="parks parks-favorites parks-columns mb-4">
     {% for park in favorites %}
       {% include "park.liquid", park: park, showDistrict: true %}
     {% endfor %}
@@ -34,8 +34,10 @@ templateEngineOverride: liquid
 
 <h2>Districts</h2>
 <hr />
+<div class="parks-columns">
 {% for district in districts %}
   {% assign districtVisited = district.items | where: "visited" %}
+  <section class="parks-district-block">
   <h3 class="parks-district{% if districtVisited.size == 0 %} parks-district-new{% endif %}">
     {{ district.name }} <span class="parks-meta">{{ districtVisited.size }} / {{ district.items.size }}</span>
   </h3>
@@ -44,7 +46,9 @@ templateEngineOverride: liquid
       {% include "park.liquid", park: park %}
     {% endfor %}
   </ul>
+  </section>
 {% endfor %}
+</div>
 
 <p><i>Data © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.</i></p>
 
