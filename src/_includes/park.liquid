@@ -1,0 +1,9 @@
+<li class="park{% if park.visited %} park-visited{% endif %}">
+  <span class="park-mark">{% if park.visited %}✓{% else %}○{% endif %}</span>
+  <a href="#map" data-park="{{ park.id }}">{{ park.name }}</a>
+  {% if park.favorite %}★{% endif %}
+  <span class="parks-meta">
+    {{ park.ha }} ha{% if park.type != "park" %} · {{ park.type }}{% endif %}{% if showDistrict %} · {{ park.district }}{% endif %}{% if park.visited and park.visited != true %} · {{ park.visited }}{% endif %}
+  </span>
+  {% if park.note != "" %}<br /><i class="parks-note">{{ park.note }}</i>{% endif %}
+</li>

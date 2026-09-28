@@ -18,6 +18,7 @@ layout: 'base.liquid'
   <!-- - learning [vocabulary](/vocabulary) -->
   <!-- - tracking [activities](/activities) -->
 - studying [chess](/chess)
+- walking [parks](/parks)
     <!-- - saving [quotes](/quotes) -->
     <!-- - recording [concerts](/concerts) -->
   </section>

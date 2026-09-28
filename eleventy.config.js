@@ -26,6 +26,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/chess-play.js");
   eleventyConfig.addPassthroughCopy("src/static/toledo-original.js");
   eleventyConfig.addPassthroughCopy("src/static/worldcup-live.js");
+  eleventyConfig.addPassthroughCopy("src/static/parks-map.js");
+  eleventyConfig.addPassthroughCopy("src/static/parks-geo.json");
+  eleventyConfig.addPassthroughCopy({ "node_modules/leaflet/dist/leaflet.js": "static/leaflet/leaflet.js" });
+  eleventyConfig.addPassthroughCopy({ "node_modules/leaflet/dist/leaflet.css": "static/leaflet/leaflet.css" });
+  eleventyConfig.addPassthroughCopy({ "node_modules/leaflet/dist/images": "static/leaflet/images" });
 
   eleventyConfig.addShortcode("worldcupLive", () => {
     const js = fs.readFileSync(path.join("src/static/worldcup-live.js"), "utf8");
@@ -46,6 +51,10 @@ export default function (eleventyConfig) {
     } catch (error) {}
     return `${urlPart}?${params}`;
   });
+
+  eleventyConfig.addFilter("sortPl", (items, key) =>
+    [...items].sort((a, b) => String(a[key]).localeCompare(String(b[key]), "pl"))
+  );
 
   eleventyConfig.addFilter("debug", (...args) => {
     console.log(...args);

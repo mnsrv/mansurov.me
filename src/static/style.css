@@ -1148,3 +1148,65 @@ table.wc-table {
   color: var(--text-color-muted);
 }
 
+
+/* ---------- Parks ---------- */
+.parks {
+  list-style: none;
+  padding: 0;
+}
+.park {
+  padding: 0.1rem 0;
+}
+.park-mark {
+  display: inline-block;
+  width: 1.2rem;
+}
+.park-visited .park-mark {
+  color: #2a7d2a;
+}
+.parks-meta,
+.parks-note {
+  color: var(--text-color-muted);
+  font-size: 0.85rem;
+}
+.parks-district {
+  margin: 1rem 0 0.25rem;
+}
+/* Districts without a single visited park: something new to explore. */
+.parks-district-new::after {
+  content: " · new";
+  color: #2a7d2a;
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+.parks-toggle {
+  margin-left: 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.parks-only-unvisited .parks:not(.parks-favorites) .park-visited {
+  display: none;
+}
+.parks-map {
+  height: 60vh;
+  min-height: 20rem;
+  border: 0.1rem solid #000;
+  box-shadow: 2px 2px #bbb;
+}
+.parks-legend span {
+  margin-right: 1rem;
+  font-size: 0.85rem;
+}
+.parks-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.3rem;
+  vertical-align: -0.1rem;
+  background: var(--c);
+  opacity: 0.7;
+}
+.parks-tiles-grey {
+  filter: grayscale(1) contrast(0.9) brightness(1.05);
+}
