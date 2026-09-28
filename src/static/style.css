@@ -1180,8 +1180,9 @@ table.wc-table {
   font-weight: normal;
 }
 .parks-toggle {
-  margin-left: 1rem;
+  margin-right: 1rem;
   font-size: 0.85rem;
+  white-space: nowrap;
   cursor: pointer;
 }
 .parks-reset {
@@ -1193,10 +1194,6 @@ table.wc-table {
   color: var(--action-color);
   text-decoration: underline;
   cursor: pointer;
-}
-.parks-filters .parks-toggle {
-  margin: 0 1rem 0 0;
-  white-space: nowrap;
 }
 .parks-map {
   height: 60vh;
@@ -1225,7 +1222,6 @@ table.wc-table {
   column-count: 2;
   column-gap: 1rem;
 }
-.parks-columns > .park,
 .parks-district-block {
   break-inside: avoid;
 }

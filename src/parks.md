@@ -17,9 +17,14 @@ templateEngineOverride: liquid
   <span style="--c: #d4a017">favorite</span>
 </p>
 
-<p class="mb-3">
-  {{ visited.size }} / {{ parks.size }} visited · {{ favorites.size }} favorites
+<p class="parks-summary mb-3">
+  <b>{{ visited.size }} / {{ parks.size }}</b> visited · <b>{{ favorites.size }}</b> favorites
+</p>
+
+<p class="parks-filters mb-2">
   <label class="parks-toggle"><input type="checkbox" id="parks-unvisited" /> only not visited</label>
+  <label class="parks-toggle"><input type="checkbox" id="parks-favorites" /> only favorites</label>
+  <button type="button" id="parks-reset" class="parks-reset">reset</button>
 </p>
 
 <p class="parks-filters mb-3">
@@ -31,18 +36,7 @@ templateEngineOverride: liquid
       <label class="parks-toggle"><input type="checkbox" name="parks-type" value="{{ type }}" checked /> {{ type }}s <span class="parks-meta">{{ ofTypeVisited.size }} / {{ ofType.size }}</span></label>
     {% endif %}
   {% endfor %}
-  <button type="button" id="parks-reset" class="parks-reset">reset</button>
 </p>
-
-{% if favorites.size > 0 %}
-  <h2>Favorites</h2>
-  <hr />
-  <ul class="parks parks-favorites parks-columns mb-4">
-    {% for park in favorites %}
-      {% include "park.liquid", park: park, showDistrict: true %}
-    {% endfor %}
-  </ul>
-{% endif %}
 
 <h2>Districts</h2>
 <hr />
@@ -67,17 +61,22 @@ templateEngineOverride: liquid
 <script>
   window.PARKS = {{ parks | json }};
 
-  // Filters: park types + "only not visited" (favorites ignore the visited filter).
+  // Filters: park types + "only not visited" + "only favorites".
   const filters = {};
-  window.parksShown = (park, inFavorites = park.favorite) =>
-    filters.types.has(park.type) && (inFavorites || !filters.unvisited || !park.visited);
+  window.parksShown = (park) =>
+    filters.types.has(park.type) && (!filters.unvisited || !park.visited) && (!filters.favorites || park.favorite);
 
   function applyFilters() {
     filters.types = new Set([...document.querySelectorAll("[name=parks-type]:checked")].map((i) => i.value));
     filters.unvisited = document.getElementById("parks-unvisited").checked;
+    filters.favorites = document.getElementById("parks-favorites").checked;
     document.querySelectorAll(".park").forEach((li) => {
-      const park = { type: li.dataset.type, visited: li.classList.contains("park-visited") };
-      li.hidden = !window.parksShown(park, !!li.closest(".parks-favorites"));
+      const park = {
+        type: li.dataset.type,
+        visited: li.classList.contains("park-visited"),
+        favorite: li.classList.contains("park-favorite"),
+      };
+      li.hidden = !window.parksShown(park);
     });
     document.querySelectorAll(".parks-district-block").forEach((block) => {
       block.hidden = !block.querySelector(".park:not([hidden])");
@@ -88,6 +87,7 @@ templateEngineOverride: liquid
   document.getElementById("parks-reset").addEventListener("click", () => {
     document.querySelectorAll("[name=parks-type]").forEach((input) => (input.checked = true));
     document.getElementById("parks-unvisited").checked = false;
+    document.getElementById("parks-favorites").checked = false;
     applyFilters();
   });
   applyFilters();
