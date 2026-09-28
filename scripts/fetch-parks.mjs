@@ -15,6 +15,10 @@ const MIN_AREA_HA = 2;
 const EXCLUDE = new Set([
   "way/883956400", // Cmentarz Mauzoleum Żołnierzy Radzieckich
 ]); // OSM ids to skip
+// Places worth a walk that OSM doesn't tag as park/forest: OSM id → display name.
+const INCLUDE = {
+  "way/72490185": "Fort Bema", // tagged historic=fort
+};
 // Skip national/landscape parks (too big) and small ecological sites (użytki ekologiczne).
 const SKIP_PROTECT_CLASS = new Set(["2", "5", "19"]);
 const ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
@@ -29,6 +33,7 @@ out geom;
   nwr["landuse"="forest"]["name"](area.w);
   nwr["natural"="wood"]["name"](area.w);
   nwr["leisure"="nature_reserve"]["name"](area.w);
+${Object.keys(INCLUDE).map((id) => `  ${id.replace("/", "(id:")});`).join("\n")}
 );
 out geom;`;
 
@@ -163,7 +168,11 @@ function districtOf(center, rings) {
   }
   return Object.entries(votes).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
 }
-const typeOf = (tags) => (tags.leisure === "park" ? "park" : tags.leisure === "nature_reserve" ? "reserve" : "forest");
+const typeOf = (tags) =>
+  tags.leisure === "park" ? "park"
+  : tags.leisure === "nature_reserve" ? "reserve"
+  : tags.historic === "fort" ? "fort"
+  : "forest";
 
 const features = elements
   .filter((el) => el.tags?.admin_level !== "9" && el.type !== "node" && !SKIP_PROTECT_CLASS.has(el.tags.protect_class))
@@ -172,7 +181,7 @@ const features = elements
     const area = outer.reduce((s, r) => s + ringArea(r), 0) - inner.reduce((s, r) => s + ringArea(r), 0);
     return {
       id: `${el.type}/${el.id}`,
-      name: el.tags.name,
+      name: INCLUDE[`${el.type}/${el.id}`] ?? el.tags.name,
       type: typeOf(el.tags),
       area,
       rings: outer,
