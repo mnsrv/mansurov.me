@@ -1,5 +1,14 @@
 const books = [
   {
+    title: 'Odyssey',
+    author: 'Stephen Fry',
+    rating: 3,
+    date: '2026-10-18',
+    image: 'bs-odyssey.jpg',
+    cover: 'bc-odyssey.jpg',
+    height: '7.76',
+  },
+  {
     title: 'Troy: Our Greatest Story Retold',
     author: 'Stephen Fry',
     rating: 5,
