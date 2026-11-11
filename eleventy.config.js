@@ -30,6 +30,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static/_redirects": "/_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/static/favicon.ico": "/favicon.ico" });
   eleventyConfig.addPassthroughCopy({ "src/static/favicon.svg": "/favicon.svg" });
+  eleventyConfig.addPassthroughCopy("src/static/valid-atom.png");
 
   eleventyConfig.addPassthroughCopy("src/static/calendar.js");
   eleventyConfig.addPassthroughCopy("src/static/awsm.css");
