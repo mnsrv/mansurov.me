@@ -11,6 +11,8 @@ date: 2026-11-11
 
 Claude Opus 5.5 ftw.
 
+Reasoning effort: medium.
+
 ## Harness
 
 [Claude Code](https://claude.com/claude-code).
