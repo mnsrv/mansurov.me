@@ -745,10 +745,6 @@ table.wc-table {
   gap: 0.4rem;
   padding: 0.1rem 0;
 }
-.wc-fixtures li.wc-live {
-  background: rgba(238, 51, 51, 0.07);
-  border-radius: 2px;
-}
 .wc-fixtures .wc-date {
   color: var(--text-color-muted);
   width: 6rem;
@@ -777,80 +773,15 @@ table.wc-table {
   text-align: center;
   color: var(--text-color-muted);
 }
-
-.wc-feed-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin: 0 0 1rem;
-  padding: 0.2rem 0.55rem;
-  font-size: 0.75rem;
-  font-style: normal;
-  border: 1px solid var(--text-color-muted);
-  border-radius: 999px;
-}
-.wc-feed-dot {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  flex: none;
-  background: var(--text-color-muted);
-}
-.wc-feed-wait .wc-feed-dot {
-  animation: wc-pulse 1.2s ease-in-out infinite;
-}
-.wc-feed-ok .wc-feed-dot {
-  background: #3a9;
-}
-.wc-feed-live .wc-feed-dot {
-  background: #e33;
-  animation: wc-pulse 1.2s ease-in-out infinite;
-}
-.wc-feed-err .wc-feed-dot {
-  background: #e33;
-}
-.wc-live-when {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: #e33;
-  font-weight: bold;
-  white-space: nowrap;
-}
-.wc-live-dot {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: #e33;
-  flex: none;
-  animation: wc-pulse 1.2s ease-in-out infinite;
-}
-.wc-live .wc-score,
-.wc-live .wc-match-goals {
-  color: inherit;
-  font-weight: bold;
-}
-.wc-match.wc-live {
-  border-color: #e33;
-  box-shadow: 0 0 0 1px #e334;
-}
-@keyframes wc-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
-}
 @media (max-width: 720px) {
   .wc-fixtures.wc-sched li {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.25rem 0.4rem;
   }
-  .wc-fixtures.wc-sched .wc-date.wc-when {
+  .wc-fixtures.wc-sched .wc-date {
     width: auto;
     min-width: 3.5rem;
-  }
-  .wc-feed-status {
-    font-size: 0.7rem;
-    max-width: 100%;
   }
 }
 
@@ -1004,51 +935,6 @@ table.wc-table {
   white-space: nowrap;
 }
 
-/* World Cup — home page "next matches" */
-.wc-home-fixtures {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.9rem;
-}
-.wc-home-fixtures li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  padding: 0.15rem 0;
-}
-.wc-home-fixtures li.wc-live {
-  background: rgba(238, 51, 51, 0.07);
-  border-radius: 2px;
-}
-.wc-home-fixtures .wc-hf-date {
-  color: var(--text-color-muted);
-  width: 6rem;
-  flex: none;
-  white-space: nowrap;
-}
-.wc-tz {
-  color: var(--text-color-muted);
-  font-size: 0.8rem;
-}
-.wc-home-fixtures .wc-hf-home {
-  flex: 1;
-  text-align: right;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.wc-home-fixtures .wc-hf-away {
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.wc-home-fixtures .wc-hf-v {
-  flex: none;
-  color: var(--text-color-muted);
-}
-
 /* World Cup — tabs */
 .wc-tab-input {
   position: absolute;
@@ -1108,9 +994,6 @@ table.wc-table {
 
 /* World Cup — flags pinned beside the score (never truncated) */
 .wc-fixtures .wc-flag {
-  flex: none;
-}
-.wc-home-fixtures .wc-hf-flag {
   flex: none;
 }
 
