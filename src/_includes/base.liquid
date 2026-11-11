@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,6 +10,7 @@
         <link rel="preload" href="{{ item.url }}" as="image" type="{{ item.type }}">
       {% endfor %}
     {% endif %}
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Sasha Mansurov">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/static/style.css' | bust }}" />
@@ -58,7 +59,7 @@
 
     <footer class="container">
       <hr style="border-top-style: solid" />
-      <i>© 2016&ndash;2026 Sasha Mansurov.</i>
+      <i>© 2016&ndash;2026 Sasha Mansurov.</i> <a href="/feed.xml">RSS</a>
     </footer>
   </body>
 </html>

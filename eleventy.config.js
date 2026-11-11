@@ -2,9 +2,26 @@ import fs from "fs";
 import path from "path";
 import { DateTime } from "luxon";
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import metadata from "./src/_data/metadata.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/feed.xml",
+    collection: {
+      name: "posts",
+      limit: 20,
+    },
+    metadata: {
+      language: metadata.language,
+      title: metadata.title,
+      subtitle: metadata.subtitle,
+      base: `${metadata.url}/`,
+      author: metadata.author,
+    },
+  });
 
   eleventyConfig.addPassthroughCopy("src/static/style.css");
   eleventyConfig.addPassthroughCopy("src/static/fonts");
