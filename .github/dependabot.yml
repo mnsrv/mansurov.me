@@ -1,4 +1,4 @@
-# Keep the repo quiet: at most one npm PR a month and one Actions PR a quarter.
+# Keep the repo quiet: at most one npm PR a month.
 # Security fixes (Dependabot security updates, enabled in repo settings) ignore
 # the schedule and arrive as soon as an advisory is published, also as one PR.
 version: 2
@@ -17,14 +17,4 @@ updates:
         patterns: ["*"]
       npm-security:
         applies-to: security-updates
-        patterns: ["*"]
-
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: quarterly
-    cooldown:
-      default-days: 7
-    groups:
-      actions:
         patterns: ["*"]

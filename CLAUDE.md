@@ -7,14 +7,13 @@ Personal site of Sasha Mansurov. Eleventy 3 (ESM), Liquid layouts, Markdown page
 - Solo project: commit and push straight to `main`, no feature branches or PRs.
 - Deploy is automatic: Cloudflare Workers Builds (configured in the Cloudflare dashboard, not in this repo) builds and deploys every push to `main`. Don't run `npm run deploy` unless asked.
 - `npm start` — dev server; `npm run build` — build into `public/`.
-- `.github/workflows/worldcup-results.yml` commits World Cup scores daily, so pull before pushing.
 - `vercel.json` is a leftover from old hosting; redirects that matter live in `src/static/_redirects`.
 - `main` has a ruleset blocking force pushes and deletion: never rewrite pushed history.
 
 ## Dependencies
 
-- Node 24: `.nvmrc` is the single source (Cloudflare Workers Builds and the GitHub workflow both read it); `engines` is `>=24`.
-- Dependabot is deliberately quiet: one grouped npm PR monthly, one Actions PR quarterly, 7-day cooldown; security updates arrive immediately, also grouped. Don't add schedules or ungroup.
+- Node 24: `.nvmrc` is the single source (Cloudflare Workers Builds reads it); `engines` is `>=24`.
+- Dependabot is deliberately quiet: one grouped npm PR monthly, 7-day cooldown; security updates arrive immediately, also grouped. Don't add schedules or ungroup.
 - npm 11 gates install scripts: approved ones are listed in `allowScripts` in `package.json`.
 - `chessground` on npm is deprecated (renamed `@lichess-org/chessground`); the site serves its own bundle `src/static/chessground.js`, so the npm package doesn't ship.
 

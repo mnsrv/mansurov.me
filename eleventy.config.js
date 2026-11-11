@@ -43,17 +43,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static/chess-puzzles.js");
   eleventyConfig.addPassthroughCopy("src/static/chess-play.js");
   eleventyConfig.addPassthroughCopy("src/static/toledo-original.js");
-  eleventyConfig.addPassthroughCopy("src/static/worldcup-live.js");
   eleventyConfig.addPassthroughCopy("src/static/parks-map.js");
   eleventyConfig.addPassthroughCopy("src/static/parks-geo.json");
   eleventyConfig.addPassthroughCopy({ "node_modules/leaflet/dist/leaflet.js": "static/leaflet/leaflet.js" });
   eleventyConfig.addPassthroughCopy({ "node_modules/leaflet/dist/leaflet.css": "static/leaflet/leaflet.css" });
   eleventyConfig.addPassthroughCopy({ "node_modules/leaflet/dist/images": "static/leaflet/images" });
-
-  eleventyConfig.addShortcode("worldcupLive", () => {
-    const js = fs.readFileSync(path.join("src/static/worldcup-live.js"), "utf8");
-    return `<script>${js}</script>`;
-  });
 
   eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");

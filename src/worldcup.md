@@ -40,5 +40,3 @@ templateEngineOverride: liquid
     {% include "worldcup-bracket.liquid", knockout: worldcup.knockout %}
   </div>
 </div>
-
-{% worldcupLive %}
