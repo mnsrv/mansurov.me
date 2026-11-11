@@ -1234,3 +1234,10 @@ table.wc-table {
     column-count: 1;
   }
 }
+.side-by-side {
+  overflow: hidden;
+}
+.side-by-side img {
+  max-width: 50%;
+  float: left;
+}

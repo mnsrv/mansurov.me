@@ -17,6 +17,7 @@ Personal site of Sasha Mansurov. Eleventy 3 (ESM), Liquid layouts, Markdown page
 - Book reviews: `src/books/*.md`, tag `bookReviews`, layout `book.liquid`.
 - Other pages (parks, activities, sleep, worldcup, quotes, vocabulary, wishlist, concerts, chess, calendars) are single pages rendered from `src/_data/`.
 - Year-summary posts (front matter `summary: "2025"`) get extra lists added by `src/_data/eleventyComputed.js` and rendered in `post.liquid`.
+- Per-page CSS/JS: list paths in front matter `styles:` / `scripts:` (loaded in `<head>` by `base.liquid`, scripts as modules). Keep `<link>`/`<script>`/inline `style` out of post bodies so the feed stays clean.
 - Static assets are passthrough-copied one by one in `eleventy.config.js` — add a new entry there when adding a file under `src/static/`.
 
 ## Feed

@@ -15,6 +15,12 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/static/style.css' | bust }}" />
     <link rel="stylesheet" href="{{ '/static/awsm.css' | bust }}" />
+    {%- for href in styles %}
+    <link rel="stylesheet" href="{{ href | bust }}" />
+    {%- endfor %}
+    {%- for src in scripts %}
+    <script src="{{ src | bust }}" type="module"></script>
+    {%- endfor %}
     {% if env.runMode == "build" %}
       <script defer src="https://cloud.umami.is/script.js" data-website-id="f201f308-c021-41a7-b28e-ec41d43554be"></script>
     {% endif %}
